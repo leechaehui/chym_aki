@@ -1,4 +1,11 @@
-#모델 비교 + 성능 평가
+# 학습된 모델의 최종 성능을 평가하는 파일입니다.
+#
+# 이 파일에서 하는 일
+# 1. 저장된 train/valid/test 데이터 불러오기
+# 2. 저장된 threshold 불러오기
+# 3. Logistic Regression, RandomForest, XGBoost 성능 비교
+# 4. 최종 XGBoost 성능 상세 평가
+# 5. ROC curve, PR curve, Confusion Matrix 시각화
 import joblib
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -52,7 +59,7 @@ def main():
     }
 
     results = {}
-
+    # 각 모델의 AUROC/AUPRC 계산
     for name, model in models.items():
         # 저장된 최종 XGBoost는 재학습하지 않음
         if name != "XGBoost":
@@ -69,7 +76,7 @@ def main():
     for k, v in results.items():
         print(k, v)
 
-    # 막대그래프
+    # 모델별 AUROC 비교 그래프
     plt.figure()
     plt.bar(results.keys(), [v["AUROC"] for v in results.values()])
     plt.title("Model Comparison (AUROC)")
@@ -90,6 +97,7 @@ def main():
     print(classification_report(y_test, y_pred, digits=3))
 
     # ROC
+    # 전체 threshold에서 민감도/특이도 trade-off를 보는 그래프입니다.
     fpr, tpr, _ = roc_curve(y_test, y_prob)
     auc = roc_auc_score(y_test, y_prob)
 
@@ -103,6 +111,7 @@ def main():
     plt.show()
 
     # PR curve
+    # AKI처럼 양성 클래스가 적은 문제에서는 AUPRC도 중요합니다.
     precision, recall, _ = precision_recall_curve(y_test, y_prob)
     plt.figure()
     plt.plot(recall, precision)
@@ -112,6 +121,7 @@ def main():
     plt.show()
 
     # Confusion Matrix
+    # 실제 0/1과 예측 0/1이 어떻게 맞고 틀렸는지 보여줍니다.
     cm = confusion_matrix(y_test, y_pred)
     disp = ConfusionMatrixDisplay(cm)
     disp.plot()

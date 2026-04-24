@@ -1,3 +1,13 @@
+# 학습된 XGBoost 모델을 SHAP으로 해석하는 파일입니다.
+#
+# SHAP이란?
+# - 모델이 어떤 feature 때문에 AKI 위험을 높게/낮게 예측했는지 설명하는 방법입니다.
+# - 단순히 성능만 보는 것이 아니라 "왜 그렇게 예측했는지"를 보여줍니다.
+#
+# 이 파일에서 보는 것
+# 1. 전체 feature 중요도
+# 2. feature 값이 위험을 높이는지 낮추는지
+# 3. 개별 환자 1명에 대한 예측 이유
 import shap
 import joblib
 import matplotlib.pyplot as plt
@@ -8,12 +18,12 @@ from aki_config import MODEL_PATH, DATA_SPLIT_PATH
 def main():
     # 1. 저장된 최종 XGBoost 모델 불러오기
     model = joblib.load(MODEL_PATH)
-    # 2. train / valid / test 데이터 불러오기
+    # 학습 때 저장한 동일한 데이터 분할 불러오기
     # SHAP 분석은 보통 최종 평가용인 X_test에 대해 수행
     X_train, X_valid, X_test, y_train, y_valid, y_test = joblib.load(DATA_SPLIT_PATH)
 
     # 3. SHAP explainer 생성
-    # Tree 기반 모델(XGBoost, RandomForest 등)에는 TreeExplainer가 적합
+    # TreeExplainer는 XGBoost 같은 tree 기반 모델에 적합한 SHAP explainer입니다.
     explainer = shap.TreeExplainer(model)
     # 4. X_test에 대한 SHAP 값 계산
     # shap_values는 각 샘플, 각 변수별 기여도를 담고 있음
