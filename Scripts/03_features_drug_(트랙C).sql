@@ -1,20 +1,18 @@
--- =====================================================================
+-- ═════════════════════════════════════════════════════
 -- 03_drug_exposure_features_optimized.sql
--- 버전 2: 트랙 C 단독 — 성능 최적화
---
 -- 핵심 최적화:
 --   1. prescriptions 사전 필터링 (20M → ~500K행)
 --   2. 약물명 정규식을 WHERE로 끌어올려 JOIN 전에 필터
 --   3. 중간 테이블에 인덱스 생성
 --   4. ANALYZE로 통계 갱신
--- =====================================================================
+-- ═════════════════════════════════════════════════════
 
 -- aki_project 스키마 생성
 CREATE SCHEMA IF NOT EXISTS aki_project;
 
--- ─────────────────────────────────────────────────────
+-- ═════════════════════════════════════════════════════
 -- STEP 0-A. 관측 윈도우 기준 테이블 + 인덱스
--- ─────────────────────────────────────────────────────
+-- ═════════════════════════════════════════════════════
 DROP TABLE IF EXISTS aki_project.aki_cohort_window CASCADE;
 CREATE TABLE aki_project.aki_cohort_window AS
 SELECT
@@ -42,7 +40,7 @@ ANALYZE aki_project.aki_cohort_window;
 
 
 
--- ─────────────────────────────────────────────────────
+-- ═════════════════════════════════════════════════════
 -- STEP 0-B. prescriptions 사전 필터링 (핵심 최적화)
 --
 -- 원본: 20,292,611행 (전체)
@@ -52,7 +50,7 @@ ANALYZE aki_project.aki_cohort_window;
 --   - subject_id 먼저 제한 (인덱스 활용)
 --   - 약물명 정규식으로 신독성 약물만
 --   - 시간 범위 제한 (icu_intime ~ effective_cutoff)
--- ─────────────────────────────────────────────────────
+-- ═════════════════════════════════════════════════════
 DROP TABLE IF EXISTS aki_project.nephrotoxic_rx_raw CASCADE;
 CREATE TABLE aki_project.nephrotoxic_rx_raw AS
 SELECT
@@ -106,7 +104,7 @@ CREATE INDEX idx_nrx_subject_time
 ANALYZE aki_project.nephrotoxic_rx_raw;
 
 -- ═════════════════════════════════════════════════════
--- STEP 0-C. inputevents 사전 필터 [신규 추가]
+-- STEP 0-C. inputevents 사전 필터
 --   STEP 4(수액·조영제)에서 사용
 -- ═════════════════════════════════════════════════════
 DROP TABLE IF EXISTS aki_project.inputevents_filtered CASCADE;
@@ -126,10 +124,10 @@ ANALYZE aki_project.inputevents_filtered;
 
 
 
--- ─────────────────────────────────────────────────────
+-- ═════════════════════════════════════════════════════
 -- STEP 1. ICU 내 신독성 약물 처방
 -- 좁아진 nephrotoxic_rx_raw 사용 → 훨씬 빠른 JOIN
--- ─────────────────────────────────────────────────────
+-- ═════════════════════════════════════════════════════
 DROP TABLE IF EXISTS aki_project.icu_nephrotoxic_rx CASCADE;
 CREATE TABLE aki_project.icu_nephrotoxic_rx AS
  
@@ -268,7 +266,7 @@ CREATE INDEX idx_icu_rx_stay ON aki_project.icu_nephrotoxic_rx (stay_id);
 ANALYZE aki_project.icu_nephrotoxic_rx;
 
 -- ═════════════════════════════════════════════════════
--- STEP 2. 약물 조합 위험도 → nephrotoxic_combo_risk  [복구]
+-- STEP 2. 약물 조합 위험도 → nephrotoxic_combo_risk
 -- ═════════════════════════════════════════════════════
 DROP TABLE IF EXISTS aki_project.nephrotoxic_combo_risk CASCADE;
 CREATE TABLE aki_project.nephrotoxic_combo_risk AS
@@ -437,9 +435,9 @@ GROUP BY cw.stay_id, cw.effective_cutoff, w.weight_kg, w.weight_source;
 CREATE INDEX idx_iv_stay ON aki_project.iv_fluid_contrast_exposure (stay_id);
 ANALYZE aki_project.iv_fluid_contrast_exposure;
 
--- =====================================================================
+-- ═════════════════════════════════════════════════════
 -- STEP 5. 최종 통합 → aki_drug_exposure_features
--- =====================================================================
+-- ═════════════════════════════════════════════════════
 -- 테이블명:
 --   aki_project.aki_drug_exposure_features
 --
@@ -460,7 +458,7 @@ ANALYZE aki_project.iv_fluid_contrast_exposure;
 -- 최종 산출물:
 --   각 ICU stay 단위로 AKI label과 모든 exposure feature를 결합한
 --   모델 입력용 wide-format feature table
--- =====================================================================
+-- ═════════════════════════════════════════════════════
 
 DROP TABLE IF EXISTS aki_project.aki_drug_exposure_features CASCADE;
 CREATE TABLE aki_project.aki_drug_exposure_features AS
@@ -617,16 +615,16 @@ SELECT
              THEN 1 ELSE 0 END)               AS lasix_flag_but_zero_dose
 FROM aki_project.aki_drug_exposure_features;
 
--- =====================================================================
+-- ═════════════════════════════════════════════════════
 -- 성능 비교: 원본 prescriptions vs 최적화 nephrotoxic_rx_raw
--- =====================================================================
+-- ═════════════════════════════════════════════════════
 -- 캐시 영향 최소화
 DISCARD ALL;
 
 
 -- ═════════════════════════════════════════════════════
 -- [비교 1-A] 원본: prescriptions 직접 JOIN (데이터 흐름 검증)
--- Image 1과 동일한 쿼리 — 17,354 ms 예상
+
 -- ═════════════════════════════════════════════════════
 EXPLAIN (ANALYZE, BUFFERS)
 SELECT
