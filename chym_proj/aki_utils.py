@@ -6,7 +6,6 @@
 # 3. 결측값을 -1로 대체하여 모델 학습 가능하도록 처리
 # 4. 임상적으로 비정상적인 이상값을 안전한 범위로 클리핑
 # 5. prediction_cutoff 기준으로 시간순 train/valid/test 분할
-# 6. AKI 양성/음성 클래스 불균형 보정값 계산
 
 import pandas as pd
 from aki_config import TARGET
@@ -48,56 +47,95 @@ def _get_model_feature_columns(df: pd.DataFrame):
 
     return feature_cols
 
-
-def preprocess_data(df: pd.DataFrame) -> pd.DataFrame:
+def encode_target_label(df: pd.DataFrame) -> pd.DataFrame:
     """
-    모델 학습 전에 데이터 전처리를 수행하는 함수입니다.
+    aki_label 검증 함수입니다.
 
-    수행 내용
-    1. 모델에 사용할 숫자형 feature 자동 선택
-    2. 결측 여부 지시변수 생성
-    3. 주요 임상 변수 이상치 클리핑
-    4. 숫자형 결측값을 -1로 대체
+    현재 라벨 구조:
+    0 = AKI 없음
+    1 = stage1
+    2 = stage2
+    3 = stage3
 
-    - 결측값을 그냥 버리지 않는 이유:
-      의료 데이터에서는 “검사를 하지 않았다”는 사실 자체가 환자 상태를 반영할 수 있습니다.
-      예를 들어 lactate는 위험한 환자에게 더 자주 측정될 수 있습니다.
-
-    - -1로 채우는 이유:
-      대부분의 생리학적 수치는 음수가 될 수 없기 때문에,
-      -1은 “측정값 없음”을 나타내는 별도 신호처럼 사용할 수 있습니다.
+    이미 숫자로 구성되어 있으므로 문자열 변환은 하지 않고,
+    값이 0,1,2,3 범위 안에 있는지만 확인합니다.
     """
     df = df.copy()
 
+    if TARGET not in df.columns:
+        raise ValueError(f"{TARGET} 컬럼이 없습니다.")
+
+    if not pd.api.types.is_numeric_dtype(df[TARGET]):
+        raise ValueError("aki_label은 숫자형이어야 합니다. 값은 0,1,2,3이어야 합니다.")
+
+    valid_values = {0, 1, 2, 3}
+    label_values = set(df[TARGET].dropna().unique())
+
+    if not label_values.issubset(valid_values):
+        raise ValueError("aki_label 값이 0,1,2,3 범위를 벗어났습니다.")
+
+    if df[TARGET].isna().sum() > 0:
+        raise ValueError("aki_label에 결측값이 있습니다.")
+
+    df[TARGET] = df[TARGET].astype(int)
+
+    return df
+
+
+def preprocess_data(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    모델 학습 전 전처리 함수입니다.
+
+    수행 내용:
+    1. aki_label 검증
+    2. 모델 feature 컬럼 자동 선택
+    3. 결측 여부 지시변수 생성
+    4. 이상치 클리핑
+    5. 숫자형 결측값 -1 대체
+    """
+    df = df.copy()
+
+    # 정답 라벨 검증
+    df = encode_target_label(df)
+
+    # 모델 feature 컬럼 선택
     feature_cols = _get_model_feature_columns(df)
 
-    # 1. 결측 여부 지시변수 생성
-    # 예: lactate_max가 비어 있으면 lactate_max_missing = 1
+    # 결측 여부 지시변수 생성
     for col in feature_cols:
         if df[col].isna().sum() > 0:
             df[f"{col}_missing"] = df[col].isna().astype(int)
 
-    # 2. 이상치 클리핑
-    # SQL에서 1차적으로 이상치를 제거했더라도,
-    # Python 단계에서 한 번 더 안전장치를 둡니다.
-    if "lactate_max" in df.columns:
-        df["lactate_max"] = df["lactate_max"].clip(0, 30)
+    # 이상치 클리핑
+    # 필요한 변수는 같은 형식으로 계속 추가 가능
+    CLIP_RANGES = {
+        "lactate_max": (0, 30),
+        "hemoglobin_min": (0, 25),
+        "map_min": (20, 200),
+        "map_mean": (20, 200),
+        "creatinine_max": (0, 15),
+        "creatinine_mean": (0, 15),
+        "bun_max": (0, 200),
+        "bun_mean": (0, 200),
+        "potassium_max": (2, 7),
+        "potassium_mean": (2, 7),
+        "sodium_min": (100, 180),
+        "sodium_mean": (100, 180),
+        "glucose_max": (0, 1000),
+        "glucose_mean": (0, 1000),
+        "urine_output_sum": (0, 10000),
+    }
 
-    if "hemoglobin_min" in df.columns:
-        df["hemoglobin_min"] = df["hemoglobin_min"].clip(0, 25)
+    for col, (low, high) in CLIP_RANGES.items():
+        if col in df.columns:
+            df[col] = df[col].clip(low, high)
 
-    if "map_min" in df.columns:
-        df["map_min"] = df["map_min"].clip(20, 200)
-
-    if "map_mean" in df.columns:
-        df["map_mean"] = df["map_mean"].clip(20, 200)
-
-    # 3. 숫자형 컬럼 전체 결측값 대체
-    # 새로 만든 *_missing 컬럼까지 포함해서 숫자형 컬럼에 NaN이 남지 않도록 합니다.
+    # 숫자형 결측값 대체
     numeric_cols = df.select_dtypes(include=["number"]).columns
     df[numeric_cols] = df[numeric_cols].fillna(-1)
 
     return df
+
 
 
 def time_based_split(df: pd.DataFrame):
@@ -146,30 +184,3 @@ def time_based_split(df: pd.DataFrame):
     return X_train, X_valid, X_test, y_train, y_valid, y_test
 
 
-def compute_scale_pos_weight(y):
-    """
-    XGBoost에서 클래스 불균형을 보정하기 위한 scale_pos_weight 값을 계산합니다.
-
-    AKI 예측에서는 보통 AKI 발생 환자(1)가 비발생 환자(0)보다 적습니다.
-    이 상태에서 그냥 학습하면 모델이 “대부분 0으로 예측”하는 방향으로 치우칠 수 있습니다.
-
-    scale_pos_weight = 음성 클래스 수 / 양성 클래스 수
-
-    예:
-    - AKI 없음(0): 900명
-    - AKI 있음(1): 100명
-    - scale_pos_weight = 900 / 100 = 9
-
-    즉, AKI 환자 1명을 더 중요하게 보도록 가중치를 주는 방식입니다.
-    """
-    y = pd.Series(y)
-
-    pos = (y == 1).sum()
-    neg = (y == 0).sum()
-
-    if pos == 0:
-        raise ValueError("양성 클래스가 0개라 scale_pos_weight를 계산할 수 없습니다.")
-    if neg == 0:
-        raise ValueError("음성 클래스가 0개라 scale_pos_weight를 계산할 수 없습니다.")
-
-    return neg / pos

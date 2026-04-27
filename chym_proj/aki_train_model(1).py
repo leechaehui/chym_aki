@@ -4,21 +4,20 @@
 # 1. data.csv 불러오기
 # 2. 결측/이상치 전처리
 # 3. 시간순 train/valid/test 분할
-# 4. 클래스 불균형 보정값 계산
-# 5. XGBoost 하이퍼파라미터 탐색(GridSearchCV)
-# 6. 최적 모델 재학습
-# 7. 모델과 데이터 분할 결과 저장
+# 4. Optuna로 XGBoost 하이퍼파라미터 탐색
+# 5. 최적 모델 재학습
+# 6. 모델과 데이터 분할 결과 저장
 import joblib
 import pandas as pd
-from aki_utils import preprocess_data, time_based_split
+import optuna
 from xgboost import XGBClassifier
-from sklearn.model_selection import GridSearchCV
+from sklearn.metrics import roc_auc_score
 # 직접 만든 유틸 함수 불러오기
 # - load_data: CSV 읽어서 X, y 분리
 # - split_data: train / valid / test 분리
 # - add_missing_indicators: 결측 여부 파생변수 생성
 # - compute_scale_pos_weight: 클래스 불균형 대응용 가중치 계산
-from aki_utils import preprocess_data, time_based_split, compute_scale_pos_weight
+from aki_utils import preprocess_data, time_based_split
 # 결측 파생변수 실행하려면 add_missing_indicators 추가
 # 설정값 불러오기
 # - MODEL_PATH: 학습된 모델 저장 경로
@@ -27,7 +26,7 @@ from aki_utils import preprocess_data, time_based_split, compute_scale_pos_weigh
 # - N_JOBS: 병렬 처리 개수
 # - CV_FOLDS: 교차검증 fold 수
 # - SCORING: GridSearchCV 평가 기준
-from aki_config import (MODEL_PATH,DATA_SPLIT_PATH,RANDOM_STATE,N_JOBS,CV_FOLDS,SCORING)
+from aki_config import MODEL_PATH,DATA_SPLIT_PATH,RANDOM_STATE, N_JOBS,N_TRIALS, NUM_CLASS
 
 def main():
     # 1. 데이터 로드
@@ -46,69 +45,73 @@ def main():
     # 이렇게 해야 미래 데이터가 학습에 섞이는 data leakage를 줄일 수 있습니다.
     X_train, X_valid, X_test, y_train, y_valid, y_test = time_based_split(df)
 
-    # 4. 클래스 불균형 보정
-    # AKI 발생 환자가 적을 가능성이 있으므로 양성 클래스에 더 큰 가중치를 줍니다.
-    scale_pos_weight = compute_scale_pos_weight(y_train)
+    # 4. Optuna objective 함수 정의
+    # trial마다 다른 하이퍼파라미터 조합으로 XGBoost를 학습하고
+    # validation AUROC가 가장 높은 조합을 찾습니다.
+    def objective(trial):
+        params = {
+            "n_estimators": trial.suggest_int("n_estimators", 100, 500),
+            "max_depth": trial.suggest_int("max_depth", 3, 8),
+            "learning_rate": trial.suggest_float("learning_rate", 0.01, 0.2, log=True),
+            "subsample": trial.suggest_float("subsample", 0.6, 1.0),
+            "colsample_bytree": trial.suggest_float("colsample_bytree", 0.6, 1.0),
+            "min_child_weight": trial.suggest_int("min_child_weight", 1, 10),
+            "gamma": trial.suggest_float("gamma", 0.0, 5.0),
+            "reg_alpha": trial.suggest_float("reg_alpha", 0.0, 5.0),
+            "reg_lambda": trial.suggest_float("reg_lambda", 0.1, 10.0),
+        }
 
-    # 5. 기본 XGBoost 모델 설정
-    # objective="binary:logistic": 0/1 이진분류 문제
-    # eval_metric="logloss": 학습 중 확률 예측 오차를 평가
-    # scale_pos_weight: AKI 양성 클래스 불균형 보정
-    base_model = XGBClassifier(
-        objective="binary:logistic",
-        eval_metric="logloss",
-        random_state=RANDOM_STATE,
-        n_jobs=N_JOBS,
-        scale_pos_weight=scale_pos_weight
-    )
+        model = XGBClassifier(
+            objective="multi:softprob",
+            num_class=NUM_CLASS,
+            eval_metric="mlogloss",
+            random_state=RANDOM_STATE,
+            n_jobs=N_JOBS,
+            early_stopping_rounds=20,
+            **params
+        )
 
-    # 6. 하이퍼파라미터 탐색
-    # GridSearchCV가 아래 조합을 모두 실험하면서 가장 좋은 조합을 찾습니다.
-    # n_estimators: 트리 개수
-    # max_depth: 트리 깊이. 너무 깊으면 과적합 위험이 있습니다.
-    # learning_rate: 한 번에 얼마나 크게 학습할지 정하는 값입니다.
-    # subsample: 행 샘플링 비율. 과적합 방지에 도움됩니다.
-    # colsample_bytree: feature 샘플링 비율. 과적합 방지에 도움됩니다.
-    param_grid = {
-        "n_estimators": [100, 200],
-        "max_depth": [3, 4, 5],
-        "learning_rate": [0.03, 0.05, 0.1],
-        "subsample": [0.8, 1.0],
-        "colsample_bytree": [0.8, 1.0]
-    }
+        model.fit(
+            X_train,
+            y_train,
+            eval_set=[(X_valid, y_valid)],
+            verbose=False
+        )
 
-    # 7. Grid Search + 교차검증 설정
-    # cv=5이면 train set을 5조각으로 나눠가며 검증합니다.
-    # scoring="roc_auc"는 AKI/Non-AKI를 얼마나 잘 구분하는지 기준으로 모델을 고릅니다.
-    grid = GridSearchCV(
-        estimator=base_model,
-        param_grid=param_grid,
-        scoring=SCORING,
-        cv=CV_FOLDS,
-        n_jobs=N_JOBS,
-        verbose=1
-    )
-    grid.fit(X_train, y_train)
+        y_prob_valid = model.predict_proba(X_valid)
 
-    print("Best Params:", grid.best_params_)
-    print("Best CV Score:", grid.best_score_)
+        auc = roc_auc_score(
+            y_valid,
+            y_prob_valid,
+            multi_class="ovr",
+            average="macro"
+        )
 
-    # 8. 최적 파라미터로 재학습 + early stopping
-    # early_stopping_rounds=20:
-    # validation 성능이 20번 연속 좋아지지 않으면 학습을 멈춰 과적합을 줄입니다.
-    best_params = grid.best_params_
+        return auc
+
+    # 5. Optuna 탐색 실행
+    study = optuna.create_study(direction="maximize")
+    study.optimize(objective, n_trials=N_TRIALS)
+
+    print("Best Params:")
+    print(study.best_params)
+
+    print("Best Validation Macro AUROC:")
+    print(study.best_value)
+
+    # 6. 최적 파라미터로 최종 모델 학습
+    best_params = study.best_params
+
     final_model = XGBClassifier(
-        objective="binary:logistic",
-        eval_metric="logloss",
+        objective="multi:softprob",
+        num_class=NUM_CLASS,
+        eval_metric="mlogloss",
         random_state=RANDOM_STATE,
         n_jobs=N_JOBS,
-        scale_pos_weight=scale_pos_weight,
         early_stopping_rounds=20,
         **best_params
     )
 
-    # 9. 최종 모델 학습
-    # train으로 학습하고, valid를 보면서 성능을 확인
     final_model.fit(
         X_train,
         y_train,
@@ -116,15 +119,14 @@ def main():
         verbose=False
     )
 
-    # 10. 저장
-    # 나중에 evaluation, SHAP, threshold tuning 코드에서 재사용 가능
+    # 7. 모델과 데이터 분할 결과 저장
     joblib.dump(final_model, MODEL_PATH)
     joblib.dump(
         (X_train, X_valid, X_test, y_train, y_valid, y_test),
         DATA_SPLIT_PATH
     )
 
-    print("✅ 모델 학습 및 저장 완료")
+    print("✅ 4-class AKI stage XGBoost 모델 학습 및 저장 완료")
 
 
 if __name__ == "__main__":

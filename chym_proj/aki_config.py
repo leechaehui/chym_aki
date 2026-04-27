@@ -11,7 +11,8 @@
 # 이 FEATURES는 주로 "명시적으로 관리하고 싶은 변수 목록" 또는 load_data()용으로 남겨둔 설정입니다.
 FEATURES = ['creatinine', 'bun', 'urine_output', 'mean_bp']
 # 타겟 변수 (예측할 값)
-# → AKI 발생 여부 (0 or 1)
+# → AKI 단계 라벨
+# 0 = AKI 없음, 1 = stage1, 2 = stage2, 3 = stage3
 TARGET = 'aki_label'
 
 # 데이터 분할 비율
@@ -30,16 +31,20 @@ RANDOM_STATE = 42
 
 # 모델 저장 경로
 MODEL_PATH = "aki_xgb_model.pkl"
-# threshold 저장 경로
-THRESHOLD_PATH = "aki_best_threshold.pkl"
 # train/valid/test로 나눈 데이터 저장 경로
 # evaluation, threshold tuning, SHAP 파일에서 동일한 데이터 분할을 불러오기 위해 저장합니다.
 DATA_SPLIT_PATH = "aki_data_split.pkl"
 
 # 병렬 처리 (CPU 최대 사용)
 N_JOBS = -1
-# 교차검증 fold 수
-# 5겹 교차검증은 학습 데이터를 5등분해서 여러 번 검증하는 방식입니다.
-CV_FOLDS = 5
-# GridSearch 평가 기준
-SCORING = "roc_auc"
+# Optuna 탐색 횟수
+N_TRIALS = 50
+# 클래스 수
+# 0 = AKI 없음
+# 1 = stage1
+# 2 = stage2
+# 3 = stage3
+NUM_CLASS = 4
+
+# 클래스 이름
+CLASS_NAMES = ["no_aki", "stage1", "stage2", "stage3"]
