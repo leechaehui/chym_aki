@@ -42,7 +42,7 @@ SELECT
     l.valuenum AS creatinine,
     EXTRACT(EPOCH FROM (l.charttime - c.icu_intime))
         / 3600.0 AS hours_from_icu_admit
-FROM cohort c     -- 코호트 정의 반영한 구간!!
+FROM cohort_death_excluded c     -- 코호트 정의 반영한 구간!!
 JOIN mimiciv_hosp.labevents l     -- 코호트 안에 있는 subject_id와 일치하는 기록만 가져옴!
     ON  c.subject_id = l.subject_id
     AND l.charttime >= c.icu_intime     -- ICU 입실 이후만
@@ -53,7 +53,7 @@ WHERE
     AND l.valuenum BETWEEN 0.1 AND 20.0
 ORDER BY c.stay_id, l.charttime;
 
-SELECT COUNT(*) FROM cr_timeseries;
+SELECT COUNT(*) FROM cr_timeseries;	-- 247,968
 
 
 
@@ -84,7 +84,7 @@ WITH pre_icu AS (
         l.valuenum      AS baseline_cr,
         l.charttime     AS baseline_time,
         1               AS priority
-    FROM cohort c
+    FROM cohort_death_excluded c
     JOIN mimiciv_hosp.labevents l
         ON  c.subject_id = l.subject_id
         AND l.charttime  < c.icu_intime
@@ -326,7 +326,7 @@ SELECT
     SUM(oe.value)                           AS urine_ml
 
 FROM mimiciv_icu.outputevents oe
-JOIN cohort c
+JOIN cohort_death_excluded c
     ON  oe.stay_id    = c.stay_id
     AND oe.charttime >= c.icu_intime
     AND oe.charttime <= c.icu_outtime
@@ -352,7 +352,7 @@ SELECT
     COUNT(*) AS total_rows,
     COUNT(DISTINCT stay_id) AS n_patients,
     ROUND(AVG(urine_ml)::NUMERIC, 1) AS avg_urine_per_hour
-FROM urine_hourly;
+FROM urine_hourly; -- 2,124,076/40,914/153.5
 
 -- step4 결과 해석
 -- total_rows   2,137,737행
@@ -400,7 +400,7 @@ SELECT DISTINCT ON (c.stay_id)
     ce.valuenum                             AS weight_kg,
     ce.charttime                            AS weight_time,
     d.label                                 AS weight_source
-FROM cohort c
+FROM cohort_death_excluded c
 JOIN mimiciv_icu.chartevents ce
     ON  ce.stay_id    = c.stay_id
     AND ce.charttime >= c.icu_intime
@@ -436,7 +436,7 @@ SELECT
         WHEN p.gender = 'M' THEN 'imputed_male_70kg'
         ELSE 'imputed_female_60kg'
     END AS weight_source
-FROM cohort c
+FROM cohort_death_excluded c
 JOIN mimiciv_hosp.patients p ON c.subject_id = p.subject_id
 LEFT JOIN patient_weight w ON c.stay_id = w.stay_id;
 
@@ -665,9 +665,9 @@ ORDER BY uo_stage;
 -- 피처 추출의 기준 시점 
 -- 이 시각 이전 데이터만 피처로 사용가능하게 함
 
-DROP TABLE IF EXISTS aki_stage_final;
+DROP TABLE IF EXISTS aki_stage_final_death_excluded ;
 
-CREATE TABLE aki_stage_final AS
+CREATE TABLE aki_stage_final_death_excluded AS
 
 WITH all_aki AS (
     -- 크레아티닌 기준
@@ -752,7 +752,7 @@ SELECT
         ELSE NULL
     END                                     AS prediction_cutoff
 
-FROM cohort         c
+FROM cohort_death_excluded        c
 LEFT JOIN per_patient p ON c.stay_id = p.stay_id
 ORDER BY c.stay_id;
 
@@ -766,7 +766,7 @@ SELECT
     ROUND(COUNT(*) * 100.0
         / SUM(COUNT(*)) OVER(), 1)          AS pct,
     ROUND(AVG(hours_to_aki)::NUMERIC, 1)    AS avg_hours_to_aki
-FROM aki_stage_final
+FROM aki_stage_final_death_excluded
 GROUP BY aki_label, aki_stage
 ORDER BY aki_label DESC, aki_stage;
 
@@ -805,7 +805,7 @@ SELECT
     both_criteria,
     COUNT(*) AS n,
     ROUND(AVG(aki_stage)::NUMERIC, 2) AS avg_stage
-FROM aki_stage_final
+FROM aki_stage_final_death_excluded
 WHERE aki_label = 1
 GROUP BY first_source, both_criteria
 ORDER BY first_source, both_criteria;
@@ -824,7 +824,6 @@ ORDER BY first_source, both_criteria;
 -- 4,114명을 놓침
 
 -- KDIGO가 두 기준을 모두 요구하는 이유가 여기 있음
-
 
 
 
