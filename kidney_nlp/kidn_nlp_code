@@ -1,0 +1,110 @@
+import pandas as pd
+import re
+
+# ============================================================
+# 1. 데이터 로드
+# ============================================================
+CSV_PATH = '../kidney_nlp/radiology_nlp_text.csv'  # 본인 경로로 수정
+df = pd.read_csv(CSV_PATH)
+print(f"로드 완료: {len(df):,}개 노트 | {df['stay_id'].nunique():,}명 환자")
+
+
+# ============================================================
+# 2. nlp_text 생성 (IMPRESSION 우선, FINDINGS 보조)
+# ============================================================
+def merge_text(row):
+    imp = str(row['impression']).strip() if pd.notna(row['impression']) else ''
+    fin = str(row['findings']).strip() if pd.notna(row['findings']) else ''
+    return imp if imp else (fin if fin else None)
+
+df['nlp_text'] = df.apply(merge_text, axis=1)
+print(f"nlp_text NULL: {df['nlp_text'].isna().sum():,}개")
+print(f"nlp_text 있음: {df['nlp_text'].notna().sum():,}개")
+
+
+# ============================================================
+# 3. 텍스트 전처리
+# ============================================================
+def clean_text(text):
+    if not isinstance(text, str):
+        return ''
+    text = re.sub(r'_{2,}', ' ', text)              # MIMIC-IV de-id 태그 제거
+    text = re.sub(r'[^\w\s\.\,\;\:\-]', ' ', text)  # 특수문자 정리
+    text = re.sub(r'\s+', ' ', text)                 # 연속 공백 정리
+    return text.lower().strip()                      # 소문자화
+
+df['nlp_text_clean'] = df['nlp_text'].apply(clean_text)
+
+# 전처리 전후 비교
+idx = df['nlp_text'].notna().idxmax()
+print("전처리 전:", repr(df.loc[idx, 'nlp_text'][:100]))
+print("전처리 후:", repr(df.loc[idx, 'nlp_text_clean'][:100]))
+
+
+# ============================================================
+# 4. 키워드 플래그 추출 (5개 이진 피처)
+# ============================================================
+AKI_KEYWORDS = {
+    'kw_hydronephrosis': r'\b(hydronephrosis|hydroureter|pelviectasis)\b',
+    'kw_aki_mention':    r'\b(acute kidney injury|aki|acute renal failure|acute tubular necrosis|atn)\b',
+    'kw_renal_abnormal': r'\b(renal enlargement|cortical thinning|echogenicity|nephrolithiasis)\b',
+    'kw_edema':          r'\b(edema|anasarca|fluid overload|volume overload|pitting)\b',
+    'kw_fluid_overload': r'\b(pulmonary edema|pleural effusion|ascites|vascular congestion|interstitial edema)\b',
+}
+
+for key, pat in AKI_KEYWORDS.items():
+    df[key] = df['nlp_text_clean'].apply(
+        lambda t: int(bool(re.search(pat, t, re.IGNORECASE)))
+    )
+
+print("키워드 플래그 분포 (노트 단위):")
+for k in AKI_KEYWORDS:
+    n = df[k].sum()
+    print(f"  {k}: {n:,} ({n/len(df)*100:.1f}%)")
+
+# ============================================================
+# 5. stay_id 단위 집계 (OR 집계 — 하나라도 언급되면 1)
+# ============================================================
+agg = {k: 'max' for k in AKI_KEYWORDS}
+agg['nlp_text_clean'] = lambda x: ' '.join(x[x != ''])
+
+patient_df = df.groupby('stay_id').agg(agg).reset_index()
+patient_df.rename(columns={'nlp_text_clean': 'nlp_text_combined'}, inplace=True)
+
+# out_cols 정의 ← 여기서 같이 정의해야 6단계에서 쓸 수 있음
+out_cols = ['stay_id', 'nlp_text_combined'] + list(AKI_KEYWORDS.keys())
+
+print(f"환자 단위: {len(patient_df):,}명")
+print("\n키워드 플래그 분포 (환자 단위):")
+for k in AKI_KEYWORDS:
+    n = patient_df[k].sum()
+    print(f"  {k}: {n:,} ({n/len(patient_df)*100:.1f}%)")
+
+
+# ============================================================
+# 6. 코호트 42,210명 기준 맞추기 (제로 벡터)
+# ============================================================
+# cohort 전체 stay_id CSV 필요 — DBeaver에서 먼저 저장하세요
+# SELECT stay_id FROM cohort;  → cohort_stay_ids.csv 로 저장
+
+cohort_df = pd.read_csv('cohort_stay_ids.csv')
+print(f"전체 코호트: {len(cohort_df):,}명")
+
+# LEFT JOIN → 노트 없는 환자는 키워드 전부 0
+final_df = cohort_df.merge(patient_df[out_cols], on='stay_id', how='left')
+
+# 키워드 컬럼 NaN → 0
+for k in AKI_KEYWORDS:
+    final_df[k] = final_df[k].fillna(0).astype(int)
+
+# nlp_text_combined NaN → 빈 문자열
+final_df['nlp_text_combined'] = final_df['nlp_text_combined'].fillna('')
+
+print(f"최종 shape: {final_df.shape}")
+print(f"노트 없는 환자 (제로 벡터): {(final_df['kw_edema'] == 0).sum() - (patient_df['kw_edema'] == 0).sum():,}명")
+
+# 저장
+final_df.to_csv('nlp_keyword_features.csv', index=False)
+print("저장 완료: nlp_keyword_features.csv")
+
+
