@@ -1,0 +1,689 @@
+-- 이거 24시간 ~ 48시간 사망환자 제거 안했어!!
+-- 그리고 내가 잘못했을수도 있어서 나중에 뭔가 이상하다 싶으면 체크 한번씩 해주세요 (왠만하면 그거 맞게 해놓긴했어)
+
+
+-- =====================================================================
+-- 03_drug_exposure_features_v4_final.sql
+-- 버전 4: ED 매칭 로직 근본 수정
+--
+-- [v4 핵심 수정]
+--   FIX-CORE: ed_stay CTE를 subject_id → stay_id 기준으로 변경
+--             ICU stay별로 입실 직전 24시간 이내 ED 방문만 매칭
+--             JOIN도 subject_id → stay_id 로 변경
+--             → 중복 행 107,299 → 42,210으로 정상화
+--
+-- [이전 수정 사항 유지]
+--   FIX-1  : aki_stage_final 의존성 주석 명시
+--   FIX-2  : patient_weight_filled 스키마 명시
+--   FIX-4  : vancomycin_exposure_hours 음수 방지
+--   FIX-5  : ed_los_hours 음수 방지
+--   FIX-6  : iv_fluid_per_kg 임상 체중 범위 필터
+--   FIX-8/9: ibuprofen_rx, carbapenem_rx, hctz_rx 누락 추가
+--
+-- 실행 순서 의존성:
+--   1. 01_cohort_definition.sql     → aki_stage_final 생성
+--   2. 02_patient_weight.sql        → aki_project.patient_weight_filled 생성
+--   3. 이 파일 (현재)
+-- =====================================================================
+
+CREATE SCHEMA IF NOT EXISTS aki_project;
+
+-- ─────────────────────────────────────────────────────
+-- STEP 0-A. 관측 윈도우 기준 테이블
+-- ─────────────────────────────────────────────────────
+DROP TABLE IF EXISTS aki_project.aki_cohort_window CASCADE;
+CREATE TABLE aki_project.aki_cohort_window AS
+SELECT
+    a.stay_id,
+    a.subject_id,
+    a.hadm_id,
+    a.icu_intime,
+    a.icu_outtime,
+    a.aki_label,
+    a.aki_stage,
+    a.first_source,
+    a.both_criteria,
+    a.aki_onset_time,
+    a.prediction_cutoff,
+    a.hours_to_aki,
+    COALESCE(a.prediction_cutoff,
+             a.icu_intime + INTERVAL '40 시간 전') AS effective_cutoff,
+    CASE WHEN a.prediction_cutoff IS NULL
+         THEN 1 ELSE 0 END                       AS is_pseudo_cutoff
+FROM aki_stage_final a;  -- requires: 01_cohort_definition.sql
+
+CREATE INDEX idx_cohort_subject ON aki_project.aki_cohort_window (subject_id);
+CREATE INDEX idx_cohort_stay    ON aki_project.aki_cohort_window (stay_id);
+ANALYZE aki_project.aki_cohort_window;
+
+
+-- ─────────────────────────────────────────────────────
+-- STEP 0-B. prescriptions 사전 필터링
+-- ─────────────────────────────────────────────────────
+DROP TABLE IF EXISTS aki_project.nephrotoxic_rx_raw CASCADE;
+CREATE TABLE aki_project.nephrotoxic_rx_raw AS
+SELECT
+    p.subject_id,
+    p.drug,
+    p.starttime,
+    p.stoptime,
+    p.dose_val_rx,
+    p.route
+FROM mimiciv_hosp.prescriptions p
+WHERE p.subject_id IN (SELECT subject_id FROM aki_project.aki_cohort_window)
+  AND (
+    LOWER(p.drug) LIKE '%vancomycin%'          OR
+    LOWER(p.drug) LIKE '%piperacillin%'        OR
+    LOWER(p.drug) LIKE '%zosyn%'               OR
+    LOWER(p.drug) LIKE '%pip/tazo%'            OR
+    LOWER(p.drug) LIKE '%pip-tazo%'            OR
+    LOWER(p.drug) LIKE '%gentamicin%'          OR
+    LOWER(p.drug) LIKE '%tobramycin%'          OR
+    LOWER(p.drug) LIKE '%amikacin%'            OR
+    LOWER(p.drug) LIKE '%amphotericin%'        OR
+    LOWER(p.drug) LIKE '%meropenem%'           OR
+    LOWER(p.drug) LIKE '%imipenem%'            OR
+    LOWER(p.drug) LIKE '%ertapenem%'           OR
+    LOWER(p.drug) LIKE '%ketorolac%'           OR
+    LOWER(p.drug) LIKE '%ibuprofen%'           OR
+    LOWER(p.drug) LIKE '%indomethacin%'        OR
+    LOWER(p.drug) LIKE '%diclofenac%'          OR
+    LOWER(p.drug) LIKE '%lisinopril%'          OR
+    LOWER(p.drug) LIKE '%enalapril%'           OR
+    LOWER(p.drug) LIKE '%captopril%'           OR
+    LOWER(p.drug) LIKE '%ramipril%'            OR
+    LOWER(p.drug) LIKE '%losartan%'            OR
+    LOWER(p.drug) LIKE '%valsartan%'           OR
+    LOWER(p.drug) LIKE '%irbesartan%'          OR
+    LOWER(p.drug) LIKE '%furosemide%'          OR
+    LOWER(p.drug) LIKE '%lasix%'               OR
+    LOWER(p.drug) LIKE '%hydrochlorothiazide%' OR
+    LOWER(p.drug) LIKE '%tacrolimus%'          OR
+    LOWER(p.drug) LIKE '%prograf%'             OR
+    LOWER(p.drug) LIKE '%cyclosporine%'        OR
+    LOWER(p.drug) LIKE '%cyclosporin%'         OR
+    LOWER(p.drug) LIKE '%metformin%'           OR
+    LOWER(p.drug) LIKE '%pantoprazole%'        OR
+    LOWER(p.drug) LIKE '%omeprazole%'          OR
+    LOWER(p.drug) LIKE '%esomeprazole%'
+  );
+
+CREATE INDEX idx_nrx_subject_time
+    ON aki_project.nephrotoxic_rx_raw (subject_id, starttime);
+ANALYZE aki_project.nephrotoxic_rx_raw;
+
+
+-- ─────────────────────────────────────────────────────
+-- STEP 0-C. inputevents 사전 필터
+-- ─────────────────────────────────────────────────────
+DROP TABLE IF EXISTS aki_project.inputevents_filtered CASCADE;
+CREATE TABLE aki_project.inputevents_filtered AS
+SELECT
+    i.stay_id,
+    i.itemid,
+    i.starttime,
+    i.amount
+FROM mimiciv_icu.inputevents i
+WHERE i.stay_id IN (SELECT stay_id FROM aki_project.aki_cohort_window)
+  AND i.itemid IN (
+      220954, 220955, 220956, 226364, 226375,  -- IV fluids
+      225943, 225944, 227522                    -- Contrast
+  );
+
+CREATE INDEX idx_inputs_stay_item
+    ON aki_project.inputevents_filtered (stay_id, itemid, starttime);
+ANALYZE aki_project.inputevents_filtered;
+
+
+-- ─────────────────────────────────────────────────────
+-- STEP 1. ICU 내 신독성 약물 처방
+-- ─────────────────────────────────────────────────────
+DROP TABLE IF EXISTS aki_project.icu_nephrotoxic_rx CASCADE;
+CREATE TABLE aki_project.icu_nephrotoxic_rx AS
+
+WITH rx_flags AS (
+    SELECT
+        c.stay_id,
+
+        MAX(CASE WHEN LOWER(p.drug) LIKE '%vancomycin%'
+                 THEN 1 ELSE 0 END)
+            AS vancomycin_rx,
+
+        COALESCE(SUM(CASE
+            WHEN LOWER(p.drug) LIKE '%vancomycin%'
+            THEN GREATEST(0,
+                     EXTRACT(EPOCH FROM
+                         LEAST(COALESCE(p.stoptime, c.effective_cutoff),
+                               c.effective_cutoff)
+                         - p.starttime
+                     ) / 3600.0
+                 )
+        END), 0)
+            AS vancomycin_exposure_hours,
+
+        MAX(CASE WHEN LOWER(p.drug) LIKE '%piperacillin%'
+                   OR LOWER(p.drug) LIKE '%zosyn%'
+                   OR LOWER(p.drug) LIKE '%pip/tazo%'
+                   OR LOWER(p.drug) LIKE '%pip-tazo%'
+                 THEN 1 ELSE 0 END)
+            AS piptazo_rx,
+
+        MAX(CASE WHEN LOWER(p.drug) LIKE '%gentamicin%'
+                   OR LOWER(p.drug) LIKE '%tobramycin%'
+                   OR LOWER(p.drug) LIKE '%amikacin%'
+                 THEN 1 ELSE 0 END)
+            AS aminoglycoside_rx,
+
+        MAX(CASE WHEN LOWER(p.drug) LIKE '%amphotericin%'
+                 THEN 1 ELSE 0 END)
+            AS amphotericin_b_rx,
+
+        MAX(CASE WHEN LOWER(p.drug) LIKE '%meropenem%'
+                   OR LOWER(p.drug) LIKE '%imipenem%'
+                   OR LOWER(p.drug) LIKE '%ertapenem%'
+                 THEN 1 ELSE 0 END)
+            AS carbapenem_rx,
+
+        MAX(CASE WHEN LOWER(p.drug) LIKE '%ketorolac%'
+                 THEN 1 ELSE 0 END)
+            AS ketorolac_rx,
+
+        MAX(CASE WHEN LOWER(p.drug) LIKE '%ibuprofen%'
+                 THEN 1 ELSE 0 END)
+            AS ibuprofen_rx,
+
+        MAX(CASE WHEN LOWER(p.drug) LIKE '%ketorolac%'
+                   OR LOWER(p.drug) LIKE '%ibuprofen%'
+                   OR LOWER(p.drug) LIKE '%indomethacin%'
+                   OR LOWER(p.drug) LIKE '%diclofenac%'
+                 THEN 1 ELSE 0 END)
+            AS nsaid_any_rx,
+
+        MAX(CASE WHEN LOWER(p.drug) LIKE '%lisinopril%'
+                   OR LOWER(p.drug) LIKE '%enalapril%'
+                   OR LOWER(p.drug) LIKE '%captopril%'
+                   OR LOWER(p.drug) LIKE '%ramipril%'
+                 THEN 1 ELSE 0 END)
+            AS ace_inhibitor_rx,
+
+        MAX(CASE WHEN LOWER(p.drug) LIKE '%losartan%'
+                   OR LOWER(p.drug) LIKE '%valsartan%'
+                   OR LOWER(p.drug) LIKE '%irbesartan%'
+                 THEN 1 ELSE 0 END)
+            AS arb_rx,
+
+        MAX(CASE WHEN LOWER(p.drug) LIKE '%lisinopril%'
+                   OR LOWER(p.drug) LIKE '%enalapril%'
+                   OR LOWER(p.drug) LIKE '%captopril%'
+                   OR LOWER(p.drug) LIKE '%losartan%'
+                   OR LOWER(p.drug) LIKE '%valsartan%'
+                 THEN 1 ELSE 0 END)
+            AS acei_arb_any_rx,
+
+        MAX(CASE WHEN LOWER(p.drug) LIKE '%furosemide%'
+                   OR LOWER(p.drug) LIKE '%lasix%'
+                 THEN 1 ELSE 0 END)
+            AS furosemide_rx,
+
+        COALESCE(SUM(CASE
+            WHEN (
+                LOWER(p.drug) LIKE '%furosemide%'
+                OR LOWER(p.drug) LIKE '%lasix%'
+            )
+            AND p.dose_val_rx ~ '^[0-9.]+$'
+            THEN p.dose_val_rx::FLOAT
+        END), 0)
+            AS furosemide_cumulative_mg,
+
+        MAX(CASE WHEN LOWER(p.drug) LIKE '%hydrochlorothiazide%'
+                 THEN 1 ELSE 0 END)
+            AS hctz_rx,
+
+        MAX(CASE WHEN LOWER(p.drug) LIKE '%tacrolimus%'
+                   OR LOWER(p.drug) LIKE '%prograf%'
+                 THEN 1 ELSE 0 END)
+            AS tacrolimus_rx,
+
+        MAX(CASE WHEN LOWER(p.drug) LIKE '%cyclosporine%'
+                   OR LOWER(p.drug) LIKE '%cyclosporin%'
+                 THEN 1 ELSE 0 END)
+            AS cyclosporine_rx,
+
+        MAX(CASE WHEN LOWER(p.drug) LIKE '%metformin%'
+                 THEN 1 ELSE 0 END)
+            AS metformin_rx,
+
+        MAX(CASE WHEN LOWER(p.drug) LIKE '%pantoprazole%'
+                   OR LOWER(p.drug) LIKE '%omeprazole%'
+                   OR LOWER(p.drug) LIKE '%esomeprazole%'
+                 THEN 1 ELSE 0 END)
+            AS ppi_rx
+
+    FROM aki_project.aki_cohort_window AS c
+    LEFT JOIN aki_project.nephrotoxic_rx_raw AS p
+        ON  p.subject_id = c.subject_id
+        AND p.starttime >= c.icu_intime
+        AND p.starttime <  c.effective_cutoff
+    GROUP BY c.stay_id
+)
+
+SELECT
+    cw.stay_id,
+    cw.aki_label,
+    cw.aki_stage,
+    cw.icu_intime,
+    cw.effective_cutoff,
+    cw.is_pseudo_cutoff,
+    COALESCE(r.vancomycin_rx,             0) AS vancomycin_rx,
+    COALESCE(r.vancomycin_exposure_hours, 0) AS vancomycin_exposure_hours,
+    COALESCE(r.piptazo_rx,                0) AS piptazo_rx,
+    COALESCE(r.aminoglycoside_rx,         0) AS aminoglycoside_rx,
+    COALESCE(r.amphotericin_b_rx,         0) AS amphotericin_b_rx,
+    COALESCE(r.carbapenem_rx,             0) AS carbapenem_rx,
+    COALESCE(r.ketorolac_rx,              0) AS ketorolac_rx,
+    COALESCE(r.ibuprofen_rx,              0) AS ibuprofen_rx,
+    COALESCE(r.nsaid_any_rx,              0) AS nsaid_any_rx,
+    COALESCE(r.ace_inhibitor_rx,          0) AS ace_inhibitor_rx,
+    COALESCE(r.arb_rx,                    0) AS arb_rx,
+    COALESCE(r.acei_arb_any_rx,           0) AS acei_arb_any_rx,
+    COALESCE(r.furosemide_rx,             0) AS furosemide_rx,
+    COALESCE(r.furosemide_cumulative_mg,  0) AS furosemide_cumulative_mg,
+    COALESCE(r.hctz_rx,                   0) AS hctz_rx,
+    COALESCE(r.tacrolimus_rx,             0) AS tacrolimus_rx,
+    COALESCE(r.cyclosporine_rx,           0) AS cyclosporine_rx,
+    COALESCE(r.metformin_rx,              0) AS metformin_rx,
+    COALESCE(r.ppi_rx,                    0) AS ppi_rx
+FROM aki_project.aki_cohort_window AS cw
+LEFT JOIN rx_flags AS r
+    ON cw.stay_id = r.stay_id;
+
+CREATE INDEX idx_icu_rx_stay ON aki_project.icu_nephrotoxic_rx (stay_id);
+ANALYZE aki_project.icu_nephrotoxic_rx;
+
+
+-- ═════════════════════════════════════════════════════
+-- STEP 2. 약물 조합 위험도
+-- ═════════════════════════════════════════════════════
+DROP TABLE IF EXISTS aki_project.nephrotoxic_combo_risk CASCADE;
+CREATE TABLE aki_project.nephrotoxic_combo_risk AS
+SELECT
+    r.stay_id,
+    r.aki_label,
+
+    r.vancomycin_rx * r.piptazo_rx              AS vanco_piptazo_combo,
+    r.vancomycin_rx * r.aminoglycoside_rx       AS vanco_aminogly_combo,
+    r.vancomycin_rx * r.carbapenem_rx           AS vanco_carbapenem_combo,
+    r.nsaid_any_rx  * r.acei_arb_any_rx         AS nsaid_acei_combo,
+
+    CASE WHEN r.nsaid_any_rx    = 1
+          AND r.acei_arb_any_rx = 1
+          AND r.furosemide_rx   = 1
+         THEN 1 ELSE 0
+    END                                         AS triple_whammy,
+
+    CASE WHEN r.furosemide_cumulative_mg > 200
+          AND (r.vancomycin_rx = 1 OR r.aminoglycoside_rx = 1)
+         THEN 1 ELSE 0
+    END                                         AS diuretic_overload_flag,
+
+    CASE WHEN r.metformin_rx = 1
+          AND (r.vancomycin_rx = 1 OR r.nsaid_any_rx = 1)
+         THEN 1 ELSE 0
+    END                                         AS metformin_risk_flag,
+
+    -- 누적 신독성 부담 (0~8)
+    -- vancomycin + aminoglycoside + piptazo + amphotericin_b
+    -- + nsaid_any + acei_arb_any + tacrolimus + furosemide>200mg
+    r.vancomycin_rx
+    + r.aminoglycoside_rx
+    + r.piptazo_rx
+    + r.amphotericin_b_rx
+    + r.nsaid_any_rx
+    + r.acei_arb_any_rx
+    + r.tacrolimus_rx
+    + CASE WHEN r.furosemide_cumulative_mg > 200
+           THEN 1 ELSE 0 END                    AS nephrotoxic_burden_score,
+
+    -- 약물 처방 위험 스코어 (0~5)
+    (CASE WHEN r.vancomycin_rx = 1
+           AND r.piptazo_rx = 1
+          THEN 1 ELSE 0 END)
+    + (CASE WHEN r.vancomycin_rx
+                 + r.aminoglycoside_rx
+                 + r.amphotericin_b_rx >= 2
+            THEN 1 ELSE 0 END)
+    + (CASE WHEN r.vancomycin_exposure_hours > 48
+            THEN 1 ELSE 0 END)
+    + (CASE WHEN r.nsaid_any_rx = 1
+             AND r.acei_arb_any_rx = 1
+            THEN 1 ELSE 0 END)
+    + (CASE WHEN r.furosemide_cumulative_mg > 200
+            THEN 1 ELSE 0 END)                  AS drug_risk_score
+
+FROM aki_project.icu_nephrotoxic_rx AS r;
+
+CREATE INDEX idx_combo_stay ON aki_project.nephrotoxic_combo_risk (stay_id);
+ANALYZE aki_project.nephrotoxic_combo_risk;
+
+
+-- ═════════════════════════════════════════════════════
+-- STEP 3. 응급실 방문 피처
+--
+-- [FIX-CORE] ED 매칭 기준을 subject_id → stay_id로 변경
+--
+-- 기존 문제:
+--   subject_id로 JOIN → 동일 환자가 ICU를 여러 번 입실하면
+--   stay_id 하나에 여러 ED 행이 붙어 중복 발생
+--   (실제: 42,210 고유 stay_id → 107,299행으로 폭발)
+--
+-- 수정 방식:
+--   각 stay_id(ICU 입실)에 대해
+--   ICU 입실 시각(icu_intime) 기준으로
+--   직전 24시간 이내 ED 방문 중 가장 최근 1건만 매칭
+--   DISTINCT ON (cw.stay_id) + ORDER BY e.outtime DESC
+-- ═════════════════════════════════════════════════════
+DROP TABLE IF EXISTS aki_project.ed_encounter_features CASCADE;
+CREATE TABLE aki_project.ed_encounter_features AS
+
+WITH
+ed_stay AS (
+    -- [FIX-CORE] stay_id 기준으로 ICU 입실 직전 ED 방문 1건 매칭
+    SELECT DISTINCT ON (cw.stay_id)
+        cw.stay_id,
+        e.stay_id   AS ed_stay_id,
+        e.intime    AS ed_intime,
+        e.outtime   AS ed_outtime
+    FROM aki_project.aki_cohort_window AS cw
+    JOIN mimiciv_ed.edstays AS e
+        ON  e.subject_id = cw.subject_id
+        AND e.outtime   <= cw.icu_intime                          -- ED 퇴실이 ICU 입실 이전
+        AND e.outtime   >= cw.icu_intime - INTERVAL '24 시간 전'   -- 24시간 이내
+    ORDER BY
+        cw.stay_id,
+        e.outtime DESC   -- 입실 직전 방문 우선
+),
+triage_v AS (
+    SELECT
+        t.stay_id                                        AS ed_stay_id,
+        t.sbp                                            AS triage_sbp,
+        t.heartrate                                      AS triage_hr,
+        t.temperature                                    AS triage_temp,
+        t.o2sat                                          AS triage_o2sat,
+        t.acuity                                         AS triage_ktas,
+        CASE WHEN t.acuity <= 2 THEN 1 ELSE 0 END        AS triage_critical_flag
+    FROM mimiciv_ed.triage AS t
+    WHERE EXISTS (
+        SELECT 1 FROM ed_stay es WHERE es.ed_stay_id = t.stay_id
+    )
+),
+preadmission_meds AS (
+    SELECT
+        m.stay_id AS ed_stay_id,
+        MAX(CASE WHEN LOWER(m.name) SIMILAR TO
+            '%(ibuprofen|naproxen|ketorolac|diclofenac|meloxicam|celecoxib)%'
+            THEN 1 ELSE 0 END)  AS nsaid_preadmission_flag,
+        MAX(CASE WHEN LOWER(m.name) SIMILAR TO
+            '%(lisinopril|enalapril|captopril|ramipril|losartan|valsartan|irbesartan|olmesartan)%'
+            THEN 1 ELSE 0 END)  AS acei_arb_preadmission_flag,
+        MAX(CASE WHEN LOWER(m.name) LIKE '%metformin%'
+            THEN 1 ELSE 0 END)  AS metformin_preadmission_flag,
+        MAX(CASE WHEN LOWER(m.name) SIMILAR TO
+            '%(furosemide|hydrochlorothiazide|spironolactone|bumetanide)%'
+            THEN 1 ELSE 0 END)  AS diuretic_preadmission_flag,
+        MAX(CASE WHEN LOWER(m.name) SIMILAR TO
+            '%(tacrolimus|cyclosporine|mycophenolate|sirolimus)%'
+            THEN 1 ELSE 0 END)  AS immunosuppressant_preadmission_flag
+    FROM mimiciv_ed.medrecon AS m
+    WHERE EXISTS (
+        SELECT 1 FROM ed_stay es WHERE es.ed_stay_id = m.stay_id
+    )
+    GROUP BY m.stay_id
+)
+
+SELECT
+    cw.stay_id,
+
+    -- ED를 거치지 않은 직접 ICU 입실 여부
+    CASE WHEN es.ed_intime IS NULL THEN 1 ELSE 0 END     AS direct_icu_admit_flag,
+
+    -- ED 재실 시간 (음수 방지)
+    CASE WHEN es.ed_intime IS NULL THEN 0
+         ELSE GREATEST(0,
+                  EXTRACT(EPOCH FROM
+                      LEAST(es.ed_outtime, cw.effective_cutoff)
+                      - es.ed_intime
+                  ) / 3600.0
+              )
+    END                                                   AS ed_los_hours,
+
+    tv.triage_sbp,
+    tv.triage_hr,
+    tv.triage_temp,
+    tv.triage_o2sat,
+    COALESCE(tv.triage_ktas,          3)                  AS triage_ktas,
+    COALESCE(tv.triage_critical_flag, 0)                  AS triage_critical_flag,
+    COALESCE(pm.nsaid_preadmission_flag,             0)   AS nsaid_preadmission_flag,
+    COALESCE(pm.acei_arb_preadmission_flag,          0)   AS acei_arb_preadmission_flag,
+    COALESCE(pm.metformin_preadmission_flag,         0)   AS metformin_preadmission_flag,
+    COALESCE(pm.diuretic_preadmission_flag,          0)   AS diuretic_preadmission_flag,
+    COALESCE(pm.immunosuppressant_preadmission_flag, 0)   AS immunosuppressant_preadmission_flag
+
+FROM aki_project.aki_cohort_window AS cw
+-- [FIX-CORE] stay_id로 JOIN
+LEFT JOIN ed_stay           AS es ON cw.stay_id    = es.stay_id
+LEFT JOIN triage_v          AS tv ON es.ed_stay_id = tv.ed_stay_id
+LEFT JOIN preadmission_meds AS pm ON es.ed_stay_id = pm.ed_stay_id;
+
+CREATE INDEX idx_ed_stay ON aki_project.ed_encounter_features (stay_id);
+ANALYZE aki_project.ed_encounter_features;
+
+
+-- ═════════════════════════════════════════════════════
+-- STEP 4. IV 수액 + 조영제 노출
+-- ═════════════════════════════════════════════════════
+DROP TABLE IF EXISTS aki_project.iv_fluid_contrast_exposure CASCADE;
+CREATE TABLE aki_project.iv_fluid_contrast_exposure AS
+SELECT
+    cw.stay_id,
+
+    COALESCE(SUM(CASE
+        WHEN i.itemid IN (220954, 220955, 220956, 226364, 226375)
+         AND i.starttime < cw.effective_cutoff
+        THEN i.amount
+    END), 0)                                              AS iv_fluid_total_ml,
+
+    -- 임상 범위(2~400kg) 외 체중은 NULL 처리하여 극값 방지
+    COALESCE(SUM(CASE
+        WHEN i.itemid IN (220954, 220955, 220956, 226364, 226375)
+         AND i.starttime < cw.effective_cutoff
+        THEN i.amount
+    END), 0)
+    / NULLIF(
+        CASE WHEN w.weight_kg BETWEEN 2 AND 400
+             THEN w.weight_kg
+             ELSE NULL
+        END, 0
+    )                                                     AS iv_fluid_per_kg,
+
+    MAX(CASE WHEN i.itemid IN (225943, 225944, 227522)
+              AND i.starttime < cw.effective_cutoff
+             THEN 1 ELSE 0 END)                           AS contrast_exposure_flag,
+
+    w.weight_kg,
+    w.weight_source
+
+FROM aki_project.aki_cohort_window                AS cw
+LEFT JOIN aki_project.inputevents_filtered         AS i  ON cw.stay_id = i.stay_id
+LEFT JOIN aki_project.patient_weight_filled        AS w  ON cw.stay_id = w.stay_id
+GROUP BY
+    cw.stay_id,
+    cw.effective_cutoff,
+    w.weight_kg,
+    w.weight_source;
+
+CREATE INDEX idx_iv_stay ON aki_project.iv_fluid_contrast_exposure (stay_id);
+ANALYZE aki_project.iv_fluid_contrast_exposure;
+
+
+-- =====================================================================
+-- STEP 5. 최종 통합 → aki_drug_exposure_features
+-- =====================================================================
+DROP TABLE IF EXISTS aki_project.aki_drug_exposure_features CASCADE;
+CREATE TABLE aki_project.aki_drug_exposure_features AS
+SELECT
+    -- [기준 코호트]
+    cw.stay_id,
+    cw.subject_id,
+    cw.aki_label,
+    cw.aki_stage,
+    cw.icu_intime,
+    cw.effective_cutoff,
+    cw.is_pseudo_cutoff,
+    cw.hours_to_aki,
+
+    -- [STEP 1: ICU 약물 노출]
+    rx.vancomycin_rx,
+    rx.vancomycin_exposure_hours,
+    rx.piptazo_rx,
+    rx.aminoglycoside_rx,
+    rx.amphotericin_b_rx,
+    rx.carbapenem_rx,
+    rx.ketorolac_rx,
+    rx.ibuprofen_rx,
+    rx.nsaid_any_rx,
+    rx.ace_inhibitor_rx,
+    rx.arb_rx,
+    rx.acei_arb_any_rx,
+    rx.furosemide_rx,
+    rx.furosemide_cumulative_mg,
+    rx.hctz_rx,
+    rx.tacrolimus_rx,
+    rx.cyclosporine_rx,
+    rx.metformin_rx,
+    rx.ppi_rx,
+
+    -- [STEP 2: 약물 조합 위험도]
+    combo.vanco_piptazo_combo,
+    combo.vanco_aminogly_combo,
+    combo.vanco_carbapenem_combo,
+    combo.nsaid_acei_combo,
+    combo.triple_whammy,
+    combo.diuretic_overload_flag,
+    combo.metformin_risk_flag,
+    combo.nephrotoxic_burden_score,
+    combo.drug_risk_score,
+
+    -- [STEP 3: ED 정보]
+    ed.direct_icu_admit_flag,
+    ed.ed_los_hours,
+    ed.triage_sbp,
+    ed.triage_hr,
+    ed.triage_temp,
+    ed.triage_o2sat,
+    ed.triage_ktas,
+    ed.triage_critical_flag,
+    ed.nsaid_preadmission_flag,
+    ed.acei_arb_preadmission_flag,
+    ed.metformin_preadmission_flag,
+    ed.diuretic_preadmission_flag,
+    ed.immunosuppressant_preadmission_flag,
+
+    -- [STEP 4: 수액·조영제]
+    fc.iv_fluid_total_ml,
+    fc.iv_fluid_per_kg,
+    fc.contrast_exposure_flag,
+    fc.weight_kg,
+    fc.weight_source,
+
+    -- [파생 변수] ICU + 입원 전 통합 신독성 부담
+    combo.nephrotoxic_burden_score
+    + COALESCE(ed.nsaid_preadmission_flag,             0)
+    + COALESCE(ed.acei_arb_preadmission_flag,          0)
+    + COALESCE(ed.immunosuppressant_preadmission_flag, 0)
+                                                        AS total_nephrotoxic_burden,
+
+    -- [파생 변수] 조영제 × NSAIDs 병용 (CI-AKI 위험)
+    fc.contrast_exposure_flag
+    * GREATEST(rx.nsaid_any_rx,
+               COALESCE(ed.nsaid_preadmission_flag, 0))
+                                                        AS contrast_nsaid_combo
+
+FROM aki_project.aki_cohort_window                AS cw
+LEFT JOIN aki_project.icu_nephrotoxic_rx          AS rx    ON cw.stay_id = rx.stay_id
+LEFT JOIN aki_project.nephrotoxic_combo_risk      AS combo ON cw.stay_id = combo.stay_id
+LEFT JOIN aki_project.ed_encounter_features       AS ed    ON cw.stay_id = ed.stay_id
+LEFT JOIN aki_project.iv_fluid_contrast_exposure  AS fc    ON cw.stay_id = fc.stay_id;
+
+CREATE INDEX idx_final_stay  ON aki_project.aki_drug_exposure_features (stay_id);
+CREATE INDEX idx_final_label ON aki_project.aki_drug_exposure_features (aki_label);
+ANALYZE aki_project.aki_drug_exposure_features;
+
+
+-- ═════════════════════════════════════════════════════
+-- 검증 쿼리
+-- ═════════════════════════════════════════════════════
+
+-- 1. 핵심 sanity check: 행 수 = 고유 stay_id 수여야 함
+SELECT
+    COUNT(*)                                    AS n_rows,
+    COUNT(DISTINCT stay_id)                     AS n_unique_stay,
+    COUNT(*) - COUNT(DISTINCT stay_id)          AS duplicate_stay_count,  -- 반드시 0
+    SUM(CASE WHEN aki_label IS NULL THEN 1 ELSE 0 END) AS missing_label,
+    SUM(CASE WHEN vancomycin_rx IS NULL THEN 1 ELSE 0 END) AS null_vanco
+FROM aki_project.aki_drug_exposure_features;
+
+
+-- 2. 약물 분포 (AKI vs Non-AKI)
+SELECT
+    aki_label,
+    COUNT(*)                                                AS n,
+    ROUND((AVG(vancomycin_rx)       * 100)::NUMERIC, 1)    AS pct_vancomycin,
+    ROUND((AVG(piptazo_rx)          * 100)::NUMERIC, 1)    AS pct_piptazo,
+    ROUND((AVG(vanco_piptazo_combo) * 100)::NUMERIC, 1)    AS pct_vanco_pip_combo,
+    ROUND((AVG(aminoglycoside_rx)   * 100)::NUMERIC, 1)    AS pct_aminogly,
+    ROUND((AVG(ketorolac_rx)        * 100)::NUMERIC, 1)    AS pct_ketorolac,
+    ROUND((AVG(furosemide_rx)       * 100)::NUMERIC, 1)    AS pct_furosemide,
+    ROUND((AVG(triple_whammy)       * 100)::NUMERIC, 1)    AS pct_triple_whammy,
+    ROUND(AVG(nephrotoxic_burden_score)::NUMERIC, 2)       AS avg_burden,
+    ROUND(AVG(drug_risk_score)::NUMERIC, 2)                AS avg_drug_risk,
+    ROUND(AVG(total_nephrotoxic_burden)::NUMERIC, 2)       AS avg_total_burden
+FROM aki_project.aki_drug_exposure_features
+GROUP BY aki_label
+ORDER BY aki_label DESC;
+
+
+-- 3. ED 피처 검증
+SELECT
+    COUNT(*)                                               AS n,
+    SUM(direct_icu_admit_flag)                             AS n_direct_icu_admit,
+    ROUND(AVG(direct_icu_admit_flag) * 100, 1)             AS pct_direct_admit,
+    SUM(CASE WHEN ed_los_hours IS NULL THEN 1 ELSE 0 END)  AS missing_ed_los,
+    SUM(CASE WHEN ed_los_hours < 0    THEN 1 ELSE 0 END)   AS negative_ed_los,   -- 반드시 0
+    SUM(CASE WHEN triage_sbp IS NULL  THEN 1 ELSE 0 END)   AS missing_triage_sbp
+FROM aki_project.aki_drug_exposure_features;
+
+
+-- 4. IV fluid / contrast 검증
+SELECT
+    COUNT(*)                                               AS n,
+    ROUND(AVG(iv_fluid_total_ml)::NUMERIC, 1)              AS avg_fluid_ml,
+    ROUND(AVG(iv_fluid_per_kg)::NUMERIC, 1)                AS avg_fluid_per_kg,
+    MAX(iv_fluid_per_kg)                                   AS max_fluid_per_kg,
+    SUM(contrast_exposure_flag)                            AS contrast_cases
+FROM aki_project.aki_drug_exposure_features;
+
+
+-- 5. coherence check
+SELECT
+    COUNT(*)                                               AS n,
+    SUM(CASE WHEN vancomycin_rx = 1
+              AND vancomycin_exposure_hours = 0
+             THEN 1 ELSE 0 END)                            AS vanco_flag_but_zero_hours,
+    SUM(CASE WHEN furosemide_rx = 1
+              AND furosemide_cumulative_mg = 0
+             THEN 1 ELSE 0 END)                            AS lasix_flag_but_zero_dose,
+    SUM(CASE WHEN vancomycin_exposure_hours < 0
+             THEN 1 ELSE 0 END)                            AS negative_vanco_hours,  -- 반드시 0
+    SUM(CASE WHEN ed_los_hours < 0
+             THEN 1 ELSE 0 END)                            AS negative_ed_los        -- 반드시 0
+FROM aki_project.aki_drug_exposure_features;
