@@ -38,14 +38,12 @@ from feature_config import (
 warnings.filterwarnings("ignore")
 
 # ── 경로 설정 (절대경로) ────────────────────────────────────────────────────
-# preprocessing.py가 있는 xgb_model 폴더를 기준으로 절대 경로 설정
-_BASE_DIR = os.path.dirname(os.path.abspath(__file__))      # xgb_model/ 폴더
-_MODEL_DIR = os.path.join(_BASE_DIR, "model")               # xgb_model/model/ 폴더
+_BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+_MODEL_DIR = os.path.join(_BASE_DIR, "model")
 
 ENCODER_PATH       = os.path.join(_MODEL_DIR, "label_encoders.pkl")
 FEATURE_NAMES_PATH = os.path.join(_MODEL_DIR, "feature_names.csv")
 
-# 디버그 로그
 print(f"[preprocessing] BASE_DIR: {_BASE_DIR}")
 print(f"[preprocessing] MODEL_DIR: {_MODEL_DIR}")
 print(f"[preprocessing] ENCODER_PATH: {ENCODER_PATH}")
@@ -72,6 +70,8 @@ def filter_training_cohort(df: pd.DataFrame) -> pd.DataFrame:
     n_raw = len(df)
 
     # 재원 24h 미만 제거
+    # ★ 주의: icu_los_hours는 피처에서 제외됐지만(EXCLUDE_COLS),
+    #   코호트 필터링 기준으로는 여전히 사용한다. (필터 후 컬럼 자체는 drop)
     if "icu_los_hours" in df.columns:
         n_short = (df["icu_los_hours"] < 24).sum()
         df = df[df["icu_los_hours"] >= 24].copy()
@@ -95,28 +95,16 @@ def filter_training_cohort(df: pd.DataFrame) -> pd.DataFrame:
 # ─────────────────────────────────────────────────────────────────────────────
 
 def fit_and_save_label_encoders(df: pd.DataFrame) -> dict[str, LabelEncoder]:
-    """학습 데이터에서 LabelEncoder를 fit하고 pickle로 저장한다.
-
-    저장 경로: xgb_model/model/label_encoders.pkl
-    학습 시에만 호출한다. 추론에서는 load_label_encoders()를 사용한다.
-
-    Args:
-        df: 학습용 원본 DataFrame (범주형 컬럼 포함)
-
-    Returns:
-        {컬럼명: LabelEncoder 인스턴스} 딕셔너리
-    """
+    """학습 데이터에서 LabelEncoder를 fit하고 pickle로 저장한다."""
     encoders: dict[str, LabelEncoder] = {}
     for col in FEAT_CAT:
         if col not in df.columns:
             continue
         le = LabelEncoder()
-        # 결측값을 "Unknown"으로 채워 LabelEncoder가 처리할 수 있게 함
         le.fit(df[col].fillna("Unknown").astype(str))
         encoders[col] = le
         print(f"  [인코더 학습] {col}: {list(le.classes_)}")
 
-    # 경로의 폴더가 없으면 생성
     os.makedirs(_MODEL_DIR, exist_ok=True)
     with open(ENCODER_PATH, "wb") as f:
         pickle.dump(encoders, f)
@@ -125,13 +113,7 @@ def fit_and_save_label_encoders(df: pd.DataFrame) -> dict[str, LabelEncoder]:
 
 
 def load_label_encoders() -> Optional[dict[str, LabelEncoder]]:
-    """저장된 LabelEncoder pickle 파일을 로드한다.
-
-    추론 시 transform에만 사용한다. (fit 금지)
-
-    Returns:
-        {컬럼명: LabelEncoder} 딕셔너리, 파일 없으면 None
-    """
+    """저장된 LabelEncoder pickle 파일을 로드한다."""
     if not os.path.exists(ENCODER_PATH):
         print(f"[경고] 인코더 파일 없음: {ENCODER_PATH}")
         return None
@@ -146,22 +128,7 @@ def encode_categorical_columns(
     df: pd.DataFrame,
     encoders: Optional[dict[str, LabelEncoder]] = None,
 ) -> pd.DataFrame:
-    """범주형 컬럼을 정수로 인코딩한다.
-
-    우선순위:
-      1. encoders 인자 있음  → LabelEncoder.transform() (학습 때 본 범주만 처리)
-      2. encoders 없음       → STATIC_ENCODERS 고정 딕셔너리 사용 (fallback)
-
-    학습 때 보지 못한 범주는 -1로 처리한다.
-    (XGBoost는 -1을 별도 범주로 학습 가능)
-
-    Args:
-        df:       인코딩할 DataFrame (복사 후 반환)
-        encoders: load_label_encoders() 결과 또는 None
-
-    Returns:
-        범주형 컬럼이 정수로 변환된 DataFrame
-    """
+    """범주형 컬럼을 정수로 인코딩한다."""
     df = df.copy()
     for col in FEAT_CAT:
         if col not in df.columns:
@@ -169,14 +136,12 @@ def encode_categorical_columns(
         df[col] = df[col].fillna("Unknown").astype(str)
 
         if encoders and col in encoders:
-            # LabelEncoder.transform: 학습 때 본 범주만 처리
             enc = encoders[col]
             df[col] = df[col].map(
                 lambda v, e=enc: int(e.transform([v])[0])
                 if v in e.classes_ else -1
             )
         else:
-            # Fallback: 고정 딕셔너리 매핑
             mapping = STATIC_ENCODERS.get(col, {})
             df[col] = df[col].map(lambda v, m=mapping: m.get(v, -1))
 
@@ -188,21 +153,10 @@ def encode_categorical_columns(
 # ─────────────────────────────────────────────────────────────────────────────
 
 def clip_outliers_by_clinical_range(df: pd.DataFrame) -> pd.DataFrame:
-    """생리적으로 불가능하거나 측정 오류인 값을 CLIP_RULES 범위로 강제 조정한다.
-
-    클리핑은 결측값(NaN)을 건드리지 않는다. NaN은 XGBoost가 자체적으로 처리한다.
-    범위 근거: MIMIC-IV 99th percentile + 임상 전문가 검토 (feature_config.py 참조)
-
-    Args:
-        df: 클리핑할 DataFrame
-
-    Returns:
-        클리핑된 DataFrame (복사본)
-    """
+    """생리적으로 불가능하거나 측정 오류인 값을 CLIP_RULES 범위로 강제 조정한다."""
     df = df.copy()
     for col, (lo, hi) in CLIP_RULES.items():
         if col in df.columns:
-            # NaN은 유지하면서 수치만 클리핑
             df[col] = df[col].clip(lower=lo, upper=hi)
     return df
 
@@ -220,8 +174,6 @@ def select_and_order_features(
     feature_names가 주어지면 그 순서를 따른다. (추론 시 필수)
     없으면 ALL_FEATURES에서 실제로 존재하는 컬럼만 사용한다. (학습 시)
 
-    없는 피처는 NaN 컬럼으로 채운다. (XGBoost가 자체 처리)
-
     Args:
         df:            입력 DataFrame
         feature_names: 사용할 피처 이름 목록 (순서 포함)
@@ -230,11 +182,32 @@ def select_and_order_features(
         (선택된 X DataFrame, 실제 사용된 feature_names 리스트)
     """
     if feature_names is None:
-        # 학습: ALL_FEATURES 중 실제로 있는 컬럼만 사용
-        available = [f for f in ALL_FEATURES if f in df.columns]
-        missing   = [f for f in ALL_FEATURES if f not in df.columns]
-        if missing:
-            print(f"  [경고] 없는 피처 {len(missing)}개 제외: {missing[:5]}{'...' if len(missing)>5 else ''}")
+        # ★ 수정: EXCLUDE_COLS를 이중 안전망으로 적용
+        # ALL_FEATURES에 실수로 누수 컬럼이 추가돼도 여기서 차단된다.
+        available = [
+            f for f in ALL_FEATURES
+            if f in df.columns and f not in EXCLUDE_COLS
+        ]
+
+        # 디버그 출력: DB에 없는 피처
+        missing_in_db = [f for f in ALL_FEATURES if f not in df.columns]
+        if missing_in_db:
+            print(
+                f"  [경고] DB에 없는 피처 {len(missing_in_db)}개 제외: "
+                f"{missing_in_db[:5]}{'...' if len(missing_in_db) > 5 else ''}"
+            )
+
+        # 디버그 출력: EXCLUDE_COLS에 걸려 차단된 피처
+        blocked_by_exclude = [
+            f for f in ALL_FEATURES
+            if f in df.columns and f in EXCLUDE_COLS
+        ]
+        if blocked_by_exclude:
+            print(
+                f"  [안전망] EXCLUDE_COLS로 차단된 피처 {len(blocked_by_exclude)}개: "
+                f"{blocked_by_exclude}"
+            )
+
         feature_names = available
     else:
         # 추론: 지정된 피처 순서 그대로. 없는 컬럼은 NaN으로 채움
@@ -247,30 +220,18 @@ def select_and_order_features(
 
 
 def save_feature_names(feature_names: list[str]) -> None:
-    """학습에 사용된 피처 목록을 CSV로 저장한다.
-
-    추론 시 inference.py에서 로드해 컬럼 순서를 맞춘다.
-
-    저장 경로: xgb_model/model/feature_names.csv
-    """
-    # 경로의 폴더가 없으면 생성
+    """학습에 사용된 피처 목록을 CSV로 저장한다."""
     os.makedirs(_MODEL_DIR, exist_ok=True)
-
-    # 헤더 없이 한 열로 저장
     pd.DataFrame(feature_names).to_csv(
         FEATURE_NAMES_PATH,
         index=False,
-        header=False
+        header=False,
     )
     print(f"  [저장] {FEATURE_NAMES_PATH}  ({len(feature_names)}개 피처)")
 
 
 def load_feature_names() -> Optional[list[str]]:
-    """저장된 피처 목록 CSV를 로드한다.
-
-    Returns:
-        피처 이름 리스트 (순서 포함), 파일 없으면 None
-    """
+    """저장된 피처 목록 CSV를 로드한다."""
     if not os.path.exists(FEATURE_NAMES_PATH):
         print(f"[경고] 피처 목록 파일 없음: {FEATURE_NAMES_PATH}")
         return None
@@ -344,6 +305,10 @@ def preprocess_for_inference(
         encoders = load_label_encoders()
 
     df = encode_categorical_columns(df, encoders)
+
+    for col in df.select_dtypes(include=["object"]).columns:
+        df[col] = pd.to_numeric(df[col], errors="coerce")
+
     df = clip_outliers_by_clinical_range(df)
     X, _ = select_and_order_features(df, feature_names)
     return X

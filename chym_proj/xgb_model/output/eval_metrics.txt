@@ -1,19 +1,22 @@
-=== AKI XGBoost 5-Fold CV °á°ú ===
+=== AKI XGBoost 5-Fold CV ê²°ê³¼ ===
 
-AUROC : 0.9934 ¡¾ 0.0003
-AUPRC : 0.9873 ¡¾ 0.0007
-Threshold (Youden) : 0.427 ¡¾ 0.051
+AUROC    : 0.9750 Â± 0.0016
+AUPRC    : 0.9673 Â± 0.0015
+F1       : 0.9253 Â± 0.0027
+Precision: 0.9544 Â± 0.0068
+Recall   : 0.8979 Â± 0.0019
+Threshold: 0.4197 Â± 0.0256
 
-=== ÃÖÀû ÇÏÀÌÆÛÆÄ¶ó¹ÌÅÍ ===
-  max_depth: 8
-  learning_rate: 0.027261318039158763
-  n_estimators: 489
-  subsample: 0.8198194508437471
-  colsample_bytree: 0.8631366680764021
+=== ìµœì  í•˜ì´í¼íŒŒë¼ë¯¸í„° ===
+  max_depth: 7
+  learning_rate: 0.025496712412730122
+  n_estimators: 722
+  subsample: 0.741534470270535
+  colsample_bytree: 0.9982409522597624
   min_child_weight: 9
-  gamma: 1.151592542016618
-  reg_alpha: 0.0012737897107526718
-  reg_lambda: 0.0018250345339827674
+  gamma: 0.8590912792149866
+  reg_alpha: 0.07203903301523738
+  reg_lambda: 0.020606511228878802
   scale_pos_weight: 2.3904609767229577
   tree_method: hist
   eval_metric: aucpr
