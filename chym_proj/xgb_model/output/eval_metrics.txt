@@ -1,0 +1,25 @@
+=== AKI XGBoost 5-Fold CV 결과 ===
+
+AUROC    : 0.9750 ± 0.0016
+AUPRC    : 0.9673 ± 0.0015
+F1       : 0.9253 ± 0.0027
+Precision: 0.9544 ± 0.0068
+Recall   : 0.8979 ± 0.0019
+Threshold: 0.4197 ± 0.0256
+
+=== 최적 하이퍼파라미터 ===
+  max_depth: 7
+  learning_rate: 0.025496712412730122
+  n_estimators: 722
+  subsample: 0.741534470270535
+  colsample_bytree: 0.9982409522597624
+  min_child_weight: 9
+  gamma: 0.8590912792149866
+  reg_alpha: 0.07203903301523738
+  reg_lambda: 0.020606511228878802
+  scale_pos_weight: 2.3904609767229577
+  tree_method: hist
+  eval_metric: aucpr
+  use_label_encoder: False
+  random_state: 42
+  n_jobs: -1
