@@ -57,32 +57,22 @@ React + TypeScript 기반의 웹 클라이언트(프론트엔드) 소스코드�
 
 ---
 
-## 📄 2. 최상위(Root) 주요 개별 파일 목록
+## 📄 2. `_misc/` 폴더 (기타 개별 파일 모음)
+
+최상위 폴더가 지저분해지는 것을 방지하기 위해, 어디에도 속하지 않던 각종 파이썬 스크립트, 프로젝트 설정 파일, 그리고 임시 데이터 및 로그 파일들을 모두 **`_misc/`** 폴더 안으로 깔끔하게 이동시켜 두었습니다.
 
 ### 🐍 파이썬 유틸리티 스크립트 (*.py)
-- **데이터 무결성 검증 용도**
-  - `check_cols.py`, `check_coords.py`, `check_csvs.py`, `check_img.py` 등: CSV 파일의 열 데이터 누락 여부, 좌표 값 정합성, 이미지가 정상적인지 검사합니다.
-- **결과 시각화(차트 생성) 용도**
-  - `make_chart.py`, `make_scatter.py`, `make_n78_chart.py`, `make_notion_chart.py`: 모델 학습 결과나 분석 데이터를 바탕으로 통계 그래프를 그려 파일로 저장합니다.
-- **데이터 변환 및 추출 용도**
-  - `dump_experiments.py`, `dump_jsons.py`: DB 내역이나 실험 결과들을 한데 모아 덤프(백업)합니다.
-  - `md_to_pdf.py`, `md_to_pdf_chrome.py`: 마크다운 기반의 텍스트 문서를 깔끔한 PDF 파일 포맷으로 일괄 변환해줍니다.
-- **기타 수치 계산 용도**
-  - `get_qwk.py`: QWK (Quadratic Weighted Kappa) 등의 성능 통계 지표를 계산합니다.
-
-### 📜 마크다운 문서 (*.md)
-- **`project_summary.md`**: 프로젝트 전체의 목적, 아키텍처 구조, 활용된 기술 스택 등을 한눈에 요약한 핵심 문서입니다.
-- **`PATIENT_SLIDE_LINKING_TODO.md`**: 환자 데이터베이스와 실제 병리 슬라이드 이미지를 매핑(연결)하는 작업의 남은 할 일(TODO) 목록입니다.
-- **`conda_setup_guide.md`**: 개발 환경 세팅을 위해 로컬 컴퓨터에 파이썬 가상환경(Conda)을 설정하는 방법을 정리한 문서입니다.
+- **데이터 무결성 검증 용도**: `check_cols.py`, `check_coords.py`, `check_csvs.py`, `check_img.py` 등
+- **결과 시각화(차트 생성) 용도**: `make_chart.py`, `make_scatter.py`, `make_n78_chart.py`, `make_notion_chart.py`
+- **데이터 변환 및 추출 용도**: `dump_experiments.py`, `dump_jsons.py`, `md_to_pdf.py`, `md_to_pdf_chrome.py`
+- **기타 수치 계산 용도**: `get_qwk.py` 등
 
 ### ⚙️ 실행 및 설정 파일
-- **`start_dev.bat` / `stop_dev.bat`**: 로컬 컴퓨터에서 백엔드, 프론트엔드 환경을 클릭 한 번에 모두 실행하거나 일괄 종료하는 단축 배치 파일입니다.
-- **`run_train_wandb.ps1` / `run_overnight_171.bat`**: 딥러닝 모델 학습을 시작하거나, 밤새 오래 걸리는 훈련 작업을 자동화하기 위한 스크립트입니다.
-- **`pytest.ini`**: 파이썬 자동화 테스트 프레임워크인 Pytest의 세부 실행 옵션을 정의한 설정 파일입니다.
-- **`pdf_config.json`**: 문서를 PDF로 변환할 때 사용할 용지 크기나 여백 등을 지정하는 설정 파일입니다.
+- **`start_dev.bat` / `stop_dev.bat`**: 로컬 컴퓨터에서 개발 환경을 켜고 끄는 단축 윈도우 배치 파일
+- **`run_train_wandb.ps1` / `run_overnight_171.bat`**: 딥러닝 모델 학습을 시작하거나 자동화하는 스크립트
+- **`pytest.ini` / `pdf_config.json`**: 파이썬 자동화 테스트 옵션 및 PDF 변환 환경 설정 파일
 
 ### 📊 분석 데이터 및 텍스트 파일
-- **`kpmp.csv`, `patches_manifest.csv`, `split_manifest.csv`**: 대용량 환자 메타데이터 및 병리 이미지에서 쪼개낸 패치 좌표들의 매니페스트 파일들입니다.
-- **`ab_events.jsonl`**: 특정 분석 과정에서 발생한 이벤트 로깅 데이터를 한 줄씩 읽기 편한 JSON Lines 형태로 정리한 파일입니다.
-- **`Integrated_Master_Report.html`**: 여러 가지 모델 예측 및 실험 분석 결과를 하나로 취합하여 웹 브라우저에서 열어볼 수 있도록 렌더링한 마스터 리포트 파일입니다.
-- **`debug.txt` / `diff.txt`**: 프로그램 디버깅 중 찍어본 로그나, 파일 간의 차이점 비교 결과 등을 임시로 저장해둔 텍스트 파일입니다.
+- **대용량 엑셀/데이터(CSV)**: `kpmp.csv`, `patches_manifest.csv`, `split_manifest.csv`
+- **분석 로그 및 결과 리포트**: `ab_events.jsonl`, `Integrated_Master_Report.html`
+- **디버그용 임시 파일**: `debug.txt`, `diff.txt`
