@@ -348,3 +348,4 @@ erDiagram
 ```
 
 <sub>전체 테이블: users · patients · admissions · beds · pathology_results · wsi_metadata · ai_draft_notes · alerts · notifications · timeline_events · audit_logs · request_logs 등</sub>
+ 
