@@ -1,0 +1,40 @@
+{
+  "_purpose": "EXPL 오버레이/히트맵 시각화 정규화 파라미터. VISUALIZATION ONLY — decision/router/margin/abstain/temperature 에 일절 영향 없음(엔진 판정 하류에서 좌표+attention 렌더만). baseline/ln 동일 스키마이며 per-slide 통계(p99)+coverage 로 자동 정합 → A/B 시각 비교 가능.",
+  "schema_version": 4,
+  "method": "per-slide robust normalization (p99 scale) + coverage overlay selection + per-task top-K union (지표별 히트맵이 종합 순위에 밀려 비지 않도록)",
+  "norm_percentile": 99,
+  "overlay_coverage_top_frac": 0.1,
+  "overlay_max": 40,
+  "overlay_per_task_topk": 12,
+  "overlay_hard_max": 90,
+  "heatmap_top": 200,
+  "applies_to": [
+    "baseline",
+    "ln"
+  ],
+  "measured_2026-07-01_median": {
+    "baseline": {
+      "attn_max": 0.1251,
+      "attn_p99": 0.0391,
+      "max_over_p99": 2.19,
+      "note": "collapse 강함"
+    },
+    "ln": {
+      "attn_max": 0.0623,
+      "attn_p99": 0.0374,
+      "max_over_p99": 1.95,
+      "note": "분산 큼(task-specific)"
+    }
+  },
+  "before_after_overlay_density_median": {
+    "before_by_max_w0.05": {
+      "baseline": 0.069,
+      "ln": 0.22
+    },
+    "after_coverage": {
+      "baseline": 0.1,
+      "ln": 0.1
+    }
+  },
+  "invariants": "decision/finalPrediction/uncertainty(margin)/router/abstain/temperature 는 이 파일과 무관하게 불변"
+}

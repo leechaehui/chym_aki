@@ -1,0 +1,36 @@
+# ==========================================================
+# CHYM-AKI Backend - Dependencies
+# Core Runtime (Required)
+# ==========================================================
+fastapi==0.115.6
+uvicorn[standard]==0.34.0
+SQLAlchemy==2.0.36
+pydantic==2.10.4
+pydantic-settings==2.7.0
+PyJWT==2.10.1
+bcrypt==4.2.1
+python-multipart==0.0.20
+
+# ----------------------------------------------------------
+# PostgreSQL Driver (docker-compose / prod). Not required for local SQLite.
+# ----------------------------------------------------------
+psycopg2-binary==2.9.10
+asyncpg==0.31.0
+psutil==6.1.1
+
+# ----------------------------------------------------------
+# AKI Model Inference (Optional). Fallbacks to rule-based KDIGO if not installed.
+#   numpy / pandas : Feature vector
+#   scikit-learn   : stage1 Logistic Regression bundle
+#   lightgbm       : stage2 LightGBM bundle
+# ----------------------------------------------------------
+numpy==2.2.1
+pandas==2.2.3
+scikit-learn>=1.6.0
+lightgbm>=4.5.0
+
+# ----------------------------------------------------------
+# STT. If STT_STRATEGY=whisper, local/offline Korean inference.
+# If not installed or STT_STRATEGY=passthrough, uses direct transcript input.
+# ----------------------------------------------------------
+faster-whisper

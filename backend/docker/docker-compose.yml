@@ -1,0 +1,42 @@
+# ==========================================================
+# CHYM-AKI 로컬 운영 스택 (FastAPI + PostgreSQL)
+# 실행: backend/ 에서  docker compose -f docker/docker-compose.yml up --build
+# ==========================================================
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: chym-aki-db
+    environment:
+      POSTGRES_USER: chym
+      POSTGRES_PASSWORD: chym
+      POSTGRES_DB: chym_aki
+    ports:
+      - "5432:5432"
+    volumes:
+      - chym_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U chym -d chym_aki"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  backend:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: chym-aki-backend
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      APP_ENV: production
+      DEBUG: "false"
+      DATABASE_URL: postgresql+psycopg2://chym:chym@db:5432/chym_aki
+      JWT_SECRET: change-me-in-production-please
+      CORS_ORIGINS: http://localhost:5173,http://localhost:3000
+      SEED_ON_STARTUP: "true"
+    ports:
+      - "8000:8000"
+
+volumes:
+  chym_pgdata:
