@@ -66,3 +66,4 @@ for i in range(len(tasks)):
 plt.tight_layout(pad=3.0)
 plt.savefig('static/results/ablation_studies_v2.png', dpi=300, bbox_inches='tight')
 plt.close()
+ 
