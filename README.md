@@ -163,23 +163,38 @@ PAS WSI
 
 ## 9. 결과 (Results)
 
-환자 단위(patient-level) 5-fold CV · CTransPath 인코더 · gold-label 코호트(~65명).
+```text
+Results
+├── Final Deployed Model
+│      ├── Encoder
+│      ├── Architecture
+│      ├── Stain
+│      └── Serving
+│
+├── Experiment Summary
+│      ├── Encoder Comparison
+│      ├── Stain Comparison
+│      ├── Scale Comparison
+│      └── Multi-stain Analysis
+│
+├── Performance
+│      ├── QWK
+│      ├── Chronicity
+│      └── Banff Prediction
+│
+└── Deployment Outcome
+       ├── Heatmap
+       ├── Pathology Report
+       └── FastAPI API
+```
 
-### 1. Banff Descriptor 예측 (Ordinal QWK)
+### 1. Final Deployed Model
+- **Encoder**: CTransPath
+- **Architecture**: Task-Attention MIL
+- **Stain**: PAS (Periodic Acid-Schiff) 중심 병렬 지원
+- **Serving**: FastAPI 기반 8001 Inference Server 분리 운영
 
-`TaskAttn-MS-CORAL` · Multi-scale(10x+40x) · Multi-stain(HE/PAS/MT/Silver)
-
-| Descriptor | QWK | 95% CI |
-|---|---|---|
-| **Fibrosis (섬유화)** | **0.400** | 0.198 – 0.571 |
-| Atrophy (위축) | 0.383 | 0.168 – 0.566 |
-| Inflammation (염증) | 0.331 | 0.108 – 0.548 |
-
-![Banff QWK](static/results/qwk_plot.png)
-> **설명:** Fibrosis(섬유화), Atrophy(위축), Inflammation(염증)에 대한 Ordinal QWK 예측 성능 지표입니다. 다중 염색(Multi-stain)을 활용한 앙상블 접근을 통해 병리의와 일치하는 매우 안정적인 진단 예측 성능을 확보했습니다.
-
-### 2. 단일 Stain Upper-Bound — "task마다 최적 염색이 다르다" (AUROC)
-
+### 2. Experiment Summary (Stain Comparison)
 각 stain을 단독 학습해 상한 성능을 측정 (`Exp0`, CTransPath)
 
 | Task | H&E | PAS | MT | 최적 Stain |
@@ -190,6 +205,23 @@ PAS WSI
 
 ![Stain AUROC](static/results/stain_auroc_plot.png)
 > **설명:** Immune(염증)에서는 H&E, Stage 3에서는 MT가 우수하지만, **Chronic(만성도) 예측에서는 PAS가 0.781로 타 염색 기법을 압도하는 최고 성능을 달성했습니다.** PAS/MT가 특정 task에서 H&E를 능가함을 증명하여, 모달리티 자체가 약한 것이 아니라 Early Fusion 구조가 이를 억눌렀음을 입증하는 핵심 결과입니다.
+
+### 3. Performance (QWK & Banff Prediction)
+환자 단위(patient-level) 5-fold CV · gold-label 코호트(~65명).
+
+| Descriptor | QWK | 95% CI |
+|---|---|---|
+| **Fibrosis (섬유화)** | **0.400** | 0.198 – 0.571 |
+| Atrophy (위축) | 0.383 | 0.168 – 0.566 |
+| Inflammation (염증) | 0.331 | 0.108 – 0.548 |
+
+![Banff QWK](static/results/qwk_plot.png)
+> **설명:** Fibrosis(섬유화), Atrophy(위축), Inflammation(염증)에 대한 Ordinal QWK 예측 성능 지표입니다. 다중 염색(Multi-stain)을 활용한 앙상블 접근을 통해 병리의와 일치하는 매우 안정적인 진단 예측 성능을 확보했습니다.
+
+### 4. Deployment Outcome
+- **Heatmap**: Task-Attention 기반의 판단 근거(Top-20 Patches) 시각화 제공
+- **Pathology Report**: 예측 결과를 종합한 표준화된 PDF/docx 마스터 리포트 출력
+- **FastAPI API**: 8010 메인 시스템과 완벽하게 연동된 무중단 HTTP 추론 API 서빙
 
 > ⚠️ 탐색적 연구 단계입니다. 양성 표본이 적어(예: immune n=44, 양성 14) **신뢰구간이 넓으며**, 절대 성능보다 **파이프라인·설계 타당성 검증**에 초점을 둔 결과입니다.
 
