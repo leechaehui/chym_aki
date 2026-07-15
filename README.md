@@ -57,22 +57,24 @@ React + TypeScript 기반의 웹 클라이언트(프론트엔드) 소스코드�
 
 ---
 
-## 📄 2. `_misc/` 폴더 (기타 개별 파일 모음)
+## 📄 2. 기능별 분리 폴더 (`utils/`, `analysis_results/`)
 
-최상위 폴더가 지저분해지는 것을 방지하기 위해, 어디에도 속하지 않던 각종 파이썬 스크립트, 프로젝트 설정 파일, 그리고 임시 데이터 및 로그 파일들을 모두 **`_misc/`** 폴더 안으로 깔끔하게 이동시켜 두었습니다.
+최상위 폴더가 지저분해지는 것을 방지하고 나중에 쉽게 찾을 수 있도록, 성격이 비슷한 개별 파일들을 나누어 정리했습니다.
 
-### 🐍 파이썬 유틸리티 스크립트 (*.py)
+### 🛠️ `utils/` 폴더 (유틸리티 스크립트)
+각종 파이썬 스크립트 파일들이 모여있는 폴더입니다.
 - **데이터 무결성 검증 용도**: `check_cols.py`, `check_coords.py`, `check_csvs.py`, `check_img.py` 등
-- **결과 시각화(차트 생성) 용도**: `make_chart.py`, `make_scatter.py`, `make_n78_chart.py`, `make_notion_chart.py`
-- **데이터 변환 및 추출 용도**: `dump_experiments.py`, `dump_jsons.py`, `md_to_pdf.py`, `md_to_pdf_chrome.py`
+- **결과 시각화(차트 생성) 용도**: `make_chart.py`, `make_scatter.py`, `make_n78_chart.py`, `make_notion_chart.py` 등
+- **데이터 변환 및 추출 용도**: `dump_experiments.py`, `dump_jsons.py`, `md_to_pdf.py`, `md_to_pdf_chrome.py` 등
 - **기타 수치 계산 용도**: `get_qwk.py` 등
 
-### ⚙️ 실행 및 설정 파일
-- **`start_dev.bat` / `stop_dev.bat`**: 로컬 컴퓨터에서 개발 환경을 켜고 끄는 단축 윈도우 배치 파일
-- **`run_train_wandb.ps1` / `run_overnight_171.bat`**: 딥러닝 모델 학습을 시작하거나 자동화하는 스크립트
-- **`pytest.ini` / `pdf_config.json`**: 파이썬 자동화 테스트 옵션 및 PDF 변환 환경 설정 파일
-
-### 📊 분석 데이터 및 텍스트 파일
+### 📊 `analysis_results/` 폴더 (데이터 및 결과 리포트)
+분석 과정에 쓰인 메타데이터와 최종 결과물이 모여있는 폴더입니다.
 - **대용량 엑셀/데이터(CSV)**: `kpmp.csv`, `patches_manifest.csv`, `split_manifest.csv`
 - **분석 로그 및 결과 리포트**: `ab_events.jsonl`, `Integrated_Master_Report.html`
-- **디버그용 임시 파일**: `debug.txt`, `diff.txt`
+- **디버그용 임시 텍스트 파일**: `debug.txt`, `diff.txt`
+
+### ⚙️ (루트 경로 유지) 필수 실행 및 설정 파일
+실행 편의성과 시스템 정상 동작(라이브러리 인식 등)을 위해 바깥(루트)에 그대로 둔 파일들입니다.
+- **실행 스크립트**: `start_dev.bat`, `stop_dev.bat`, `run_train_wandb.ps1`, `run_overnight_171.bat`
+- **환경 설정 파일**: `package.json`(프론트엔드), `pytest.ini`(테스트), `pdf_config.json`(문서 변환)
