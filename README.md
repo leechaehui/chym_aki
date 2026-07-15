@@ -203,7 +203,7 @@ Results
 - **Multi-stain Analysis**: 여러 염색(H&E, PAS, MT)을 융합할 때 발생하는 모달리티 간 간섭(Gradient Starvation) 현상을 규명하고, 각 병리 Task에 맞는 염색체 특징을 독립적으로 추출하도록 설계했습니다.
 
 **[Ablation Studies 시각화 데이터]**
-![Ablation Studies](static/results/ablation_studies.png)
+![Ablation Studies](static/results/ablation_studies_v2.png)
 
 **[단일 Stain 상한 성능 평가 (Stain Comparison)]**
 각 stain을 단독 학습해 상한 성능을 측정한 결과입니다. (`Exp0`, CTransPath)

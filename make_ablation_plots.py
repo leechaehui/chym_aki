@@ -39,7 +39,7 @@ ax1.set_xticks(x)
 ax1.set_xticklabels(tasks, fontsize=11, fontweight='bold')
 ax1.set_ylim(0, 1.0)
 ax1.set_ylabel('AUROC', fontsize=12, fontweight='bold')
-ax1.legend(loc='upper left', fontsize=10)
+ax1.legend(loc='upper center', bbox_to_anchor=(0.5, -0.15), ncol=3, fontsize=10)
 
 for i in range(len(tasks)):
     ax1.text(i - width, encoder_data[0][i] + 0.01, f'{encoder_data[0][i]:.3f}', ha='center', fontsize=9)
@@ -56,7 +56,7 @@ ax2.set_xticks(x)
 ax2.set_xticklabels(tasks, fontsize=11, fontweight='bold')
 ax2.set_ylim(0, 1.0)
 ax2.set_ylabel('AUROC', fontsize=12, fontweight='bold')
-ax2.legend(loc='upper left', fontsize=10)
+ax2.legend(loc='upper center', bbox_to_anchor=(0.5, -0.15), ncol=3, fontsize=10)
 
 for i in range(len(tasks)):
     ax2.text(i - width, scale_data[0][i] + 0.01, f'{scale_data[0][i]:.3f}', ha='center', fontsize=9)
@@ -64,5 +64,5 @@ for i in range(len(tasks)):
     ax2.text(i + width, scale_data[2][i] + 0.01, f'{scale_data[2][i]:.3f}', ha='center', fontsize=9, fontweight='bold')
 
 plt.tight_layout(pad=3.0)
-plt.savefig('static/results/ablation_studies.png', dpi=300)
+plt.savefig('static/results/ablation_studies_v2.png', dpi=300, bbox_inches='tight')
 plt.close()
