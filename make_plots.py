@@ -51,3 +51,4 @@ ax.tick_params(axis='both', which='major', labelsize=12)
 plt.tight_layout(pad=3.0)
 plt.savefig('static/results/stain_auroc_plot.png', dpi=300)
 plt.close()
+ 
