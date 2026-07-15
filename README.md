@@ -1,80 +1,203 @@
-# CHYM-AKI 프로젝트 전체 폴더 및 파일 구조 상세 안내
+# 🔬 CHYM-AKI Pathology AI CDSS Platform
 
-이 문서는 `chym_aki` 프로젝트의 최상위 폴더부터 하위 폴더, 그리고 개별 파일들의 목적과 역할을 상세하게 정리한 문서입니다.
+병리 이미지(WSI) AI 분석 결과를 기반으로 신장 질환(AKI) 진단 과정을 지원하고,
+Banff 등급 추론 · 만성도(Chronicity) 점수화 · 히트맵 시각화를 제공하는
+**웹 기반 병리 AI 임상 의사 결정 지원 시스템(CDSS)**입니다.
 
----
+![Demo Video](bandicam_demo.mp4)
 
-## 📁 1. 최상위 디렉토리 (Root Directories)
-
-### `backend/`
-FastAPI 기반의 백엔드 서버 소스코드가 담긴 폴더입니다.
-- **`api/`**: REST API 라우터 및 엔드포인트 정의 (컨트롤러 역할)
-- **`core/`**: 설정, 예외 처리, 데이터베이스 연결 등 핵심 공통 로직
-- **`db/`**: 데이터베이스 마이그레이션 및 시드 데이터
-- **`docker/`**: 백엔드 서버 배포를 위한 `Dockerfile` 및 `docker-compose.yml` (PostgreSQL 등)
-- **`models/` & `schemas/`**: ORM 데이터베이스 모델(Entity) 및 Pydantic 데이터 검증 스키마
-- **`repositories/`**: 데이터베이스 접근 로직 (Repository 패턴 구현)
-- **`services/`**: 비즈니스 로직(핵심 기능)이 구현된 서비스 계층
-- **`ml_models/` & `wsi/`**: 머신러닝 추론 파이프라인 및 WSI(Whole Slide Image) 처리 코드
-- **`main.py`**: FastAPI 백엔드 어플리케이션 진입점 (앱 실행)
-- **`requirements.txt`**: 백엔드 구동에 필요한 파이썬 라이브러리(패키지) 목록
-
-### `frontend/`
-React + TypeScript 기반의 웹 클라이언트(프론트엔드) 소스코드가 담긴 폴더입니다.
-- **`src/`**: 실제 화면을 구성하는 모든 코드
-  - `components/`: 재사용 가능한 UI 컴포넌트 모음
-  - `features/`: 도메인/기능별로 분리된 로직 및 컴포넌트 (예: pathology, retrieval)
-  - `layouts/`: 화면의 공통 레이아웃 (TopBar, Sidebar 등)
-  - `services/`: 백엔드 API와의 통신을 담당하는 함수 모음
-  - `store/`: 전역 상태 관리 (Zustand 기반)
-  - `types/`: TypeScript 타입 정의 모음
-- **`package.json`**: 프론트엔드 구동을 위한 npm 패키지 의존성 목록
-- **`vite.config.ts`**: Vite 빌드 도구 설정 파일
-
-### `Pathology_model/`
-병리 이미지 AI 분석을 위한 딥러닝 모델 소스코드 및 연구 데이터 폴더입니다.
-- **`mil/`**: 다중 인스턴스 학습(Multiple Instance Learning) 관련 모델 아키텍처 코드
-- **`models/`**: CTransPath 등 백본 모델 가중치 및 설정 코드
-- **`generate_v1_heatmap.py`**: AI 추론 결과를 바탕으로 시각화된 히트맵(Heatmap)을 생성하는 스크립트
-- **`cdss_v1_e2e_test.py`**: 시스템의 처음부터 끝까지(End-to-End) 제대로 동작하는지 테스트하는 스크립트
-
-### `scripts/`
-프로젝트 운영 및 관리에 필요한 유틸리티 스크립트가 모여 있습니다.
-- **`ensure_postgres.ps1`**: PostgreSQL 데이터베이스가 정상 구동 중인지 확인하는 파워쉘 스크립트
-- **`rollback_notifier.py`**: 시스템 롤백 발생 시 알림을 보내는 관리용 파이썬 스크립트
-
-### `tests/`
-코드의 안정성을 확보하기 위한 유닛 테스트(Unit Test) 및 통합 테스트 코드 모음입니다.
-- **`test_*.py`**: 기능별(환자 조회, 병리 분석, 알림 등) 동작을 자동으로 검증하는 모듈별 테스트 코드 모음
-- **`vv_runners/`**: 시스템 검증(V&V, Verification and Validation) 및 자동 테스트 리포트 PDF를 생성하는 도구들
-
-### 🚫 버전 관리 및 대용량 데이터 폴더 (Git 제외됨)
-- **`aki_wsi/`, `aki_wsi_ai/`**: 원본 병리 이미지(WSI) 및 수 기가바이트에 달하는 AI 모델 가중치(`.safetensors` 등)가 저장된 폴더 (용량 제한으로 제외)
-- **`data/`, `uploads/`, `pacs_cache/`**: 대규모 학습 데이터셋 및 PACS 서버에서 내려받은 대용량 의료 영상(DICOM) 캐시 폴더
-- **`wandb/`**: Weights & Biases (머신러닝 실험 로깅 플랫폼)의 로컬 실험 기록 및 캐시 파일
-- **`.agents/`, `.claude/`**: AI 코딩 에이전트 구동 기록 및 설정 파일
-- **`.svn/`, `.git_backup/`**: 이전 버전 관리 시스템인 SVN의 기록 및 임시 백업 폴더
+> 실제 앱 데모 — 반디캠으로 녹화된 시연 영상을 통해 WSI 뷰어, AI 추론 결과 확인, 통합 마스터 리포트 출력 과정을 확인할 수 있습니다.
 
 ---
 
-## 📄 2. 기능별 분리 폴더 (`utils/`, `analysis_results/`)
+## 1. 프로젝트 소개
 
-최상위 폴더가 지저분해지는 것을 방지하고 나중에 쉽게 찾을 수 있도록, 성격이 비슷한 개별 파일들을 나누어 정리했습니다.
+- **목적**: 기존 현미경 수작업 관찰에 의존하던 신장 병리 검사를 
+  **AI 기반의 정량적 자동화 분석**으로 전환하여 진단 효율성과 정확성을 높입니다.
+- **해결하려는 문제**: 거대한 WSI(Whole Slide Image) 환경에서 질환 부위를 특정하기 어렵습니다. 
+  이를 해결하기 위해 타일 단위로 이미지를 쪼개고(MIL), 
+  **설명 가능한 AI(히트맵)**를 통해 의사에게 시각적인 판단 근거를 제공합니다.
+- **핵심 기능**: 병리 타일 추출 및 염색 정규화(Macenko) → CTransPath 특징 추출 → Task-Attention MIL 추론 
+  → 2-Tier 서버(8010/8001) 기반 무중단 웹 서비스 제공.
 
-### 🛠️ `utils/` 폴더 (유틸리티 스크립트)
-각종 파이썬 스크립트 파일들이 모여있는 폴더입니다.
-- **데이터 무결성 검증 용도**: `check_cols.py`, `check_coords.py`, `check_csvs.py`, `check_img.py` 등
-- **결과 시각화(차트 생성) 용도**: `make_chart.py`, `make_scatter.py`, `make_n78_chart.py`, `make_notion_chart.py` 등
-- **데이터 변환 및 추출 용도**: `dump_experiments.py`, `dump_jsons.py`, `md_to_pdf.py`, `md_to_pdf_chrome.py` 등
-- **기타 수치 계산 용도**: `get_qwk.py` 등
+---
 
-### 📊 `analysis_results/` 폴더 (데이터 및 결과 리포트)
-분석 과정에 쓰인 메타데이터와 최종 결과물이 모여있는 폴더입니다.
-- **대용량 엑셀/데이터(CSV)**: `kpmp.csv`, `patches_manifest.csv`, `split_manifest.csv`
-- **분석 로그 및 결과 리포트**: `ab_events.jsonl`, `Integrated_Master_Report.html`
-- **디버그용 임시 텍스트 파일**: `debug.txt`, `diff.txt`
+## 2. 주요 기능
 
-### ⚙️ (루트 경로 유지) 필수 실행 및 설정 파일
-실행 편의성과 시스템 정상 동작(라이브러리 인식 등)을 위해 바깥(루트)에 그대로 둔 파일들입니다.
-- **실행 스크립트**: `start_dev.bat`, `stop_dev.bat`, `run_train_wandb.ps1`, `run_overnight_171.bat`
-- **환경 설정 파일**: `package.json`(프론트엔드), `pytest.ini`(테스트), `pdf_config.json`(문서 변환)
+| 화면 | 기능 |
+|------|------|
+| 📊 WSI 뷰어 | 원본 병리 슬라이드 이미지 확대/축소 및 AI 추론 결과(히트맵) 오버레이 |
+| 🧪 검사 관리 | 환자별 병리 검사 의뢰 목록 및 진행 상태 관리 |
+| 🧑‍⚕️ 환자 관리 | 환자 메타데이터 및 진단 이력 조회 |
+| 🔬 AI 리포트 | Banff 등급(0~3) 예측값 및 종합 소견이 담긴 리포트(PDF/docx) 내보내기 |
+| ⚙️ 어드민 | 서버 상태 통합 모니터링, 시스템 로그(Telemetry), 권한 관리(RBAC) |
+
+- WSI 다중 해상도(10x, 40x) 타일 추출
+- 주요 염색 기법 대응 (HE, PAS, MT, Silver)
+- 2-Tier 마이크로서비스 아키텍처 (메인 8010, AI 추론 8001 분리)
+- 클라이언트 측 브라우저 PDF 렌더링 (jsPDF)
+
+---
+
+## 3. 시스템 아키텍처
+
+![System Architecture](static/architecture.png)
+
+> 데이터 수집(PACS) → 타일화 및 정규화 → 특성 추출(CTransPath) → 행동 분석(MIL Task-Attention) 
+> → 시각화(Heatmap)의 흐름이 React 웹 클라이언트로 제공되며, 
+> PostgreSQL에 사용자·환자·진단 결과 및 통합 감사 로그가 적재됩니다.
+> (무거운 AI 연산은 8001 서버가, 일반 비즈니스 로직은 8010 서버가 독립적으로 담당합니다)
+
+---
+
+## 4. 기술 스택
+
+| 분류 | 기술 |
+|------|------|
+| Language | Python 3.10+, TypeScript |
+| Frontend / UI | React, Vite, Zustand |
+| Backend Server | FastAPI (8010 Main, 8001 AI Inference) |
+| AI Model | PyTorch, CTransPath, Task-Attention MIL |
+| Database | PostgreSQL, Docker Compose |
+| Data Processing | Pandas, OpenCV, wsidicom |
+
+---
+
+## 5. 프로젝트 구조
+
+```text
+chym_aki/
+├── backend/                 # FastAPI 기반 2-Tier 서버 소스코드
+│   ├── main.py              # [8010] Main Server 진입점 (인증, 환자, DB 관리)
+│   ├── wsi_main.py          # [8001] AI Inference Server 진입점 (GPU 추론 전용)
+│   ├── api/, core/, db/     # 공통 로직, 데이터베이스 라우팅 및 설정
+│   └── ml_models/, wsi/     # 머신러닝 파이프라인 및 PACS 연동 모듈
+├── frontend/                # React 기반 웹 클라이언트 애플리케이션
+│   ├── src/components/      # 재사용 가능한 UI 컴포넌트 모음
+│   ├── src/features/        # 도메인별 핵심 화면 (pathology, retrieval, admin 등)
+│   └── package.json         # 프론트엔드 패키지 의존성
+├── Pathology_model/         # 병리 AI 연구 및 모델 학습 코드
+│   ├── mil/                 # Task-Attention 다중 인스턴스 학습 아키텍처
+│   └── scripts/             # CTransPath 백본 평가 및 결과 분석(QWK) 등
+├── utils/                   # 🛠️ 부가 유틸리티 및 전처리 스크립트 모음
+│   ├── check_*.py           # 데이터(CSV/좌표) 무결성 검증 용도
+│   └── make_chart.py 등      # AI 학습 결과 시각화 차트 생성 스크립트
+├── analysis_results/        # 📊 분석 파이프라인 데이터 및 최종 리포트 결과
+│   ├── *.csv, *.jsonl       # 모델 평가 매니페스트 및 감사 로그(ab_events)
+│   └── Integrated_Master_Report.html  # 최종 통합 분석 웹 리포트
+├── scripts/                 # 프로젝트 환경 관리용 파워쉘/배치 스크립트
+├── tests/                   # 시스템 V&V 및 유닛 테스트 코드
+└── start_dev.bat            # 클릭 한 번으로 모든 서버(8010, 8001, 프론트) 동시 구동
+```
+
+---
+
+## 6. 데이터셋
+
+- **데이터 소스**: PACS 연동 기반 DICOM WSI (Whole Slide Image)
+- **해상도**: Multi-scale (10x, 40x) / Patch Size (512px)
+- **염색체(Stain) 분류**: 
+  - HE (Hematoxylin & Eosin)
+  - PAS (Periodic Acid-Schiff)
+  - MT (Masson's Trichrome)
+  - Silver (Jones Methenamine Silver)
+- **전처리 (Stain Normalization)**: 
+  - HE: **Macenko** 알고리즘 적용
+  - 기타 염색체: **Reinhard** 알고리즘 적용
+
+> ⚠️ 원본 병리 이미지(`aki_wsi/`)와 AI 모델 가중치 파일(`.safetensors`)은 용량 문제(수십 GB 이상)로
+> `.gitignore` 처리되어 깃허브 저장소에 포함되지 않습니다.
+
+---
+
+## 7. 분석 파이프라인
+
+`wsi_main.py` (8001 서버) 호출 시 5단계 계층으로 순차 처리됩니다.
+
+```text
+PACS DICOM
+   ↓
+[1] Tile Extraction   Multi-scale (10x, 40x) 512px 타일 분할 및 배경 제거
+   ↓
+[2] Normalization     HE(Macenko) / PAS, MT, Silver(Reinhard) 염색 정규화
+   ↓
+[3] Feature Layer     CTransPath 기반 768-dim 특징(Feature) 벡터 추출
+   ↓
+[4] MIL Inference     Task-Attention MIL 모델 → 다중 과제 예측 수행
+   ↓
+[5] Result Assembly   Banff Grade (0~3), Chronicity Score 산출 및 Heatmap 생성
+   ↓
+Main Server (8010) → React 웹 브라우저 렌더링
+```
+
+> AI 성능 저하 방지 및 임상 시스템과의 **실패 격리(Failure Isolation)**를 위해 
+> 8001 서버는 DB 연결 없이 오직 HTTP 이미지 추론 파이프라인만 전담합니다.
+
+---
+
+## 8. 화면 (Screenshots)
+
+**WSI 뷰어 및 히트맵** — 병리 슬라이드 탐색 및 AI 추론 결과 오버레이
+![WSI Viewer](static/screens/viewer.png)
+
+**대시보드** — 통합 모니터링 및 전체 검사 처리 현황
+![Dashboard](static/screens/dashboard.png)
+
+**마스터 리포트 출력** — Banff 점수 및 병리 소견서 PDF 렌더링
+![Report](static/screens/report.png)
+
+---
+
+## 9. 결과 (Results)
+
+AI 모델 학습 및 K-Fold 교차 검증 산출물은 `analysis_results/`에 저장됩니다.
+
+**성능 평가 (QWK - Quadratic Weighted Kappa)**
+![QWK Score](static/results/qwk_plot.png)
+
+**모델 분석 히트맵 산출물**
+![Heatmap Result](static/results/heatmap_result.png)
+
+그 외 산출물:
+- **실험 평가 데이터**: `analysis_results/oof_cdss_v4_experiment_ctranspath.csv` 등
+- **통합 웹 리포트**: `analysis_results/Integrated_Master_Report.html`
+
+---
+
+## 10. 실행 방법
+
+### 통합 개발 환경 빠른 실행
+
+```cmd
+git clone https://github.com/leechaehui/chym_aki.git
+cd chym_aki
+start_dev.bat
+```
+
+> `start_dev.bat` 실행 시 3개의 독립된 서버가 한 번에 구동됩니다:
+> 1) 프론트엔드 (Vite: 5174 포트)
+> 2) 백엔드 메인 (uvicorn: 8010 포트)
+> 3) AI 추론 전담 (uvicorn: 8001 포트)
+
+### 모델 재학습 (백그라운드 / 밤샘 작업용)
+
+```cmd
+run_overnight_171.bat
+```
+> 가상환경 활성화, 모델 훈련 로직(`run_train_wandb.ps1`), 그리고 종료 시 PC 자동 시스템 종료(옵션)까지 관리합니다.
+
+---
+
+## 11. 향후 개선 사항
+
+- [ ] PATIENT_SLIDE_LINKING_TODO 기반 환자-병리 이미지 완전 맵핑
+- [ ] PACS 시스템 고도화 및 캐싱 메커니즘 최적화
+- [ ] OOD(Out-of-Distribution) 데이터를 위한 Uncertainty 지표 UI 반영
+
+---
+
+## 참고: 시스템 통신 흐름도
+
+- **Client (React)** ↔ HTTPS(JWT RS256) ↔ **Main Server (8010)** ↔ PostgreSQL
+- **Main Server (8010)** ↔ HTTP 내부 통신 ↔ **AI Inference Server (8001)**
+- 8010 서버만 개인키로 토큰 서명 권한을 가지며, 8001 서버는 공개키로 인가만 검증합니다. (보안 강화)
