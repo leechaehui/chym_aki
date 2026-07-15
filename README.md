@@ -40,7 +40,7 @@
 
 ## 3. 시스템 아키텍처
 
-![System Architecture](static/screens/architecture.png)
+![System Architecture](static/screens/architecture.jpg)
 
 - 메인 서버(8010)는 인증·환자·리포트·DB 등 모든 서비스를 담당하고, **AI 추론이 필요할 때만** 내부 HTTP로 AI 서버(8001)를 호출합니다.
 - AI 서버(8001)를 분리해 **무거운 GPU 추론이 임상 서비스 응답성에 영향을 주지 않도록** 설계했습니다.
