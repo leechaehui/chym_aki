@@ -3,7 +3,7 @@
 > Whole Slide Image(WSI)로부터 **Banff 병리 소견을 자동 예측**하는 AI 기반 Clinical Decision Support System(CDSS)
 
 <p align="center">
-  <img src="docs/images/architecture.png" alt="System Architecture" width="900"/>
+  <img src="static/screens/architecture.png" alt="System Architecture" width="900"/>
 </p>
 
 <p align="center">
@@ -61,8 +61,6 @@ FastAPI  Main Server (:8010)              # 인증·환자·리포트·DB 등 �
 - AI 서버(8001)를 분리해 **무거운 GPU 추론이 임상 서비스 응답성에 영향을 주지 않도록** 설계했습니다.
 - **JWT는 RS256(비대칭)** — 메인 서버(8010)만 **개인키로 서명**하고, AI 서버(8001)는 **공개키로 검증만** 수행합니다. 추론 서버가 침해돼도 토큰을 위조할 수 없는 구조입니다.
 
-> **구현 범위** — 두 FastAPI 서버(8010/8001) 분리 · JWT RS256(키 분리) · RBAC · 비밀번호 bcrypt 해싱 · Audit Trail · PACS/DICOM 연동(`wsidicom`) · 자체 Telemetry 모니터링 · PostgreSQL(Docker Compose)은 **구현 완료**입니다.
-> 상단 배너의 **Nginx 게이트웨이 · 외부 모니터링 스택(Prometheus/Grafana/ELK) · HL7/FHIR EMR 연동 · 자동 백업**은 **목표 배포 구성**(미구현)입니다.
 
 ---
 
@@ -146,23 +144,20 @@ PAS WSI
 
 ## 8. 화면 (Screenshots)
 
-병리과 판독은 **탭 기반 워크스페이스**(`/pathology`)로 구성됩니다 — Viewer · Report · Consult · PACS.
+**서버 통합 모니터링 및 운영 장애 관리**
+![Monitoring](static/screens/monitoring.jpg)
 
-<!-- 아래 경로에 실제 캡처를 넣으면 표시됩니다. -->
+**병리과 판독 뷰어 (PAS 기능 포함)**
+![PAS Viewer](static/screens/pas_viewer.jpg)
 
-**병리 워크스페이스 (`/pathology`)**
+**마스터 리포트 출력**
+![Report](static/screens/report_demo.jpg)
 
-| Viewer 탭 — PAS WSI 뷰어 | AI 분석 + Attention Heatmap | Report 탭 — 표준화 리포트 |
-|:---:|:---:|:---:|
-| ![viewer](docs/images/ss_pathology_viewer.png) | ![heatmap](docs/images/ss_pathology_heatmap.png) | ![report](docs/images/ss_pathology_report.png) |
-| OpenSeadragon PAS 슬라이드 뷰어 · PACS/슬라이드 선택 | PAS 기반 Banff 예측 결과 패널 + 근거 히트맵 | findings/diagnosis 편집 · PDF 내보내기 |
+**신장내과 데모 시뮬레이션**
+![Nephrology Demo](static/screens/nephro_demo.jpg)
 
-**관리자 (`/admin`)**
-
-| 관리자 대시보드 | 서버 통합 모니터링 (`/admin/server-monitoring`) |
-|:---:|:---:|
-| ![admin](docs/images/ss_admin_dashboard.png) | ![monitoring](docs/images/ss_server_monitoring.png) |
-| 사용자·권한 관리 | 8010/8001 요청·성능·감사 로그 (자체 Telemetry) |
+**알림 발생 환자 데이터 조회**
+![Alarm Patient Data](static/screens/alarm_patient.jpg)
 
 ---
 
