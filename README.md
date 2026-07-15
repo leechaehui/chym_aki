@@ -12,7 +12,7 @@
 </p>
 
 <p align="center">
-  <img src="static/screens/demo_timelapse_v2.webp" alt="Full Demo Timelapse" width="800"/>
+  <img src="static/screens/demo_timelapse_v3.webp" alt="Full Demo Timelapse" width="800"/>
 </p>
 
 ---
