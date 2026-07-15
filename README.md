@@ -130,13 +130,13 @@ PAS WSI
 ## 8. 핵심 데모 화면 (Screenshots)
 
 **검사 진행 리스트 및 대시보드 조회**
-![Demo 1](static/screens/demo_1.jpg)
+![Demo 1](static/screens/demo_1.gif)
 
 **병리 뷰어 및 Task-Attention Heatmap 분석**
-![Demo 2](static/screens/demo_2.jpg)
+![Demo 2](static/screens/demo_2.gif)
 
 **CDSS 최종 리포트 및 통합 모니터링 시스템**
-![Demo 3](static/screens/demo_3.jpg)
+![Demo 3](static/screens/demo_3.gif)
 
 ---
 
