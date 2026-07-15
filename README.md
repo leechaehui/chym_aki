@@ -12,7 +12,7 @@
 </p>
 
 <p align="center">
-  <img src="static/screens/demo_timelapse_v4.webp" alt="Full Demo Timelapse" width="800"/>
+  <img src="static/screens/demo_timelapse_crop.webp" alt="Full Demo Timelapse" width="800"/>
 </p>
 
 ---
@@ -134,13 +134,13 @@ PAS WSI
 ## 8. 핵심 데모 화면 (Screenshots)
 
 **검사 진행 리스트 및 대시보드 조회**
-![Demo 1](static/screens/demo_1.gif)
+![Demo 1](static/screens/demo_1_crop.gif)
 
 **병리 뷰어 및 Task-Attention Heatmap 분석**
-![Demo 2](static/screens/demo_2.gif)
+![Demo 2](static/screens/demo_2_crop.gif)
 
 **최종 병리 분석 리포트 자동 생성 및 출력**
-![Demo 3](static/screens/demo_3.gif)
+![Demo 3](static/screens/demo_3_crop.gif)
 
 ---
 
