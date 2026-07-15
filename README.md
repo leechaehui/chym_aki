@@ -137,25 +137,38 @@ Main Server (8010) → React 웹 브라우저 렌더링
 
 ## 8. 화면 (Screenshots)
 
-**시연 영상 주요 장면 (Demo Highlights)**
-전체 구동 과정은 최상단의 데모 영상을 통해 확인하실 수 있습니다.
+**서버 통합 모니터링 및 운영 장애 관리**
+![Monitoring](static/screens/monitoring.jpg)
 
-![Scene 1](static/screens/scene1.jpg)
-![Scene 2](static/screens/scene2.jpg)
-![Scene 3](static/screens/scene3.jpg)
-![Scene 4](static/screens/scene4.jpg)
+**병리과 판독 뷰어 (PAS 기능 포함)**
+![PAS Viewer](static/screens/pas_viewer.jpg)
+
+**마스터 리포트 출력**
+![Report](static/screens/report_demo.jpg)
+
+**신장내과 데모 시뮬레이션**
+![Nephrology Demo](static/screens/nephro_demo.jpg)
+
+**알림 발생 환자 데이터 조회**
+![Alarm Patient Data](static/screens/alarm_patient.jpg)
 
 ---
 
 ## 9. 결과 (Results)
 
-AI 모델 학습 및 K-Fold 교차 검증 산출물은 `analysis_results/`에 저장됩니다.
+현재 배포된 앙상블 모델(CTransPath + Task-Attention MIL)의 최종 추론 및 검증 결과입니다. 전체 분석 결과는 `analysis_results/`에 저장되어 있습니다.
 
 **성능 평가 (QWK - Quadratic Weighted Kappa)**
 ![QWK Score](static/results/qwk_plot.png)
 
-**모델 분석 히트맵 산출물**
+**Task-Attention 모델 분석 히트맵 산출물**
 ![Heatmap Result](static/results/heatmap_result.png)
+
+**리스크 커버리지 및 보정 결과 (Router Calibration)**
+![Risk Coverage](static/results/risk_coverage.png)
+
+**진단 예측 로짓 분포 (Logit Distribution)**
+![Logit Distribution](static/results/raw_logit_distribution.png)
 
 그 외 산출물:
 - **실험 평가 데이터**: `analysis_results/oof_cdss_v4_experiment_ctranspath.csv` 등
