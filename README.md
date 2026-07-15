@@ -4,7 +4,7 @@
 Banff 등급 추론 · 만성도(Chronicity) 점수화 · 히트맵 시각화를 제공하는
 **웹 기반 병리 AI 임상 의사 결정 지원 시스템(CDSS)**입니다.
 
-![Demo Video](bandicam_demo.mp4)
+<video src="bandicam_demo.mp4" controls="controls" muted="muted" width="100%"></video>
 
 > 실제 앱 데모 — 반디캠으로 녹화된 시연 영상을 통해 WSI 뷰어, AI 추론 결과 확인, 통합 마스터 리포트 출력 과정을 확인할 수 있습니다.
 
