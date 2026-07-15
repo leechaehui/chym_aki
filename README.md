@@ -1,208 +1,328 @@
-# 🔬 CHYM-AKI Pathology AI CDSS Platform
+# CHYM-AKI · Banff Kidney Pathology AI CDSS
 
-병리 이미지(WSI) AI 분석 결과를 기반으로 신장 질환(AKI) 진단 과정을 지원하고,
-Banff 등급 추론 · 만성도(Chronicity) 점수화 · 히트맵 시각화를 제공하는
-**웹 기반 병리 AI 임상 의사 결정 지원 시스템(CDSS)**입니다.
+> Whole Slide Image(WSI)로부터 **Banff 병리 소견을 자동 예측**하는 AI 기반 Clinical Decision Support System(CDSS)
 
-<video src="bandicam_demo.mp4" controls="controls" muted="muted" width="100%"></video>
+<p align="center">
+  <img src="docs/images/architecture.png" alt="System Architecture" width="900"/>
+</p>
 
-> 실제 앱 데모 — 반디캠으로 녹화된 시연 영상을 통해 WSI 뷰어, AI 추론 결과 확인, 통합 마스터 리포트 출력 과정을 확인할 수 있습니다.
+<p align="center">
+  <img src="https://img.shields.io/badge/Frontend-React%2018%20+%20TypeScript-61DAFB"/>
+  <img src="https://img.shields.io/badge/Backend-FastAPI-009688"/>
+  <img src="https://img.shields.io/badge/AI-PyTorch%20·%20CTransPath%20·%20MIL-EE4C2C"/>
+  <img src="https://img.shields.io/badge/DB-PostgreSQL-336791"/>
+</p>
 
 ---
 
 ## 1. 프로젝트 소개
 
-- **목적**: 기존 현미경 수작업 관찰에 의존하던 신장 병리 검사를 
-  **AI 기반의 정량적 자동화 분석**으로 전환하여 진단 효율성과 정확성을 높입니다.
-- **해결하려는 문제**: 거대한 WSI(Whole Slide Image) 환경에서 질환 부위를 특정하기 어렵습니다. 
-  이를 해결하기 위해 타일 단위로 이미지를 쪼개고(MIL), 
-  **설명 가능한 AI(히트맵)**를 통해 의사에게 시각적인 판단 근거를 제공합니다.
-- **핵심 기능**: 병리 타일 추출 및 염색 정규화(Macenko) → CTransPath 특징 추출 → Task-Attention MIL 추론 
-  → 2-Tier 서버(8010/8001) 기반 무중단 웹 서비스 제공.
+신장 이식·급성신손상(AKI) 병리 판독은 숙련된 병리의의 정성적 해석에 크게 의존합니다.
+**CHYM-AKI**는 PAS 염색 WSI를 입력받아 **Banff descriptor를 자동 예측**하고, 판단 근거를 **Attention Heatmap**으로 시각화하여 병리의의 의사결정을 보조하는 CDSS입니다.
+
+- **연구 단계** — KPMP 공개 데이터로 Multi-stain / Multi-scale MIL 모델을 설계·검증
+- **서비스 단계** — **AI 추론 서버(8001)** 와 **메인 서버(8010)** 를 분리한 실제 배포형 아키텍처로 구현
+
+> 전체 시스템은 2개의 FastAPI 서버로 분리 운영됩니다.
+> **8001** = 병리 AI 모델 추론 전용 · **8010** = 인증·환자·리포트 등 그 외 모든 서비스
 
 ---
 
 ## 2. 주요 기능
 
-| 화면 | 기능 |
-|------|------|
-| 📊 WSI 뷰어 | 원본 병리 슬라이드 이미지 확대/축소 및 AI 추론 결과(히트맵) 오버레이 |
-| 🧪 검사 관리 | 환자별 병리 검사 의뢰 목록 및 진행 상태 관리 |
-| 🧑‍⚕️ 환자 관리 | 환자 메타데이터 및 진단 이력 조회 |
-| 🔬 AI 리포트 | Banff 등급(0~3) 예측값 및 종합 소견이 담긴 리포트(PDF/docx) 내보내기 |
-| ⚙️ 어드민 | 서버 상태 통합 모니터링, 시스템 로그(Telemetry), 권한 관리(RBAC) |
-
-- PAS (Periodic Acid-Schiff) 염색 슬라이드 전용 초정밀 타겟 분석
-- 2-Tier 마이크로서비스 아키텍처 (메인 8010, AI 추론 8001 분리)
-- 클라이언트 측 브라우저 PDF 렌더링 (jsPDF)
+- 🔬 **WSI 업로드** — PACS(DICOM) / 로컬 슬라이드 업로드, OpenSeadragon 기반 타일 뷰어
+- 🧠 **PAS 이미지 AI 분석** — CTransPath 특징 추출 → Task-Attention MIL 추론
+- 📊 **Banff Descriptor 예측** — 병리 소견 등급(0–3) 및 확률 예측
+- 🌡️ **Attention Heatmap 생성** — 모델이 주목한 조직 영역 시각화 (설명가능성)
+- 📄 **Report 생성** — 예측 결과·히트맵을 포함한 PDF 리포트 클라이언트 생성(jsPDF/docx), 결과는 DB에 영속화
+- 🛠️ **관리자 페이지** — 사용자·권한 관리, 모델 버전 관리
+- 📡 **서버 통합 모니터링** — 8010/8001 상태·요청·감사 로그 (자체 Telemetry 미들웨어)
 
 ---
 
 ## 3. 시스템 아키텍처
 
-![System Architecture](static/screens/system_architecture_upscaled.jpg)
+```
+React (Vite :5174)
+      │  HTTPS + JWT
+      ▼
+FastAPI  Main Server (:8010)              # 인증·환자·리포트·DB 등 모든 서비스
+      ├── 인증 / 사용자 · 권한 (JWT · RBAC)
+      ├── 환자 / 검사 · 케이스
+      ├── Report (PDF · Heatmap)
+      ├── PostgreSQL
+      │
+      └── AI Request  ──HTTP──▶  FastAPI  AI Server (:8001)   # 병리 AI 추론 전용
+                                       │
+                                WSI → Tile → CTransPath → MIL → Heatmap
+```
 
-> 데이터 수집(PACS) → 타일화 및 정규화 → 특성 추출(CTransPath) → 행동 분석(MIL Task-Attention) 
-> → 시각화(Heatmap)의 흐름이 React 웹 클라이언트로 제공되며, 
-> PostgreSQL에 사용자·환자·진단 결과 및 통합 감사 로그가 적재됩니다.
-> (무거운 AI 연산은 8001 서버가, 일반 비즈니스 로직은 8010 서버가 독립적으로 담당합니다)
+- 메인 서버(8010)는 인증·환자·리포트·DB 등 모든 서비스를 담당하고, **AI 추론이 필요할 때만** 내부 HTTP로 AI 서버(8001)를 호출합니다.
+- AI 서버(8001)를 분리해 **무거운 GPU 추론이 임상 서비스 응답성에 영향을 주지 않도록** 설계했습니다.
+- **JWT는 RS256(비대칭)** — 메인 서버(8010)만 **개인키로 서명**하고, AI 서버(8001)는 **공개키로 검증만** 수행합니다. 추론 서버가 침해돼도 토큰을 위조할 수 없는 구조입니다.
+
+> **구현 범위** — 두 FastAPI 서버(8010/8001) 분리 · JWT RS256(키 분리) · RBAC · 비밀번호 bcrypt 해싱 · Audit Trail · PACS/DICOM 연동(`wsidicom`) · 자체 Telemetry 모니터링 · PostgreSQL(Docker Compose)은 **구현 완료**입니다.
+> 상단 배너의 **Nginx 게이트웨이 · 외부 모니터링 스택(Prometheus/Grafana/ELK) · HL7/FHIR EMR 연동 · 자동 백업**은 **목표 배포 구성**(미구현)입니다.
 
 ---
 
 ## 4. 기술 스택
 
 | 분류 | 기술 |
-|------|------|
-| Language | Python 3.10+, TypeScript |
-| Frontend / UI | React, Vite |
-| Backend Server | FastAPI (8010 Main, 8001 AI Inference) |
-| AI Model | PyTorch, CTransPath, Task-Attention MIL |
-| Database | PostgreSQL, Docker Compose |
-| Data Processing | Pandas, OpenCV, wsidicom |
+|---|---|
+| **Frontend** | React 18, TypeScript, Vite, TailwindCSS, Zustand, React Query, OpenSeadragon |
+| **Backend** | FastAPI, SQLAlchemy, PostgreSQL, Pydantic, JWT (RS256) |
+| **AI / ML** | PyTorch, CTransPath (Swin Transformer), Task-Attention MIL, OpenSlide |
+| **리포트** | jsPDF, docx, html2canvas |
+| **Infra** | Docker · Docker Compose, 자체 Telemetry 미들웨어, SVN |
 
 ---
 
 ## 5. 프로젝트 구조
 
-```text
+```
 chym_aki/
-├── backend/                 # FastAPI 기반 2-Tier 서버 소스코드
-│   ├── main.py              # [8010] Main Server 진입점 (인증, 환자, DB 관리)
-│   ├── wsi_main.py          # [8001] AI Inference Server 진입점 (GPU 추론 전용)
-│   ├── api/, core/, db/     # 공통 로직, 데이터베이스 라우팅 및 설정
-│   └── ml_models/, wsi/     # 머신러닝 파이프라인 및 PACS 연동 모듈
-├── frontend/                # React 기반 웹 클라이언트 애플리케이션
-│   ├── src/components/      # 재사용 가능한 UI 컴포넌트 모음
-│   ├── src/features/        # 도메인별 핵심 화면 (pathology, retrieval, admin 등)
-│   └── package.json         # 프론트엔드 패키지 의존성
-├── Pathology_model/         # 병리 AI 연구 및 모델 학습 코드
-│   ├── mil/                 # Task-Attention 다중 인스턴스 학습 아키텍처
-│   └── scripts/             # CTransPath 백본 평가 및 결과 분석(QWK) 등
-├── utils/                   # 🛠️ 부가 유틸리티 및 전처리 스크립트 모음
-│   ├── check_*.py           # 데이터(CSV/좌표) 무결성 검증 용도
-│   └── make_chart.py 등      # AI 학습 결과 시각화 차트 생성 스크립트
-├── analysis_results/        # 📊 분석 파이프라인 데이터 및 최종 리포트 결과
-│   ├── *.csv, *.jsonl       # 모델 평가 매니페스트 및 감사 로그(ab_events)
-│   └── Integrated_Master_Report.html  # 최종 통합 분석 웹 리포트
-├── scripts/                 # 프로젝트 환경 관리용 파워쉘/배치 스크립트
-├── tests/                   # 시스템 V&V 및 유닛 테스트 코드
-└── start_dev.bat            # 클릭 한 번으로 모든 서버(8010, 8001, 프론트) 동시 구동
+├── frontend/                     # React + TypeScript (Vite)
+│   └── src/
+│       ├── components/           # 재사용 UI 컴포넌트
+│       ├── features/             # 도메인별 로직 (pathology, retrieval 등)
+│       ├── services/             # 백엔드 API 통신
+│       ├── store/                # 전역 상태 (Zustand)
+│       └── types/                # TypeScript 타입 정의
+├── backend/
+│   ├── main.py                   # ▶ Main Server 진입점 (:8010)
+│   ├── wsi_main.py               # ▶ AI Inference Server 진입점 (:8001)
+│   ├── api/                      # REST 라우터 (auth · patients · pathology · wsi …)
+│   ├── services/                 # 비즈니스 로직
+│   ├── models/                   # SQLAlchemy ORM 엔티티
+│   ├── schemas/                  # Pydantic 검증 스키마
+│   ├── wsi/                      # WSI 추론 파이프라인 (analysis · pacs · slides · features)
+│   ├── telemetry/                # 요청/성능/감사 모니터링 미들웨어
+│   ├── db/                       # 마이그레이션 · 시드 데이터
+│   └── docker/                   # Dockerfile · docker-compose.yml
+├── Pathology_model/              # 연구용 Multi-stain / Multi-scale MIL
+│   ├── mil/                      # MIL 모델 · 학습 · 평가 코드
+│   ├── scripts/                  # 데이터 준비 · 검증
+│   └── results/                  # CV 결과 (mil_cv_*.json) · OOF · 진단 그림
+├── start_dev.bat                 # 백엔드+프론트 원클릭 구동 (Windows)
+└── stop_dev.bat                  # 서버 일괄 종료
 ```
 
 ---
 
 ## 6. 데이터셋
 
-- **데이터 소스**: PACS 연동 기반 DICOM WSI (Whole Slide Image)
-- **해상도**: Multi-scale (10x, 40x) / Patch Size (512px)
-- **타겟 염색체(Stain)**: **PAS (Periodic Acid-Schiff)** 단일 집중 분석
-- **전처리 (Stain Normalization)**: **Reinhard** 알고리즘을 통한 초정밀 색상 정규화 및 보정
+- **출처**: KPMP (Kidney Precision Medicine Project) 공개 신장 병리 데이터
+- **규모**: 환자 **95명** · WSI **371장** · 추출 패치 **150,000+**
+- **염색(Stain)**: **H&E · PAS · MT** (Main) — Silver는 부록, IF 제외
+- **타깃**: Banff descriptor (immune / chronic / stage3 / ATI severity), Grade 0–3
+- **검증**: 환자 단위(patient-level) **5-fold Cross Validation** (데이터 누수 0)
 
-> ⚠️ 원본 병리 이미지(`aki_wsi/`)와 AI 모델 가중치 파일(`.safetensors`)은 용량 문제(수십 GB 이상)로
-> `.gitignore` 처리되어 깃허브 저장소에 포함되지 않습니다.
+> ⚠️ 원본 WSI(`data/raw`, ~50GB)와 패치 임베딩(`data/embeddings`)은 용량·연구데이터 사유로 저장소에 포함되지 않습니다.
 
 ---
 
-## 7. 분석 파이프라인
+## 7. AI 파이프라인
 
-`wsi_main.py` (8001 서버) 호출 시 5단계 계층으로 순차 처리됩니다.
+`wsi_main.py`(8001) 추론 시 다음 단계로 순차 처리됩니다.
 
-```text
-PACS DICOM
-   ↓
-[1] Tile Extraction   Multi-scale (10x, 40x) 512px 타일 분할 및 배경 제거
-   ↓
-[2] Normalization     PAS 슬라이드 전용 Reinhard 염색 정규화 및 전처리
-   ↓
-[3] Feature Layer     CTransPath 기반 768-dim 특징(Feature) 벡터 추출
-   ↓
-[4] MIL Inference     Task-Attention MIL 모델 → 다중 과제 예측 수행
-   ↓
-[5] Result Assembly   Banff Grade (0~3), Chronicity Score 산출 및 Heatmap 생성
-   ↓
-Main Server (8010) → React 웹 브라우저 렌더링
 ```
-
-> AI 성능 저하 방지 및 임상 시스템과의 **실패 격리(Failure Isolation)**를 위해 
-> 8001 서버는 DB 연결 없이 오직 HTTP 이미지 추론 파이프라인만 전담합니다.
+PACS (DICOM)
+      ↓
+PAS WSI
+      ↓
+[1] Patch Extraction      512px 타일 추출 · 색상정규화(HE=Macenko / 그 외=Reinhard) · 배경 제거
+      ↓
+[2] Feature Extraction    CTransPath (Swin-Tiny) · patch당 768-dim feature
+      ↓
+[3] Task-Attention MIL    환자 bag 단위 attention pooling · 다중 과제 예측
+      ↓
+[4] Banff Prediction      Grade 0–3 · Chronicity Score · 확률
+      ↓
+[5] Attention Heatmap     모델이 주목한 조직 영역 시각화 (근거 제시)
+```
 
 ---
 
 ## 8. 화면 (Screenshots)
 
-**서버 통합 모니터링 및 운영 장애 관리**
-![Monitoring](static/screens/monitoring.jpg)
+병리과 판독은 **탭 기반 워크스페이스**(`/pathology`)로 구성됩니다 — Viewer · Report · Consult · PACS.
 
-**병리과 판독 뷰어 (PAS 기능 포함)**
-![PAS Viewer](static/screens/pas_viewer.jpg)
+<!-- 아래 경로에 실제 캡처를 넣으면 표시됩니다. -->
 
-**마스터 리포트 출력**
-![Report](static/screens/report_demo.jpg)
+**병리 워크스페이스 (`/pathology`)**
 
-**신장내과 데모 시뮬레이션**
-![Nephrology Demo](static/screens/nephro_demo.jpg)
+| Viewer 탭 — PAS WSI 뷰어 | AI 분석 + Attention Heatmap | Report 탭 — 표준화 리포트 |
+|:---:|:---:|:---:|
+| ![viewer](docs/images/ss_pathology_viewer.png) | ![heatmap](docs/images/ss_pathology_heatmap.png) | ![report](docs/images/ss_pathology_report.png) |
+| OpenSeadragon PAS 슬라이드 뷰어 · PACS/슬라이드 선택 | PAS 기반 Banff 예측 결과 패널 + 근거 히트맵 | findings/diagnosis 편집 · PDF 내보내기 |
 
-**알림 발생 환자 데이터 조회**
-![Alarm Patient Data](static/screens/alarm_patient.jpg)
+**관리자 (`/admin`)**
+
+| 관리자 대시보드 | 서버 통합 모니터링 (`/admin/server-monitoring`) |
+|:---:|:---:|
+| ![admin](docs/images/ss_admin_dashboard.png) | ![monitoring](docs/images/ss_server_monitoring.png) |
+| 사용자·권한 관리 | 8010/8001 요청·성능·감사 로그 (자체 Telemetry) |
 
 ---
 
 ## 9. 결과 (Results)
 
-현재 배포된 앙상블 모델(CTransPath + Task-Attention MIL)의 최종 추론 및 검증 결과입니다. 전체 분석 결과는 `analysis_results/`에 저장되어 있습니다.
+환자 단위(patient-level) 5-fold CV · CTransPath 인코더 · gold-label 코호트(~65명).
 
-**성능 평가 (QWK - Quadratic Weighted Kappa)**
-![QWK Score](static/results/qwk_plot.png)
+### Banff Descriptor 예측 (Ordinal QWK)
 
-**Task-Attention 모델 분석 히트맵 산출물**
-![Heatmap Result](static/results/heatmap_result.png)
+`TaskAttn-MS-CORAL` · Multi-scale(10x+40x) · Multi-stain(HE/PAS/MT/Silver)
 
-**리스크 커버리지 및 보정 결과 (Router Calibration)**
-![Risk Coverage](static/results/risk_coverage.png)
+| Descriptor | QWK | 95% CI |
+|---|---|---|
+| **Fibrosis (섬유화)** | **0.400** | 0.198 – 0.571 |
+| Atrophy (위축) | 0.383 | 0.168 – 0.566 |
+| Inflammation (염증) | 0.331 | 0.108 – 0.548 |
 
-**진단 예측 로짓 분포 (Logit Distribution)**
-![Logit Distribution](static/results/raw_logit_distribution.png)
+### 단일 Stain Upper-Bound — "task마다 최적 염색이 다르다" (AUROC)
 
-그 외 산출물:
-- **실험 평가 데이터**: `analysis_results/oof_cdss_v4_experiment_ctranspath.csv` 등
-- **통합 웹 리포트**: `analysis_results/Integrated_Master_Report.html`
+각 stain을 단독 학습해 상한 성능을 측정 (`Exp0`, CTransPath)
+
+| Task | H&E | PAS | MT | 최적 Stain |
+|---|:---:|:---:|:---:|:---:|
+| Immune | **0.689** | 0.593 | 0.613 | H&E |
+| Chronic | 0.732 | **0.781** | 0.619 | **PAS** |
+| Stage 3 | 0.543 | 0.581 | **0.630** | **MT** |
+
+→ PAS/MT가 특정 task에서 H&E를 능가 → 모달리티가 약한 게 아니라 **Early Fusion 구조가 이를 억눌렀음**을 입증 (§11 트러블슈팅)
+
+> ⚠️ 탐색적 연구 단계입니다. 양성 표본이 적어(예: immune n=44, 양성 14) **신뢰구간이 넓으며**, 절대 성능보다 **파이프라인·설계 타당성 검증**에 초점을 둔 결과입니다.
+
+<!-- 성능 그래프 이미지가 있으면 아래에 -->
+<!-- ![results](docs/images/results_chart.png) -->
 
 ---
 
-## 10. 실행 방법
+## 10. 담당 역할 (My Contributions)
 
-### 통합 개발 환경 빠른 실행
+**AI 파이프라인·모델 설계부터 AI 추론 서버 구축·운영까지** 담당했습니다.
 
-```cmd
-git clone https://github.com/leechaehui/chym_aki.git
-cd chym_aki
-start_dev.bat
+- ✔ KPMP 데이터 구축 및 전처리
+- ✔ WSI Patch Pipeline 구현 (512px 타일 추출 · 색상 정규화)
+- ✔ CTransPath Feature Extractor 구축
+- ✔ Multi-stain MIL 설계 (H&E / PAS / MT)
+- ✔ Missing-aware Fusion 구현 (0-fill 없이 결측 modality 처리)
+- ✔ **Attention Collapse 진단 및 해결** (Gradient Starvation 규명 → Attention 구조 재설계)
+- ✔ FastAPI AI Inference Server(8001) 구축
+- ✔ PostgreSQL 연동 · 관리자 시스템 · 서버 통합 모니터링 구축
+
+---
+
+## 11. 트러블슈팅 — Multi-stain Attention Collapse
+
+> 가장 깊게 파고든 문제입니다. **성급한 결론 대신, 가설을 하나씩 반증하며 진짜 원인을 규명**했습니다.
+
+**증상** — MT stain의 fusion 가중치가 **0.1%로 수렴**, Heatmap이 병변을 못 찾고 전체가 uniform(파랑)으로 출력
+
+**가설 검증 — 틀린 원인부터 배제**
+- ❌ **Temperature Scaling** — logit 분산만 벌릴 뿐 patch 순위가 안 바뀌어 무의미 (기각)
+- ❌ **Encoder / Embedding 붕괴** — HE·PAS·MT embedding variance가 모두 `~0.0024`로 동등 → 입력 문제 아님 (기각)
+
+**진짜 원인 (2가지)**
+- **① Gradient Starvation @ Early Fusion** — 초기엔 HE·MT gradient가 동등(0.19)했으나 epoch 10부터 HE가 독점(0.43), MT/PAS는 **epoch 50에 0.008로 영구 소멸**. H&E가 loss를 가장 빨리 줄이며 fusion valve를 독점하는 **Early Fusion 구조적 결함**
+- **② Initialization Variance Collapse** — Gated Attention의 `tanh·sigmoid` 포화로 raw logit std가 `0.14`를 못 넘겨, 수천 개 patch 환경에서 gradient가 희석되며 attention이 uniform(≈0.09)으로 붕괴
+
+**스모킹 건 — "모달리티가 약한 게 아니다"**
+- 단일 stain 실험에서 Chronic은 **PAS(0.781 > HE 0.732)**, Stage3는 **MT(0.630 > HE 0.543)** 가 압도 → PAS/MT는 최고 정보원인데 Early Fusion 구조에 갇혀 죽어있었음을 증명
+
+**해결**
+- Gated(`tanh·sigmoid`) Attention → **Simple Linear Attention(`nn.Linear(dim, 1)`)** 교체 → logit std `0.14 → 0.3~0.5`로 상승, attention 대칭성이 깨지며 의미 있는 점수 격차 회복
+- Heatmap은 전역 min/max 대신 **stain별 percentile(5–99) local scaling** 적용 → 미세 병변 시각화 복원
+
+---
+
+## 12. 실행 방법
+
+### 빠른 실행 (Docker Compose — 데모 데이터 자동 시딩)
+
+```bash
+git clone <repo-url>
+cd chym_aki/backend
+docker compose -f docker/docker-compose.yml up --build
 ```
 
-> `start_dev.bat` 실행 시 3개의 독립된 서버가 한 번에 구동됩니다:
-> 1) 프론트엔드 (Vite: 5174 포트)
-> 2) 백엔드 메인 (uvicorn: 8010 포트)
-> 3) AI 추론 전담 (uvicorn: 8001 포트)
+> `SEED_ON_STARTUP=true` 로 PostgreSQL 스키마 생성 + 데모 데이터가 자동 주입됩니다.
 
-### 모델 재학습 (백그라운드 / 밤샘 작업용)
+### 전체 개발 환경 (두 서버 + 프론트)
 
-```cmd
-run_overnight_171.bat
+```bash
+# 1) Main Server  :8010
+cd backend
+pip install -r requirements.txt
+uvicorn main:app --reload --port 8010
+
+# 2) AI Inference Server  :8001
+uvicorn wsi_main:app --reload --port 8001
+
+# 3) Frontend  :5174
+cd frontend
+npm install && npm run dev
 ```
-> 가상환경 활성화, 모델 훈련 로직(`run_train_wandb.ps1`), 그리고 종료 시 PC 자동 시스템 종료(옵션)까지 관리합니다.
+
+> Windows에서는 루트의 **`start_dev.bat`** 실행 시 가상환경 세팅 → DB 시딩 → 백엔드·프론트가 한 번에 구동됩니다. (종료: `stop_dev.bat`)
+> DB 접속 정보는 `backend/.env` 의 `DATABASE_URL` 로 재정의합니다.
 
 ---
 
-## 11. 향후 개선 사항
+## 13. 향후 개선 사항
 
-- [ ] PATIENT_SLIDE_LINKING_TODO 기반 환자-병리 이미지 완전 맵핑
-- [ ] PACS 시스템 고도화 및 캐싱 메커니즘 최적화
-- [ ] OOD(Out-of-Distribution) 데이터를 위한 Uncertainty 지표 UI 반영
+- [ ] External Validation (외부 기관 데이터 검증)
+- [ ] Pathology Foundation Model 적용 (UNI · Virchow 등)
+- [ ] Early Fusion → Late/Delayed Fusion 구조 전환 (Cross-Stain Transformer)
+- [ ] Multi-stain 모델 서비스 배포
 
 ---
 
-## 참고: 시스템 통신 흐름도
+## 참고: 데이터베이스 스키마 (ERD)
 
-- **Client (React)** ↔ HTTPS(JWT RS256) ↔ **Main Server (8010)** ↔ PostgreSQL
-- **Main Server (8010)** ↔ HTTP 내부 통신 ↔ **AI Inference Server (8001)**
-- 8010 서버만 개인키로 토큰 서명 권한을 가지며, 8001 서버는 공개키로 인가만 검증합니다. (보안 강화)
+PostgreSQL · CHYM-AKI 핵심 도메인 (일부 발췌)
+
+```mermaid
+erDiagram
+    users ||--o{ audit_logs : "기록"
+    patients ||--o{ pathology_results : "보유"
+    patients ||--o{ admissions : "입원"
+    pathology_results ||--o{ wsi_metadata : "슬라이드"
+    pathology_results ||--o{ ai_draft_notes : "AI 초안"
+
+    users {
+        int id PK
+        string username
+        string role
+    }
+    patients {
+        int id PK
+        string name
+        string patient_no
+    }
+    pathology_results {
+        int id PK
+        int patient_id FK
+        string banff_grade
+        float chronicity_score
+    }
+    wsi_metadata {
+        int id PK
+        int result_id FK
+        string stain
+        string slide_path
+    }
+    ai_draft_notes {
+        int id PK
+        int patient_id FK
+        text content
+    }
+    audit_logs {
+        int id PK
+        int user_id FK
+        string action
+    }
+```
+
+<sub>전체 테이블: users · patients · admissions · beds · pathology_results · wsi_metadata · ai_draft_notes · alerts · notifications · timeline_events · audit_logs · request_logs 등</sub>
