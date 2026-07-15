@@ -42,20 +42,7 @@
 
 ## 3. 시스템 아키텍처
 
-```
-React (Vite :5174)
-      │  HTTPS + JWT
-      ▼
-FastAPI  Main Server (:8010)              # 인증·환자·리포트·DB 등 모든 서비스
-      ├── 인증 / 사용자 · 권한 (JWT · RBAC)
-      ├── 환자 / 검사 · 케이스
-      ├── Report (PDF · Heatmap)
-      ├── PostgreSQL
-      │
-      └── AI Request  ──HTTP──▶  FastAPI  AI Server (:8001)   # 병리 AI 추론 전용
-                                       │
-                                WSI → Tile → CTransPath → MIL → Heatmap
-```
+![System Architecture](static/screens/architecture.png)
 
 - 메인 서버(8010)는 인증·환자·리포트·DB 등 모든 서비스를 담당하고, **AI 추론이 필요할 때만** 내부 HTTP로 AI 서버(8001)를 호출합니다.
 - AI 서버(8001)를 분리해 **무거운 GPU 추론이 임상 서비스 응답성에 영향을 주지 않도록** 설계했습니다.
