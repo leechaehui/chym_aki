@@ -127,22 +127,16 @@ PAS WSI
 
 ---
 
-## 8. 화면 (Screenshots)
+## 8. 핵심 데모 화면 (Screenshots)
 
-**서버 통합 모니터링 및 운영 장애 관리**
-![Monitoring](static/screens/monitoring.jpg)
+**검사 진행 리스트 및 대시보드 조회**
+![Demo 1](static/screens/demo_1.jpg)
 
-**병리과 판독 뷰어 (PAS 기능 포함)**
-![PAS Viewer](static/screens/pas_viewer.jpg)
+**병리 뷰어 및 Task-Attention Heatmap 분석**
+![Demo 2](static/screens/demo_2.jpg)
 
-**마스터 리포트 출력**
-![Report](static/screens/report_demo.jpg)
-
-**신장내과 데모 시뮬레이션**
-![Nephrology Demo](static/screens/nephro_demo.jpg)
-
-**알림 발생 환자 데이터 조회**
-![Alarm Patient Data](static/screens/alarm_patient.jpg)
+**CDSS 최종 리포트 및 통합 모니터링 시스템**
+![Demo 3](static/screens/demo_3.jpg)
 
 ---
 
