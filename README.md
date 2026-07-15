@@ -11,6 +11,10 @@
   <img src="https://img.shields.io/badge/DB-PostgreSQL-336791"/>
 </p>
 
+<p align="center">
+  <img src="static/screens/demo_timelapse.webp" alt="Full Demo Timelapse" width="800"/>
+</p>
+
 ---
 
 ## 1. 프로젝트 소개
