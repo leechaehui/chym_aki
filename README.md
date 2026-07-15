@@ -48,10 +48,6 @@ React + TypeScript 기반의 웹 클라이언트(프론트엔드) 소스코드�
 - **`test_*.py`**: 기능별(환자 조회, 병리 분석, 알림 등) 동작을 자동으로 검증하는 모듈별 테스트 코드 모음
 - **`vv_runners/`**: 시스템 검증(V&V, Verification and Validation) 및 자동 테스트 리포트 PDF를 생성하는 도구들
 
-### `notion_tables/` & `ppt_assets/`
-- **`notion_tables/`**: Notion 연동 데이터나 관리용 테이블을 정리하여 추출해둔 폴더 (CSV, SVG 형태)
-- **`ppt_assets/`**: 발표나 보고서(PPT) 작성에 사용되는 시각화 이미지 및 레이아웃 리소스 폴더
-
 ### 🚫 버전 관리 및 대용량 데이터 폴더 (Git 제외됨)
 - **`aki_wsi/`, `aki_wsi_ai/`**: 원본 병리 이미지(WSI) 및 수 기가바이트에 달하는 AI 모델 가중치(`.safetensors` 등)가 저장된 폴더 (용량 제한으로 제외)
 - **`data/`, `uploads/`, `pacs_cache/`**: 대규모 학습 데이터셋 및 PACS 서버에서 내려받은 대용량 의료 영상(DICOM) 캐시 폴더
