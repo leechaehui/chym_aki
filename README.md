@@ -137,14 +137,13 @@ Main Server (8010) → React 웹 브라우저 렌더링
 
 ## 8. 화면 (Screenshots)
 
-**WSI 뷰어 및 히트맵** — 병리 슬라이드 탐색 및 AI 추론 결과 오버레이
-![WSI Viewer](static/screens/viewer.png)
+**시연 영상 주요 장면 (Demo Highlights)**
+전체 구동 과정은 최상단의 데모 영상을 통해 확인하실 수 있습니다.
 
-**대시보드** — 통합 모니터링 및 전체 검사 처리 현황
-![Dashboard](static/screens/dashboard.png)
-
-**마스터 리포트 출력** — Banff 점수 및 병리 소견서 PDF 렌더링
-![Report](static/screens/report.png)
+![Scene 1](static/screens/scene1.jpg)
+![Scene 2](static/screens/scene2.jpg)
+![Scene 3](static/screens/scene3.jpg)
+![Scene 4](static/screens/scene4.jpg)
 
 ---
 
