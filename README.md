@@ -242,7 +242,7 @@ Results
 
 > 가장 깊게 파고든 문제입니다. **성급한 결론 대신, 가설을 하나씩 반증하며 진짜 원인을 규명**했습니다.
 
-**증상** — MT stain의 fusion 가중치가 **0.1%로 수렴**, Heatmap이 병변을 못 찾고 전체가 uniform(파랑)으로 출력
+**증상** — PAS stain의 fusion 가중치가 **0.1%로 수렴**, Heatmap이 병변을 못 찾고 전체가 uniform(파랑)으로 출력
 
 **가설 검증 — 틀린 원인부터 배제**
 - ❌ **Temperature Scaling** — logit 분산만 벌릴 뿐 patch 순위가 안 바뀌어 무의미 (기각)
