@@ -198,9 +198,12 @@ Results
 
 프로젝트 개발 과정에서 수행한 핵심 가설 검증 및 Ablation Study 요약입니다.
 
-- **Encoder Comparison**: 일반 이미지 모델(`ResNet50`, `DINOv2`) 대비 병리 특화 Foundation Model(`CTransPath`)이 모든 진단 지표에서 압도적인 우위를 보였습니다.
-- **Scale Comparison**: `10x` (조직 구조적 맥락)와 `40x` (세포 단위 디테일) 단일 해상도보다, 두 해상도를 결합한 `Multi-scale` 모델이 Banff 예측 안정성(QWK)을 크게 향상시켰습니다.
+- **Encoder Comparison**: 일반 이미지 모델(`ResNet50`, `DINOv2`) 대비 병리 특화 Foundation Model(`CTransPath`)이 대부분의 진단 지표에서 구조적 이점을 보였습니다.
+- **Scale Comparison**: `10x` (조직 구조적 맥락)와 `40x` (세포 단위 디테일) 단일 해상도보다, 두 해상도를 결합한 `Multi-scale` 모델이 Banff 예측 안정성을 전반적으로 향상시켰습니다.
 - **Multi-stain Analysis**: 여러 염색(H&E, PAS, MT)을 융합할 때 발생하는 모달리티 간 간섭(Gradient Starvation) 현상을 규명하고, 각 병리 Task에 맞는 염색체 특징을 독립적으로 추출하도록 설계했습니다.
+
+**[Ablation Studies 시각화 데이터]**
+![Ablation Studies](static/results/ablation_studies.png)
 
 **[단일 Stain 상한 성능 평가 (Stain Comparison)]**
 각 stain을 단독 학습해 상한 성능을 측정한 결과입니다. (`Exp0`, CTransPath)
