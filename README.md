@@ -55,7 +55,7 @@ Banff 등급 추론 · 만성도(Chronicity) 점수화 · 히트맵 시각화를
 | 분류 | 기술 |
 |------|------|
 | Language | Python 3.10+, TypeScript |
-| Frontend / UI | React, Vite, Zustand |
+| Frontend / UI | React, Vite |
 | Backend Server | FastAPI (8010 Main, 8001 AI Inference) |
 | AI Model | PyTorch, CTransPath, Task-Attention MIL |
 | Database | PostgreSQL, Docker Compose |
