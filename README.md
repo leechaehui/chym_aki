@@ -32,7 +32,7 @@ Banff 등급 추론 · 만성도(Chronicity) 점수화 · 히트맵 시각화를
 | 🔬 AI 리포트 | Banff 등급(0~3) 예측값 및 종합 소견이 담긴 리포트(PDF/docx) 내보내기 |
 | ⚙️ 어드민 | 서버 상태 통합 모니터링, 시스템 로그(Telemetry), 권한 관리(RBAC) |
 
-- PAS (Periodic Acid-Schiff) 염색 슬라이드 중심의 특화 분석 (HE, MT, Silver 병행 지원)
+- PAS (Periodic Acid-Schiff) 염색 슬라이드 전용 초정밀 타겟 분석
 - 2-Tier 마이크로서비스 아키텍처 (메인 8010, AI 추론 8001 분리)
 - 클라이언트 측 브라우저 PDF 렌더링 (jsPDF)
 
@@ -95,10 +95,8 @@ chym_aki/
 
 - **데이터 소스**: PACS 연동 기반 DICOM WSI (Whole Slide Image)
 - **해상도**: Multi-scale (10x, 40x) / Patch Size (512px)
-- **타겟 염색체(Stain)**: **PAS (Periodic Acid-Schiff)** 핵심 타겟팅 (추가로 HE, MT, Silver 지원)
-- **전처리 (Stain Normalization)**: 
-  - **PAS** 및 기타 특수 염색: **Reinhard** 알고리즘을 통한 초정밀 색상 정규화
-  - HE: **Macenko** 알고리즘 적용
+- **타겟 염색체(Stain)**: **PAS (Periodic Acid-Schiff)** 단일 집중 분석
+- **전처리 (Stain Normalization)**: **Reinhard** 알고리즘을 통한 초정밀 색상 정규화 및 보정
 
 > ⚠️ 원본 병리 이미지(`aki_wsi/`)와 AI 모델 가중치 파일(`.safetensors`)은 용량 문제(수십 GB 이상)로
 > `.gitignore` 처리되어 깃허브 저장소에 포함되지 않습니다.
@@ -114,7 +112,7 @@ PACS DICOM
    ↓
 [1] Tile Extraction   Multi-scale (10x, 40x) 512px 타일 분할 및 배경 제거
    ↓
-[2] Normalization     PAS 중심의 Reinhard 염색 정규화 (HE는 Macenko 적용)
+[2] Normalization     PAS 슬라이드 전용 Reinhard 염색 정규화 및 전처리
    ↓
 [3] Feature Layer     CTransPath 기반 768-dim 특징(Feature) 벡터 추출
    ↓
