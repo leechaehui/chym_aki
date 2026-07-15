@@ -56,3 +56,4 @@ HE+PAS 둘 다 있는 12명(환자ID는 PACS case_code의 `(NN-NNNNN)` 표기 �
 - **`chym.wsi_metadata`(26건, HE only, dzi_available 전부 false)는 이 용도로 쓰지 않음** — WSI 뷰어용이 아니라 `chym_aki_ai/data4/cbr_index/`(유사증례 검색) 참조 테이블로 추정. 혼동 주의.
 - `AKI-100231`/`ICU-39475797`의 PAS는 아직 온디맨드 추출 전이라, 처음 열람 시 "피처 추출 시작" 버튼을 눌러야 함(정상 흐름).
 - 나머지 3명(30-11033, 30-11090, 32-10034 등)은 아직 아무 판독목록 환자에도 배정 안 함 — 필요하면 추가 insert만 하면 됨.
+ 
