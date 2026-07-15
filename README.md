@@ -41,7 +41,7 @@ Banff 등급 추론 · 만성도(Chronicity) 점수화 · 히트맵 시각화를
 
 ## 3. 시스템 아키텍처
 
-![System Architecture](static/architecture.png)
+
 
 > 데이터 수집(PACS) → 타일화 및 정규화 → 특성 추출(CTransPath) → 행동 분석(MIL Task-Attention) 
 > → 시각화(Heatmap)의 흐름이 React 웹 클라이언트로 제공되며, 
@@ -138,13 +138,13 @@ Main Server (8010) → React 웹 브라우저 렌더링
 ## 8. 화면 (Screenshots)
 
 **WSI 뷰어 및 히트맵** — 병리 슬라이드 탐색 및 AI 추론 결과 오버레이
-![WSI Viewer](static/screens/viewer.png)
+
 
 **대시보드** — 통합 모니터링 및 전체 검사 처리 현황
-![Dashboard](static/screens/dashboard.png)
+
 
 **마스터 리포트 출력** — Banff 점수 및 병리 소견서 PDF 렌더링
-![Report](static/screens/report.png)
+
 
 ---
 
@@ -153,10 +153,10 @@ Main Server (8010) → React 웹 브라우저 렌더링
 AI 모델 학습 및 K-Fold 교차 검증 산출물은 `analysis_results/`에 저장됩니다.
 
 **성능 평가 (QWK - Quadratic Weighted Kappa)**
-![QWK Score](static/results/qwk_plot.png)
+
 
 **모델 분석 히트맵 산출물**
-![Heatmap Result](static/results/heatmap_result.png)
+
 
 그 외 산출물:
 - **실험 평가 데이터**: `analysis_results/oof_cdss_v4_experiment_ctranspath.csv` 등
