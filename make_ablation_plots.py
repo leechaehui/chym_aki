@@ -37,7 +37,7 @@ ax1.bar(x + width, encoder_data[2], width, label='DINOv2 (General Vision)', colo
 ax1.set_title('Encoder Comparison (AUROC)', fontsize=14, fontweight='bold', pad=15)
 ax1.set_xticks(x)
 ax1.set_xticklabels(tasks, fontsize=11, fontweight='bold')
-ax1.set_ylim(0, 0.8)
+ax1.set_ylim(0, 1.0)
 ax1.set_ylabel('AUROC', fontsize=12, fontweight='bold')
 ax1.legend(loc='upper left', fontsize=10)
 
@@ -54,7 +54,7 @@ ax2.bar(x + width, scale_data[2], width, label='Multi-scale (10x+40x)', color='#
 ax2.set_title('Scale Comparison (AUROC)', fontsize=14, fontweight='bold', pad=15)
 ax2.set_xticks(x)
 ax2.set_xticklabels(tasks, fontsize=11, fontweight='bold')
-ax2.set_ylim(0, 0.8)
+ax2.set_ylim(0, 1.0)
 ax2.set_ylabel('AUROC', fontsize=12, fontweight='bold')
 ax2.legend(loc='upper left', fontsize=10)
 
