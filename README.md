@@ -2,9 +2,7 @@
 
 > Whole Slide Image(WSI)로부터 **Banff 병리 소견을 자동 예측**하는 AI 기반 Clinical Decision Support System(CDSS)
 
-<p align="center">
-  <img src="static/screens/architecture.png" alt="System Architecture" width="900"/>
-</p>
+
 
 <p align="center">
   <img src="https://img.shields.io/badge/Frontend-React%2018%20+%20TypeScript-61DAFB"/>
