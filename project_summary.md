@@ -94,3 +94,4 @@ chym_aki/
       lr.multi_class = "auto" # 최신 sklearn 구조에 맞춤 대응
   ```
   *(참고: 만약 모델을 최신 라이브러리 환경에서 새로 학습하여 저장하고 싶다면 `backend/ml_models/train_aki_models.py`를 직접 실행하시면 가상환경 버전에 맞는 깨끗한 모델 파일이 재생성됩니다.)*
+ 
