@@ -12,3 +12,4 @@ taskkill /FI "WINDOWTITLE eq CHYM Frontend*" /T /F >nul 2>&1
 echo.
 echo 성공적으로 모든 서버가 종료되었습니다!
 ping 127.0.0.1 -n 4 >nul
+ 
