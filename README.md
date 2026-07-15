@@ -135,7 +135,7 @@ PAS WSI
 **병리 뷰어 및 Task-Attention Heatmap 분석**
 ![Demo 2](static/screens/demo_2.gif)
 
-**CDSS 최종 리포트 및 통합 모니터링 시스템**
+**최종 병리 분석 리포트 자동 생성 및 출력**
 ![Demo 3](static/screens/demo_3.gif)
 
 ---
