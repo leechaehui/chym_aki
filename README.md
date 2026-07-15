@@ -41,7 +41,7 @@ Banff 등급 추론 · 만성도(Chronicity) 점수화 · 히트맵 시각화를
 
 ## 3. 시스템 아키텍처
 
-![System Architecture](static/screens/architecture.png)
+![System Architecture](static/screens/system_architecture.jpg)
 
 > 데이터 수집(PACS) → 타일화 및 정규화 → 특성 추출(CTransPath) → 행동 분석(MIL Task-Attention) 
 > → 시각화(Heatmap)의 흐름이 React 웹 클라이언트로 제공되며, 
