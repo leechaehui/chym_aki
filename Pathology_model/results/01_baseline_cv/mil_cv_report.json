@@ -1,0 +1,34 @@
+{
+  "config": {
+    "seed": 42,
+    "epochs": 40,
+    "lr": 0.0001,
+    "wd": 0.0001,
+    "device": "cuda",
+    "encoder": "resnet50_imagenet1k_v2",
+    "norm": "HE=macenko, others=reinhard"
+  },
+  "tasks": {
+    "immune": {
+      "auroc": 0.319,
+      "pr_auc": 0.251,
+      "f1": 0.148,
+      "balanced_acc": 0.388,
+      "n": 44,
+      "n_pos": 14
+    },
+    "chronic": {
+      "auroc": 0.573,
+      "pr_auc": 0.392,
+      "f1": 0.308,
+      "balanced_acc": 0.589,
+      "n": 54,
+      "n_pos": 10
+    },
+    "ati_severity": {
+      "spearman": 0.079,
+      "mae": 0.212,
+      "n": 41
+    }
+  }
+}

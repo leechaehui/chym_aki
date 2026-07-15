@@ -1,0 +1,18 @@
+{
+  "_purpose": "재학습 비교용 고정 설정(LN 반영 전 baseline freeze). 이 중 하나라도 바뀌면 baseline vs LN 비교 무효.",
+  "frozen_at": "2026-07-01",
+  "baseline_artifact": "ordinal_ms_baseline.pt",
+  "candidate_artifact": "ordinal_ms_ln.pt (신규·overwrite 금지)",
+  "model": {"class": "TaskAttentionMIL", "in_dim": 768, "dim": 256, "att": 128, "dropout": 0.25,
+             "silver_mode": "prediction", "tasks": ["fibrosis","atrophy","inflammation"], "out_dims_per_task": 3},
+  "deploy_ensemble_seeds": [42,43,44,45,46],
+  "eval_protocol_LOCKED": {"seeds": [42,43,44], "cv": "KFold(5, shuffle=True, random_state=seed)",
+                            "epochs": 30, "lr": 1e-4, "wd": 1e-4, "loss": "BCEWithLogits(ordinal CORAL-style K-1)",
+                            "metrics": ["AUROC(grade>=1)","QWK(quadratic,0-3)","ECE(nested LOFO temperature)"]},
+  "data_LOCKED": {"encoder": "ctranspath", "embed_dim": 768, "mags": ["10","40"],
+                   "stain_norm": {"HE": "macenko", "PAS/MT/SILVER/IF": "reinhard"},
+                   "tile_sampling": "patches_manifest tissue_score desc, per (patient,stain,mag) top-n_patches (기존 임베딩 재사용, 재생성 금지)",
+                   "cohort_labeled_n": 55, "labels_source": "descriptor_labels.csv (fibrosis/atrophy/inflammation Banff ordinal)"},
+  "intervention": {"change": "TaskAttentionMIL.encoders 에 nn.LayerNorm(dim) 추가", "everything_else": "동일(불변)"},
+  "DO_NOT_CHANGE": ["3-seed", "5-fold split", "stain normalization", "tile sampling rule"]
+}

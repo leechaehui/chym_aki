@@ -1,0 +1,169 @@
+{
+  "descriptor_participants_total": 340,
+  "downloaded_83_with_scores": 62,
+  "trained_cv_with_scores": 60,
+  "labels": {
+    "cortex_pct": {
+      "group": "global",
+      "n_labeled_in_83": 62,
+      "header": "Cortex (%):",
+      "min": 0.0,
+      "max": 100.0,
+      "mean": 87.4,
+      "nunique": 13
+    },
+    "medulla_pct": {
+      "group": "global",
+      "n_labeled_in_83": 62,
+      "header": "Medulla (%):",
+      "min": 0.0,
+      "max": 100.0,
+      "mean": 12.6,
+      "nunique": 13
+    },
+    "interstitial_fibrosis_pct": {
+      "group": "chronic",
+      "n_labeled_in_83": 61,
+      "header": "Interstitial Fibrosis (%)",
+      "min": 0.0,
+      "max": 100.0,
+      "mean": 26.6,
+      "nunique": 17
+    },
+    "tubular_atrophy": {
+      "group": "chronic",
+      "n_labeled_in_83": 61,
+      "header": "Common type (%)",
+      "min": 0.0,
+      "max": 90.0,
+      "mean": 22.2,
+      "nunique": 18
+    },
+    "tubular_injury_pct": {
+      "group": "chronic",
+      "n_labeled_in_83": 62,
+      "header": "Tubular Injury (other than atrophy) (%)",
+      "min": 0.0,
+      "max": 95.0,
+      "mean": 33.6,
+      "nunique": 18
+    },
+    "arteriosclerosis": {
+      "group": "chronic",
+      "n_labeled_in_83": 62,
+      "header": "Arteriosclerosis (0/1/2/3/999)",
+      "min": 0.0,
+      "max": 999.0,
+      "mean": 17.0,
+      "nunique": 5
+    },
+    "ti_simplification": {
+      "group": "ati",
+      "n_labeled_in_83": 62,
+      "header": "Simplification (0/1)",
+      "min": 0.0,
+      "max": 1.0,
+      "mean": 0.8,
+      "nunique": 2
+    },
+    "ti_cell_sloughing": {
+      "group": "ati",
+      "n_labeled_in_83": 62,
+      "header": "Cell sloughing (0/1)",
+      "min": 0.0,
+      "max": 1.0,
+      "mean": 0.7,
+      "nunique": 2
+    },
+    "ti_necrosis_apoptosis": {
+      "group": "ati",
+      "n_labeled_in_83": 62,
+      "header": "Cell necrosis/apoptosis (0/1)",
+      "min": 0.0,
+      "max": 1.0,
+      "mean": 0.0,
+      "nunique": 2
+    },
+    "ti_detachment_denudation": {
+      "group": "ati",
+      "n_labeled_in_83": 62,
+      "header": "Detachment/TBM denudation (0/1)",
+      "min": 0.0,
+      "max": 1.0,
+      "mean": 0.1,
+      "nunique": 2
+    },
+    "tubulitis": {
+      "group": "inflammation",
+      "n_labeled_in_83": 62,
+      "header": "Tubulitis (0/1)",
+      "min": 0.0,
+      "max": 1.0,
+      "mean": 0.2,
+      "nunique": 2
+    },
+    "tubulitis_lymphocytic": {
+      "group": "inflammation",
+      "n_labeled_in_83": 62,
+      "header": "Tubulitis Lymphocytic (0/1)",
+      "min": 0.0,
+      "max": 1.0,
+      "mean": 0.2,
+      "nunique": 2
+    },
+    "tubulitis_neutrophilic": {
+      "group": "inflammation",
+      "n_labeled_in_83": 62,
+      "header": "Tubulitis Neutrophilic (0/1)",
+      "min": 0.0,
+      "max": 1.0,
+      "mean": 0.0,
+      "nunique": 2
+    },
+    "interstitial_mononuclear_wbc_pct": {
+      "group": "inflammation",
+      "n_labeled_in_83": 61,
+      "header": "Interstitial Monuclear WBCs (%)",
+      "min": 0.0,
+      "max": 95.0,
+      "mean": 26.0,
+      "nunique": 18
+    },
+    "interstitial_eosinophils": {
+      "group": "inflammation",
+      "n_labeled_in_83": 62,
+      "header": "Interstitial Eosinophils (0/1/2)",
+      "min": 0.0,
+      "max": 2.0,
+      "mean": 0.3,
+      "nunique": 3
+    },
+    "interstitial_neutrophils": {
+      "group": "inflammation",
+      "n_labeled_in_83": 62,
+      "header": "Interstitial Neutrophils (0/1/2)",
+      "min": 0.0,
+      "max": 2.0,
+      "mean": 0.1,
+      "nunique": 3
+    },
+    "interstitial_granulomas": {
+      "group": "inflammation",
+      "n_labeled_in_83": 62,
+      "header": "Interstitial Granulomas (0/1/2)",
+      "min": 0.0,
+      "max": 2.0,
+      "mean": 0.2,
+      "nunique": 3
+    },
+    "vascular_inflammation": {
+      "group": "inflammation",
+      "n_labeled_in_83": 62,
+      "header": "Vascular Inflammation (0/1/2/999)",
+      "min": 0.0,
+      "max": 0.0,
+      "mean": 0.0,
+      "nunique": 1
+    }
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "lambda=0.0": {
+    "immune": {
+      "auroc": 0.612,
+      "auprc": 0.442,
+      "mean_entropy": 0.651
+    },
+    "chronic": {
+      "auroc": 0.661,
+      "auprc": 0.346,
+      "mean_entropy": 0.733
+    },
+    "stage3": {
+      "auroc": 0.392,
+      "auprc": 0.592,
+      "mean_entropy": 0.812
+    }
+  },
+  "lambda=0.001": {
+    "immune": {
+      "auroc": 0.598,
+      "auprc": 0.422,
+      "mean_entropy": 0.603
+    },
+    "chronic": {
+      "auroc": 0.693,
+      "auprc": 0.334,
+      "mean_entropy": 0.688
+    },
+    "stage3": {
+      "auroc": 0.39,
+      "auprc": 0.59,
+      "mean_entropy": 0.808
+    }
+  },
+  "lambda=0.005": {
+    "immune": {
+      "auroc": 0.602,
+      "auprc": 0.427,
+      "mean_entropy": 0.604
+    },
+    "chronic": {
+      "auroc": 0.705,
+      "auprc": 0.34,
+      "mean_entropy": 0.689
+    },
+    "stage3": {
+      "auroc": 0.396,
+      "auprc": 0.592,
+      "mean_entropy": 0.809
+    }
+  },
+  "lambda=0.01": {
+    "immune": {
+      "auroc": 0.598,
+      "auprc": 0.422,
+      "mean_entropy": 0.605
+    },
+    "chronic": {
+      "auroc": 0.707,
+      "auprc": 0.342,
+      "mean_entropy": 0.691
+    },
+    "stage3": {
+      "auroc": 0.396,
+      "auprc": 0.593,
+      "mean_entropy": 0.81
+    }
+  },
+  "lambda=0.05": {
+    "immune": {
+      "auroc": 0.602,
+      "auprc": 0.43,
+      "mean_entropy": 0.621
+    },
+    "chronic": {
+      "auroc": 0.689,
+      "auprc": 0.309,
+      "mean_entropy": 0.704
+    },
+    "stage3": {
+      "auroc": 0.407,
+      "auprc": 0.597,
+      "mean_entropy": 0.827
+    }
+  }
+}

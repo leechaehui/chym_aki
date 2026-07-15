@@ -1,0 +1,189 @@
+{
+  "model": "TaskAttentionMIL(silver off), 고정",
+  "repeats": 20,
+  "attention_collapse": "이미 반증(diag_collapse): Top1<0.3, masking 무영향, temp 무효과",
+  "pooled_oof": {
+    "immune": {
+      "n_repeats": 20,
+      "auroc_mean": 0.623,
+      "auroc_std": 0.048,
+      "auroc_range": [
+        0.533,
+        0.712
+      ],
+      "auprc_mean": 0.451,
+      "auprc_std": 0.049,
+      "auprc_range": [
+        0.37,
+        0.555
+      ]
+    },
+    "chronic": {
+      "n_repeats": 20,
+      "auroc_mean": 0.669,
+      "auroc_std": 0.041,
+      "auroc_range": [
+        0.598,
+        0.743
+      ],
+      "auprc_mean": 0.325,
+      "auprc_std": 0.044,
+      "auprc_range": [
+        0.258,
+        0.406
+      ]
+    },
+    "stage3": {
+      "n_repeats": 20,
+      "auroc_mean": 0.565,
+      "auroc_std": 0.058,
+      "auroc_range": [
+        0.46,
+        0.676
+      ],
+      "auprc_mean": 0.734,
+      "auprc_std": 0.045,
+      "auprc_range": [
+        0.659,
+        0.812
+      ]
+    }
+  },
+  "bootstrap_ci": {
+    "immune": {
+      "n": 44,
+      "n_pos": 14,
+      "AUROC": {
+        "point": 0.648,
+        "ci95": [
+          0.455,
+          0.839
+        ]
+      },
+      "AUPRC": {
+        "point": 0.457,
+        "ci95": [
+          0.27,
+          0.754
+        ]
+      }
+    },
+    "chronic": {
+      "n": 54,
+      "n_pos": 10,
+      "AUROC": {
+        "point": 0.618,
+        "ci95": [
+          0.427,
+          0.79
+        ]
+      },
+      "AUPRC": {
+        "point": 0.271,
+        "ci95": [
+          0.138,
+          0.529
+        ]
+      }
+    },
+    "stage3": {
+      "n": 50,
+      "n_pos": 34,
+      "AUROC": {
+        "point": 0.579,
+        "ci95": [
+          0.353,
+          0.789
+        ]
+      },
+      "AUPRC": {
+        "point": 0.683,
+        "ci95": [
+          0.545,
+          0.882
+        ]
+      }
+    }
+  },
+  "fold_variance": {
+    "immune": {
+      "spearman_pos_vs_auprc": 0.113,
+      "pearson_pos_vs_auprc": 0.126,
+      "auprc_std_across_folds": 0.168,
+      "auprc_range": [
+        0.243,
+        0.917
+      ],
+      "mean_pos_per_fold": 2.8
+    },
+    "stage3": {
+      "spearman_pos_vs_auprc": 0.615,
+      "pearson_pos_vs_auprc": 0.659,
+      "auprc_std_across_folds": 0.158,
+      "auprc_range": [
+        0.363,
+        1.0
+      ],
+      "mean_pos_per_fold": 6.8
+    }
+  },
+  "chronic_dkd_only_vs_all": {
+    "chronic_all": {
+      "AUROC": {
+        "point": 0.618,
+        "ci95": [
+          0.427,
+          0.79
+        ]
+      },
+      "AUPRC": {
+        "point": 0.271,
+        "ci95": [
+          0.138,
+          0.529
+        ]
+      }
+    },
+    "chronic_dkd_only": {
+      "AUROC": {
+        "point": 0.619,
+        "ci95": [
+          0.414,
+          0.811
+        ]
+      },
+      "AUPRC": {
+        "point": 0.261,
+        "ci95": [
+          0.117,
+          0.539
+        ]
+      }
+    }
+  },
+  "verdict": {
+    "chronic": {
+      "auroc_ci_width": 0.36300000000000004,
+      "auprc_ci_width": 0.391,
+      "evidence": [
+        "chronic AUROC 95%CI 폭 0.36300000000000004 (>0.25) → 점추정 매우 불안정",
+        "chronic AUPRC 95%CI 폭 0.391 (>0.25) → 탐색적 수준"
+      ]
+    },
+    "immune": {
+      "auroc_ci_width": 0.38399999999999995,
+      "auprc_ci_width": 0.484,
+      "evidence": [
+        "immune AUROC 95%CI 폭 0.38399999999999995 (>0.25) → 점추정 매우 불안정",
+        "immune AUPRC 95%CI 폭 0.484 (>0.25) → 탐색적 수준"
+      ]
+    },
+    "chronic_label_noise": {
+      "auroc_all": 0.618,
+      "auroc_dkd_only": 0.619,
+      "delta": 0.001,
+      "interpretation": "DKD-only가 크게 높으면 HTN이 노이즈(라벨품질). 미미하면 라벨 문제 아님(HTN n=1이라 영향 작을 것)"
+    }
+  },
+  "final_case": "Case B(데이터규모 한계) 우세 — collapse 반증·CI 광폭·양성 10/14명. 라벨/복합 여부는 chronic_label_noise·UMAP(별도) 참조."
+}

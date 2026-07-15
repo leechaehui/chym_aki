@@ -1,0 +1,4592 @@
+{
+  "30-10123": {
+    "group": "chronic_pos",
+    "dx": "Diabetic Kidney Disease",
+    "tasks": {
+      "immune": {
+        "raw_contrib": {
+          "HE": 0.3638,
+          "PAS": 0.4716,
+          "MT": 0.1646
+        },
+        "norm_contrib": {
+          "HE": 0.036377,
+          "PAS": 0.0393,
+          "MT": 0.027438
+        },
+        "attn_entropy": 0.996,
+        "top10": [
+          {
+            "stain": "PAS",
+            "x": 1536,
+            "y": 4096,
+            "attention": 0.0447
+          },
+          {
+            "stain": "PAS",
+            "x": 20992,
+            "y": 7168,
+            "attention": 0.0446
+          },
+          {
+            "stain": "HE",
+            "x": 1536,
+            "y": 3584,
+            "attention": 0.0437
+          },
+          {
+            "stain": "PAS",
+            "x": 20992,
+            "y": 6656,
+            "attention": 0.043
+          },
+          {
+            "stain": "PAS",
+            "x": 21504,
+            "y": 5632,
+            "attention": 0.0424
+          },
+          {
+            "stain": "HE",
+            "x": 1536,
+            "y": 4096,
+            "attention": 0.0402
+          },
+          {
+            "stain": "HE",
+            "x": 1536,
+            "y": 4608,
+            "attention": 0.0395
+          },
+          {
+            "stain": "HE",
+            "x": 20992,
+            "y": 2560,
+            "attention": 0.0393
+          },
+          {
+            "stain": "PAS",
+            "x": 20992,
+            "y": 6144,
+            "attention": 0.0388
+          },
+          {
+            "stain": "PAS",
+            "x": 1536,
+            "y": 5120,
+            "attention": 0.0385
+          }
+        ]
+      },
+      "chronic": {
+        "raw_contrib": {
+          "HE": 0.1766,
+          "PAS": 0.755,
+          "MT": 0.0684
+        },
+        "norm_contrib": {
+          "HE": 0.017663,
+          "PAS": 0.062915,
+          "MT": 0.011398
+        },
+        "attn_entropy": 0.896,
+        "top10": [
+          {
+            "stain": "PAS",
+            "x": 1536,
+            "y": 5120,
+            "attention": 0.1639
+          },
+          {
+            "stain": "PAS",
+            "x": 20992,
+            "y": 7168,
+            "attention": 0.1081
+          },
+          {
+            "stain": "PAS",
+            "x": 20992,
+            "y": 6656,
+            "attention": 0.0745
+          },
+          {
+            "stain": "PAS",
+            "x": 2048,
+            "y": 3072,
+            "attention": 0.0692
+          },
+          {
+            "stain": "PAS",
+            "x": 2560,
+            "y": 1536,
+            "attention": 0.0644
+          },
+          {
+            "stain": "PAS",
+            "x": 21504,
+            "y": 5632,
+            "attention": 0.0491
+          },
+          {
+            "stain": "PAS",
+            "x": 21504,
+            "y": 5120,
+            "attention": 0.0473
+          },
+          {
+            "stain": "PAS",
+            "x": 2048,
+            "y": 2048,
+            "attention": 0.0437
+          },
+          {
+            "stain": "PAS",
+            "x": 1536,
+            "y": 4096,
+            "attention": 0.0427
+          },
+          {
+            "stain": "PAS",
+            "x": 21504,
+            "y": 6144,
+            "attention": 0.0353
+          }
+        ]
+      },
+      "stage3": {
+        "raw_contrib": {
+          "HE": 0.2644,
+          "PAS": 0.6934,
+          "MT": 0.0423
+        },
+        "norm_contrib": {
+          "HE": 0.026438,
+          "PAS": 0.05778,
+          "MT": 0.007044
+        },
+        "attn_entropy": 0.943,
+        "top10": [
+          {
+            "stain": "PAS",
+            "x": 20992,
+            "y": 6656,
+            "attention": 0.0632
+          },
+          {
+            "stain": "PAS",
+            "x": 1536,
+            "y": 5120,
+            "attention": 0.0624
+          },
+          {
+            "stain": "PAS",
+            "x": 1536,
+            "y": 4096,
+            "attention": 0.0608
+          },
+          {
+            "stain": "PAS",
+            "x": 20992,
+            "y": 7168,
+            "attention": 0.0602
+          },
+          {
+            "stain": "PAS",
+            "x": 20992,
+            "y": 6144,
+            "attention": 0.0586
+          },
+          {
+            "stain": "PAS",
+            "x": 2048,
+            "y": 3072,
+            "attention": 0.0583
+          },
+          {
+            "stain": "PAS",
+            "x": 2048,
+            "y": 2560,
+            "attention": 0.0582
+          },
+          {
+            "stain": "PAS",
+            "x": 21504,
+            "y": 5632,
+            "attention": 0.058
+          },
+          {
+            "stain": "PAS",
+            "x": 21504,
+            "y": 6144,
+            "attention": 0.0562
+          },
+          {
+            "stain": "PAS",
+            "x": 2048,
+            "y": 2048,
+            "attention": 0.0544
+          }
+        ]
+      },
+      "ati_severity": {
+        "raw_contrib": {
+          "HE": 0.3897,
+          "PAS": 0.4376,
+          "MT": 0.1726
+        },
+        "norm_contrib": {
+          "HE": 0.038973,
+          "PAS": 0.036471,
+          "MT": 0.028771
+        },
+        "attn_entropy": 0.998,
+        "top10": [
+          {
+            "stain": "HE",
+            "x": 20992,
+            "y": 2048,
+            "attention": 0.0406
+          },
+          {
+            "stain": "HE",
+            "x": 20992,
+            "y": 3072,
+            "attention": 0.0401
+          },
+          {
+            "stain": "PAS",
+            "x": 2048,
+            "y": 2560,
+            "attention": 0.0399
+          },
+          {
+            "stain": "HE",
+            "x": 1536,
+            "y": 3584,
+            "attention": 0.0398
+          },
+          {
+            "stain": "HE",
+            "x": 20992,
+            "y": 3584,
+            "attention": 0.0397
+          },
+          {
+            "stain": "HE",
+            "x": 1536,
+            "y": 4608,
+            "attention": 0.0394
+          },
+          {
+            "stain": "HE",
+            "x": 20992,
+            "y": 2560,
+            "attention": 0.0392
+          },
+          {
+            "stain": "HE",
+            "x": 1536,
+            "y": 4096,
+            "attention": 0.0389
+          },
+          {
+            "stain": "HE",
+            "x": 1536,
+            "y": 3072,
+            "attention": 0.0387
+          },
+          {
+            "stain": "PAS",
+            "x": 20992,
+            "y": 6144,
+            "attention": 0.0385
+          }
+        ]
+      }
+    }
+  },
+  "30-11091": {
+    "group": "chronic_pos",
+    "dx": "Diabetic Kidney Disease",
+    "tasks": {
+      "immune": {
+        "raw_contrib": {
+          "HE": 0.4042,
+          "PAS": 0.364,
+          "MT": 0.2318
+        },
+        "norm_contrib": {
+          "HE": 0.031092,
+          "PAS": 0.021412,
+          "MT": 0.014487
+        },
+        "attn_entropy": 0.978,
+        "top10": [
+          {
+            "stain": "HE",
+            "x": 4608,
+            "y": 4608,
+            "attention": 0.0448
+          },
+          {
+            "stain": "HE",
+            "x": 4096,
+            "y": 4096,
+            "attention": 0.0442
+          },
+          {
+            "stain": "HE",
+            "x": 5120,
+            "y": 4608,
+            "attention": 0.0341
+          },
+          {
+            "stain": "HE",
+            "x": 4096,
+            "y": 4608,
+            "attention": 0.0332
+          },
+          {
+            "stain": "HE",
+            "x": 3072,
+            "y": 3584,
+            "attention": 0.0328
+          },
+          {
+            "stain": "HE",
+            "x": 5120,
+            "y": 5120,
+            "attention": 0.0315
+          },
+          {
+            "stain": "MT",
+            "x": 12288,
+            "y": 3584,
+            "attention": 0.0295
+          },
+          {
+            "stain": "HE",
+            "x": 3584,
+            "y": 4096,
+            "attention": 0.0294
+          },
+          {
+            "stain": "PAS",
+            "x": 4608,
+            "y": 5632,
+            "attention": 0.0286
+          },
+          {
+            "stain": "HE",
+            "x": 12800,
+            "y": 2560,
+            "attention": 0.0284
+          }
+        ]
+      },
+      "chronic": {
+        "raw_contrib": {
+          "HE": 0.114,
+          "PAS": 0.8319,
+          "MT": 0.0541
+        },
+        "norm_contrib": {
+          "HE": 0.008771,
+          "PAS": 0.048934,
+          "MT": 0.003381
+        },
+        "attn_entropy": 0.839,
+        "top10": [
+          {
+            "stain": "PAS",
+            "x": 4608,
+            "y": 5632,
+            "attention": 0.1322
+          },
+          {
+            "stain": "PAS",
+            "x": 4096,
+            "y": 5120,
+            "attention": 0.0775
+          },
+          {
+            "stain": "PAS",
+            "x": 4096,
+            "y": 5632,
+            "attention": 0.0752
+          },
+          {
+            "stain": "PAS",
+            "x": 14848,
+            "y": 3072,
+            "attention": 0.0587
+          },
+          {
+            "stain": "PAS",
+            "x": 15360,
+            "y": 4096,
+            "attention": 0.0585
+          },
+          {
+            "stain": "PAS",
+            "x": 15872,
+            "y": 4096,
+            "attention": 0.0576
+          },
+          {
+            "stain": "PAS",
+            "x": 3584,
+            "y": 5120,
+            "attention": 0.0547
+          },
+          {
+            "stain": "PAS",
+            "x": 15360,
+            "y": 3072,
+            "attention": 0.0529
+          },
+          {
+            "stain": "PAS",
+            "x": 14336,
+            "y": 2048,
+            "attention": 0.0509
+          },
+          {
+            "stain": "PAS",
+            "x": 3584,
+            "y": 5632,
+            "attention": 0.0508
+          }
+        ]
+      },
+      "stage3": {
+        "raw_contrib": {
+          "HE": 0.2057,
+          "PAS": 0.7128,
+          "MT": 0.0815
+        },
+        "norm_contrib": {
+          "HE": 0.015825,
+          "PAS": 0.04193,
+          "MT": 0.005092
+        },
+        "attn_entropy": 0.92,
+        "top10": [
+          {
+            "stain": "PAS",
+            "x": 4608,
+            "y": 5632,
+            "attention": 0.0561
+          },
+          {
+            "stain": "PAS",
+            "x": 3584,
+            "y": 5632,
+            "attention": 0.0561
+          },
+          {
+            "stain": "PAS",
+            "x": 4096,
+            "y": 5632,
+            "attention": 0.0557
+          },
+          {
+            "stain": "PAS",
+            "x": 15360,
+            "y": 3584,
+            "attention": 0.0493
+          },
+          {
+            "stain": "PAS",
+            "x": 15872,
+            "y": 4096,
+            "attention": 0.0467
+          },
+          {
+            "stain": "PAS",
+            "x": 14848,
+            "y": 3072,
+            "attention": 0.0446
+          },
+          {
+            "stain": "PAS",
+            "x": 14336,
+            "y": 2048,
+            "attention": 0.0442
+          },
+          {
+            "stain": "PAS",
+            "x": 4096,
+            "y": 5120,
+            "attention": 0.0439
+          },
+          {
+            "stain": "PAS",
+            "x": 15360,
+            "y": 3072,
+            "attention": 0.0437
+          },
+          {
+            "stain": "PAS",
+            "x": 15360,
+            "y": 4096,
+            "attention": 0.0424
+          }
+        ]
+      },
+      "ati_severity": {
+        "raw_contrib": {
+          "HE": 0.2553,
+          "PAS": 0.4343,
+          "MT": 0.3104
+        },
+        "norm_contrib": {
+          "HE": 0.019639,
+          "PAS": 0.025547,
+          "MT": 0.0194
+        },
+        "attn_entropy": 0.996,
+        "top10": [
+          {
+            "stain": "PAS",
+            "x": 14848,
+            "y": 2560,
+            "attention": 0.0279
+          },
+          {
+            "stain": "PAS",
+            "x": 3072,
+            "y": 5120,
+            "attention": 0.0274
+          },
+          {
+            "stain": "HE",
+            "x": 12800,
+            "y": 2048,
+            "attention": 0.0271
+          },
+          {
+            "stain": "PAS",
+            "x": 15360,
+            "y": 3072,
+            "attention": 0.0267
+          },
+          {
+            "stain": "PAS",
+            "x": 4096,
+            "y": 5632,
+            "attention": 0.0262
+          },
+          {
+            "stain": "PAS",
+            "x": 3584,
+            "y": 5120,
+            "attention": 0.026
+          },
+          {
+            "stain": "PAS",
+            "x": 14848,
+            "y": 3072,
+            "attention": 0.0258
+          },
+          {
+            "stain": "PAS",
+            "x": 15360,
+            "y": 4096,
+            "attention": 0.0258
+          },
+          {
+            "stain": "HE",
+            "x": 12288,
+            "y": 2048,
+            "attention": 0.0256
+          },
+          {
+            "stain": "PAS",
+            "x": 4608,
+            "y": 5632,
+            "attention": 0.0256
+          }
+        ]
+      }
+    }
+  },
+  "30-11095": {
+    "group": "chronic_pos",
+    "dx": "Diabetic Kidney Disease",
+    "tasks": {
+      "immune": {
+        "raw_contrib": {
+          "HE": 0.4033,
+          "PAS": 0.4471,
+          "MT": 0.1496
+        },
+        "norm_contrib": {
+          "HE": 0.013444,
+          "PAS": 0.015416,
+          "MT": 0.007875
+        },
+        "attn_entropy": 0.98,
+        "top10": [
+          {
+            "stain": "PAS",
+            "x": 27136,
+            "y": 7168,
+            "attention": 0.0275
+          },
+          {
+            "stain": "PAS",
+            "x": 3072,
+            "y": 10752,
+            "attention": 0.0269
+          },
+          {
+            "stain": "PAS",
+            "x": 3072,
+            "y": 9728,
+            "attention": 0.026
+          },
+          {
+            "stain": "HE",
+            "x": 27648,
+            "y": 14848,
+            "attention": 0.0249
+          },
+          {
+            "stain": "PAS",
+            "x": 37888,
+            "y": 3072,
+            "attention": 0.0249
+          },
+          {
+            "stain": "PAS",
+            "x": 27136,
+            "y": 7680,
+            "attention": 0.0246
+          },
+          {
+            "stain": "PAS",
+            "x": 3072,
+            "y": 10240,
+            "attention": 0.0239
+          },
+          {
+            "stain": "PAS",
+            "x": 3072,
+            "y": 11264,
+            "attention": 0.0228
+          },
+          {
+            "stain": "PAS",
+            "x": 27136,
+            "y": 8192,
+            "attention": 0.0212
+          },
+          {
+            "stain": "HE",
+            "x": 26112,
+            "y": 4096,
+            "attention": 0.0211
+          }
+        ]
+      },
+      "chronic": {
+        "raw_contrib": {
+          "HE": 0.0954,
+          "PAS": 0.8634,
+          "MT": 0.0412
+        },
+        "norm_contrib": {
+          "HE": 0.00318,
+          "PAS": 0.029772,
+          "MT": 0.002169
+        },
+        "attn_entropy": 0.515,
+        "top10": [
+          {
+            "stain": "PAS",
+            "x": 3072,
+            "y": 9728,
+            "attention": 0.3682
+          },
+          {
+            "stain": "PAS",
+            "x": 37888,
+            "y": 3072,
+            "attention": 0.2494
+          },
+          {
+            "stain": "PAS",
+            "x": 3584,
+            "y": 5120,
+            "attention": 0.163
+          },
+          {
+            "stain": "HE",
+            "x": 27648,
+            "y": 14848,
+            "attention": 0.0179
+          },
+          {
+            "stain": "PAS",
+            "x": 30208,
+            "y": 16384,
+            "attention": 0.0065
+          },
+          {
+            "stain": "PAS",
+            "x": 30720,
+            "y": 16896,
+            "attention": 0.0064
+          },
+          {
+            "stain": "HE",
+            "x": 3072,
+            "y": 13824,
+            "attention": 0.0055
+          },
+          {
+            "stain": "PAS",
+            "x": 28672,
+            "y": 16384,
+            "attention": 0.0053
+          },
+          {
+            "stain": "HE",
+            "x": 25600,
+            "y": 7680,
+            "attention": 0.0052
+          },
+          {
+            "stain": "PAS",
+            "x": 28160,
+            "y": 16384,
+            "attention": 0.0052
+          }
+        ]
+      },
+      "stage3": {
+        "raw_contrib": {
+          "HE": 0.3052,
+          "PAS": 0.6301,
+          "MT": 0.0647
+        },
+        "norm_contrib": {
+          "HE": 0.010173,
+          "PAS": 0.021727,
+          "MT": 0.003406
+        },
+        "attn_entropy": 0.951,
+        "top10": [
+          {
+            "stain": "PAS",
+            "x": 3072,
+            "y": 9728,
+            "attention": 0.0429
+          },
+          {
+            "stain": "PAS",
+            "x": 37888,
+            "y": 3072,
+            "attention": 0.0407
+          },
+          {
+            "stain": "PAS",
+            "x": 3584,
+            "y": 5120,
+            "attention": 0.0378
+          },
+          {
+            "stain": "PAS",
+            "x": 3072,
+            "y": 10752,
+            "attention": 0.0253
+          },
+          {
+            "stain": "PAS",
+            "x": 3072,
+            "y": 11264,
+            "attention": 0.0248
+          },
+          {
+            "stain": "PAS",
+            "x": 27136,
+            "y": 7168,
+            "attention": 0.0237
+          },
+          {
+            "stain": "PAS",
+            "x": 27136,
+            "y": 7680,
+            "attention": 0.0235
+          },
+          {
+            "stain": "PAS",
+            "x": 3072,
+            "y": 10240,
+            "attention": 0.0221
+          },
+          {
+            "stain": "PAS",
+            "x": 27136,
+            "y": 8192,
+            "attention": 0.022
+          },
+          {
+            "stain": "PAS",
+            "x": 27136,
+            "y": 6144,
+            "attention": 0.0211
+          }
+        ]
+      },
+      "ati_severity": {
+        "raw_contrib": {
+          "HE": 0.3558,
+          "PAS": 0.4436,
+          "MT": 0.2006
+        },
+        "norm_contrib": {
+          "HE": 0.01186,
+          "PAS": 0.015295,
+          "MT": 0.010559
+        },
+        "attn_entropy": 0.994,
+        "top10": [
+          {
+            "stain": "PAS",
+            "x": 3072,
+            "y": 9728,
+            "attention": 0.0169
+          },
+          {
+            "stain": "HE",
+            "x": 3072,
+            "y": 3072,
+            "attention": 0.0169
+          },
+          {
+            "stain": "HE",
+            "x": 26624,
+            "y": 10752,
+            "attention": 0.0168
+          },
+          {
+            "stain": "PAS",
+            "x": 3584,
+            "y": 5120,
+            "attention": 0.0166
+          },
+          {
+            "stain": "PAS",
+            "x": 3584,
+            "y": 4608,
+            "attention": 0.0165
+          },
+          {
+            "stain": "PAS",
+            "x": 37888,
+            "y": 3072,
+            "attention": 0.0165
+          },
+          {
+            "stain": "PAS",
+            "x": 27136,
+            "y": 6656,
+            "attention": 0.0165
+          },
+          {
+            "stain": "HE",
+            "x": 26624,
+            "y": 10240,
+            "attention": 0.0163
+          },
+          {
+            "stain": "HE",
+            "x": 2560,
+            "y": 2048,
+            "attention": 0.0163
+          },
+          {
+            "stain": "HE",
+            "x": 2560,
+            "y": 9728,
+            "attention": 0.0163
+          }
+        ]
+      }
+    }
+  },
+  "30-11124": {
+    "group": "chronic_pos",
+    "dx": "Diabetic Kidney Disease",
+    "tasks": {
+      "immune": {
+        "raw_contrib": {
+          "HE": 0.3835,
+          "PAS": 0.3724,
+          "MT": 0.2441
+        },
+        "norm_contrib": {
+          "HE": 0.014204,
+          "PAS": 0.016928,
+          "MT": 0.010612
+        },
+        "attn_entropy": 0.991,
+        "top10": [
+          {
+            "stain": "PAS",
+            "x": 2560,
+            "y": 5632,
+            "attention": 0.0228
+          },
+          {
+            "stain": "PAS",
+            "x": 12800,
+            "y": 2560,
+            "attention": 0.0213
+          },
+          {
+            "stain": "PAS",
+            "x": 2560,
+            "y": 5120,
+            "attention": 0.0209
+          },
+          {
+            "stain": "MT",
+            "x": 2560,
+            "y": 3584,
+            "attention": 0.0195
+          },
+          {
+            "stain": "HE",
+            "x": 3072,
+            "y": 3072,
+            "attention": 0.0188
+          },
+          {
+            "stain": "PAS",
+            "x": 12800,
+            "y": 4096,
+            "attention": 0.0184
+          },
+          {
+            "stain": "PAS",
+            "x": 2560,
+            "y": 6144,
+            "attention": 0.0183
+          },
+          {
+            "stain": "HE",
+            "x": 13312,
+            "y": 2048,
+            "attention": 0.0181
+          },
+          {
+            "stain": "PAS",
+            "x": 12800,
+            "y": 5120,
+            "attention": 0.018
+          },
+          {
+            "stain": "MT",
+            "x": 12288,
+            "y": 4608,
+            "attention": 0.018
+          }
+        ]
+      },
+      "chronic": {
+        "raw_contrib": {
+          "HE": 0.1736,
+          "PAS": 0.7485,
+          "MT": 0.0779
+        },
+        "norm_contrib": {
+          "HE": 0.00643,
+          "PAS": 0.034024,
+          "MT": 0.003385
+        },
+        "attn_entropy": 0.874,
+        "top10": [
+          {
+            "stain": "PAS",
+            "x": 2560,
+            "y": 6656,
+            "attention": 0.0771
+          },
+          {
+            "stain": "PAS",
+            "x": 12800,
+            "y": 6144,
+            "attention": 0.0556
+          },
+          {
+            "stain": "PAS",
+            "x": 2560,
+            "y": 4608,
+            "attention": 0.0552
+          },
+          {
+            "stain": "PAS",
+            "x": 2560,
+            "y": 7168,
+            "attention": 0.0536
+          },
+          {
+            "stain": "PAS",
+            "x": 2560,
+            "y": 6144,
+            "attention": 0.0505
+          },
+          {
+            "stain": "PAS",
+            "x": 2560,
+            "y": 5120,
+            "attention": 0.0413
+          },
+          {
+            "stain": "PAS",
+            "x": 12800,
+            "y": 2560,
+            "attention": 0.0388
+          },
+          {
+            "stain": "PAS",
+            "x": 12288,
+            "y": 5120,
+            "attention": 0.0384
+          },
+          {
+            "stain": "PAS",
+            "x": 2560,
+            "y": 3584,
+            "attention": 0.0379
+          },
+          {
+            "stain": "PAS",
+            "x": 12800,
+            "y": 3072,
+            "attention": 0.0338
+          }
+        ]
+      },
+      "stage3": {
+        "raw_contrib": {
+          "HE": 0.3136,
+          "PAS": 0.6136,
+          "MT": 0.0727
+        },
+        "norm_contrib": {
+          "HE": 0.011616,
+          "PAS": 0.027892,
+          "MT": 0.003163
+        },
+        "attn_entropy": 0.935,
+        "top10": [
+          {
+            "stain": "PAS",
+            "x": 2560,
+            "y": 6144,
+            "attention": 0.038
+          },
+          {
+            "stain": "PAS",
+            "x": 2560,
+            "y": 5632,
+            "attention": 0.0364
+          },
+          {
+            "stain": "PAS",
+            "x": 2560,
+            "y": 5120,
+            "attention": 0.0355
+          },
+          {
+            "stain": "PAS",
+            "x": 2560,
+            "y": 4608,
+            "attention": 0.0315
+          },
+          {
+            "stain": "PAS",
+            "x": 2560,
+            "y": 4096,
+            "attention": 0.0302
+          },
+          {
+            "stain": "PAS",
+            "x": 12800,
+            "y": 3584,
+            "attention": 0.0295
+          },
+          {
+            "stain": "PAS",
+            "x": 12288,
+            "y": 5120,
+            "attention": 0.0292
+          },
+          {
+            "stain": "PAS",
+            "x": 12800,
+            "y": 2560,
+            "attention": 0.0286
+          },
+          {
+            "stain": "PAS",
+            "x": 12800,
+            "y": 5632,
+            "attention": 0.0285
+          },
+          {
+            "stain": "PAS",
+            "x": 12800,
+            "y": 5120,
+            "attention": 0.0282
+          }
+        ]
+      },
+      "ati_severity": {
+        "raw_contrib": {
+          "HE": 0.3343,
+          "PAS": 0.3686,
+          "MT": 0.2971
+        },
+        "norm_contrib": {
+          "HE": 0.012382,
+          "PAS": 0.016754,
+          "MT": 0.012917
+        },
+        "attn_entropy": 0.996,
+        "top10": [
+          {
+            "stain": "PAS",
+            "x": 2560,
+            "y": 6144,
+            "attention": 0.0183
+          },
+          {
+            "stain": "HE",
+            "x": 2560,
+            "y": 6656,
+            "attention": 0.018
+          },
+          {
+            "stain": "PAS",
+            "x": 2560,
+            "y": 4608,
+            "attention": 0.0177
+          },
+          {
+            "stain": "PAS",
+            "x": 2560,
+            "y": 3584,
+            "attention": 0.0177
+          },
+          {
+            "stain": "PAS",
+            "x": 12800,
+            "y": 3584,
+            "attention": 0.0176
+          },
+          {
+            "stain": "PAS",
+            "x": 2560,
+            "y": 3072,
+            "attention": 0.0176
+          },
+          {
+            "stain": "PAS",
+            "x": 2560,
+            "y": 4096,
+            "attention": 0.0175
+          },
+          {
+            "stain": "PAS",
+            "x": 12800,
+            "y": 3072,
+            "attention": 0.0175
+          },
+          {
+            "stain": "PAS",
+            "x": 12800,
+            "y": 5632,
+            "attention": 0.0174
+          },
+          {
+            "stain": "HE",
+            "x": 2560,
+            "y": 7168,
+            "attention": 0.0173
+          }
+        ]
+      }
+    }
+  },
+  "30-11130": {
+    "group": "chronic_pos",
+    "dx": "Hypertensive Kidney Disease",
+    "tasks": {
+      "immune": {
+        "raw_contrib": {
+          "HE": 0.2926,
+          "PAS": 0.4247,
+          "MT": 0.2827
+        },
+        "norm_contrib": {
+          "HE": 0.013933,
+          "PAS": 0.021234,
+          "MT": 0.014136
+        },
+        "attn_entropy": 0.99,
+        "top10": [
+          {
+            "stain": "PAS",
+            "x": 2560,
+            "y": 7168,
+            "attention": 0.0284
+          },
+          {
+            "stain": "PAS",
+            "x": 15872,
+            "y": 5120,
+            "attention": 0.028
+          },
+          {
+            "stain": "PAS",
+            "x": 15360,
+            "y": 1536,
+            "attention": 0.026
+          },
+          {
+            "stain": "PAS",
+            "x": 15360,
+            "y": 3072,
+            "attention": 0.0234
+          },
+          {
+            "stain": "PAS",
+            "x": 15360,
+            "y": 3584,
+            "attention": 0.0233
+          },
+          {
+            "stain": "PAS",
+            "x": 2048,
+            "y": 5120,
+            "attention": 0.0231
+          },
+          {
+            "stain": "PAS",
+            "x": 2048,
+            "y": 4096,
+            "attention": 0.022
+          },
+          {
+            "stain": "MT",
+            "x": 12800,
+            "y": 3584,
+            "attention": 0.022
+          },
+          {
+            "stain": "PAS",
+            "x": 15360,
+            "y": 2048,
+            "attention": 0.0216
+          },
+          {
+            "stain": "PAS",
+            "x": 2048,
+            "y": 4608,
+            "attention": 0.0216
+          }
+        ]
+      },
+      "chronic": {
+        "raw_contrib": {
+          "HE": 0.1589,
+          "PAS": 0.7409,
+          "MT": 0.1002
+        },
+        "norm_contrib": {
+          "HE": 0.007566,
+          "PAS": 0.037047,
+          "MT": 0.005008
+        },
+        "attn_entropy": 0.874,
+        "top10": [
+          {
+            "stain": "PAS",
+            "x": 15872,
+            "y": 5120,
+            "attention": 0.1207
+          },
+          {
+            "stain": "PAS",
+            "x": 3072,
+            "y": 7680,
+            "attention": 0.0703
+          },
+          {
+            "stain": "PAS",
+            "x": 15360,
+            "y": 3584,
+            "attention": 0.061
+          },
+          {
+            "stain": "PAS",
+            "x": 2560,
+            "y": 6656,
+            "attention": 0.0564
+          },
+          {
+            "stain": "PAS",
+            "x": 3072,
+            "y": 7168,
+            "attention": 0.0469
+          },
+          {
+            "stain": "PAS",
+            "x": 15872,
+            "y": 4608,
+            "attention": 0.0444
+          },
+          {
+            "stain": "PAS",
+            "x": 15360,
+            "y": 2560,
+            "attention": 0.0382
+          },
+          {
+            "stain": "PAS",
+            "x": 2560,
+            "y": 7680,
+            "attention": 0.0328
+          },
+          {
+            "stain": "PAS",
+            "x": 2560,
+            "y": 7168,
+            "attention": 0.0304
+          },
+          {
+            "stain": "PAS",
+            "x": 2048,
+            "y": 5120,
+            "attention": 0.0302
+          }
+        ]
+      },
+      "stage3": {
+        "raw_contrib": {
+          "HE": 0.3483,
+          "PAS": 0.5678,
+          "MT": 0.0839
+        },
+        "norm_contrib": {
+          "HE": 0.016586,
+          "PAS": 0.028388,
+          "MT": 0.004197
+        },
+        "attn_entropy": 0.949,
+        "top10": [
+          {
+            "stain": "PAS",
+            "x": 2560,
+            "y": 6656,
+            "attention": 0.0339
+          },
+          {
+            "stain": "PAS",
+            "x": 15360,
+            "y": 2560,
+            "attention": 0.033
+          },
+          {
+            "stain": "PAS",
+            "x": 15872,
+            "y": 5120,
+            "attention": 0.032
+          },
+          {
+            "stain": "PAS",
+            "x": 15360,
+            "y": 3584,
+            "attention": 0.0319
+          },
+          {
+            "stain": "PAS",
+            "x": 2560,
+            "y": 6144,
+            "attention": 0.0313
+          },
+          {
+            "stain": "PAS",
+            "x": 3072,
+            "y": 7168,
+            "attention": 0.0306
+          },
+          {
+            "stain": "PAS",
+            "x": 15872,
+            "y": 4608,
+            "attention": 0.0297
+          },
+          {
+            "stain": "PAS",
+            "x": 3072,
+            "y": 7680,
+            "attention": 0.0296
+          },
+          {
+            "stain": "PAS",
+            "x": 15360,
+            "y": 4096,
+            "attention": 0.0295
+          },
+          {
+            "stain": "PAS",
+            "x": 15360,
+            "y": 3072,
+            "attention": 0.0292
+          }
+        ]
+      },
+      "ati_severity": {
+        "raw_contrib": {
+          "HE": 0.3105,
+          "PAS": 0.3683,
+          "MT": 0.3212
+        },
+        "norm_contrib": {
+          "HE": 0.014785,
+          "PAS": 0.018415,
+          "MT": 0.01606
+        },
+        "attn_entropy": 0.998,
+        "top10": [
+          {
+            "stain": "PAS",
+            "x": 15360,
+            "y": 2048,
+            "attention": 0.0201
+          },
+          {
+            "stain": "PAS",
+            "x": 15360,
+            "y": 4096,
+            "attention": 0.02
+          },
+          {
+            "stain": "PAS",
+            "x": 2560,
+            "y": 6144,
+            "attention": 0.0198
+          },
+          {
+            "stain": "PAS",
+            "x": 15872,
+            "y": 4608,
+            "attention": 0.0195
+          },
+          {
+            "stain": "PAS",
+            "x": 2048,
+            "y": 4096,
+            "attention": 0.0191
+          },
+          {
+            "stain": "PAS",
+            "x": 2048,
+            "y": 4608,
+            "attention": 0.019
+          },
+          {
+            "stain": "PAS",
+            "x": 2560,
+            "y": 6656,
+            "attention": 0.0189
+          },
+          {
+            "stain": "MT",
+            "x": 13312,
+            "y": 1536,
+            "attention": 0.0189
+          },
+          {
+            "stain": "HE",
+            "x": 12288,
+            "y": 5120,
+            "attention": 0.0187
+          },
+          {
+            "stain": "MT",
+            "x": 12800,
+            "y": 3072,
+            "attention": 0.0186
+          }
+        ]
+      }
+    }
+  },
+  "30-10018": {
+    "group": "immune_pos",
+    "dx": "Acute Interstitial Nephritis",
+    "tasks": {
+      "immune": {
+        "raw_contrib": {
+          "HE": 0.3986,
+          "PAS": 0.2832,
+          "MT": 0.3182
+        },
+        "norm_contrib": {
+          "HE": 0.012456,
+          "PAS": 0.009134,
+          "MT": 0.010974
+        },
+        "attn_entropy": 0.99,
+        "top10": [
+          {
+            "stain": "HE",
+            "x": 14336,
+            "y": 2048,
+            "attention": 0.0197
+          },
+          {
+            "stain": "MT",
+            "x": 2048,
+            "y": 2048,
+            "attention": 0.0183
+          },
+          {
+            "stain": "HE",
+            "x": 2048,
+            "y": 2560,
+            "attention": 0.0182
+          },
+          {
+            "stain": "MT",
+            "x": 2048,
+            "y": 1536,
+            "attention": 0.0181
+          },
+          {
+            "stain": "MT",
+            "x": 13312,
+            "y": 2048,
+            "attention": 0.0178
+          },
+          {
+            "stain": "HE",
+            "x": 2560,
+            "y": 2560,
+            "attention": 0.0169
+          },
+          {
+            "stain": "HE",
+            "x": 2048,
+            "y": 2048,
+            "attention": 0.0165
+          },
+          {
+            "stain": "HE",
+            "x": 14848,
+            "y": 2560,
+            "attention": 0.0156
+          },
+          {
+            "stain": "HE",
+            "x": 1536,
+            "y": 2048,
+            "attention": 0.0155
+          },
+          {
+            "stain": "MT",
+            "x": 13824,
+            "y": 3584,
+            "attention": 0.0154
+          }
+        ]
+      },
+      "chronic": {
+        "raw_contrib": {
+          "HE": 0.2838,
+          "PAS": 0.4491,
+          "MT": 0.2671
+        },
+        "norm_contrib": {
+          "HE": 0.008868,
+          "PAS": 0.014488,
+          "MT": 0.009211
+        },
+        "attn_entropy": 0.976,
+        "top10": [
+          {
+            "stain": "PAS",
+            "x": 11776,
+            "y": 2560,
+            "attention": 0.0352
+          },
+          {
+            "stain": "PAS",
+            "x": 12288,
+            "y": 3072,
+            "attention": 0.0293
+          },
+          {
+            "stain": "PAS",
+            "x": 5120,
+            "y": 8192,
+            "attention": 0.0248
+          },
+          {
+            "stain": "PAS",
+            "x": 11776,
+            "y": 2048,
+            "attention": 0.023
+          },
+          {
+            "stain": "PAS",
+            "x": 14336,
+            "y": 4608,
+            "attention": 0.0221
+          },
+          {
+            "stain": "PAS",
+            "x": 3072,
+            "y": 5632,
+            "attention": 0.0203
+          },
+          {
+            "stain": "HE",
+            "x": 14336,
+            "y": 2048,
+            "attention": 0.0198
+          },
+          {
+            "stain": "PAS",
+            "x": 3072,
+            "y": 6144,
+            "attention": 0.019
+          },
+          {
+            "stain": "PAS",
+            "x": 11264,
+            "y": 1536,
+            "attention": 0.0188
+          },
+          {
+            "stain": "PAS",
+            "x": 13824,
+            "y": 4608,
+            "attention": 0.0185
+          }
+        ]
+      },
+      "stage3": {
+        "raw_contrib": {
+          "HE": 0.3244,
+          "PAS": 0.5842,
+          "MT": 0.0914
+        },
+        "norm_contrib": {
+          "HE": 0.010137,
+          "PAS": 0.018844,
+          "MT": 0.003153
+        },
+        "attn_entropy": 0.958,
+        "top10": [
+          {
+            "stain": "PAS",
+            "x": 4096,
+            "y": 7168,
+            "attention": 0.0224
+          },
+          {
+            "stain": "PAS",
+            "x": 4608,
+            "y": 7680,
+            "attention": 0.0216
+          },
+          {
+            "stain": "PAS",
+            "x": 13824,
+            "y": 4096,
+            "attention": 0.0213
+          },
+          {
+            "stain": "PAS",
+            "x": 1536,
+            "y": 5120,
+            "attention": 0.0212
+          },
+          {
+            "stain": "PAS",
+            "x": 13824,
+            "y": 4608,
+            "attention": 0.0207
+          },
+          {
+            "stain": "PAS",
+            "x": 4608,
+            "y": 7168,
+            "attention": 0.0207
+          },
+          {
+            "stain": "PAS",
+            "x": 4096,
+            "y": 6656,
+            "attention": 0.0202
+          },
+          {
+            "stain": "PAS",
+            "x": 13312,
+            "y": 3584,
+            "attention": 0.0202
+          },
+          {
+            "stain": "PAS",
+            "x": 11776,
+            "y": 2560,
+            "attention": 0.0199
+          },
+          {
+            "stain": "PAS",
+            "x": 5120,
+            "y": 8192,
+            "attention": 0.0196
+          }
+        ]
+      },
+      "ati_severity": {
+        "raw_contrib": {
+          "HE": 0.336,
+          "PAS": 0.3966,
+          "MT": 0.2673
+        },
+        "norm_contrib": {
+          "HE": 0.0105,
+          "PAS": 0.012795,
+          "MT": 0.009219
+        },
+        "attn_entropy": 0.997,
+        "top10": [
+          {
+            "stain": "PAS",
+            "x": 2048,
+            "y": 5120,
+            "attention": 0.0146
+          },
+          {
+            "stain": "PAS",
+            "x": 10752,
+            "y": 1536,
+            "attention": 0.0142
+          },
+          {
+            "stain": "PAS",
+            "x": 11776,
+            "y": 2048,
+            "attention": 0.014
+          },
+          {
+            "stain": "PAS",
+            "x": 2560,
+            "y": 5120,
+            "attention": 0.0139
+          },
+          {
+            "stain": "PAS",
+            "x": 11264,
+            "y": 2048,
+            "attention": 0.0138
+          },
+          {
+            "stain": "PAS",
+            "x": 12800,
+            "y": 3072,
+            "attention": 0.0136
+          },
+          {
+            "stain": "PAS",
+            "x": 2560,
+            "y": 5632,
+            "attention": 0.0135
+          },
+          {
+            "stain": "PAS",
+            "x": 11264,
+            "y": 1536,
+            "attention": 0.0134
+          },
+          {
+            "stain": "HE",
+            "x": 2560,
+            "y": 2560,
+            "attention": 0.0132
+          },
+          {
+            "stain": "HE",
+            "x": 2048,
+            "y": 2560,
+            "attention": 0.0131
+          }
+        ]
+      }
+    }
+  },
+  "30-10929": {
+    "group": "immune_pos",
+    "dx": "Acute Interstitial Nephritis",
+    "tasks": {
+      "immune": {
+        "raw_contrib": {
+          "HE": 0.3974,
+          "PAS": 0.1838,
+          "MT": 0.4187
+        },
+        "norm_contrib": {
+          "HE": 0.009243,
+          "PAS": 0.004838,
+          "MT": 0.010737
+        },
+        "attn_entropy": 0.986,
+        "top10": [
+          {
+            "stain": "MT",
+            "x": 12800,
+            "y": 7168,
+            "attention": 0.017
+          },
+          {
+            "stain": "MT",
+            "x": 12800,
+            "y": 8192,
+            "attention": 0.0164
+          },
+          {
+            "stain": "MT",
+            "x": 2560,
+            "y": 8192,
+            "attention": 0.0144
+          },
+          {
+            "stain": "MT",
+            "x": 12800,
+            "y": 7680,
+            "attention": 0.0143
+          },
+          {
+            "stain": "MT",
+            "x": 2560,
+            "y": 6656,
+            "attention": 0.0139
+          },
+          {
+            "stain": "MT",
+            "x": 12800,
+            "y": 6144,
+            "attention": 0.0138
+          },
+          {
+            "stain": "MT",
+            "x": 12800,
+            "y": 6656,
+            "attention": 0.0134
+          },
+          {
+            "stain": "MT",
+            "x": 3072,
+            "y": 7680,
+            "attention": 0.0133
+          },
+          {
+            "stain": "MT",
+            "x": 2560,
+            "y": 7168,
+            "attention": 0.013
+          },
+          {
+            "stain": "HE",
+            "x": 2048,
+            "y": 4096,
+            "attention": 0.0129
+          }
+        ]
+      },
+      "chronic": {
+        "raw_contrib": {
+          "HE": 0.5986,
+          "PAS": 0.1232,
+          "MT": 0.2781
+        },
+        "norm_contrib": {
+          "HE": 0.013922,
+          "PAS": 0.003243,
+          "MT": 0.007131
+        },
+        "attn_entropy": 0.952,
+        "top10": [
+          {
+            "stain": "HE",
+            "x": 2048,
+            "y": 4096,
+            "attention": 0.0349
+          },
+          {
+            "stain": "HE",
+            "x": 2048,
+            "y": 5120,
+            "attention": 0.0278
+          },
+          {
+            "stain": "HE",
+            "x": 2048,
+            "y": 3072,
+            "attention": 0.026
+          },
+          {
+            "stain": "HE",
+            "x": 11776,
+            "y": 5632,
+            "attention": 0.0231
+          },
+          {
+            "stain": "HE",
+            "x": 11776,
+            "y": 6656,
+            "attention": 0.0216
+          },
+          {
+            "stain": "HE",
+            "x": 2560,
+            "y": 7168,
+            "attention": 0.0213
+          },
+          {
+            "stain": "HE",
+            "x": 11776,
+            "y": 4608,
+            "attention": 0.0204
+          },
+          {
+            "stain": "HE",
+            "x": 11776,
+            "y": 4096,
+            "attention": 0.0201
+          },
+          {
+            "stain": "HE",
+            "x": 11776,
+            "y": 8704,
+            "attention": 0.02
+          },
+          {
+            "stain": "HE",
+            "x": 2048,
+            "y": 1536,
+            "attention": 0.0193
+          }
+        ]
+      },
+      "stage3": {
+        "raw_contrib": {
+          "HE": 0.4263,
+          "PAS": 0.4621,
+          "MT": 0.1116
+        },
+        "norm_contrib": {
+          "HE": 0.009915,
+          "PAS": 0.012159,
+          "MT": 0.002862
+        },
+        "attn_entropy": 0.971,
+        "top10": [
+          {
+            "stain": "PAS",
+            "x": 11264,
+            "y": 4608,
+            "attention": 0.0148
+          },
+          {
+            "stain": "PAS",
+            "x": 11776,
+            "y": 7680,
+            "attention": 0.0144
+          },
+          {
+            "stain": "PAS",
+            "x": 11264,
+            "y": 6144,
+            "attention": 0.0141
+          },
+          {
+            "stain": "PAS",
+            "x": 2560,
+            "y": 5632,
+            "attention": 0.0137
+          },
+          {
+            "stain": "HE",
+            "x": 2048,
+            "y": 4096,
+            "attention": 0.0131
+          },
+          {
+            "stain": "PAS",
+            "x": 2048,
+            "y": 5120,
+            "attention": 0.013
+          },
+          {
+            "stain": "PAS",
+            "x": 2048,
+            "y": 2048,
+            "attention": 0.013
+          },
+          {
+            "stain": "PAS",
+            "x": 11776,
+            "y": 7168,
+            "attention": 0.013
+          },
+          {
+            "stain": "PAS",
+            "x": 11776,
+            "y": 6144,
+            "attention": 0.0129
+          },
+          {
+            "stain": "HE",
+            "x": 2048,
+            "y": 3072,
+            "attention": 0.0129
+          }
+        ]
+      },
+      "ati_severity": {
+        "raw_contrib": {
+          "HE": 0.2919,
+          "PAS": 0.4157,
+          "MT": 0.2924
+        },
+        "norm_contrib": {
+          "HE": 0.006789,
+          "PAS": 0.010939,
+          "MT": 0.007497
+        },
+        "attn_entropy": 0.994,
+        "top10": [
+          {
+            "stain": "PAS",
+            "x": 11264,
+            "y": 3072,
+            "attention": 0.0122
+          },
+          {
+            "stain": "PAS",
+            "x": 2560,
+            "y": 6656,
+            "attention": 0.012
+          },
+          {
+            "stain": "PAS",
+            "x": 11264,
+            "y": 2560,
+            "attention": 0.0118
+          },
+          {
+            "stain": "PAS",
+            "x": 11264,
+            "y": 3584,
+            "attention": 0.0118
+          },
+          {
+            "stain": "PAS",
+            "x": 11264,
+            "y": 5632,
+            "attention": 0.0117
+          },
+          {
+            "stain": "PAS",
+            "x": 11776,
+            "y": 7168,
+            "attention": 0.0117
+          },
+          {
+            "stain": "PAS",
+            "x": 2048,
+            "y": 3584,
+            "attention": 0.0116
+          },
+          {
+            "stain": "PAS",
+            "x": 11264,
+            "y": 4608,
+            "attention": 0.0116
+          },
+          {
+            "stain": "PAS",
+            "x": 2048,
+            "y": 4608,
+            "attention": 0.0115
+          },
+          {
+            "stain": "PAS",
+            "x": 2048,
+            "y": 3072,
+            "attention": 0.0115
+          }
+        ]
+      }
+    }
+  },
+  "30-11072": {
+    "group": "immune_pos",
+    "dx": "Acute Interstitial Nephritis",
+    "tasks": {
+      "immune": {
+        "raw_contrib": {
+          "HE": 0.4319,
+          "PAS": 0.2695,
+          "MT": 0.2986
+        },
+        "norm_contrib": {
+          "HE": 0.011673,
+          "PAS": 0.007092,
+          "MT": 0.006491
+        },
+        "attn_entropy": 0.977,
+        "top10": [
+          {
+            "stain": "MT",
+            "x": 19456,
+            "y": 5120,
+            "attention": 0.0192
+          },
+          {
+            "stain": "HE",
+            "x": 31744,
+            "y": 7680,
+            "attention": 0.0185
+          },
+          {
+            "stain": "HE",
+            "x": 31232,
+            "y": 3072,
+            "attention": 0.0183
+          },
+          {
+            "stain": "MT",
+            "x": 19456,
+            "y": 6656,
+            "attention": 0.0169
+          },
+          {
+            "stain": "HE",
+            "x": 31744,
+            "y": 5632,
+            "attention": 0.0159
+          },
+          {
+            "stain": "HE",
+            "x": 31744,
+            "y": 6656,
+            "attention": 0.0158
+          },
+          {
+            "stain": "HE",
+            "x": 31744,
+            "y": 6144,
+            "attention": 0.0155
+          },
+          {
+            "stain": "MT",
+            "x": 3072,
+            "y": 6656,
+            "attention": 0.0148
+          },
+          {
+            "stain": "HE",
+            "x": 31744,
+            "y": 8192,
+            "attention": 0.0147
+          },
+          {
+            "stain": "HE",
+            "x": 31232,
+            "y": 3584,
+            "attention": 0.0143
+          }
+        ]
+      },
+      "chronic": {
+        "raw_contrib": {
+          "HE": 0.8713,
+          "PAS": 0.0339,
+          "MT": 0.0948
+        },
+        "norm_contrib": {
+          "HE": 0.02355,
+          "PAS": 0.000892,
+          "MT": 0.00206
+        },
+        "attn_entropy": 0.806,
+        "top10": [
+          {
+            "stain": "HE",
+            "x": 31232,
+            "y": 3072,
+            "attention": 0.0705
+          },
+          {
+            "stain": "HE",
+            "x": 31744,
+            "y": 7680,
+            "attention": 0.0598
+          },
+          {
+            "stain": "HE",
+            "x": 31744,
+            "y": 8192,
+            "attention": 0.0587
+          },
+          {
+            "stain": "HE",
+            "x": 31744,
+            "y": 9216,
+            "attention": 0.0575
+          },
+          {
+            "stain": "HE",
+            "x": 31744,
+            "y": 8704,
+            "attention": 0.0442
+          },
+          {
+            "stain": "HE",
+            "x": 31232,
+            "y": 2560,
+            "attention": 0.0432
+          },
+          {
+            "stain": "HE",
+            "x": 31232,
+            "y": 3584,
+            "attention": 0.0386
+          },
+          {
+            "stain": "HE",
+            "x": 31744,
+            "y": 5632,
+            "attention": 0.0361
+          },
+          {
+            "stain": "HE",
+            "x": 9216,
+            "y": 8192,
+            "attention": 0.0348
+          },
+          {
+            "stain": "HE",
+            "x": 31744,
+            "y": 6656,
+            "attention": 0.0322
+          }
+        ]
+      },
+      "stage3": {
+        "raw_contrib": {
+          "HE": 0.4918,
+          "PAS": 0.4014,
+          "MT": 0.1068
+        },
+        "norm_contrib": {
+          "HE": 0.013291,
+          "PAS": 0.010564,
+          "MT": 0.002322
+        },
+        "attn_entropy": 0.954,
+        "top10": [
+          {
+            "stain": "HE",
+            "x": 31744,
+            "y": 7680,
+            "attention": 0.0195
+          },
+          {
+            "stain": "HE",
+            "x": 31744,
+            "y": 9216,
+            "attention": 0.0191
+          },
+          {
+            "stain": "HE",
+            "x": 31744,
+            "y": 8192,
+            "attention": 0.0186
+          },
+          {
+            "stain": "HE",
+            "x": 31232,
+            "y": 3072,
+            "attention": 0.0183
+          },
+          {
+            "stain": "HE",
+            "x": 31744,
+            "y": 8704,
+            "attention": 0.0182
+          },
+          {
+            "stain": "HE",
+            "x": 31744,
+            "y": 5632,
+            "attention": 0.0171
+          },
+          {
+            "stain": "HE",
+            "x": 9216,
+            "y": 8192,
+            "attention": 0.0169
+          },
+          {
+            "stain": "HE",
+            "x": 9216,
+            "y": 8704,
+            "attention": 0.0163
+          },
+          {
+            "stain": "HE",
+            "x": 31744,
+            "y": 6656,
+            "attention": 0.0162
+          },
+          {
+            "stain": "HE",
+            "x": 31744,
+            "y": 6144,
+            "attention": 0.016
+          }
+        ]
+      },
+      "ati_severity": {
+        "raw_contrib": {
+          "HE": 0.2098,
+          "PAS": 0.44,
+          "MT": 0.3502
+        },
+        "norm_contrib": {
+          "HE": 0.005669,
+          "PAS": 0.01158,
+          "MT": 0.007613
+        },
+        "attn_entropy": 0.989,
+        "top10": [
+          {
+            "stain": "PAS",
+            "x": 19968,
+            "y": 5120,
+            "attention": 0.0133
+          },
+          {
+            "stain": "PAS",
+            "x": 19968,
+            "y": 4608,
+            "attention": 0.0132
+          },
+          {
+            "stain": "PAS",
+            "x": 3072,
+            "y": 7168,
+            "attention": 0.0131
+          },
+          {
+            "stain": "PAS",
+            "x": 3072,
+            "y": 6656,
+            "attention": 0.0131
+          },
+          {
+            "stain": "PAS",
+            "x": 3072,
+            "y": 7680,
+            "attention": 0.013
+          },
+          {
+            "stain": "PAS",
+            "x": 19968,
+            "y": 3584,
+            "attention": 0.0128
+          },
+          {
+            "stain": "PAS",
+            "x": 3072,
+            "y": 6144,
+            "attention": 0.0126
+          },
+          {
+            "stain": "PAS",
+            "x": 3072,
+            "y": 5120,
+            "attention": 0.0124
+          },
+          {
+            "stain": "PAS",
+            "x": 20480,
+            "y": 6144,
+            "attention": 0.0123
+          },
+          {
+            "stain": "PAS",
+            "x": 19968,
+            "y": 5632,
+            "attention": 0.0123
+          }
+        ]
+      }
+    }
+  },
+  "30-11080": {
+    "group": "immune_pos",
+    "dx": "Acute Interstitial Nephritis",
+    "tasks": {
+      "immune": {
+        "raw_contrib": {
+          "HE": 0.3087,
+          "PAS": 0.2329,
+          "MT": 0.4583
+        },
+        "norm_contrib": {
+          "HE": 0.007718,
+          "PAS": 0.005064,
+          "MT": 0.009354
+        },
+        "attn_entropy": 0.986,
+        "top10": [
+          {
+            "stain": "MT",
+            "x": 22528,
+            "y": 8704,
+            "attention": 0.0163
+          },
+          {
+            "stain": "MT",
+            "x": 2560,
+            "y": 7168,
+            "attention": 0.0159
+          },
+          {
+            "stain": "MT",
+            "x": 22528,
+            "y": 8192,
+            "attention": 0.0152
+          },
+          {
+            "stain": "MT",
+            "x": 2560,
+            "y": 8192,
+            "attention": 0.0149
+          },
+          {
+            "stain": "MT",
+            "x": 2560,
+            "y": 9216,
+            "attention": 0.0142
+          },
+          {
+            "stain": "MT",
+            "x": 2560,
+            "y": 7680,
+            "attention": 0.014
+          },
+          {
+            "stain": "MT",
+            "x": 22528,
+            "y": 7168,
+            "attention": 0.0138
+          },
+          {
+            "stain": "MT",
+            "x": 22528,
+            "y": 9216,
+            "attention": 0.0138
+          },
+          {
+            "stain": "MT",
+            "x": 2560,
+            "y": 8704,
+            "attention": 0.0135
+          },
+          {
+            "stain": "MT",
+            "x": 22016,
+            "y": 4608,
+            "attention": 0.013
+          }
+        ]
+      },
+      "chronic": {
+        "raw_contrib": {
+          "HE": 0.6317,
+          "PAS": 0.2122,
+          "MT": 0.1561
+        },
+        "norm_contrib": {
+          "HE": 0.015793,
+          "PAS": 0.004613,
+          "MT": 0.003186
+        },
+        "attn_entropy": 0.925,
+        "top10": [
+          {
+            "stain": "HE",
+            "x": 4096,
+            "y": 2560,
+            "attention": 0.0398
+          },
+          {
+            "stain": "HE",
+            "x": 15872,
+            "y": 5120,
+            "attention": 0.0368
+          },
+          {
+            "stain": "HE",
+            "x": 15872,
+            "y": 4608,
+            "attention": 0.0351
+          },
+          {
+            "stain": "HE",
+            "x": 3584,
+            "y": 6656,
+            "attention": 0.0342
+          },
+          {
+            "stain": "HE",
+            "x": 15872,
+            "y": 3584,
+            "attention": 0.034
+          },
+          {
+            "stain": "HE",
+            "x": 3584,
+            "y": 6144,
+            "attention": 0.0289
+          },
+          {
+            "stain": "HE",
+            "x": 15872,
+            "y": 5632,
+            "attention": 0.026
+          },
+          {
+            "stain": "HE",
+            "x": 15360,
+            "y": 2048,
+            "attention": 0.0237
+          },
+          {
+            "stain": "HE",
+            "x": 3584,
+            "y": 5632,
+            "attention": 0.0193
+          },
+          {
+            "stain": "HE",
+            "x": 4096,
+            "y": 3584,
+            "attention": 0.0183
+          }
+        ]
+      },
+      "stage3": {
+        "raw_contrib": {
+          "HE": 0.3908,
+          "PAS": 0.5254,
+          "MT": 0.0838
+        },
+        "norm_contrib": {
+          "HE": 0.009769,
+          "PAS": 0.011422,
+          "MT": 0.001711
+        },
+        "attn_entropy": 0.954,
+        "top10": [
+          {
+            "stain": "HE",
+            "x": 3584,
+            "y": 6656,
+            "attention": 0.0148
+          },
+          {
+            "stain": "HE",
+            "x": 4096,
+            "y": 2560,
+            "attention": 0.0146
+          },
+          {
+            "stain": "PAS",
+            "x": 2560,
+            "y": 5632,
+            "attention": 0.0146
+          },
+          {
+            "stain": "PAS",
+            "x": 18432,
+            "y": 3584,
+            "attention": 0.0144
+          },
+          {
+            "stain": "HE",
+            "x": 15872,
+            "y": 4608,
+            "attention": 0.0141
+          },
+          {
+            "stain": "PAS",
+            "x": 3072,
+            "y": 3584,
+            "attention": 0.0141
+          },
+          {
+            "stain": "PAS",
+            "x": 18432,
+            "y": 4608,
+            "attention": 0.0135
+          },
+          {
+            "stain": "PAS",
+            "x": 3072,
+            "y": 4608,
+            "attention": 0.0134
+          },
+          {
+            "stain": "PAS",
+            "x": 3072,
+            "y": 5120,
+            "attention": 0.0134
+          },
+          {
+            "stain": "HE",
+            "x": 15872,
+            "y": 3584,
+            "attention": 0.0132
+          }
+        ]
+      },
+      "ati_severity": {
+        "raw_contrib": {
+          "HE": 0.234,
+          "PAS": 0.4079,
+          "MT": 0.3581
+        },
+        "norm_contrib": {
+          "HE": 0.005849,
+          "PAS": 0.008867,
+          "MT": 0.007309
+        },
+        "attn_entropy": 0.996,
+        "top10": [
+          {
+            "stain": "PAS",
+            "x": 2048,
+            "y": 8704,
+            "attention": 0.0097
+          },
+          {
+            "stain": "PAS",
+            "x": 18432,
+            "y": 4096,
+            "attention": 0.0097
+          },
+          {
+            "stain": "PAS",
+            "x": 18432,
+            "y": 8704,
+            "attention": 0.0097
+          },
+          {
+            "stain": "PAS",
+            "x": 2560,
+            "y": 6656,
+            "attention": 0.0095
+          },
+          {
+            "stain": "PAS",
+            "x": 18432,
+            "y": 8192,
+            "attention": 0.0095
+          },
+          {
+            "stain": "PAS",
+            "x": 3072,
+            "y": 4096,
+            "attention": 0.0095
+          },
+          {
+            "stain": "PAS",
+            "x": 2560,
+            "y": 7168,
+            "attention": 0.0094
+          },
+          {
+            "stain": "PAS",
+            "x": 18432,
+            "y": 3072,
+            "attention": 0.0094
+          },
+          {
+            "stain": "PAS",
+            "x": 17920,
+            "y": 2048,
+            "attention": 0.0094
+          },
+          {
+            "stain": "PAS",
+            "x": 3072,
+            "y": 1536,
+            "attention": 0.0094
+          }
+        ]
+      }
+    }
+  },
+  "30-11090": {
+    "group": "immune_pos",
+    "dx": "Acute Interstitial Nephritis",
+    "tasks": {
+      "immune": {
+        "raw_contrib": {
+          "HE": 0.5758,
+          "PAS": 0.2332,
+          "MT": 0.191
+        },
+        "norm_contrib": {
+          "HE": 0.026174,
+          "PAS": 0.011661,
+          "MT": 0.014689
+        },
+        "attn_entropy": 0.98,
+        "top10": [
+          {
+            "stain": "HE",
+            "x": 14848,
+            "y": 5120,
+            "attention": 0.033
+          },
+          {
+            "stain": "HE",
+            "x": 2048,
+            "y": 3584,
+            "attention": 0.031
+          },
+          {
+            "stain": "HE",
+            "x": 14848,
+            "y": 4608,
+            "attention": 0.0305
+          },
+          {
+            "stain": "HE",
+            "x": 2048,
+            "y": 1536,
+            "attention": 0.03
+          },
+          {
+            "stain": "HE",
+            "x": 1536,
+            "y": 4096,
+            "attention": 0.03
+          },
+          {
+            "stain": "HE",
+            "x": 14848,
+            "y": 6144,
+            "attention": 0.0298
+          },
+          {
+            "stain": "HE",
+            "x": 2048,
+            "y": 2560,
+            "attention": 0.0293
+          },
+          {
+            "stain": "HE",
+            "x": 1536,
+            "y": 3584,
+            "attention": 0.0289
+          },
+          {
+            "stain": "HE",
+            "x": 1536,
+            "y": 3072,
+            "attention": 0.0281
+          },
+          {
+            "stain": "HE",
+            "x": 14848,
+            "y": 7168,
+            "attention": 0.0276
+          }
+        ]
+      },
+      "chronic": {
+        "raw_contrib": {
+          "HE": 0.4677,
+          "PAS": 0.2905,
+          "MT": 0.2418
+        },
+        "norm_contrib": {
+          "HE": 0.021257,
+          "PAS": 0.014527,
+          "MT": 0.0186
+        },
+        "attn_entropy": 0.972,
+        "top10": [
+          {
+            "stain": "HE",
+            "x": 14848,
+            "y": 7168,
+            "attention": 0.0499
+          },
+          {
+            "stain": "PAS",
+            "x": 3072,
+            "y": 6656,
+            "attention": 0.0461
+          },
+          {
+            "stain": "HE",
+            "x": 1536,
+            "y": 3072,
+            "attention": 0.0399
+          },
+          {
+            "stain": "HE",
+            "x": 2048,
+            "y": 2048,
+            "attention": 0.0344
+          },
+          {
+            "stain": "HE",
+            "x": 14848,
+            "y": 5120,
+            "attention": 0.0329
+          },
+          {
+            "stain": "HE",
+            "x": 14848,
+            "y": 5632,
+            "attention": 0.0305
+          },
+          {
+            "stain": "HE",
+            "x": 1536,
+            "y": 4096,
+            "attention": 0.0273
+          },
+          {
+            "stain": "HE",
+            "x": 2048,
+            "y": 2560,
+            "attention": 0.0266
+          },
+          {
+            "stain": "MT",
+            "x": 8704,
+            "y": 3584,
+            "attention": 0.0265
+          },
+          {
+            "stain": "HE",
+            "x": 14848,
+            "y": 6656,
+            "attention": 0.0252
+          }
+        ]
+      },
+      "stage3": {
+        "raw_contrib": {
+          "HE": 0.3572,
+          "PAS": 0.5643,
+          "MT": 0.0785
+        },
+        "norm_contrib": {
+          "HE": 0.016238,
+          "PAS": 0.028215,
+          "MT": 0.006036
+        },
+        "attn_entropy": 0.968,
+        "top10": [
+          {
+            "stain": "PAS",
+            "x": 14848,
+            "y": 3072,
+            "attention": 0.034
+          },
+          {
+            "stain": "PAS",
+            "x": 3072,
+            "y": 6656,
+            "attention": 0.0323
+          },
+          {
+            "stain": "PAS",
+            "x": 14336,
+            "y": 4096,
+            "attention": 0.0318
+          },
+          {
+            "stain": "PAS",
+            "x": 2048,
+            "y": 4608,
+            "attention": 0.0307
+          },
+          {
+            "stain": "PAS",
+            "x": 2560,
+            "y": 5632,
+            "attention": 0.0305
+          },
+          {
+            "stain": "PAS",
+            "x": 2560,
+            "y": 6144,
+            "attention": 0.0291
+          },
+          {
+            "stain": "PAS",
+            "x": 14336,
+            "y": 3072,
+            "attention": 0.0288
+          },
+          {
+            "stain": "PAS",
+            "x": 14848,
+            "y": 3584,
+            "attention": 0.0288
+          },
+          {
+            "stain": "PAS",
+            "x": 2048,
+            "y": 4096,
+            "attention": 0.0288
+          },
+          {
+            "stain": "PAS",
+            "x": 14336,
+            "y": 2560,
+            "attention": 0.0287
+          }
+        ]
+      },
+      "ati_severity": {
+        "raw_contrib": {
+          "HE": 0.3338,
+          "PAS": 0.4826,
+          "MT": 0.1836
+        },
+        "norm_contrib": {
+          "HE": 0.015171,
+          "PAS": 0.024132,
+          "MT": 0.014123
+        },
+        "attn_entropy": 0.991,
+        "top10": [
+          {
+            "stain": "PAS",
+            "x": 2048,
+            "y": 4608,
+            "attention": 0.0258
+          },
+          {
+            "stain": "PAS",
+            "x": 2560,
+            "y": 5632,
+            "attention": 0.0253
+          },
+          {
+            "stain": "PAS",
+            "x": 3072,
+            "y": 6144,
+            "attention": 0.0253
+          },
+          {
+            "stain": "PAS",
+            "x": 2560,
+            "y": 6144,
+            "attention": 0.025
+          },
+          {
+            "stain": "PAS",
+            "x": 14848,
+            "y": 3584,
+            "attention": 0.0249
+          },
+          {
+            "stain": "PAS",
+            "x": 14336,
+            "y": 4096,
+            "attention": 0.0246
+          },
+          {
+            "stain": "PAS",
+            "x": 14848,
+            "y": 2048,
+            "attention": 0.0246
+          },
+          {
+            "stain": "PAS",
+            "x": 2048,
+            "y": 4096,
+            "attention": 0.0245
+          },
+          {
+            "stain": "PAS",
+            "x": 2560,
+            "y": 5120,
+            "attention": 0.0245
+          },
+          {
+            "stain": "PAS",
+            "x": 14336,
+            "y": 2560,
+            "attention": 0.0245
+          }
+        ]
+      }
+    }
+  },
+  "32-10296": {
+    "group": "neg_ctrl_ATI",
+    "dx": "Acute Tubular Injury",
+    "tasks": {
+      "immune": {
+        "raw_contrib": {
+          "HE": 0.4376,
+          "PAS": 0.4496,
+          "MT": 0.1129
+        },
+        "norm_contrib": {
+          "HE": 0.008415,
+          "PAS": 0.009773,
+          "MT": 0.002822
+        },
+        "attn_entropy": 0.974,
+        "top10": [
+          {
+            "stain": "PAS",
+            "x": 7680,
+            "y": 5632,
+            "attention": 0.0153
+          },
+          {
+            "stain": "PAS",
+            "x": 15360,
+            "y": 6144,
+            "attention": 0.0132
+          },
+          {
+            "stain": "PAS",
+            "x": 6656,
+            "y": 4608,
+            "attention": 0.0132
+          },
+          {
+            "stain": "PAS",
+            "x": 7168,
+            "y": 4608,
+            "attention": 0.013
+          },
+          {
+            "stain": "PAS",
+            "x": 10752,
+            "y": 2048,
+            "attention": 0.013
+          },
+          {
+            "stain": "PAS",
+            "x": 11776,
+            "y": 2560,
+            "attention": 0.0129
+          },
+          {
+            "stain": "PAS",
+            "x": 8192,
+            "y": 6656,
+            "attention": 0.0125
+          },
+          {
+            "stain": "HE",
+            "x": 4096,
+            "y": 13312,
+            "attention": 0.0125
+          },
+          {
+            "stain": "PAS",
+            "x": 5120,
+            "y": 2560,
+            "attention": 0.0124
+          },
+          {
+            "stain": "PAS",
+            "x": 12288,
+            "y": 2560,
+            "attention": 0.0122
+          }
+        ]
+      },
+      "chronic": {
+        "raw_contrib": {
+          "HE": 0.8741,
+          "PAS": 0.081,
+          "MT": 0.0449
+        },
+        "norm_contrib": {
+          "HE": 0.01681,
+          "PAS": 0.001761,
+          "MT": 0.001122
+        },
+        "attn_entropy": 0.862,
+        "top10": [
+          {
+            "stain": "HE",
+            "x": 5632,
+            "y": 10240,
+            "attention": 0.0366
+          },
+          {
+            "stain": "HE",
+            "x": 2048,
+            "y": 5632,
+            "attention": 0.0366
+          },
+          {
+            "stain": "HE",
+            "x": 4096,
+            "y": 13312,
+            "attention": 0.0358
+          },
+          {
+            "stain": "HE",
+            "x": 1536,
+            "y": 6656,
+            "attention": 0.0318
+          },
+          {
+            "stain": "HE",
+            "x": 4096,
+            "y": 14336,
+            "attention": 0.0283
+          },
+          {
+            "stain": "HE",
+            "x": 3072,
+            "y": 3584,
+            "attention": 0.0283
+          },
+          {
+            "stain": "HE",
+            "x": 3584,
+            "y": 3072,
+            "attention": 0.026
+          },
+          {
+            "stain": "HE",
+            "x": 3072,
+            "y": 4096,
+            "attention": 0.0258
+          },
+          {
+            "stain": "HE",
+            "x": 4096,
+            "y": 12800,
+            "attention": 0.025
+          },
+          {
+            "stain": "HE",
+            "x": 3072,
+            "y": 3072,
+            "attention": 0.0244
+          }
+        ]
+      },
+      "stage3": {
+        "raw_contrib": {
+          "HE": 0.6187,
+          "PAS": 0.3242,
+          "MT": 0.0571
+        },
+        "norm_contrib": {
+          "HE": 0.011897,
+          "PAS": 0.007049,
+          "MT": 0.001428
+        },
+        "attn_entropy": 0.955,
+        "top10": [
+          {
+            "stain": "HE",
+            "x": 4096,
+            "y": 13312,
+            "attention": 0.0165
+          },
+          {
+            "stain": "HE",
+            "x": 1536,
+            "y": 6656,
+            "attention": 0.016
+          },
+          {
+            "stain": "HE",
+            "x": 2048,
+            "y": 5632,
+            "attention": 0.0159
+          },
+          {
+            "stain": "HE",
+            "x": 4096,
+            "y": 14336,
+            "attention": 0.0156
+          },
+          {
+            "stain": "HE",
+            "x": 5632,
+            "y": 10240,
+            "attention": 0.0151
+          },
+          {
+            "stain": "HE",
+            "x": 3584,
+            "y": 3072,
+            "attention": 0.0149
+          },
+          {
+            "stain": "HE",
+            "x": 1536,
+            "y": 7168,
+            "attention": 0.0144
+          },
+          {
+            "stain": "HE",
+            "x": 4096,
+            "y": 12800,
+            "attention": 0.0144
+          },
+          {
+            "stain": "HE",
+            "x": 3072,
+            "y": 4096,
+            "attention": 0.0141
+          },
+          {
+            "stain": "HE",
+            "x": 2048,
+            "y": 7680,
+            "attention": 0.0139
+          }
+        ]
+      },
+      "ati_severity": {
+        "raw_contrib": {
+          "HE": 0.2568,
+          "PAS": 0.4272,
+          "MT": 0.316
+        },
+        "norm_contrib": {
+          "HE": 0.004938,
+          "PAS": 0.009287,
+          "MT": 0.0079
+        },
+        "attn_entropy": 0.991,
+        "top10": [
+          {
+            "stain": "PAS",
+            "x": 9216,
+            "y": 2560,
+            "attention": 0.0108
+          },
+          {
+            "stain": "MT",
+            "x": 9216,
+            "y": 2048,
+            "attention": 0.0107
+          },
+          {
+            "stain": "PAS",
+            "x": 13312,
+            "y": 3072,
+            "attention": 0.0106
+          },
+          {
+            "stain": "PAS",
+            "x": 8192,
+            "y": 6144,
+            "attention": 0.0105
+          },
+          {
+            "stain": "PAS",
+            "x": 3584,
+            "y": 2560,
+            "attention": 0.0104
+          },
+          {
+            "stain": "PAS",
+            "x": 3072,
+            "y": 2560,
+            "attention": 0.0102
+          },
+          {
+            "stain": "MT",
+            "x": 2048,
+            "y": 2048,
+            "attention": 0.0102
+          },
+          {
+            "stain": "PAS",
+            "x": 10240,
+            "y": 2560,
+            "attention": 0.0102
+          },
+          {
+            "stain": "PAS",
+            "x": 9728,
+            "y": 2560,
+            "attention": 0.0099
+          },
+          {
+            "stain": "PAS",
+            "x": 7680,
+            "y": 6144,
+            "attention": 0.0099
+          }
+        ]
+      }
+    }
+  },
+  "30-10034": {
+    "group": "neg_ctrl_ATI",
+    "dx": "Acute Tubular Injury",
+    "tasks": {
+      "immune": {
+        "raw_contrib": {
+          "HE": 0.4973,
+          "PAS": 0.4127,
+          "MT": 0.09
+        },
+        "norm_contrib": {
+          "HE": 0.062161,
+          "PAS": 0.051592,
+          "MT": 0.017995
+        },
+        "attn_entropy": 0.962,
+        "top10": [
+          {
+            "stain": "PAS",
+            "x": 1536,
+            "y": 5120,
+            "attention": 0.0931
+          },
+          {
+            "stain": "HE",
+            "x": 20992,
+            "y": 1536,
+            "attention": 0.0783
+          },
+          {
+            "stain": "HE",
+            "x": 1536,
+            "y": 3072,
+            "attention": 0.075
+          },
+          {
+            "stain": "PAS",
+            "x": 1536,
+            "y": 4608,
+            "attention": 0.0747
+          },
+          {
+            "stain": "HE",
+            "x": 21504,
+            "y": 2048,
+            "attention": 0.0678
+          },
+          {
+            "stain": "HE",
+            "x": 20992,
+            "y": 1024,
+            "attention": 0.0676
+          },
+          {
+            "stain": "HE",
+            "x": 2048,
+            "y": 3584,
+            "attention": 0.0593
+          },
+          {
+            "stain": "HE",
+            "x": 1536,
+            "y": 2560,
+            "attention": 0.0561
+          },
+          {
+            "stain": "PAS",
+            "x": 2048,
+            "y": 3584,
+            "attention": 0.0533
+          },
+          {
+            "stain": "HE",
+            "x": 22016,
+            "y": 2560,
+            "attention": 0.05
+          }
+        ]
+      },
+      "chronic": {
+        "raw_contrib": {
+          "HE": 0.8395,
+          "PAS": 0.1092,
+          "MT": 0.0513
+        },
+        "norm_contrib": {
+          "HE": 0.104941,
+          "PAS": 0.01365,
+          "MT": 0.010253
+        },
+        "attn_entropy": 0.814,
+        "top10": [
+          {
+            "stain": "HE",
+            "x": 21504,
+            "y": 2048,
+            "attention": 0.1932
+          },
+          {
+            "stain": "HE",
+            "x": 2048,
+            "y": 3584,
+            "attention": 0.1692
+          },
+          {
+            "stain": "HE",
+            "x": 20992,
+            "y": 1024,
+            "attention": 0.1128
+          },
+          {
+            "stain": "HE",
+            "x": 20992,
+            "y": 1536,
+            "attention": 0.1106
+          },
+          {
+            "stain": "HE",
+            "x": 1536,
+            "y": 3072,
+            "attention": 0.0983
+          },
+          {
+            "stain": "HE",
+            "x": 22016,
+            "y": 2560,
+            "attention": 0.0688
+          },
+          {
+            "stain": "HE",
+            "x": 1536,
+            "y": 2560,
+            "attention": 0.0541
+          },
+          {
+            "stain": "HE",
+            "x": 2560,
+            "y": 4096,
+            "attention": 0.0326
+          },
+          {
+            "stain": "PAS",
+            "x": 2048,
+            "y": 2048,
+            "attention": 0.0224
+          },
+          {
+            "stain": "PAS",
+            "x": 2048,
+            "y": 1536,
+            "attention": 0.0217
+          }
+        ]
+      },
+      "stage3": {
+        "raw_contrib": {
+          "HE": 0.4377,
+          "PAS": 0.517,
+          "MT": 0.0453
+        },
+        "norm_contrib": {
+          "HE": 0.054711,
+          "PAS": 0.064625,
+          "MT": 0.009063
+        },
+        "attn_entropy": 0.95,
+        "top10": [
+          {
+            "stain": "PAS",
+            "x": 1536,
+            "y": 5120,
+            "attention": 0.0708
+          },
+          {
+            "stain": "HE",
+            "x": 2048,
+            "y": 3584,
+            "attention": 0.0688
+          },
+          {
+            "stain": "PAS",
+            "x": 1536,
+            "y": 4608,
+            "attention": 0.0685
+          },
+          {
+            "stain": "HE",
+            "x": 21504,
+            "y": 2048,
+            "attention": 0.0651
+          },
+          {
+            "stain": "PAS",
+            "x": 2048,
+            "y": 3072,
+            "attention": 0.0651
+          },
+          {
+            "stain": "PAS",
+            "x": 2048,
+            "y": 2048,
+            "attention": 0.065
+          },
+          {
+            "stain": "PAS",
+            "x": 2048,
+            "y": 3584,
+            "attention": 0.0649
+          },
+          {
+            "stain": "PAS",
+            "x": 2048,
+            "y": 1024,
+            "attention": 0.063
+          },
+          {
+            "stain": "PAS",
+            "x": 2048,
+            "y": 1536,
+            "attention": 0.0629
+          },
+          {
+            "stain": "HE",
+            "x": 20992,
+            "y": 1536,
+            "attention": 0.0622
+          }
+        ]
+      },
+      "ati_severity": {
+        "raw_contrib": {
+          "HE": 0.2582,
+          "PAS": 0.4936,
+          "MT": 0.2482
+        },
+        "norm_contrib": {
+          "HE": 0.032273,
+          "PAS": 0.061699,
+          "MT": 0.049645
+        },
+        "attn_entropy": 0.987,
+        "top10": [
+          {
+            "stain": "PAS",
+            "x": 2048,
+            "y": 3584,
+            "attention": 0.0682
+          },
+          {
+            "stain": "PAS",
+            "x": 2048,
+            "y": 2048,
+            "attention": 0.0637
+          },
+          {
+            "stain": "PAS",
+            "x": 2048,
+            "y": 2560,
+            "attention": 0.0629
+          },
+          {
+            "stain": "PAS",
+            "x": 2048,
+            "y": 1024,
+            "attention": 0.0617
+          },
+          {
+            "stain": "PAS",
+            "x": 2048,
+            "y": 3072,
+            "attention": 0.0604
+          },
+          {
+            "stain": "PAS",
+            "x": 2048,
+            "y": 1536,
+            "attention": 0.0592
+          },
+          {
+            "stain": "PAS",
+            "x": 1536,
+            "y": 4608,
+            "attention": 0.0591
+          },
+          {
+            "stain": "PAS",
+            "x": 1536,
+            "y": 5120,
+            "attention": 0.0584
+          },
+          {
+            "stain": "MT",
+            "x": 3584,
+            "y": 2560,
+            "attention": 0.0552
+          },
+          {
+            "stain": "MT",
+            "x": 3072,
+            "y": 3072,
+            "attention": 0.0519
+          }
+        ]
+      }
+    }
+  },
+  "30-10044": {
+    "group": "neg_ctrl_ATI",
+    "dx": "Acute Tubular Injury",
+    "tasks": {
+      "immune": {
+        "raw_contrib": {
+          "HE": 0.7462,
+          "PAS": 0.1925,
+          "MT": 0.0613
+        },
+        "norm_contrib": {
+          "HE": 0.035535,
+          "PAS": 0.014808,
+          "MT": 0.008754
+        },
+        "attn_entropy": 0.963,
+        "top10": [
+          {
+            "stain": "HE",
+            "x": 22528,
+            "y": 2048,
+            "attention": 0.0458
+          },
+          {
+            "stain": "HE",
+            "x": 4096,
+            "y": 2048,
+            "attention": 0.0447
+          },
+          {
+            "stain": "HE",
+            "x": 2560,
+            "y": 2048,
+            "attention": 0.0445
+          },
+          {
+            "stain": "HE",
+            "x": 21504,
+            "y": 1536,
+            "attention": 0.0414
+          },
+          {
+            "stain": "HE",
+            "x": 3072,
+            "y": 2048,
+            "attention": 0.0413
+          },
+          {
+            "stain": "HE",
+            "x": 20480,
+            "y": 1536,
+            "attention": 0.0402
+          },
+          {
+            "stain": "HE",
+            "x": 20992,
+            "y": 1536,
+            "attention": 0.0394
+          },
+          {
+            "stain": "HE",
+            "x": 24064,
+            "y": 2048,
+            "attention": 0.039
+          },
+          {
+            "stain": "HE",
+            "x": 5632,
+            "y": 2048,
+            "attention": 0.0359
+          },
+          {
+            "stain": "HE",
+            "x": 5120,
+            "y": 2048,
+            "attention": 0.0352
+          }
+        ]
+      },
+      "chronic": {
+        "raw_contrib": {
+          "HE": 0.9386,
+          "PAS": 0.036,
+          "MT": 0.0255
+        },
+        "norm_contrib": {
+          "HE": 0.044693,
+          "PAS": 0.002765,
+          "MT": 0.003641
+        },
+        "attn_entropy": 0.845,
+        "top10": [
+          {
+            "stain": "HE",
+            "x": 2560,
+            "y": 2048,
+            "attention": 0.0949
+          },
+          {
+            "stain": "HE",
+            "x": 22528,
+            "y": 2048,
+            "attention": 0.0904
+          },
+          {
+            "stain": "HE",
+            "x": 4096,
+            "y": 2048,
+            "attention": 0.0702
+          },
+          {
+            "stain": "HE",
+            "x": 21504,
+            "y": 1536,
+            "attention": 0.0612
+          },
+          {
+            "stain": "HE",
+            "x": 2048,
+            "y": 2048,
+            "attention": 0.0605
+          },
+          {
+            "stain": "HE",
+            "x": 20480,
+            "y": 1536,
+            "attention": 0.0602
+          },
+          {
+            "stain": "HE",
+            "x": 20992,
+            "y": 1536,
+            "attention": 0.0559
+          },
+          {
+            "stain": "HE",
+            "x": 24064,
+            "y": 2048,
+            "attention": 0.0521
+          },
+          {
+            "stain": "HE",
+            "x": 3072,
+            "y": 2048,
+            "attention": 0.0515
+          },
+          {
+            "stain": "HE",
+            "x": 23552,
+            "y": 2048,
+            "attention": 0.0433
+          }
+        ]
+      },
+      "stage3": {
+        "raw_contrib": {
+          "HE": 0.6516,
+          "PAS": 0.3149,
+          "MT": 0.0336
+        },
+        "norm_contrib": {
+          "HE": 0.031028,
+          "PAS": 0.024219,
+          "MT": 0.004796
+        },
+        "attn_entropy": 0.969,
+        "top10": [
+          {
+            "stain": "HE",
+            "x": 2560,
+            "y": 2048,
+            "attention": 0.0413
+          },
+          {
+            "stain": "HE",
+            "x": 22528,
+            "y": 2048,
+            "attention": 0.0406
+          },
+          {
+            "stain": "HE",
+            "x": 2048,
+            "y": 2048,
+            "attention": 0.0383
+          },
+          {
+            "stain": "HE",
+            "x": 20480,
+            "y": 1536,
+            "attention": 0.0375
+          },
+          {
+            "stain": "HE",
+            "x": 4096,
+            "y": 2048,
+            "attention": 0.0372
+          },
+          {
+            "stain": "HE",
+            "x": 20992,
+            "y": 1536,
+            "attention": 0.0357
+          },
+          {
+            "stain": "HE",
+            "x": 21504,
+            "y": 1536,
+            "attention": 0.0344
+          },
+          {
+            "stain": "HE",
+            "x": 24064,
+            "y": 2048,
+            "attention": 0.0339
+          },
+          {
+            "stain": "HE",
+            "x": 3584,
+            "y": 2048,
+            "attention": 0.0328
+          },
+          {
+            "stain": "HE",
+            "x": 3072,
+            "y": 2048,
+            "attention": 0.0326
+          }
+        ]
+      },
+      "ati_severity": {
+        "raw_contrib": {
+          "HE": 0.3637,
+          "PAS": 0.4512,
+          "MT": 0.1852
+        },
+        "norm_contrib": {
+          "HE": 0.017318,
+          "PAS": 0.034706,
+          "MT": 0.026451
+        },
+        "attn_entropy": 0.986,
+        "top10": [
+          {
+            "stain": "PAS",
+            "x": 1536,
+            "y": 1024,
+            "attention": 0.0382
+          },
+          {
+            "stain": "PAS",
+            "x": 5120,
+            "y": 2048,
+            "attention": 0.0372
+          },
+          {
+            "stain": "PAS",
+            "x": 5120,
+            "y": 1536,
+            "attention": 0.0357
+          },
+          {
+            "stain": "PAS",
+            "x": 5632,
+            "y": 2048,
+            "attention": 0.0356
+          },
+          {
+            "stain": "PAS",
+            "x": 4096,
+            "y": 1536,
+            "attention": 0.035
+          },
+          {
+            "stain": "PAS",
+            "x": 2048,
+            "y": 1024,
+            "attention": 0.0345
+          },
+          {
+            "stain": "PAS",
+            "x": 2560,
+            "y": 1024,
+            "attention": 0.0343
+          },
+          {
+            "stain": "PAS",
+            "x": 4608,
+            "y": 2048,
+            "attention": 0.0342
+          },
+          {
+            "stain": "PAS",
+            "x": 4608,
+            "y": 1536,
+            "attention": 0.0342
+          },
+          {
+            "stain": "PAS",
+            "x": 1536,
+            "y": 512,
+            "attention": 0.0342
+          }
+        ]
+      }
+    }
+  },
+  "30-10125": {
+    "group": "neg_ctrl_ATI",
+    "dx": "Acute Tubular Injury",
+    "tasks": {
+      "immune": {
+        "raw_contrib": {
+          "HE": 0.4607,
+          "PAS": 0.3612,
+          "MT": 0.1781
+        },
+        "norm_contrib": {
+          "HE": 0.041882,
+          "PAS": 0.032832,
+          "MT": 0.014845
+        },
+        "attn_entropy": 0.971,
+        "top10": [
+          {
+            "stain": "HE",
+            "x": 1536,
+            "y": 3584,
+            "attention": 0.0549
+          },
+          {
+            "stain": "HE",
+            "x": 17920,
+            "y": 3584,
+            "attention": 0.0506
+          },
+          {
+            "stain": "HE",
+            "x": 17408,
+            "y": 5120,
+            "attention": 0.0499
+          },
+          {
+            "stain": "HE",
+            "x": 17920,
+            "y": 4096,
+            "attention": 0.046
+          },
+          {
+            "stain": "PAS",
+            "x": 17920,
+            "y": 3072,
+            "attention": 0.0434
+          },
+          {
+            "stain": "HE",
+            "x": 17920,
+            "y": 4608,
+            "attention": 0.0433
+          },
+          {
+            "stain": "HE",
+            "x": 17920,
+            "y": 3072,
+            "attention": 0.0433
+          },
+          {
+            "stain": "HE",
+            "x": 1536,
+            "y": 3072,
+            "attention": 0.0428
+          },
+          {
+            "stain": "PAS",
+            "x": 17408,
+            "y": 4608,
+            "attention": 0.0421
+          },
+          {
+            "stain": "HE",
+            "x": 1536,
+            "y": 4096,
+            "attention": 0.0403
+          }
+        ]
+      },
+      "chronic": {
+        "raw_contrib": {
+          "HE": 0.8745,
+          "PAS": 0.0257,
+          "MT": 0.0998
+        },
+        "norm_contrib": {
+          "HE": 0.079497,
+          "PAS": 0.00234,
+          "MT": 0.008316
+        },
+        "attn_entropy": 0.768,
+        "top10": [
+          {
+            "stain": "HE",
+            "x": 1536,
+            "y": 3584,
+            "attention": 0.1659
+          },
+          {
+            "stain": "HE",
+            "x": 17920,
+            "y": 4608,
+            "attention": 0.1148
+          },
+          {
+            "stain": "HE",
+            "x": 17920,
+            "y": 4096,
+            "attention": 0.1108
+          },
+          {
+            "stain": "HE",
+            "x": 1536,
+            "y": 3072,
+            "attention": 0.0975
+          },
+          {
+            "stain": "HE",
+            "x": 17408,
+            "y": 4608,
+            "attention": 0.0822
+          },
+          {
+            "stain": "HE",
+            "x": 17920,
+            "y": 3072,
+            "attention": 0.0805
+          },
+          {
+            "stain": "HE",
+            "x": 17920,
+            "y": 3584,
+            "attention": 0.0799
+          },
+          {
+            "stain": "HE",
+            "x": 1536,
+            "y": 4096,
+            "attention": 0.0596
+          },
+          {
+            "stain": "HE",
+            "x": 17408,
+            "y": 5120,
+            "attention": 0.0445
+          },
+          {
+            "stain": "HE",
+            "x": 1536,
+            "y": 2560,
+            "attention": 0.0337
+          }
+        ]
+      },
+      "stage3": {
+        "raw_contrib": {
+          "HE": 0.5347,
+          "PAS": 0.3866,
+          "MT": 0.0786
+        },
+        "norm_contrib": {
+          "HE": 0.048613,
+          "PAS": 0.035147,
+          "MT": 0.006553
+        },
+        "attn_entropy": 0.932,
+        "top10": [
+          {
+            "stain": "HE",
+            "x": 1536,
+            "y": 3584,
+            "attention": 0.0675
+          },
+          {
+            "stain": "HE",
+            "x": 17920,
+            "y": 4096,
+            "attention": 0.0615
+          },
+          {
+            "stain": "HE",
+            "x": 1536,
+            "y": 3072,
+            "attention": 0.0591
+          },
+          {
+            "stain": "HE",
+            "x": 17920,
+            "y": 4608,
+            "attention": 0.0568
+          },
+          {
+            "stain": "HE",
+            "x": 17408,
+            "y": 4608,
+            "attention": 0.0521
+          },
+          {
+            "stain": "HE",
+            "x": 17920,
+            "y": 3584,
+            "attention": 0.0474
+          },
+          {
+            "stain": "HE",
+            "x": 17920,
+            "y": 3072,
+            "attention": 0.0469
+          },
+          {
+            "stain": "HE",
+            "x": 1536,
+            "y": 4096,
+            "attention": 0.0462
+          },
+          {
+            "stain": "HE",
+            "x": 17408,
+            "y": 5120,
+            "attention": 0.0419
+          },
+          {
+            "stain": "PAS",
+            "x": 1536,
+            "y": 4096,
+            "attention": 0.0406
+          }
+        ]
+      },
+      "ati_severity": {
+        "raw_contrib": {
+          "HE": 0.2296,
+          "PAS": 0.4217,
+          "MT": 0.3487
+        },
+        "norm_contrib": {
+          "HE": 0.020872,
+          "PAS": 0.038339,
+          "MT": 0.029057
+        },
+        "attn_entropy": 0.99,
+        "top10": [
+          {
+            "stain": "PAS",
+            "x": 17920,
+            "y": 3584,
+            "attention": 0.0414
+          },
+          {
+            "stain": "PAS",
+            "x": 17920,
+            "y": 2560,
+            "attention": 0.0411
+          },
+          {
+            "stain": "PAS",
+            "x": 1536,
+            "y": 2560,
+            "attention": 0.0403
+          },
+          {
+            "stain": "PAS",
+            "x": 17408,
+            "y": 4096,
+            "attention": 0.0391
+          },
+          {
+            "stain": "PAS",
+            "x": 17920,
+            "y": 3072,
+            "attention": 0.039
+          },
+          {
+            "stain": "PAS",
+            "x": 1536,
+            "y": 3072,
+            "attention": 0.0385
+          },
+          {
+            "stain": "PAS",
+            "x": 1536,
+            "y": 4096,
+            "attention": 0.0381
+          },
+          {
+            "stain": "PAS",
+            "x": 17408,
+            "y": 5120,
+            "attention": 0.0368
+          },
+          {
+            "stain": "PAS",
+            "x": 17408,
+            "y": 4608,
+            "attention": 0.0362
+          },
+          {
+            "stain": "PAS",
+            "x": 1536,
+            "y": 2048,
+            "attention": 0.0358
+          }
+        ]
+      }
+    }
+  },
+  "30-10631": {
+    "group": "neg_ctrl_ATI",
+    "dx": "Acute Tubular Injury",
+    "tasks": {
+      "immune": {
+        "raw_contrib": {
+          "HE": 0.4828,
+          "PAS": 0.3125,
+          "MT": 0.2047
+        },
+        "norm_contrib": {
+          "HE": 0.021946,
+          "PAS": 0.014204,
+          "MT": 0.010774
+        },
+        "attn_entropy": 0.98,
+        "top10": [
+          {
+            "stain": "HE",
+            "x": 12800,
+            "y": 2048,
+            "attention": 0.0417
+          },
+          {
+            "stain": "HE",
+            "x": 3584,
+            "y": 1536,
+            "attention": 0.0368
+          },
+          {
+            "stain": "HE",
+            "x": 11264,
+            "y": 5120,
+            "attention": 0.0347
+          },
+          {
+            "stain": "HE",
+            "x": 12288,
+            "y": 3584,
+            "attention": 0.0327
+          },
+          {
+            "stain": "HE",
+            "x": 2048,
+            "y": 4608,
+            "attention": 0.0296
+          },
+          {
+            "stain": "HE",
+            "x": 2048,
+            "y": 4096,
+            "attention": 0.0272
+          },
+          {
+            "stain": "HE",
+            "x": 11264,
+            "y": 5632,
+            "attention": 0.0266
+          },
+          {
+            "stain": "HE",
+            "x": 3072,
+            "y": 1536,
+            "attention": 0.0264
+          },
+          {
+            "stain": "HE",
+            "x": 11776,
+            "y": 4608,
+            "attention": 0.022
+          },
+          {
+            "stain": "HE",
+            "x": 2048,
+            "y": 5120,
+            "attention": 0.0219
+          }
+        ]
+      },
+      "chronic": {
+        "raw_contrib": {
+          "HE": 0.517,
+          "PAS": 0.1896,
+          "MT": 0.2934
+        },
+        "norm_contrib": {
+          "HE": 0.0235,
+          "PAS": 0.008616,
+          "MT": 0.015445
+        },
+        "attn_entropy": 0.914,
+        "top10": [
+          {
+            "stain": "HE",
+            "x": 12800,
+            "y": 2048,
+            "attention": 0.0882
+          },
+          {
+            "stain": "HE",
+            "x": 11264,
+            "y": 5120,
+            "attention": 0.0747
+          },
+          {
+            "stain": "HE",
+            "x": 3584,
+            "y": 1536,
+            "attention": 0.0489
+          },
+          {
+            "stain": "HE",
+            "x": 11264,
+            "y": 5632,
+            "attention": 0.0482
+          },
+          {
+            "stain": "MT",
+            "x": 11776,
+            "y": 2560,
+            "attention": 0.042
+          },
+          {
+            "stain": "HE",
+            "x": 12288,
+            "y": 3584,
+            "attention": 0.036
+          },
+          {
+            "stain": "MT",
+            "x": 3584,
+            "y": 1536,
+            "attention": 0.0354
+          },
+          {
+            "stain": "MT",
+            "x": 2048,
+            "y": 4096,
+            "attention": 0.0296
+          },
+          {
+            "stain": "HE",
+            "x": 2048,
+            "y": 4608,
+            "attention": 0.0279
+          },
+          {
+            "stain": "HE",
+            "x": 3072,
+            "y": 1536,
+            "attention": 0.0261
+          }
+        ]
+      },
+      "stage3": {
+        "raw_contrib": {
+          "HE": 0.3544,
+          "PAS": 0.545,
+          "MT": 0.1006
+        },
+        "norm_contrib": {
+          "HE": 0.01611,
+          "PAS": 0.024773,
+          "MT": 0.005293
+        },
+        "attn_entropy": 0.962,
+        "top10": [
+          {
+            "stain": "PAS",
+            "x": 12288,
+            "y": 2048,
+            "attention": 0.0302
+          },
+          {
+            "stain": "PAS",
+            "x": 10752,
+            "y": 5632,
+            "attention": 0.0295
+          },
+          {
+            "stain": "PAS",
+            "x": 1536,
+            "y": 5120,
+            "attention": 0.0282
+          },
+          {
+            "stain": "PAS",
+            "x": 2048,
+            "y": 4608,
+            "attention": 0.0281
+          },
+          {
+            "stain": "PAS",
+            "x": 3072,
+            "y": 1536,
+            "attention": 0.0275
+          },
+          {
+            "stain": "HE",
+            "x": 12800,
+            "y": 2048,
+            "attention": 0.0265
+          },
+          {
+            "stain": "PAS",
+            "x": 11264,
+            "y": 4608,
+            "attention": 0.0265
+          },
+          {
+            "stain": "PAS",
+            "x": 11264,
+            "y": 5120,
+            "attention": 0.0262
+          },
+          {
+            "stain": "PAS",
+            "x": 2048,
+            "y": 4096,
+            "attention": 0.0255
+          },
+          {
+            "stain": "HE",
+            "x": 11264,
+            "y": 5120,
+            "attention": 0.0253
+          }
+        ]
+      },
+      "ati_severity": {
+        "raw_contrib": {
+          "HE": 0.3072,
+          "PAS": 0.4423,
+          "MT": 0.2506
+        },
+        "norm_contrib": {
+          "HE": 0.013963,
+          "PAS": 0.020102,
+          "MT": 0.013187
+        },
+        "attn_entropy": 0.993,
+        "top10": [
+          {
+            "stain": "PAS",
+            "x": 11776,
+            "y": 3072,
+            "attention": 0.0228
+          },
+          {
+            "stain": "PAS",
+            "x": 2560,
+            "y": 2560,
+            "attention": 0.0228
+          },
+          {
+            "stain": "PAS",
+            "x": 11776,
+            "y": 2560,
+            "attention": 0.0217
+          },
+          {
+            "stain": "PAS",
+            "x": 3072,
+            "y": 2048,
+            "attention": 0.0213
+          },
+          {
+            "stain": "PAS",
+            "x": 12288,
+            "y": 2560,
+            "attention": 0.0212
+          },
+          {
+            "stain": "PAS",
+            "x": 2560,
+            "y": 3072,
+            "attention": 0.0209
+          },
+          {
+            "stain": "PAS",
+            "x": 12288,
+            "y": 2048,
+            "attention": 0.0209
+          },
+          {
+            "stain": "PAS",
+            "x": 11264,
+            "y": 3584,
+            "attention": 0.0209
+          },
+          {
+            "stain": "PAS",
+            "x": 11776,
+            "y": 3584,
+            "attention": 0.0207
+          },
+          {
+            "stain": "PAS",
+            "x": 2560,
+            "y": 2048,
+            "attention": 0.0206
+          }
+        ]
+      }
+    }
+  }
+}

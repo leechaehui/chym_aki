@@ -1,0 +1,15 @@
+openslide-python
+openslide-bin
+torch>=2.0
+torchvision
+timm
+transformers
+opencv-python
+Pillow
+numpy
+pandas
+scikit-learn
+tqdm
+wsidicom
+pydicom
+dicomweb-client

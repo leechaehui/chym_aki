@@ -1,0 +1,97 @@
+{
+  "config": {
+    "seed": 42,
+    "slides_per_stain": "all",
+    "tiles_per_slide": 12,
+    "tile": 256,
+    "work_level": 1,
+    "metric_caveat": "color_CV는 Reinhard 목적함수와 거의 동일(순환); NMI_CV가 더 독립적. 최종판정은 다운스트림 MIL 필요."
+  },
+  "by_stain": {
+    "HE": {
+      "n_slides": 64,
+      "macenko_fail_tiles": 0,
+      "raw": {
+        "color_CV": 0.049,
+        "nmi_CV": 0.194
+      },
+      "reinhard": {
+        "color_CV": 0.0007,
+        "nmi_CV": 0.0587
+      },
+      "macenko": {
+        "color_CV": 0.0122,
+        "nmi_CV": 0.0341
+      },
+      "best_by_color_CV": "reinhard"
+    },
+    "PAS": {
+      "n_slides": 70,
+      "macenko_fail_tiles": 0,
+      "raw": {
+        "color_CV": 0.053,
+        "nmi_CV": 0.2415
+      },
+      "reinhard": {
+        "color_CV": 0.0013,
+        "nmi_CV": 0.0436
+      },
+      "macenko": {
+        "color_CV": 0.0182,
+        "nmi_CV": 0.0735
+      },
+      "best_by_color_CV": "reinhard"
+    },
+    "MT": {
+      "n_slides": 68,
+      "macenko_fail_tiles": 0,
+      "raw": {
+        "color_CV": 0.0721,
+        "nmi_CV": 0.3134
+      },
+      "reinhard": {
+        "color_CV": 0.0052,
+        "nmi_CV": 0.0866
+      },
+      "macenko": {
+        "color_CV": 0.0354,
+        "nmi_CV": 0.1235
+      },
+      "best_by_color_CV": "reinhard"
+    },
+    "SILVER": {
+      "n_slides": 32,
+      "macenko_fail_tiles": 0,
+      "raw": {
+        "color_CV": 0.1274,
+        "nmi_CV": 0.53
+      },
+      "reinhard": {
+        "color_CV": 0.0001,
+        "nmi_CV": 0.0323
+      },
+      "macenko": {
+        "color_CV": 0.0166,
+        "nmi_CV": 0.0633
+      },
+      "best_by_color_CV": "reinhard"
+    },
+    "IF": {
+      "n_slides": 21,
+      "macenko_fail_tiles": 0,
+      "raw": {
+        "color_CV": 0.1683,
+        "nmi_CV": 0.637
+      },
+      "reinhard": {
+        "color_CV": 0.0043,
+        "nmi_CV": 0.0185
+      },
+      "macenko": {
+        "color_CV": 0.1209,
+        "nmi_CV": 0.1845
+      },
+      "best_by_color_CV": "reinhard"
+    }
+  }
+}

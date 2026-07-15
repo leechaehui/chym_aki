@@ -1,0 +1,112 @@
+{
+  "n": 61,
+  "full": {
+    "mean_err": 0.743,
+    "qwk": 0.48
+  },
+  "EXP1_margin": [
+    {
+      "coverage": 0.295,
+      "n": 18,
+      "mean_err": 0.574,
+      "qwk": 0.601
+    },
+    {
+      "coverage": 0.393,
+      "n": 24,
+      "mean_err": 0.639,
+      "qwk": 0.536
+    },
+    {
+      "coverage": 0.492,
+      "n": 30,
+      "mean_err": 0.689,
+      "qwk": 0.512
+    },
+    {
+      "coverage": 0.607,
+      "n": 37,
+      "mean_err": 0.685,
+      "qwk": 0.495
+    },
+    {
+      "coverage": 0.705,
+      "n": 43,
+      "mean_err": 0.752,
+      "qwk": 0.507
+    },
+    {
+      "coverage": 0.803,
+      "n": 49,
+      "mean_err": 0.714,
+      "qwk": 0.533
+    },
+    {
+      "coverage": 0.902,
+      "n": 55,
+      "mean_err": 0.752,
+      "qwk": 0.486
+    },
+    {
+      "coverage": 1.0,
+      "n": 61,
+      "mean_err": 0.743,
+      "qwk": 0.48
+    }
+  ],
+  "EXP2_ensemble": [
+    {
+      "coverage": 0.295,
+      "n": 18,
+      "mean_err": 0.741,
+      "qwk": 0.494
+    },
+    {
+      "coverage": 0.393,
+      "n": 24,
+      "mean_err": 0.694,
+      "qwk": 0.497
+    },
+    {
+      "coverage": 0.492,
+      "n": 30,
+      "mean_err": 0.7,
+      "qwk": 0.487
+    },
+    {
+      "coverage": 0.607,
+      "n": 37,
+      "mean_err": 0.667,
+      "qwk": 0.493
+    },
+    {
+      "coverage": 0.705,
+      "n": 43,
+      "mean_err": 0.636,
+      "qwk": 0.534
+    },
+    {
+      "coverage": 0.803,
+      "n": 49,
+      "mean_err": 0.667,
+      "qwk": 0.484
+    },
+    {
+      "coverage": 0.902,
+      "n": 55,
+      "mean_err": 0.721,
+      "qwk": 0.467
+    },
+    {
+      "coverage": 1.0,
+      "n": 61,
+      "mean_err": 0.743,
+      "qwk": 0.48
+    }
+  ],
+  "verdict": {
+    "EXP1_selection_works": true,
+    "EXP2_selection_works": false,
+    "note": "둘 다 False면 (D) 데이터 한계 → router QC-only 고정. True면 해당 score 채택."
+  }
+}

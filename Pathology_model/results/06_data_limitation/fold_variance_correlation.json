@@ -1,0 +1,22 @@
+{
+  "immune": {
+    "spearman_pos_vs_auprc": 0.113,
+    "pearson_pos_vs_auprc": 0.126,
+    "auprc_std_across_folds": 0.168,
+    "auprc_range": [
+      0.243,
+      0.917
+    ],
+    "mean_pos_per_fold": 2.8
+  },
+  "stage3": {
+    "spearman_pos_vs_auprc": 0.615,
+    "pearson_pos_vs_auprc": 0.659,
+    "auprc_std_across_folds": 0.158,
+    "auprc_range": [
+      0.363,
+      1.0
+    ],
+    "mean_pos_per_fold": 6.8
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "aki_full_wsi_patients": 86,
+  "downloaded_patients": 83,
+  "overall_coverage_%": 96.5,
+  "diagnosis_distribution": {
+    "ATI": 31,
+    "AIN": 14,
+    "DKD": 9,
+    "HTN": 1,
+    "FSGS": 0,
+    "MCD": 0,
+    "IgAN": 0,
+    "MN": 0,
+    "기타/미분류": 31
+  },
+  "coverage_by_dx": {
+    "ATI": {
+      "full": 31,
+      "downloaded": 31,
+      "coverage_%": 100.0
+    },
+    "AIN": {
+      "full": 14,
+      "downloaded": 14,
+      "coverage_%": 100.0
+    },
+    "DKD": {
+      "full": 9,
+      "downloaded": 9,
+      "coverage_%": 100.0
+    },
+    "HTN": {
+      "full": 1,
+      "downloaded": 1,
+      "coverage_%": 100.0
+    },
+    "FSGS": {
+      "full": 0,
+      "downloaded": 0,
+      "coverage_%": 0.0
+    },
+    "MCD": {
+      "full": 0,
+      "downloaded": 0,
+      "coverage_%": 0.0
+    },
+    "IgAN": {
+      "full": 0,
+      "downloaded": 0,
+      "coverage_%": 0.0
+    },
+    "MN": {
+      "full": 0,
+      "downloaded": 0,
+      "coverage_%": 0.0
+    },
+    "기타/미분류": {
+      "full": 31,
+      "downloaded": 28,
+      "coverage_%": 90.3
+    }
+  },
+  "chronic": {
+    "aki_full": 10,
+    "downloaded": 10,
+    "additional_available": 0
+  },
+  "immune": {
+    "aki_full": 14,
+    "downloaded": 14,
+    "additional_available": 0
+  },
+  "storage": {
+    "current_GB": 49.9,
+    "current_wsi": 371,
+    "GB_per_wsi": 0.135,
+    "wsi_per_patient": 4.47,
+    "GB_per_patient": 0.6
+  },
+  "missing_patients_dx": "3명 전원 라벨 없음(빈값) → 양성 추가 0",
+  "live_check": "atlas.kpmp.org AKI Imaging=1821파일, 스냅샷과 동일(최신)",
+  "case": "Case 2+3",
+  "verdict": "추가 다운로드 중단 — AKI 코호트 소진. 양성 확대는 신규 코호트(CKD/Healthy Ref/외부) 필요",
+  "conclusion": "AKI 전체 DKD 9명/HTN 1명/AIN 14명 = 이미 100% 확보(추가 가능 chronic 0·immune 0). FSGS/MCD/IgAN/MN은 AKI에 0명. 추가 다운로드 무의미."
+}

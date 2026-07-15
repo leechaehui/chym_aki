@@ -1,0 +1,176 @@
+{
+  "config": {
+    "encoder": "ctranspath",
+    "scales": "10x+40x",
+    "model": "TaskAttn-MS-CORAL",
+    "stains": "HE/PAS/MT/Silver",
+    "seed": 42,
+    "epochs": 40,
+    "cohort": 66,
+    "labels": {
+      "immune": 44,
+      "tubulitis": 62,
+      "fibrosis": 61,
+      "atrophy": 61,
+      "inflammation": 61
+    },
+    "ordinal_dist": {
+      "fibrosis": {
+        "0.0": 17,
+        "1.0": 20,
+        "2.0": 13,
+        "3.0": 11
+      },
+      "atrophy": {
+        "0.0": 22,
+        "1.0": 23,
+        "2.0": 6,
+        "3.0": 10
+      },
+      "inflammation": {
+        "0.0": 29,
+        "1.0": 10,
+        "2.0": 11,
+        "3.0": 11
+      }
+    },
+    "banff_edges": {
+      "fibrosis": [
+        5,
+        25,
+        50
+      ],
+      "atrophy": [
+        5,
+        25,
+        50
+      ],
+      "inflammation": [
+        10,
+        25,
+        50
+      ]
+    }
+  },
+  "tasks": {
+    "immune": {
+      "type": "clf",
+      "n": 44,
+      "n_pos": 14,
+      "AUROC": {
+        "point": 0.626,
+        "ci95": [
+          0.429,
+          0.815
+        ]
+      },
+      "AUPRC": {
+        "point": 0.548,
+        "ci95": [
+          0.312,
+          0.761
+        ]
+      },
+      "precision": 0.5,
+      "recall": 0.357,
+      "f1": 0.417
+    },
+    "tubulitis": {
+      "type": "clf",
+      "n": 62,
+      "n_pos": 12,
+      "AUROC": {
+        "point": 0.657,
+        "ci95": [
+          0.458,
+          0.839
+        ]
+      },
+      "AUPRC": {
+        "point": 0.352,
+        "ci95": [
+          0.168,
+          0.655
+        ]
+      },
+      "precision": 0.364,
+      "recall": 0.333,
+      "f1": 0.348
+    },
+    "fibrosis": {
+      "type": "ordinal",
+      "n": 61,
+      "QWK": {
+        "point": 0.4,
+        "ci95": [
+          0.198,
+          0.571
+        ]
+      },
+      "spearman": {
+        "point": 0.382,
+        "ci95": [
+          0.141,
+          0.589
+        ]
+      },
+      "mae_ord": 0.787,
+      "y_dist": {
+        "0": 17,
+        "1": 20,
+        "2": 13,
+        "3": 11
+      }
+    },
+    "atrophy": {
+      "type": "ordinal",
+      "n": 61,
+      "QWK": {
+        "point": 0.383,
+        "ci95": [
+          0.168,
+          0.566
+        ]
+      },
+      "spearman": {
+        "point": 0.299,
+        "ci95": [
+          0.076,
+          0.497
+        ]
+      },
+      "mae_ord": 0.82,
+      "y_dist": {
+        "0": 22,
+        "1": 23,
+        "2": 6,
+        "3": 10
+      }
+    },
+    "inflammation": {
+      "type": "ordinal",
+      "n": 61,
+      "QWK": {
+        "point": 0.331,
+        "ci95": [
+          0.108,
+          0.548
+        ]
+      },
+      "spearman": {
+        "point": 0.361,
+        "ci95": [
+          0.131,
+          0.586
+        ]
+      },
+      "mae_ord": 0.951,
+      "y_dist": {
+        "0": 29,
+        "1": 10,
+        "2": 11,
+        "3": 11
+      }
+    }
+  }
+}

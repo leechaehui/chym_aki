@@ -1,0 +1,2290 @@
+{
+  "generated": "2026-06-22T14:33:57",
+  "dataset_version": "v1",
+  "integrity": {
+    "dataset_version": "v1",
+    "checked": "2026-06-21",
+    "slides_total": 371,
+    "slides_passed": 371,
+    "issues_total": 0,
+    "issues": {
+      "missing": 0,
+      "zero": 0,
+      "bad_magic": 0,
+      "dup_slide_id": 0,
+      "no_metadata": 0,
+      "stain_mismatch": 0,
+      "not_in_manifest": 0
+    },
+    "issue_detail": {},
+    "checksums_file": "checksums.csv"
+  },
+  "split": {
+    "config": {
+      "dataset_version": "v1",
+      "split_seed": 42,
+      "n_folds": 5,
+      "split_scheme": "patient-level StratifiedKFold (gold only)",
+      "stratify_levels": [
+        "ati",
+        "ain",
+        "chronic"
+      ],
+      "created": "2026-06-21"
+    },
+    "patient_counts": {
+      "total": 95,
+      "gold": 55,
+      "silver": 2,
+      "unlabeled": 38
+    },
+    "slide_counts": {
+      "total": 371,
+      "by_grade": {
+        "gold": 276,
+        "silver": 6,
+        "unlabeled": 89
+      }
+    },
+    "fold_patient_distribution": {
+      "0": {
+        "ati": 6,
+        "ain": 3,
+        "chronic": 2
+      },
+      "1": {
+        "ati": 6,
+        "ain": 3,
+        "chronic": 2
+      },
+      "2": {
+        "ati": 6,
+        "ain": 3,
+        "chronic": 2
+      },
+      "3": {
+        "ati": 6,
+        "ain": 3,
+        "chronic": 2
+      },
+      "4": {
+        "ati": 7,
+        "chronic": 2,
+        "ain": 2
+      }
+    },
+    "fold_label_distribution": {
+      "0": {
+        "immune_pos": 3,
+        "immune_neg": 6,
+        "chronic_pos": 2
+      },
+      "1": {
+        "immune_pos": 3,
+        "immune_neg": 6,
+        "chronic_pos": 2
+      },
+      "2": {
+        "immune_pos": 3,
+        "immune_neg": 6,
+        "chronic_pos": 2
+      },
+      "3": {
+        "immune_pos": 3,
+        "immune_neg": 6,
+        "chronic_pos": 2
+      },
+      "4": {
+        "immune_pos": 2,
+        "immune_neg": 7,
+        "chronic_pos": 2
+      }
+    }
+  },
+  "modality_mask": {
+    "n_patients": 83,
+    "availability_rate": {
+      "HE": 0.988,
+      "PAS": 0.988,
+      "MT": 0.831,
+      "SILVER": 0.386,
+      "IF": 0.253
+    },
+    "n_stains_distribution": {
+      "1": 1,
+      "2": 14,
+      "3": 31,
+      "4": 21,
+      "5": 16
+    },
+    "complete_5stain_patients": 16,
+    "top_combos": {
+      "HE+PAS+MT": 31,
+      "HE+PAS+MT+SILVER+IF": 16,
+      "HE+PAS+MT+SILVER": 16,
+      "HE+PAS": 14,
+      "HE+PAS+MT+IF": 5,
+      "MT": 1
+    }
+  },
+  "checksums": {
+    "n_files": 371,
+    "file": "checksums.csv"
+  },
+  "cohort": {
+    "slides": 371,
+    "patients": 83,
+    "gold": 55,
+    "fold_ge0": 79
+  },
+  "experiments": {
+    "exp10main_ctranspath": {
+      "config": {
+        "tag": "exp10main",
+        "model": null,
+        "encoder": "ctranspath",
+        "embed_dim": 768,
+        "mags": "10",
+        "scales": null,
+        "stains": "HE,PAS,MT",
+        "patch": 512,
+        "seed": 42,
+        "epochs": 40,
+        "cohort": 74,
+        "silver_mode": null,
+        "silver_lambda": null,
+        "attn_lambda": null,
+        "topk": null
+      },
+      "results": {
+        "immune": {
+          "auroc": 0.621,
+          "auroc_ci95": [
+            0.45,
+            0.783
+          ],
+          "pr_auc": 0.41,
+          "n": 44,
+          "n_pos": 14
+        },
+        "chronic": {
+          "auroc": 0.536,
+          "auroc_ci95": [
+            0.339,
+            0.741
+          ],
+          "pr_auc": 0.288,
+          "n": 54,
+          "n_pos": 10
+        },
+        "stage3": {
+          "auroc": 0.504,
+          "auroc_ci95": [
+            0.354,
+            0.648
+          ],
+          "pr_auc": 0.644,
+          "n": 70,
+          "n_pos": 45
+        },
+        "ati_severity": {
+          "spearman": 0.093,
+          "n": 70
+        }
+      },
+      "scale_contribution": null,
+      "stain_contribution": {
+        "HE": 0.45,
+        "PAS": 0.218,
+        "MT": 0.446
+      },
+      "task_stain_contribution": null,
+      "task_attn_entropy": null
+    },
+    "exp11_cons_ctranspath": {
+      "config": {
+        "tag": "exp11_cons",
+        "model": "TaskAttentionMIL",
+        "encoder": "ctranspath",
+        "embed_dim": 768,
+        "mags": "10",
+        "scales": null,
+        "stains": null,
+        "patch": 512,
+        "seed": 42,
+        "epochs": 40,
+        "cohort": 74,
+        "silver_mode": "consistency",
+        "silver_lambda": 0.3,
+        "attn_lambda": 0.1,
+        "topk": null
+      },
+      "results": {
+        "immune": {
+          "auroc": 0.631,
+          "auroc_ci95": [
+            0.453,
+            0.815
+          ],
+          "pr_auc": 0.495,
+          "n": 44,
+          "n_pos": 14
+        },
+        "chronic": {
+          "auroc": 0.684,
+          "auroc_ci95": [
+            0.501,
+            0.844
+          ],
+          "pr_auc": 0.355,
+          "n": 54,
+          "n_pos": 10
+        },
+        "stage3": {
+          "auroc": 0.4,
+          "auroc_ci95": [
+            0.257,
+            0.55
+          ],
+          "pr_auc": 0.596,
+          "n": 70,
+          "n_pos": 45
+        },
+        "ati_severity": {
+          "spearman": 0.035,
+          "n": 70
+        }
+      },
+      "scale_contribution": null,
+      "stain_contribution": null,
+      "task_stain_contribution": {
+        "immune": {
+          "HE": 0.276,
+          "PAS": 0.132,
+          "MT": 0.643,
+          "IF": 0.236
+        },
+        "chronic": {
+          "HE": 0.577,
+          "PAS": 0.284,
+          "MT": 0.146,
+          "IF": 0.327
+        },
+        "stage3": {
+          "HE": 0.425,
+          "PAS": 0.321,
+          "MT": 0.263,
+          "IF": 0.321
+        },
+        "ati_severity": {
+          "HE": 0.101,
+          "PAS": 0.269,
+          "MT": 0.643,
+          "IF": 0.332
+        }
+      },
+      "task_attn_entropy": {
+        "immune": 0.646,
+        "chronic": 0.719,
+        "stage3": 0.83,
+        "ati_severity": 0.789
+      }
+    },
+    "exp11_ctranspath": {
+      "config": {
+        "tag": "exp11",
+        "model": "TaskAttentionMIL",
+        "encoder": "ctranspath",
+        "embed_dim": 768,
+        "mags": "10",
+        "scales": null,
+        "stains": null,
+        "patch": 512,
+        "seed": 42,
+        "epochs": 40,
+        "cohort": 74,
+        "silver_mode": "off",
+        "silver_lambda": 0.3,
+        "attn_lambda": 0.1,
+        "topk": null
+      },
+      "results": {
+        "immune": {
+          "auroc": 0.629,
+          "auroc_ci95": [
+            0.444,
+            0.81
+          ],
+          "pr_auc": 0.494,
+          "n": 44,
+          "n_pos": 14
+        },
+        "chronic": {
+          "auroc": 0.68,
+          "auroc_ci95": [
+            0.495,
+            0.843
+          ],
+          "pr_auc": 0.353,
+          "n": 54,
+          "n_pos": 10
+        },
+        "stage3": {
+          "auroc": 0.416,
+          "auroc_ci95": [
+            0.269,
+            0.57
+          ],
+          "pr_auc": 0.601,
+          "n": 70,
+          "n_pos": 45
+        },
+        "ati_severity": {
+          "spearman": 0.053,
+          "n": 70
+        }
+      },
+      "scale_contribution": null,
+      "stain_contribution": null,
+      "task_stain_contribution": {
+        "immune": {
+          "HE": 0.275,
+          "PAS": 0.141,
+          "MT": 0.633,
+          "IF": 0.243
+        },
+        "chronic": {
+          "HE": 0.565,
+          "PAS": 0.285,
+          "MT": 0.156,
+          "IF": 0.329
+        },
+        "stage3": {
+          "HE": 0.423,
+          "PAS": 0.326,
+          "MT": 0.266,
+          "IF": 0.299
+        },
+        "ati_severity": {
+          "HE": 0.095,
+          "PAS": 0.266,
+          "MT": 0.649,
+          "IF": 0.347
+        }
+      },
+      "task_attn_entropy": {
+        "immune": 0.655,
+        "chronic": 0.724,
+        "stage3": 0.831,
+        "ati_severity": 0.783
+      }
+    },
+    "exp1_HE_resnet50": {
+      "config": {
+        "tag": "exp1_HE",
+        "model": null,
+        "encoder": "resnet50",
+        "embed_dim": 2048,
+        "mags": "10",
+        "scales": null,
+        "stains": "HE",
+        "patch": 512,
+        "seed": 42,
+        "epochs": 40,
+        "cohort": 66,
+        "silver_mode": null,
+        "silver_lambda": null,
+        "attn_lambda": null,
+        "topk": null
+      },
+      "results": {
+        "immune": {
+          "auroc": 0.668,
+          "auroc_ci95": [
+            0.471,
+            0.853
+          ],
+          "pr_auc": 0.505,
+          "n": 42,
+          "n_pos": 13
+        },
+        "chronic": {
+          "auroc": 0.619,
+          "auroc_ci95": [
+            0.421,
+            0.812
+          ],
+          "pr_auc": 0.37,
+          "n": 52,
+          "n_pos": 10
+        },
+        "stage3": {
+          "auroc": 0.414,
+          "auroc_ci95": [
+            0.264,
+            0.566
+          ],
+          "pr_auc": 0.614,
+          "n": 63,
+          "n_pos": 41
+        },
+        "ati_severity": {
+          "spearman": -0.162,
+          "n": 63
+        }
+      },
+      "scale_contribution": null,
+      "stain_contribution": {
+        "HE": 1.0
+      },
+      "task_stain_contribution": null,
+      "task_attn_entropy": null
+    },
+    "exp1_IF_resnet50": {
+      "config": {
+        "tag": "exp1_IF",
+        "model": null,
+        "encoder": "resnet50",
+        "embed_dim": 2048,
+        "mags": "10",
+        "scales": null,
+        "stains": "IF",
+        "patch": 512,
+        "seed": 42,
+        "epochs": 40,
+        "cohort": 20,
+        "silver_mode": null,
+        "silver_lambda": null,
+        "attn_lambda": null,
+        "topk": null
+      },
+      "results": {
+        "immune": {
+          "auroc": 0.509,
+          "auroc_ci95": [
+            0.0,
+            0.923
+          ],
+          "pr_auc": 0.449,
+          "n": 16,
+          "n_pos": 5
+        },
+        "chronic": {
+          "auroc": 0.458,
+          "auroc_ci95": [
+            0.0,
+            0.875
+          ],
+          "pr_auc": 0.203,
+          "n": 19,
+          "n_pos": 3
+        },
+        "stage3": {
+          "auroc": 0.077,
+          "auroc_ci95": [
+            0.0,
+            0.226
+          ],
+          "pr_auc": 0.475,
+          "n": 20,
+          "n_pos": 13
+        },
+        "ati_severity": {
+          "spearman": -0.584,
+          "n": 20
+        }
+      },
+      "scale_contribution": null,
+      "stain_contribution": {
+        "IF": 1.0
+      },
+      "task_stain_contribution": null,
+      "task_attn_entropy": null
+    },
+    "exp1_MT_resnet50": {
+      "config": {
+        "tag": "exp1_MT",
+        "model": null,
+        "encoder": "resnet50",
+        "embed_dim": 2048,
+        "mags": "10",
+        "scales": null,
+        "stains": "MT",
+        "patch": 512,
+        "seed": 42,
+        "epochs": 40,
+        "cohort": 65,
+        "silver_mode": null,
+        "silver_lambda": null,
+        "attn_lambda": null,
+        "topk": null
+      },
+      "results": {
+        "immune": {
+          "auroc": 0.435,
+          "auroc_ci95": [
+            0.239,
+            0.632
+          ],
+          "pr_auc": 0.281,
+          "n": 40,
+          "n_pos": 12
+        },
+        "chronic": {
+          "auroc": 0.669,
+          "auroc_ci95": [
+            0.477,
+            0.848
+          ],
+          "pr_auc": 0.396,
+          "n": 49,
+          "n_pos": 9
+        },
+        "stage3": {
+          "auroc": 0.424,
+          "auroc_ci95": [
+            0.267,
+            0.583
+          ],
+          "pr_auc": 0.638,
+          "n": 64,
+          "n_pos": 44
+        },
+        "ati_severity": {
+          "spearman": -0.141,
+          "n": 64
+        }
+      },
+      "scale_contribution": null,
+      "stain_contribution": {
+        "MT": 1.0
+      },
+      "task_stain_contribution": null,
+      "task_attn_entropy": null
+    },
+    "exp1_PAS_resnet50": {
+      "config": {
+        "tag": "exp1_PAS",
+        "model": null,
+        "encoder": "resnet50",
+        "embed_dim": 2048,
+        "mags": "10",
+        "scales": null,
+        "stains": "PAS",
+        "patch": 512,
+        "seed": 42,
+        "epochs": 40,
+        "cohort": 70,
+        "silver_mode": null,
+        "silver_lambda": null,
+        "attn_lambda": null,
+        "topk": null
+      },
+      "results": {
+        "immune": {
+          "auroc": 0.498,
+          "auroc_ci95": [
+            0.292,
+            0.701
+          ],
+          "pr_auc": 0.394,
+          "n": 44,
+          "n_pos": 14
+        },
+        "chronic": {
+          "auroc": 0.745,
+          "auroc_ci95": [
+            0.521,
+            0.925
+          ],
+          "pr_auc": 0.5,
+          "n": 54,
+          "n_pos": 10
+        },
+        "stage3": {
+          "auroc": 0.366,
+          "auroc_ci95": [
+            0.219,
+            0.515
+          ],
+          "pr_auc": 0.562,
+          "n": 66,
+          "n_pos": 43
+        },
+        "ati_severity": {
+          "spearman": -0.168,
+          "n": 66
+        }
+      },
+      "scale_contribution": null,
+      "stain_contribution": {
+        "PAS": 1.0
+      },
+      "task_stain_contribution": null,
+      "task_attn_entropy": null
+    },
+    "exp1_resnet50": {
+      "config": {
+        "tag": "exp1",
+        "model": null,
+        "encoder": "resnet50",
+        "embed_dim": 2048,
+        "mags": "10",
+        "scales": null,
+        "stains": "all",
+        "patch": 512,
+        "seed": 42,
+        "epochs": 40,
+        "cohort": 74,
+        "silver_mode": null,
+        "silver_lambda": null,
+        "attn_lambda": null,
+        "topk": null
+      },
+      "results": {
+        "immune": {
+          "auroc": 0.238,
+          "auroc_ci95": [
+            0.111,
+            0.4
+          ],
+          "pr_auc": 0.227,
+          "n": 44,
+          "n_pos": 14
+        },
+        "chronic": {
+          "auroc": 0.586,
+          "auroc_ci95": [
+            0.399,
+            0.753
+          ],
+          "pr_auc": 0.225,
+          "n": 54,
+          "n_pos": 10
+        },
+        "stage3": {
+          "auroc": 0.443,
+          "auroc_ci95": [
+            0.3,
+            0.599
+          ],
+          "pr_auc": 0.636,
+          "n": 70,
+          "n_pos": 45
+        },
+        "ati_severity": {
+          "spearman": -0.06,
+          "n": 70
+        }
+      },
+      "scale_contribution": null,
+      "stain_contribution": {
+        "HE": 0.095,
+        "PAS": 0.16,
+        "MT": 0.633,
+        "SILVER": 0.351,
+        "IF": 0.225
+      },
+      "task_stain_contribution": null,
+      "task_attn_entropy": null
+    },
+    "exp1_SILVER_resnet50": {
+      "config": {
+        "tag": "exp1_SILVER",
+        "model": null,
+        "encoder": "resnet50",
+        "embed_dim": 2048,
+        "mags": "10",
+        "scales": null,
+        "stains": "SILVER",
+        "patch": 512,
+        "seed": 42,
+        "epochs": 40,
+        "cohort": 31,
+        "silver_mode": null,
+        "silver_lambda": null,
+        "attn_lambda": null,
+        "topk": null
+      },
+      "results": {
+        "immune": {
+          "auroc": 0.439,
+          "auroc_ci95": [
+            0.148,
+            0.738
+          ],
+          "pr_auc": 0.356,
+          "n": 21,
+          "n_pos": 7
+        },
+        "chronic": {
+          "auroc": 0.5,
+          "auroc_ci95": [
+            0.25,
+            0.75
+          ],
+          "pr_auc": 0.257,
+          "n": 27,
+          "n_pos": 6
+        },
+        "stage3": {
+          "auroc": 0.286,
+          "auroc_ci95": [
+            0.121,
+            0.485
+          ],
+          "pr_auc": 0.555,
+          "n": 31,
+          "n_pos": 20
+        },
+        "ati_severity": {
+          "spearman": -0.486,
+          "n": 31
+        }
+      },
+      "scale_contribution": null,
+      "stain_contribution": {
+        "SILVER": 1.0
+      },
+      "task_stain_contribution": null,
+      "task_attn_entropy": null
+    },
+    "exp2_ctranspath": {
+      "config": {
+        "tag": "exp2",
+        "model": null,
+        "encoder": "ctranspath",
+        "embed_dim": 768,
+        "mags": "10",
+        "scales": null,
+        "stains": "all",
+        "patch": 512,
+        "seed": 42,
+        "epochs": 40,
+        "cohort": 74,
+        "silver_mode": null,
+        "silver_lambda": null,
+        "attn_lambda": null,
+        "topk": null
+      },
+      "results": {
+        "immune": {
+          "auroc": 0.395,
+          "auroc_ci95": [
+            0.214,
+            0.572
+          ],
+          "pr_auc": 0.328,
+          "n": 44,
+          "n_pos": 14
+        },
+        "chronic": {
+          "auroc": 0.43,
+          "auroc_ci95": [
+            0.216,
+            0.657
+          ],
+          "pr_auc": 0.2,
+          "n": 54,
+          "n_pos": 10
+        },
+        "stage3": {
+          "auroc": 0.485,
+          "auroc_ci95": [
+            0.326,
+            0.639
+          ],
+          "pr_auc": 0.609,
+          "n": 70,
+          "n_pos": 45
+        },
+        "ati_severity": {
+          "spearman": -0.009,
+          "n": 70
+        }
+      },
+      "scale_contribution": null,
+      "stain_contribution": {
+        "HE": 0.209,
+        "PAS": 0.192,
+        "MT": 0.452,
+        "SILVER": 0.301,
+        "IF": 0.402
+      },
+      "task_stain_contribution": null,
+      "task_attn_entropy": null
+    },
+    "exp2_HE_ctranspath": {
+      "config": {
+        "tag": "exp2_HE",
+        "model": null,
+        "encoder": "ctranspath",
+        "embed_dim": 768,
+        "mags": "10",
+        "scales": null,
+        "stains": "HE",
+        "patch": 512,
+        "seed": 42,
+        "epochs": 40,
+        "cohort": 66,
+        "silver_mode": null,
+        "silver_lambda": null,
+        "attn_lambda": null,
+        "topk": null
+      },
+      "results": {
+        "immune": {
+          "auroc": 0.798,
+          "auroc_ci95": [
+            0.651,
+            0.925
+          ],
+          "pr_auc": 0.551,
+          "n": 42,
+          "n_pos": 13
+        },
+        "chronic": {
+          "auroc": 0.707,
+          "auroc_ci95": [
+            0.528,
+            0.878
+          ],
+          "pr_auc": 0.407,
+          "n": 52,
+          "n_pos": 10
+        },
+        "stage3": {
+          "auroc": 0.445,
+          "auroc_ci95": [
+            0.305,
+            0.599
+          ],
+          "pr_auc": 0.626,
+          "n": 63,
+          "n_pos": 41
+        },
+        "ati_severity": {
+          "spearman": -0.01,
+          "n": 63
+        }
+      },
+      "scale_contribution": null,
+      "stain_contribution": {
+        "HE": 1.0
+      },
+      "task_stain_contribution": null,
+      "task_attn_entropy": null
+    },
+    "exp2_IF_ctranspath": {
+      "config": {
+        "tag": "exp2_IF",
+        "model": null,
+        "encoder": "ctranspath",
+        "embed_dim": 768,
+        "mags": "10",
+        "scales": null,
+        "stains": "IF",
+        "patch": 512,
+        "seed": 42,
+        "epochs": 40,
+        "cohort": 20,
+        "silver_mode": null,
+        "silver_lambda": null,
+        "attn_lambda": null,
+        "topk": null
+      },
+      "results": {
+        "immune": {
+          "auroc": 0.691,
+          "auroc_ci95": [
+            0.254,
+            1.0
+          ],
+          "pr_auc": 0.646,
+          "n": 16,
+          "n_pos": 5
+        },
+        "chronic": {
+          "auroc": 0.438,
+          "auroc_ci95": [
+            0.0,
+            0.833
+          ],
+          "pr_auc": 0.193,
+          "n": 19,
+          "n_pos": 3
+        },
+        "stage3": {
+          "auroc": 0.11,
+          "auroc_ci95": [
+            0.0,
+            0.302
+          ],
+          "pr_auc": 0.485,
+          "n": 20,
+          "n_pos": 13
+        },
+        "ati_severity": {
+          "spearman": -0.549,
+          "n": 20
+        }
+      },
+      "scale_contribution": null,
+      "stain_contribution": {
+        "IF": 1.0
+      },
+      "task_stain_contribution": null,
+      "task_attn_entropy": null
+    },
+    "exp2_MT_ctranspath": {
+      "config": {
+        "tag": "exp2_MT",
+        "model": null,
+        "encoder": "ctranspath",
+        "embed_dim": 768,
+        "mags": "10",
+        "scales": null,
+        "stains": "MT",
+        "patch": 512,
+        "seed": 42,
+        "epochs": 40,
+        "cohort": 65,
+        "silver_mode": null,
+        "silver_lambda": null,
+        "attn_lambda": null,
+        "topk": null
+      },
+      "results": {
+        "immune": {
+          "auroc": 0.577,
+          "auroc_ci95": [
+            0.36,
+            0.784
+          ],
+          "pr_auc": 0.379,
+          "n": 40,
+          "n_pos": 12
+        },
+        "chronic": {
+          "auroc": 0.525,
+          "auroc_ci95": [
+            0.272,
+            0.775
+          ],
+          "pr_auc": 0.266,
+          "n": 49,
+          "n_pos": 9
+        },
+        "stage3": {
+          "auroc": 0.457,
+          "auroc_ci95": [
+            0.301,
+            0.604
+          ],
+          "pr_auc": 0.675,
+          "n": 64,
+          "n_pos": 44
+        },
+        "ati_severity": {
+          "spearman": -0.106,
+          "n": 64
+        }
+      },
+      "scale_contribution": null,
+      "stain_contribution": {
+        "MT": 1.0
+      },
+      "task_stain_contribution": null,
+      "task_attn_entropy": null
+    },
+    "exp2_PAS_ctranspath": {
+      "config": {
+        "tag": "exp2_PAS",
+        "model": null,
+        "encoder": "ctranspath",
+        "embed_dim": 768,
+        "mags": "10",
+        "scales": null,
+        "stains": "PAS",
+        "patch": 512,
+        "seed": 42,
+        "epochs": 40,
+        "cohort": 70,
+        "silver_mode": null,
+        "silver_lambda": null,
+        "attn_lambda": null,
+        "topk": null
+      },
+      "results": {
+        "immune": {
+          "auroc": 0.538,
+          "auroc_ci95": [
+            0.331,
+            0.739
+          ],
+          "pr_auc": 0.451,
+          "n": 44,
+          "n_pos": 14
+        },
+        "chronic": {
+          "auroc": 0.777,
+          "auroc_ci95": [
+            0.612,
+            0.926
+          ],
+          "pr_auc": 0.539,
+          "n": 54,
+          "n_pos": 10
+        },
+        "stage3": {
+          "auroc": 0.436,
+          "auroc_ci95": [
+            0.276,
+            0.595
+          ],
+          "pr_auc": 0.604,
+          "n": 66,
+          "n_pos": 43
+        },
+        "ati_severity": {
+          "spearman": -0.072,
+          "n": 66
+        }
+      },
+      "scale_contribution": null,
+      "stain_contribution": {
+        "PAS": 1.0
+      },
+      "task_stain_contribution": null,
+      "task_attn_entropy": null
+    },
+    "exp2_SILVER_ctranspath": {
+      "config": {
+        "tag": "exp2_SILVER",
+        "model": null,
+        "encoder": "ctranspath",
+        "embed_dim": 768,
+        "mags": "10",
+        "scales": null,
+        "stains": "SILVER",
+        "patch": 512,
+        "seed": 42,
+        "epochs": 40,
+        "cohort": 31,
+        "silver_mode": null,
+        "silver_lambda": null,
+        "attn_lambda": null,
+        "topk": null
+      },
+      "results": {
+        "immune": {
+          "auroc": 0.694,
+          "auroc_ci95": [
+            0.444,
+            0.918
+          ],
+          "pr_auc": 0.498,
+          "n": 21,
+          "n_pos": 7
+        },
+        "chronic": {
+          "auroc": 0.5,
+          "auroc_ci95": [
+            0.2,
+            0.8
+          ],
+          "pr_auc": 0.294,
+          "n": 27,
+          "n_pos": 6
+        },
+        "stage3": {
+          "auroc": 0.136,
+          "auroc_ci95": [
+            0.008,
+            0.305
+          ],
+          "pr_auc": 0.488,
+          "n": 31,
+          "n_pos": 20
+        },
+        "ati_severity": {
+          "spearman": -0.573,
+          "n": 31
+        }
+      },
+      "scale_contribution": null,
+      "stain_contribution": {
+        "SILVER": 1.0
+      },
+      "task_stain_contribution": null,
+      "task_attn_entropy": null
+    },
+    "exp3_dinov2": {
+      "config": {
+        "tag": "exp3",
+        "model": null,
+        "encoder": "dinov2",
+        "embed_dim": 768,
+        "mags": "10",
+        "scales": null,
+        "stains": "all",
+        "patch": 512,
+        "seed": 42,
+        "epochs": 40,
+        "cohort": 74,
+        "silver_mode": null,
+        "silver_lambda": null,
+        "attn_lambda": null,
+        "topk": null
+      },
+      "results": {
+        "immune": {
+          "auroc": 0.507,
+          "auroc_ci95": [
+            0.317,
+            0.699
+          ],
+          "pr_auc": 0.34,
+          "n": 44,
+          "n_pos": 14
+        },
+        "chronic": {
+          "auroc": 0.505,
+          "auroc_ci95": [
+            0.291,
+            0.711
+          ],
+          "pr_auc": 0.213,
+          "n": 54,
+          "n_pos": 10
+        },
+        "stage3": {
+          "auroc": 0.551,
+          "auroc_ci95": [
+            0.391,
+            0.712
+          ],
+          "pr_auc": 0.642,
+          "n": 70,
+          "n_pos": 45
+        },
+        "ati_severity": {
+          "spearman": 0.066,
+          "n": 70
+        }
+      },
+      "scale_contribution": null,
+      "stain_contribution": {
+        "HE": 0.062,
+        "PAS": 0.137,
+        "MT": 0.416,
+        "SILVER": 0.599,
+        "IF": 0.734
+      },
+      "task_stain_contribution": null,
+      "task_attn_entropy": null
+    },
+    "exp3_HE_dinov2": {
+      "config": {
+        "tag": "exp3_HE",
+        "model": null,
+        "encoder": "dinov2",
+        "embed_dim": 768,
+        "mags": "10",
+        "scales": null,
+        "stains": "HE",
+        "patch": 512,
+        "seed": 42,
+        "epochs": 40,
+        "cohort": 66,
+        "silver_mode": null,
+        "silver_lambda": null,
+        "attn_lambda": null,
+        "topk": null
+      },
+      "results": {
+        "immune": {
+          "auroc": 0.695,
+          "auroc_ci95": [
+            0.522,
+            0.854
+          ],
+          "pr_auc": 0.482,
+          "n": 42,
+          "n_pos": 13
+        },
+        "chronic": {
+          "auroc": 0.586,
+          "auroc_ci95": [
+            0.426,
+            0.739
+          ],
+          "pr_auc": 0.223,
+          "n": 52,
+          "n_pos": 10
+        },
+        "stage3": {
+          "auroc": 0.399,
+          "auroc_ci95": [
+            0.249,
+            0.556
+          ],
+          "pr_auc": 0.605,
+          "n": 63,
+          "n_pos": 41
+        },
+        "ati_severity": {
+          "spearman": -0.16,
+          "n": 63
+        }
+      },
+      "scale_contribution": null,
+      "stain_contribution": {
+        "HE": 1.0
+      },
+      "task_stain_contribution": null,
+      "task_attn_entropy": null
+    },
+    "exp3_IF_dinov2": {
+      "config": {
+        "tag": "exp3_IF",
+        "model": null,
+        "encoder": "dinov2",
+        "embed_dim": 768,
+        "mags": "10",
+        "scales": null,
+        "stains": "IF",
+        "patch": 512,
+        "seed": 42,
+        "epochs": 40,
+        "cohort": 20,
+        "silver_mode": null,
+        "silver_lambda": null,
+        "attn_lambda": null,
+        "topk": null
+      },
+      "results": {
+        "immune": {
+          "auroc": 0.709,
+          "auroc_ci95": [
+            0.312,
+            0.986
+          ],
+          "pr_auc": 0.634,
+          "n": 16,
+          "n_pos": 5
+        },
+        "chronic": {
+          "auroc": 0.312,
+          "auroc_ci95": [
+            0.0,
+            0.648
+          ],
+          "pr_auc": 0.15,
+          "n": 19,
+          "n_pos": 3
+        },
+        "stage3": {
+          "auroc": 0.165,
+          "auroc_ci95": [
+            0.0,
+            0.405
+          ],
+          "pr_auc": 0.501,
+          "n": 20,
+          "n_pos": 13
+        },
+        "ati_severity": {
+          "spearman": -0.604,
+          "n": 20
+        }
+      },
+      "scale_contribution": null,
+      "stain_contribution": {
+        "IF": 1.0
+      },
+      "task_stain_contribution": null,
+      "task_attn_entropy": null
+    },
+    "exp3_MT_dinov2": {
+      "config": {
+        "tag": "exp3_MT",
+        "model": null,
+        "encoder": "dinov2",
+        "embed_dim": 768,
+        "mags": "10",
+        "scales": null,
+        "stains": "MT",
+        "patch": 512,
+        "seed": 42,
+        "epochs": 40,
+        "cohort": 65,
+        "silver_mode": null,
+        "silver_lambda": null,
+        "attn_lambda": null,
+        "topk": null
+      },
+      "results": {
+        "immune": {
+          "auroc": 0.426,
+          "auroc_ci95": [
+            0.228,
+            0.641
+          ],
+          "pr_auc": 0.326,
+          "n": 40,
+          "n_pos": 12
+        },
+        "chronic": {
+          "auroc": 0.622,
+          "auroc_ci95": [
+            0.415,
+            0.82
+          ],
+          "pr_auc": 0.257,
+          "n": 49,
+          "n_pos": 9
+        },
+        "stage3": {
+          "auroc": 0.634,
+          "auroc_ci95": [
+            0.473,
+            0.776
+          ],
+          "pr_auc": 0.784,
+          "n": 64,
+          "n_pos": 44
+        },
+        "ati_severity": {
+          "spearman": 0.147,
+          "n": 64
+        }
+      },
+      "scale_contribution": null,
+      "stain_contribution": {
+        "MT": 1.0
+      },
+      "task_stain_contribution": null,
+      "task_attn_entropy": null
+    },
+    "exp3_PAS_dinov2": {
+      "config": {
+        "tag": "exp3_PAS",
+        "model": null,
+        "encoder": "dinov2",
+        "embed_dim": 768,
+        "mags": "10",
+        "scales": null,
+        "stains": "PAS",
+        "patch": 512,
+        "seed": 42,
+        "epochs": 40,
+        "cohort": 70,
+        "silver_mode": null,
+        "silver_lambda": null,
+        "attn_lambda": null,
+        "topk": null
+      },
+      "results": {
+        "immune": {
+          "auroc": 0.567,
+          "auroc_ci95": [
+            0.404,
+            0.733
+          ],
+          "pr_auc": 0.339,
+          "n": 44,
+          "n_pos": 14
+        },
+        "chronic": {
+          "auroc": 0.845,
+          "auroc_ci95": [
+            0.701,
+            0.959
+          ],
+          "pr_auc": 0.564,
+          "n": 54,
+          "n_pos": 10
+        },
+        "stage3": {
+          "auroc": 0.268,
+          "auroc_ci95": [
+            0.143,
+            0.405
+          ],
+          "pr_auc": 0.527,
+          "n": 66,
+          "n_pos": 43
+        },
+        "ati_severity": {
+          "spearman": -0.394,
+          "n": 66
+        }
+      },
+      "scale_contribution": null,
+      "stain_contribution": {
+        "PAS": 1.0
+      },
+      "task_stain_contribution": null,
+      "task_attn_entropy": null
+    },
+    "exp3_SILVER_dinov2": {
+      "config": {
+        "tag": "exp3_SILVER",
+        "model": null,
+        "encoder": "dinov2",
+        "embed_dim": 768,
+        "mags": "10",
+        "scales": null,
+        "stains": "SILVER",
+        "patch": 512,
+        "seed": 42,
+        "epochs": 40,
+        "cohort": 31,
+        "silver_mode": null,
+        "silver_lambda": null,
+        "attn_lambda": null,
+        "topk": null
+      },
+      "results": {
+        "immune": {
+          "auroc": 0.51,
+          "auroc_ci95": [
+            0.194,
+            0.838
+          ],
+          "pr_auc": 0.444,
+          "n": 21,
+          "n_pos": 7
+        },
+        "chronic": {
+          "auroc": 0.5,
+          "auroc_ci95": [
+            0.254,
+            0.73
+          ],
+          "pr_auc": 0.237,
+          "n": 27,
+          "n_pos": 6
+        },
+        "stage3": {
+          "auroc": 0.595,
+          "auroc_ci95": [
+            0.381,
+            0.786
+          ],
+          "pr_auc": 0.778,
+          "n": 31,
+          "n_pos": 20
+        },
+        "ati_severity": {
+          "spearman": 0.194,
+          "n": 31
+        }
+      },
+      "scale_contribution": null,
+      "stain_contribution": {
+        "SILVER": 1.0
+      },
+      "task_stain_contribution": null,
+      "task_attn_entropy": null
+    },
+    "exp5_ctranspath": {
+      "config": {
+        "tag": "exp5",
+        "model": null,
+        "encoder": "ctranspath",
+        "embed_dim": 768,
+        "mags": "40",
+        "scales": null,
+        "stains": "HE,PAS,MT",
+        "patch": 512,
+        "seed": 42,
+        "epochs": 40,
+        "cohort": 77,
+        "silver_mode": null,
+        "silver_lambda": null,
+        "attn_lambda": null,
+        "topk": null
+      },
+      "results": {
+        "immune": {
+          "auroc": 0.612,
+          "auroc_ci95": [
+            0.41,
+            0.813
+          ],
+          "pr_auc": 0.49,
+          "n": 44,
+          "n_pos": 14
+        },
+        "chronic": {
+          "auroc": 0.736,
+          "auroc_ci95": [
+            0.518,
+            0.932
+          ],
+          "pr_auc": 0.453,
+          "n": 54,
+          "n_pos": 10
+        },
+        "stage3": {
+          "auroc": 0.589,
+          "auroc_ci95": [
+            0.452,
+            0.72
+          ],
+          "pr_auc": 0.72,
+          "n": 73,
+          "n_pos": 47
+        },
+        "ati_severity": {
+          "spearman": 0.159,
+          "n": 73
+        }
+      },
+      "scale_contribution": null,
+      "stain_contribution": {
+        "HE": 0.476,
+        "PAS": 0.338,
+        "MT": 0.269
+      },
+      "task_stain_contribution": null,
+      "task_attn_entropy": null
+    },
+    "exp5_HE_ctranspath": {
+      "config": {
+        "tag": "exp5_HE",
+        "model": null,
+        "encoder": "ctranspath",
+        "embed_dim": 768,
+        "mags": "40",
+        "scales": null,
+        "stains": "HE",
+        "patch": 512,
+        "seed": 42,
+        "epochs": 40,
+        "cohort": 72,
+        "silver_mode": null,
+        "silver_lambda": null,
+        "attn_lambda": null,
+        "topk": null
+      },
+      "results": {
+        "immune": {
+          "auroc": 0.642,
+          "auroc_ci95": [
+            0.475,
+            0.806
+          ],
+          "pr_auc": 0.399,
+          "n": 42,
+          "n_pos": 13
+        },
+        "chronic": {
+          "auroc": 0.779,
+          "auroc_ci95": [
+            0.586,
+            0.938
+          ],
+          "pr_auc": 0.498,
+          "n": 52,
+          "n_pos": 10
+        },
+        "stage3": {
+          "auroc": 0.527,
+          "auroc_ci95": [
+            0.388,
+            0.666
+          ],
+          "pr_auc": 0.749,
+          "n": 69,
+          "n_pos": 45
+        },
+        "ati_severity": {
+          "spearman": 0.104,
+          "n": 69
+        }
+      },
+      "scale_contribution": null,
+      "stain_contribution": {
+        "HE": 1.0
+      },
+      "task_stain_contribution": null,
+      "task_attn_entropy": null
+    },
+    "exp5_MT_ctranspath": {
+      "config": {
+        "tag": "exp5_MT",
+        "model": null,
+        "encoder": "ctranspath",
+        "embed_dim": 768,
+        "mags": "40",
+        "scales": null,
+        "stains": "MT",
+        "patch": 512,
+        "seed": 42,
+        "epochs": 40,
+        "cohort": 67,
+        "silver_mode": null,
+        "silver_lambda": null,
+        "attn_lambda": null,
+        "topk": null
+      },
+      "results": {
+        "immune": {
+          "auroc": 0.756,
+          "auroc_ci95": [
+            0.525,
+            0.955
+          ],
+          "pr_auc": 0.603,
+          "n": 41,
+          "n_pos": 12
+        },
+        "chronic": {
+          "auroc": 0.542,
+          "auroc_ci95": [
+            0.246,
+            0.837
+          ],
+          "pr_auc": 0.43,
+          "n": 50,
+          "n_pos": 9
+        },
+        "stage3": {
+          "auroc": 0.374,
+          "auroc_ci95": [
+            0.232,
+            0.506
+          ],
+          "pr_auc": 0.634,
+          "n": 66,
+          "n_pos": 45
+        },
+        "ati_severity": {
+          "spearman": -0.232,
+          "n": 66
+        }
+      },
+      "scale_contribution": null,
+      "stain_contribution": {
+        "MT": 1.0
+      },
+      "task_stain_contribution": null,
+      "task_attn_entropy": null
+    },
+    "exp5_PAS_ctranspath": {
+      "config": {
+        "tag": "exp5_PAS",
+        "model": null,
+        "encoder": "ctranspath",
+        "embed_dim": 768,
+        "mags": "40",
+        "scales": null,
+        "stains": "PAS",
+        "patch": 512,
+        "seed": 42,
+        "epochs": 40,
+        "cohort": 73,
+        "silver_mode": null,
+        "silver_lambda": null,
+        "attn_lambda": null,
+        "topk": null
+      },
+      "results": {
+        "immune": {
+          "auroc": 0.564,
+          "auroc_ci95": [
+            0.363,
+            0.76
+          ],
+          "pr_auc": 0.448,
+          "n": 44,
+          "n_pos": 14
+        },
+        "chronic": {
+          "auroc": 0.745,
+          "auroc_ci95": [
+            0.558,
+            0.91
+          ],
+          "pr_auc": 0.431,
+          "n": 54,
+          "n_pos": 10
+        },
+        "stage3": {
+          "auroc": 0.558,
+          "auroc_ci95": [
+            0.399,
+            0.712
+          ],
+          "pr_auc": 0.662,
+          "n": 69,
+          "n_pos": 45
+        },
+        "ati_severity": {
+          "spearman": 0.143,
+          "n": 69
+        }
+      },
+      "scale_contribution": null,
+      "stain_contribution": {
+        "PAS": 1.0
+      },
+      "task_stain_contribution": null,
+      "task_attn_entropy": null
+    },
+    "exp6_ctranspath": {
+      "config": {
+        "tag": "exp6",
+        "model": null,
+        "encoder": "ctranspath",
+        "embed_dim": 768,
+        "mags": null,
+        "scales": [
+          "10",
+          "40"
+        ],
+        "stains": [
+          "HE",
+          "PAS",
+          "MT"
+        ],
+        "patch": null,
+        "seed": 42,
+        "epochs": 40,
+        "cohort": 77,
+        "silver_mode": null,
+        "silver_lambda": null,
+        "attn_lambda": null,
+        "topk": null
+      },
+      "results": {
+        "immune": {
+          "auroc": 0.719,
+          "auroc_ci95": [
+            0.551,
+            0.854
+          ],
+          "pr_auc": 0.55,
+          "n": 44,
+          "n_pos": 14
+        },
+        "chronic": {
+          "auroc": 0.614,
+          "auroc_ci95": [
+            0.381,
+            0.829
+          ],
+          "pr_auc": 0.303,
+          "n": 54,
+          "n_pos": 10
+        },
+        "stage3": {
+          "auroc": 0.539,
+          "auroc_ci95": [
+            0.402,
+            0.673
+          ],
+          "pr_auc": 0.678,
+          "n": 73,
+          "n_pos": 47
+        },
+        "ati_severity": {
+          "spearman": 0.086,
+          "n": 73
+        }
+      },
+      "scale_contribution": {
+        "10": 0.587,
+        "40": 0.436
+      },
+      "stain_contribution": null,
+      "task_stain_contribution": null,
+      "task_attn_entropy": null
+    },
+    "report": {
+      "config": {
+        "tag": null,
+        "model": null,
+        "encoder": "resnet50_imagenet1k_v2",
+        "embed_dim": null,
+        "mags": null,
+        "scales": null,
+        "stains": null,
+        "patch": null,
+        "seed": 42,
+        "epochs": 40,
+        "cohort": null,
+        "silver_mode": null,
+        "silver_lambda": null,
+        "attn_lambda": null,
+        "topk": null
+      },
+      "results": {
+        "immune": {
+          "auroc": 0.319,
+          "pr_auc": 0.251,
+          "n": 44,
+          "n_pos": 14
+        },
+        "chronic": {
+          "auroc": 0.573,
+          "pr_auc": 0.392,
+          "n": 54,
+          "n_pos": 10
+        },
+        "ati_severity": {
+          "spearman": 0.079,
+          "n": 41
+        }
+      },
+      "scale_contribution": null,
+      "stain_contribution": null,
+      "task_stain_contribution": null,
+      "task_attn_entropy": null
+    },
+    "exp7_cons_attn_ctranspath": {
+      "config": {
+        "tag": "exp7_cons_attn",
+        "model": null,
+        "encoder": "ctranspath",
+        "embed_dim": 768,
+        "mags": "10",
+        "scales": null,
+        "stains": "all",
+        "patch": 512,
+        "seed": 42,
+        "epochs": 40,
+        "cohort": 74,
+        "silver_mode": "consistency_attn",
+        "silver_lambda": 0.3,
+        "attn_lambda": 0.1,
+        "topk": null
+      },
+      "results": {
+        "immune": {
+          "auroc": 0.419,
+          "auroc_ci95": [
+            0.239,
+            0.608
+          ],
+          "pr_auc": 0.352,
+          "n": 44,
+          "n_pos": 14
+        },
+        "chronic": {
+          "auroc": 0.632,
+          "auroc_ci95": [
+            0.449,
+            0.809
+          ],
+          "pr_auc": 0.27,
+          "n": 54,
+          "n_pos": 10
+        },
+        "stage3": {
+          "auroc": 0.452,
+          "auroc_ci95": [
+            0.293,
+            0.612
+          ],
+          "pr_auc": 0.597,
+          "n": 70,
+          "n_pos": 45
+        },
+        "ati_severity": {
+          "spearman": -0.007,
+          "n": 70
+        }
+      },
+      "scale_contribution": null,
+      "stain_contribution": {
+        "HE": 0.264,
+        "PAS": 0.298,
+        "MT": 0.466,
+        "IF": 0.274
+      },
+      "task_stain_contribution": null,
+      "task_attn_entropy": null
+    },
+    "exp7_cons_ctranspath": {
+      "config": {
+        "tag": "exp7_cons",
+        "model": null,
+        "encoder": "ctranspath",
+        "embed_dim": 768,
+        "mags": "10",
+        "scales": null,
+        "stains": "all",
+        "patch": 512,
+        "seed": 42,
+        "epochs": 40,
+        "cohort": 74,
+        "silver_mode": "consistency",
+        "silver_lambda": 0.3,
+        "attn_lambda": 0.1,
+        "topk": null
+      },
+      "results": {
+        "immune": {
+          "auroc": 0.474,
+          "auroc_ci95": [
+            0.299,
+            0.659
+          ],
+          "pr_auc": 0.373,
+          "n": 44,
+          "n_pos": 14
+        },
+        "chronic": {
+          "auroc": 0.641,
+          "auroc_ci95": [
+            0.463,
+            0.82
+          ],
+          "pr_auc": 0.291,
+          "n": 54,
+          "n_pos": 10
+        },
+        "stage3": {
+          "auroc": 0.442,
+          "auroc_ci95": [
+            0.285,
+            0.594
+          ],
+          "pr_auc": 0.591,
+          "n": 70,
+          "n_pos": 45
+        },
+        "ati_severity": {
+          "spearman": -0.027,
+          "n": 70
+        }
+      },
+      "scale_contribution": null,
+      "stain_contribution": {
+        "HE": 0.246,
+        "PAS": 0.329,
+        "MT": 0.449,
+        "IF": 0.275
+      },
+      "task_stain_contribution": null,
+      "task_attn_entropy": null
+    },
+    "exp7_off_ctranspath": {
+      "config": {
+        "tag": "exp7_off",
+        "model": null,
+        "encoder": "ctranspath",
+        "embed_dim": 768,
+        "mags": "10",
+        "scales": null,
+        "stains": "all",
+        "patch": 512,
+        "seed": 42,
+        "epochs": 40,
+        "cohort": 74,
+        "silver_mode": "off",
+        "silver_lambda": 0.3,
+        "attn_lambda": 0.1,
+        "topk": null
+      },
+      "results": {
+        "immune": {
+          "auroc": 0.5,
+          "auroc_ci95": [
+            0.33,
+            0.687
+          ],
+          "pr_auc": 0.37,
+          "n": 44,
+          "n_pos": 14
+        },
+        "chronic": {
+          "auroc": 0.668,
+          "auroc_ci95": [
+            0.462,
+            0.851
+          ],
+          "pr_auc": 0.32,
+          "n": 54,
+          "n_pos": 10
+        },
+        "stage3": {
+          "auroc": 0.492,
+          "auroc_ci95": [
+            0.325,
+            0.66
+          ],
+          "pr_auc": 0.614,
+          "n": 70,
+          "n_pos": 45
+        },
+        "ati_severity": {
+          "spearman": 0.058,
+          "n": 70
+        }
+      },
+      "scale_contribution": null,
+      "stain_contribution": {
+        "HE": 0.284,
+        "PAS": 0.329,
+        "MT": 0.44,
+        "IF": 0.183
+      },
+      "task_stain_contribution": null,
+      "task_attn_entropy": null
+    },
+    "exp8_ctranspath": {
+      "config": {
+        "tag": "exp8",
+        "model": "CLAM-lite",
+        "encoder": "ctranspath",
+        "embed_dim": 768,
+        "mags": "10",
+        "scales": null,
+        "stains": null,
+        "patch": 512,
+        "seed": 42,
+        "epochs": 40,
+        "cohort": 74,
+        "silver_mode": null,
+        "silver_lambda": null,
+        "attn_lambda": null,
+        "topk": 16
+      },
+      "results": {
+        "immune": {
+          "auroc": 0.531,
+          "auroc_ci95": [
+            0.338,
+            0.712
+          ],
+          "pr_auc": 0.403,
+          "n": 44,
+          "n_pos": 14
+        },
+        "chronic": {
+          "auroc": 0.736,
+          "auroc_ci95": [
+            0.541,
+            0.904
+          ],
+          "pr_auc": 0.374,
+          "n": 54,
+          "n_pos": 10
+        },
+        "stage3": {
+          "auroc": 0.428,
+          "auroc_ci95": [
+            0.289,
+            0.571
+          ],
+          "pr_auc": 0.59,
+          "n": 70,
+          "n_pos": 45
+        },
+        "ati_severity": {
+          "spearman": -0.142,
+          "n": 70
+        }
+      },
+      "scale_contribution": null,
+      "stain_contribution": null,
+      "task_stain_contribution": null,
+      "task_attn_entropy": null
+    },
+    "exp8_k32_ctranspath": {
+      "config": {
+        "tag": "exp8_k32",
+        "model": "CLAM-lite",
+        "encoder": "ctranspath",
+        "embed_dim": 768,
+        "mags": "10",
+        "scales": null,
+        "stains": null,
+        "patch": 512,
+        "seed": 42,
+        "epochs": 40,
+        "cohort": 74,
+        "silver_mode": null,
+        "silver_lambda": null,
+        "attn_lambda": null,
+        "topk": 32
+      },
+      "results": {
+        "immune": {
+          "auroc": 0.462,
+          "auroc_ci95": [
+            0.283,
+            0.65
+          ],
+          "pr_auc": 0.328,
+          "n": 44,
+          "n_pos": 14
+        },
+        "chronic": {
+          "auroc": 0.691,
+          "auroc_ci95": [
+            0.464,
+            0.865
+          ],
+          "pr_auc": 0.435,
+          "n": 54,
+          "n_pos": 10
+        },
+        "stage3": {
+          "auroc": 0.468,
+          "auroc_ci95": [
+            0.321,
+            0.622
+          ],
+          "pr_auc": 0.616,
+          "n": 70,
+          "n_pos": 45
+        },
+        "ati_severity": {
+          "spearman": 0.006,
+          "n": 70
+        }
+      },
+      "scale_contribution": null,
+      "stain_contribution": null,
+      "task_stain_contribution": null,
+      "task_attn_entropy": null
+    },
+    "exp8_k8_ctranspath": {
+      "config": {
+        "tag": "exp8_k8",
+        "model": "CLAM-lite",
+        "encoder": "ctranspath",
+        "embed_dim": 768,
+        "mags": "10",
+        "scales": null,
+        "stains": null,
+        "patch": 512,
+        "seed": 42,
+        "epochs": 40,
+        "cohort": 74,
+        "silver_mode": null,
+        "silver_lambda": null,
+        "attn_lambda": null,
+        "topk": 8
+      },
+      "results": {
+        "immune": {
+          "auroc": 0.629,
+          "auroc_ci95": [
+            0.448,
+            0.788
+          ],
+          "pr_auc": 0.464,
+          "n": 44,
+          "n_pos": 14
+        },
+        "chronic": {
+          "auroc": 0.611,
+          "auroc_ci95": [
+            0.388,
+            0.832
+          ],
+          "pr_auc": 0.336,
+          "n": 54,
+          "n_pos": 10
+        },
+        "stage3": {
+          "auroc": 0.507,
+          "auroc_ci95": [
+            0.366,
+            0.642
+          ],
+          "pr_auc": 0.643,
+          "n": 70,
+          "n_pos": 45
+        },
+        "ati_severity": {
+          "spearman": -0.007,
+          "n": 70
+        }
+      },
+      "scale_contribution": null,
+      "stain_contribution": null,
+      "task_stain_contribution": null,
+      "task_attn_entropy": null
+    }
+  },
+  "robustness_exp9": {
+    "exp7_cons_attn_ctranspath": {
+      "tag": "exp7_cons_attn",
+      "encoder": "ctranspath",
+      "A_phenotype_separation": {
+        "auroc": 0.632,
+        "n_chronic": 10,
+        "n_acute": 44,
+        "mean_score_chronic": 0.33,
+        "mean_score_acute": 0.224,
+        "score_gap": 0.106
+      },
+      "B_fibrosis_stress": {
+        "ati_severity": {
+          "acute": {
+            "n": 41,
+            "mean_pred": 0.775,
+            "mean_true": 0.854,
+            "mean_abs_err": 0.292
+          },
+          "chronic": {
+            "n": 9,
+            "mean_pred": 0.86,
+            "mean_true": 0.611,
+            "mean_abs_err": 0.371
+          }
+        },
+        "stage3": {
+          "acute": {
+            "n": 41,
+            "mean_pred": 0.594,
+            "mean_true": 0.756,
+            "mean_abs_err": 0.513
+          },
+          "chronic": {
+            "n": 9,
+            "mean_pred": 0.751,
+            "mean_true": 0.333,
+            "mean_abs_err": 0.657
+          }
+        }
+      },
+      "C_attention_entropy": {
+        "note": "정규화 엔트로피(0~1, 1=완전분산). 미학습 init 비교 — 안정성 상대지표.",
+        "silver_off": {
+          "acute": 1.0,
+          "chronic": 1.0
+        },
+        "silver_consistency_attn": {
+          "acute": 1.0,
+          "chronic": 1.0
+        }
+      }
+    }
+  },
+  "artifacts": {
+    "manifest": "manifest_aki_full.csv (App Search, 26컬럼)",
+    "selected": "selected_manifest.csv",
+    "patches": "patches_manifest.csv (512px, 10/20/30/40x, tissue_score)",
+    "embeddings": "data/embeddings/{encoder}/index.csv",
+    "code": "Pathology_model/mil/{patch_extract,embed_patches,stain_norm,encoders,model,train,train_multiscale,train_clam_lite,clam_lite,eval_package,exp9_robustness}.py",
+    "eval_figs": "results/eval/*_eval.png, *_errors.csv",
+    "silver_branch": "model.StainAwareMIL(silver_mode): off/consistency/consistency_attn — SILVER=구조 일관성 제약(L_main+λ·cos), 예측 비포함",
+    "clam_lite": "clam_lite.ClamLite(Top-K=16) — baseline(SILVER·multiscale 미사용)"
+  },
+  "reproducibility": {
+    "seed": 42,
+    "split": "patient-level StratifiedKFold (gold=stratify_key, kdigo=stage3)",
+    "norm": "512 space (HE=Macenko, others=Reinhard)",
+    "encoder_input": 224,
+    "leakage_free": "환자단위 fold, 슬라이드 누수 0 (integrity_report 확인)"
+  }
+}

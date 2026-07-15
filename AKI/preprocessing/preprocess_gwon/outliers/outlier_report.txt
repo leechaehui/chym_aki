@@ -1,0 +1,91 @@
+============================================================
+이상치 처리 리포트 (팀원 B 전달용)
+============================================================
+
+[Step 1] 직접 처리 내역
+  creatinine_min                 0 이하 → NULL
+  creatinine_max                 0 이하 → NULL
+  creatinine_delta               0 미만 → NULL
+  bun_cr_ratio                   100 초과 → NULL
+  vasopressor_hours              48 초과 → 48 캡
+  potassium_max                  9.0 초과 → NULL
+  sodium_min                     100 미만 → NULL
+
+[Step 2] IQR 기반 처리 내역
+  map_mean                       [  51.615 ~  111.308]
+  map_min                        [  31.500 ~   91.500]
+  map_below65_hours              [   0.000 ~   12.250]
+  sbp_min                        [  58.500 ~  134.500]
+  sbp_mean                       [  76.031 ~  164.229]
+  shock_index_mean               [   0.277 ~    1.114]
+  hr_max                         [  53.500 ~  153.500]
+  hr_mean                        [  43.377 ~  122.496]
+  rr_max                         [  12.000 ~   44.000]
+  rr_mean                        [   9.903 ~   27.549]
+  temp_max                       [  96.800 ~  101.600]
+  temp_mean                      [  97.047 ~   99.706]
+  urine_output_sum               [   0.000 ~ 8200.000]
+  urine_ml_kg_hr                 [   0.000 ~    2.440]
+  creatinine_min                 [   0.300 ~    1.100]
+  creatinine_max                 [   0.150 ~    1.350]
+  creatinine_delta               [   0.000 ~    0.250]
+  bun_max                        [   0.000 ~   36.000]
+  bun_cr_ratio                   [   0.000 ~   42.500]
+  lactate_max                    [   0.000 ~    4.950]
+  lactate_mean                   [   0.000 ~    3.500]
+  norepi_dose_max                [   0.000 ~    0.425]
+  potassium_max                  [   3.000 ~    5.400]
+  potassium_mean                 [   2.975 ~    5.042]
+  bicarbonate_min                [  13.500 ~   33.500]
+  bicarbonate_mean               [  15.750 ~   33.750]
+  sodium_min                     [ 127.500 ~  147.500]
+  sodium_max                     [ 132.000 ~  148.000]
+  hemoglobin_min                 [   4.250 ~   16.650]
+  hemoglobin_mean                [   5.050 ~   16.650]
+  spo2_min                       [  84.000 ~  100.000]
+  spo2_mean                      [  91.933 ~  101.213]
+
+[IQR 미적용 피처]
+  urine_output_6h
+  vasopressor_hours
+  creatinine_delta
+  oliguria_flag
+  vasopressor_flag
+
+[처리 후 결측률 현황 - 팀원 B 결측처리 기준]
+  norepi_dose_max                95.89%
+  lactate_max                    71.58%
+  lactate_mean                   71.57%
+  map_below65_hours              27.61%
+  temp_mean                      26.33%
+  spo2_min                       26.16%
+  temp_max                       25.24%
+  sbp_min                        24.19%
+  shock_index_mean               23.38%
+  creatinine_min                 23.06%
+  rr_max                         22.98%
+  sbp_mean                       22.89%
+  map_min                        22.69%
+  rr_mean                        22.65%
+  bun_cr_ratio                   22.44%
+  sodium_max                     22.41%
+  hr_max                         22.05%
+  bun_max                        21.97%
+  spo2_mean                      21.89%
+  creatinine_max                 21.85%
+  bicarbonate_mean               21.38%
+  map_mean                       21.35%
+  sodium_min                     21.21%
+  bicarbonate_min                21.18%
+  hr_mean                        21.17%
+  potassium_max                  20.78%
+  potassium_mean                 19.92%
+  hemoglobin_mean                19.03%
+  hemoglobin_min                 19.03%
+  creatinine_delta               18.54%
+  urine_output_sum               18.43%
+  urine_ml_kg_hr                 18.43%
+  urine_output_6h                16.36%
+  oliguria_flag                  16.36%
+  vasopressor_hours              16.36%
+  vasopressor_flag               16.36%

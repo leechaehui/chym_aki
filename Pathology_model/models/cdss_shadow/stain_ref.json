@@ -1,0 +1,62 @@
+{
+  "_purpose": "CdssEngine(ctranspath) train/serve stain-norm reference (frozen)",
+  "_source_manifest": "C:\\team\\chym_aki\\data\\cdss_core\\patches_manifest.csv",
+  "_select_rule": "mags{10,40}+MAIN{HE,PAS,MT}, tissue_score desc, stain 첫 행 reference",
+  "refs": {
+    "PAS": {
+      "method": "reinhard",
+      "t_mean": [
+        41.646949768066406,
+        133.05457305908203,
+        125.02427673339844
+      ],
+      "t_std": [
+        7.0719689306190485,
+        1.8281127264334314,
+        2.373086859109967
+      ],
+      "ref_stain": "PAS",
+      "ref_from": {
+        "slide_id": "f7d2e2b6",
+        "slide_path": "D:\\cdss_core\\data_raw\\kpmp_aki\\wsi\\wsi_pas\\33-10376_PAS_f7d2e2b6.svs",
+        "magnification": "40",
+        "tile_x": 25600,
+        "tile_y": 29696,
+        "tissue_score": 1.0
+      }
+    },
+    "HE_CT": {
+      "method": "macenko",
+      "t_HE": [
+        [
+          0.623435378074646,
+          0.22221514582633972
+        ],
+        [
+          0.6566700339317322,
+          0.8618108034133911
+        ],
+        [
+          0.42439696192741394,
+          0.45596328377723694
+        ]
+      ],
+      "t_maxC": [
+        1.8066588640213013,
+        0.9307988882064819
+      ],
+      "Io": 240,
+      "beta": 0.15,
+      "alpha": 1,
+      "ref_stain": "HE",
+      "ref_from": {
+        "slide_id": "69a62729",
+        "slide_path": "D:\\cdss_core\\data_raw\\kpmp_aki\\wsi\\wsi_he\\30-11084_HE_69a62729.svs",
+        "magnification": "40",
+        "tile_x": 41472,
+        "tile_y": 56832,
+        "tissue_score": 1.0
+      }
+    }
+  }
+}

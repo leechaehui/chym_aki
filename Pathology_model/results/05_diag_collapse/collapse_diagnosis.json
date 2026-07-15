@@ -1,0 +1,140 @@
+{
+  "baseline": {
+    "immune": {
+      "auroc": 0.612,
+      "auprc": 0.442,
+      "mean_entropy": 0.651,
+      "mean_top1": 0.256,
+      "n_pos": 14,
+      "n": 44
+    },
+    "chronic": {
+      "auroc": 0.661,
+      "auprc": 0.346,
+      "mean_entropy": 0.733,
+      "mean_top1": 0.191,
+      "n_pos": 10,
+      "n": 54
+    },
+    "stage3": {
+      "auroc": 0.392,
+      "auprc": 0.592,
+      "mean_entropy": 0.812,
+      "mean_top1": 0.174,
+      "n_pos": 45,
+      "n": 70
+    }
+  },
+  "entropy_stats": {
+    "immune": {
+      "mean": 0.651,
+      "std": 0.156,
+      "min": 0.272,
+      "max": 0.998,
+      "mean_pos": 0.672,
+      "mean_neg": 0.641,
+      "mean_entropy_correct": 0.665,
+      "mean_entropy_wrong": 0.624
+    },
+    "chronic": {
+      "mean": 0.733,
+      "std": 0.128,
+      "min": 0.487,
+      "max": 0.945,
+      "mean_pos": 0.727,
+      "mean_neg": 0.734,
+      "mean_entropy_correct": 0.734,
+      "mean_entropy_wrong": 0.732
+    },
+    "stage3": {
+      "mean": 0.812,
+      "std": 0.134,
+      "min": 0.256,
+      "max": 1.0,
+      "mean_pos": 0.837,
+      "mean_neg": 0.765,
+      "mean_entropy_correct": 0.797,
+      "mean_entropy_wrong": 0.824
+    }
+  },
+  "entropy_auprc_corr": {
+    "immune": {
+      "spearman": -0.051,
+      "pearson": 0.064,
+      "n_folds": 5
+    },
+    "chronic": {
+      "spearman": 0.1,
+      "pearson": -0.077,
+      "n_folds": 5
+    },
+    "stage3": {
+      "spearman": 0.7,
+      "pearson": 0.649,
+      "n_folds": 5
+    }
+  },
+  "top_patch": {
+    "immune": {
+      "task": "immune",
+      "top1_ratio": 0.256,
+      "top5_ratio": 0.586,
+      "top10_ratio": 0.727,
+      "collapse_suspect": false
+    },
+    "chronic": {
+      "task": "chronic",
+      "top1_ratio": 0.191,
+      "top5_ratio": 0.452,
+      "top10_ratio": 0.601,
+      "collapse_suspect": false
+    },
+    "stage3": {
+      "task": "stage3",
+      "top1_ratio": 0.174,
+      "top5_ratio": 0.414,
+      "top10_ratio": 0.556,
+      "collapse_suspect": false
+    }
+  },
+  "permutation": {
+    "immune": {
+      "auprc_orig": 0.442,
+      "auprc_mask_top1": 0.446,
+      "auprc_mask_top5": 0.446,
+      "auprc_mask_top10": 0.413
+    },
+    "chronic": {
+      "auprc_orig": 0.346,
+      "auprc_mask_top1": 0.353,
+      "auprc_mask_top5": 0.466,
+      "auprc_mask_top10": 0.335
+    },
+    "stage3": {
+      "auprc_orig": 0.592,
+      "auprc_mask_top1": 0.609,
+      "auprc_mask_top5": 0.628,
+      "auprc_mask_top10": 0.609
+    }
+  },
+  "verdict": {
+    "immune": {
+      "collapse_suspect": false,
+      "top1_masking_drop": false,
+      "temp_improves_auprc": false,
+      "fold_auprc_std": 0.135,
+      "evidence": [
+        "Top1 의존 낮음 → collapse 아님(Case E). fold AUPRC std=0.135, pos/fold≈2.8 → 표본/불균형 영향(Case B/C)"
+      ]
+    },
+    "chronic": {
+      "collapse_suspect": false,
+      "top1_masking_drop": false,
+      "temp_improves_auprc": false,
+      "fold_auprc_std": 0.212,
+      "evidence": [
+        "Top1 의존 낮음 → collapse 아님(Case E). fold AUPRC std=0.212, pos/fold≈2.0 → 표본/불균형 영향(Case B/C)"
+      ]
+    }
+  }
+}

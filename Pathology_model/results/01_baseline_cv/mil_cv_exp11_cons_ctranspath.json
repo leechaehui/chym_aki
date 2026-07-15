@@ -1,0 +1,140 @@
+{
+  "config": {
+    "tag": "exp11_cons",
+    "model": "TaskAttentionMIL",
+    "encoder": "ctranspath",
+    "embed_dim": 768,
+    "mags": "10",
+    "patch": 512,
+    "seed": 42,
+    "epochs": 40,
+    "lr": 0.0001,
+    "wd": 0.0001,
+    "device": "cpu",
+    "cohort": 74,
+    "labels": {
+      "immune": 44,
+      "chronic": 54,
+      "stage3": 70,
+      "ati_severity": 70
+    },
+    "silver_mode": "consistency",
+    "silver_lambda": 0.3,
+    "attn_lambda": 0.1
+  },
+  "tasks": {
+    "immune": {
+      "auroc": 0.631,
+      "auroc_ci95": [
+        0.453,
+        0.815
+      ],
+      "pr_auc": 0.495,
+      "pr_auc_ci95": [
+        0.28,
+        0.746
+      ],
+      "f1": 0.444,
+      "balanced_acc": 0.598,
+      "n": 44,
+      "n_pos": 14,
+      "per_fold_auroc": [
+        0.467,
+        0.778,
+        0.611,
+        0.778,
+        0.714
+      ]
+    },
+    "chronic": {
+      "auroc": 0.684,
+      "auroc_ci95": [
+        0.501,
+        0.844
+      ],
+      "pr_auc": 0.355,
+      "pr_auc_ci95": [
+        0.141,
+        0.616
+      ],
+      "f1": 0.3,
+      "balanced_acc": 0.57,
+      "n": 54,
+      "n_pos": 10,
+      "per_fold_auroc": [
+        0.562,
+        0.667,
+        0.556,
+        0.944,
+        0.667
+      ]
+    },
+    "stage3": {
+      "auroc": 0.4,
+      "auroc_ci95": [
+        0.257,
+        0.55
+      ],
+      "pr_auc": 0.596,
+      "pr_auc_ci95": [
+        0.462,
+        0.761
+      ],
+      "f1": 0.541,
+      "balanced_acc": 0.416,
+      "n": 70,
+      "n_pos": 45,
+      "per_fold_auroc": [
+        0.315,
+        0.375,
+        0.4,
+        0.6,
+        0.625
+      ]
+    },
+    "ati_severity": {
+      "spearman": 0.035,
+      "mae": 0.312,
+      "n": 70,
+      "per_fold_spearman": [
+        0.222,
+        0.069,
+        -0.039,
+        0.244,
+        0.167
+      ]
+    }
+  },
+  "task_stain_contribution": {
+    "immune": {
+      "HE": 0.276,
+      "PAS": 0.132,
+      "MT": 0.643,
+      "IF": 0.236
+    },
+    "chronic": {
+      "HE": 0.577,
+      "PAS": 0.284,
+      "MT": 0.146,
+      "IF": 0.327
+    },
+    "stage3": {
+      "HE": 0.425,
+      "PAS": 0.321,
+      "MT": 0.263,
+      "IF": 0.321
+    },
+    "ati_severity": {
+      "HE": 0.101,
+      "PAS": 0.269,
+      "MT": 0.643,
+      "IF": 0.332
+    }
+  },
+  "task_attn_entropy": {
+    "immune": 0.646,
+    "chronic": 0.719,
+    "stage3": 0.83,
+    "ati_severity": 0.789
+  }
+}

@@ -1,0 +1,372 @@
+_grp,redcap_id,workflow_type,data_format,file_size,primary_adjudicated_category,kdigo_stage,package_id,file_name
+wsi_he,32-10296,H&E stain,svs,98502743.0,Acute Tubular Injury,Stage 3 (ks),63ee04bc-6eef-460f-af2d-065bc2186e1e,8b3cf2e1-e918-4992-aa44-c4547fffd299_S-2010-012934_HE_1of1.svs
+wsi_he,34-10050,H&E stain,svs,13171519.0,Cannot be determined,Stage 3 (ks),986e95db-b5b9-4e83-87cb-cba1fa81f33c,df87560d-153e-4afc-b0c9-096438c4559f_S-1904-008115_HE_2of2.svs
+wsi_he,30-10018,H&E stain,svs,82006041.0,Acute Interstitial Nephritis,Stage 3 (ks),31d7ee2f-137d-4322-9176-85e3f964924a,2a6bffc5-efa8-4f6c-b975-29479d0ca2c3_S-1908-009721_HE_2of2.svs
+wsi_he,30-10034,H&E stain,svs,66947443.0,Acute Tubular Injury,Stage 2 (ks),034969c2-4fcf-4a85-b900-b3015d0eaf6e,3f2445e3-012b-4441-9663-f92e440c0187_S-1908-009626_HE_1of2.svs
+wsi_he,30-10044,H&E stain,svs,38217395.0,Acute Tubular Injury,Stage 3 (ks),3bafb519-4b4b-46aa-b089-53324c5bcb7f,bbdb8f28-e871-4f8d-b46c-9cf8206a71ae_S-1908-009673_HE_1of2.svs
+wsi_he,30-10123,H&E stain,svs,39282983.0,Diabetic Kidney Disease,Stage 3 (ks),556577be-5455-489c-a3e0-be60c17e38a0,817ed691-b6f5-4db6-84e9-694ee2980054_S-1908-009767_HE_1of2.svs
+wsi_he,30-10125,H&E stain,svs,44329981.0,Acute Tubular Injury,Stage 3 (ks),b39305ce-df78-4efd-ba2f-7ada7d13fb6e,4248a1f7-a063-45ea-ad2c-c6b62892eace_S-2002-007728_HE_1of2.svs
+wsi_he,30-10631,H&E stain,svs,53878595.0,Acute Tubular Injury,Stage 3 (ks),d1c3d367-4eb3-4600-83f5-c258f38638d2,d65ab323-ebb0-4c5a-b011-4886848e1a6e_S-2006-001647_HE_2of2.svs
+wsi_he,30-10929,H&E stain,svs,668132551.0,Acute Interstitial Nephritis,Stage 2 (ks),d086648a-1666-4e71-b9b6-6e201b50e02e,c06becc6-d725-4c35-be62-9ce35b911b3a_S-2002-007775_HE_1of2.svs
+wsi_he,30-11033,H&E stain,svs,58855877.0,Acute Tubular Injury,Stage 3 (ks),ccca593a-9349-4165-af97-878c2d07b31f,535c2508-215d-49ee-bdcf-2aaec9f496b1_S-2101-003175_HE_1of2.svs
+wsi_he,30-11072,H&E stain,svs,107611141.0,Acute Interstitial Nephritis,Stage 2 (ks),b4566b5e-52e2-4a8a-a9f4-98d94b4a97d8,7f05ced4-21e2-4341-acbd-ce54b63f0892_S-2006-001787_HE_1of2.svs
+wsi_he,30-11080,H&E stain,svs,97989357.0,Acute Interstitial Nephritis,Stage 3 (ks),9b125af9-6563-4d0f-9a0e-01af9aa6e996,6e64133c-43c3-4260-aaa3-217413ae4a15_S-2002-014502_HE_1of2.svs
+wsi_he,30-11081,H&E stain,svs,90196411.0,Acute Tubular Injury,Stage 3 (ks),6532c3af-6ef7-4594-b467-b2f8355fdeb2,69d54c59-7b6d-49a9-91aa-6c66e151dd52_S-2101-003316_HE_1of2.svs
+wsi_he,30-11084,H&E stain,svs,153201707.0,Acute Tubular Injury,Stage 1 (ks),463b290d-82e9-4744-a18a-bcae1933ea43,6234cc04-b877-49dd-bbec-9de706273f02_S-2006-001740_HE_1of2.svs
+wsi_he,30-11090,H&E stain,svs,34707029.0,Acute Interstitial Nephritis,Stage 2 (ks),d763563c-5b32-4aa7-940c-6c20e9087426,8dcc754a-c1ed-43b8-9317-e961ccec742f_S-2002-014549_HE_1of2.svs
+wsi_he,30-11091,H&E stain,svs,56758871.0,Diabetic Kidney Disease,Stage 2 (ks),d048d9ba-ec3c-49aa-977f-59dc3699f9eb,21c55049-824c-4276-bd96-f52804d8878c_S-2101-003222_HE_1of2.svs
+wsi_he,30-11093,H&E stain,svs,69367611.0,Acute Tubular Injury,Stage 3 (ks),9e071472-1c1a-45a5-8844-71ad5f2d3235,d29327c4-4e8e-4745-b229-19ffca7e04a4_S-2101-003270_HE_2of2.svs
+wsi_he,30-11095,H&E stain,svs,151171361.0,Diabetic Kidney Disease,Stage 1 (ks),548b12c1-2676-461f-b383-7648fcd0b8bf,7f733642-fbf9-4067-9598-de93e5692637_S-2002-014596_HE_1of2.svs
+wsi_he,30-11101,H&E stain,svs,185860831.0,Acute Tubular Injury,Stage 3 (ks),8f6f3bc5-40f7-45db-aed3-3633f4fa4e09,b072c179-72cd-4499-b8f9-d8f2b0d17eb8_S-2006-001928_HE_1of2.svs
+wsi_he,30-11104,H&E stain,svs,43264201.0,Acute Interstitial Nephritis,Stage 3 (ks),3afb4914-e03a-410f-91ab-b1bb5c012cb9,eb2722fb-977b-4e6c-8bca-43dfbf6f4dca_S-2002-014643_HE_1of2.svs
+wsi_he,30-11120,H&E stain,svs,11789511.0,Acute Tubular Injury,Stage 3 (ks),0df57a87-cd3d-40ec-bfdc-aa4762cecf07,40d97e7f-eb24-4b98-99d4-52276fbf858d_S-2301-001161_HE_2of2.svs
+wsi_he,30-11124,H&E stain,svs,63993403.0,Diabetic Kidney Disease,Stage 2 (ks),8987e965-e257-4abc-9425-659aedfd8cd2,1844784a-3f2d-4d93-95ec-e856d4d8ee85_S-2301-001208_HE_2of2.svs
+wsi_he,30-11130,H&E stain,svs,52713345.0,Hypertensive Kidney Disease,Stage 3 (ks),265c6127-21d5-453e-9e24-136dfba876fa,a77835bf-a6ee-4838-bd73-ee3063c718aa_S-2302-010769_HE_2of2.svs
+wsi_he,30-11141,H&E stain,svs,51812691.0,Acute Tubular Injury,Stage 3 (ks),5035f81a-f1b8-4331-a905-a4b5997e5590,27956ea2-5a7c-4b30-8c13-3c7708f22ac6_S-2307-002324_HE_1of2.svs
+wsi_he,30-11154,H&E stain,svs,47786025.0,Acute Tubular Injury,Stage 3 (ks),ed6b7b1b-a7ca-4a84-baa2-57506ece9e46,32e9ccfe-e6f6-4303-9bdd-cf17cda5e75d_S-2311-011594_HE_2of2.svs
+wsi_he,30-11157,H&E stain,svs,31320391.0,Diabetic Kidney Disease,Stage 2 (ks),ca35623d-a6df-405c-bf5d-99424a8787f4,23c51b8e-72df-4192-8b01-4100a04aa899_S-2405-000736_HE_1of2.svs
+wsi_he,30-11163,H&E stain,svs,203103801.0,,Stage 3 (ks),243ab295-9dcd-4688-914a-79e6194bab15,47e18d44-555e-4911-b73c-18e0dc6c3f7d_S-2312-004471_HE_1of2.svs
+wsi_he,30-11192,H&E stain,svs,337462752.0,,Stage 3 (ks),5c102090-1340-4b84-85b2-128d0a328440,f437c086-0bc2-4dcd-b843-6c623e598ee7_S-2405-000783_HE_1of2.svs
+wsi_he,30-11197,H&E stain,svs,274208520.0,,Stage 3 (ks),a37c3c74-8e42-4500-b724-3ff304694271,a3502254-e00e-4510-95b7-3f24e60a1cda_S-2312-004236_HE_1of2.svs
+wsi_he,30-11222,H&E stain,svs,286198542.0,,Stage 3 (ks),009e4c53-a3bd-4a05-977e-a48501cdd135,f9b35a0a-0019-4c43-9e2d-96653bac1fbb_S-2412-005430_HE_1of2.svs
+wsi_he,30-11240,H&E stain,svs,262605444.0,,Stage 3 (ks),11acfe41-257e-4861-bbc3-182a5698f926,54fa043b-37d9-49ea-992d-a5680bc2e8f6_S-2407-004266_HE_1of2.svs
+wsi_he,30-11253,H&E stain,svs,218296084.0,,Stage 3 (ks),eb0d4503-5f13-4ced-af23-c6a117779cb2,e95c78a1-275a-4f96-bbb8-f28ea2b18a99_S-2406-004347_HE_2of2.svs
+wsi_he,32-10003,H&E stain,svs,287412955.0,Acute Tubular Injury,Stage 2 (ks),ce455dc4-f7b8-445f-af78-518f94b7d625,ec60d3dc-67bf-4e51-bb0a-1f556126a64c_S-1908-010051_HE_1of2.svs
+wsi_he,32-10034,H&E stain,svs,51750217.0,Diabetic Kidney Disease,Stage 2 (ks),6a835203-9031-4d27-b024-f051cc6dbfe5,3351a1c0-972b-4b57-ba18-b1e5de11d56c_S-1908-010098_HE_1of2.svs
+wsi_he,32-10074,H&E stain,svs,68442127.0,Acute Tubular Injury,Stage 3 (ks),5d1cbb2b-2975-4365-91d7-3e3e3f67e3aa,a344f9bc-d741-4b80-81c5-c8a60a5b809b_S-1908-010004_HE_1of2.svs
+wsi_he,32-10205,H&E stain,svs,104327679.0,Acute Tubular Injury,Stage 3 (ks),c2e13104-3c4c-4cf7-9e89-05442f9fd919,83e1462e-86d3-4a11-9380-ab1b6d87f7b6_S-2006-001834_HE_1of2.svs
+wsi_he,32-10333,H&E stain,svs,85231811.0,Acute Tubular Injury,Stage 3 (ks),c68ddb69-2fd3-4b56-b8e0-921daa5064a0,5b1ae4c3-cc1d-4325-a5c4-355ac4bf3c0f_S-2006-001976_HE_2of2.svs
+wsi_he,32-10346,H&E stain,svs,80832433.0,Acute Interstitial Nephritis,Stage 3 (ks),1b7c15b5-0f1e-430e-95b8-c7b45ea20be9,202d8fe5-0dae-4c57-860a-e088fc2556fe_S-2109-011391_HE_1of2.svs
+wsi_he,32-10419,H&E stain,svs,33263085.0,Acute Tubular Injury,,29785775-4da3-4908-a1b4-a50b84bcb005,114ebf22-f856-4e3f-8c10-737eb461f35b_S-2006-003823_HE_1of2.svs
+wsi_he,32-10456,H&E stain,svs,108222009.0,Acute Interstitial Nephritis,Stage 3 (ks),12dd53f7-db70-4cd8-9974-bb4d9631b65d,b01a99a9-c225-49fd-afba-c64347f8ea0d_S-2006-001882_HE_2of2.svs
+wsi_he,32-10458,H&E stain,svs,100996549.0,Other,Stage 3 (ks),0b15be26-4c92-4ba0-905d-c0059820e23f,5316facb-2eb7-4381-bd89-ffca63d4dfa3_S-2006-003870_HE_1of2.svs
+wsi_he,32-10459,H&E stain,svs,61803619.0,Cannot be determined,,fc45191e-eea2-4a08-b6bc-dd0976d8a67b,561d9312-e163-44ac-a7db-4cb9d7620d92_S-2205-014753_HE_1of2.svs
+wsi_he,32-2,H&E stain,svs,83112527.0,Acute Tubular Injury,Stage 3 (ks),deb0349a-c376-42b4-bb91-d91ec8fb38a6,c8e2ffe7-b5ad-48a2-a1bb-909cc6788ea2_S-1908-010145_H&E_2of2.svs
+wsi_he,33-10331,H&E stain,svs,129390101.0,Acute Interstitial Nephritis,Stage 3 (ks),3d312042-e707-4f62-b0df-81ce16aba2e1,4d040fd2-2e47-4328-a3bf-c6e30bd679a6_S-2006-002472_HE_1of2.svs
+wsi_he,34-10184,H&E stain,svs,44268125.0,Cannot be determined,Stage 1 (ks),3f01a2db-6617-479e-a584-7296e8199b97,b190d933-bdbd-461a-9353-c91ded1d552e_S-1904-007279_HE_2of2.svs
+wsi_he,34-10187,H&E stain,svs,38221169.0,Acute Tubular Injury,Stage 2 (ks),6c6cda6e-57d1-4162-a67b-888ff915167f,52f5402d-4135-4137-a8f3-26e91d6ded69_S-1903-005451_HE_1of2.svs
+wsi_he,34-10209,H&E stain,svs,432307895.0,Diabetic Kidney Disease,Stage 3 (ks),ac9a1bab-033f-47e4-88c6-bae7cd343def,61f92277-ed58-4eb8-ad5a-d26efb72a430_S-2006-004468_HE_2of2.svs
+wsi_he,34-10240,H&E stain,svs,64984779.0,Acute Interstitial Nephritis,Stage 3 (ks),9c4c4a74-6291-4fa9-824f-4d33a6ef0197,e26cbfb9-c583-4de1-9d22-f271a5cfa2a5_S-2102-003390_HE_1of2.svs
+wsi_he,34-10306,H&E stain,svs,16883209.0,Acute Tubular Injury,Stage 3 (ks),9578a6d5-7069-4e1f-a18d-a3370a971e78,c3766fc1-7a9c-48f4-b6d0-b612cac01360_S-2102-006240_HE_2of2.svs
+wsi_he,34-10331,H&E stain,svs,35464991.0,Acute Interstitial Nephritis,Stage 3 (ks),f54a047d-1218-4f01-8739-71bd923a7709,2f11115e-7071-411c-9236-d184b5e1b594_S-2102-003437_HE_1of2.svs
+wsi_he,34-10393,H&E stain,svs,12924731.0,Acute Tubular Injury,Stage 3 (ks),2fc6205e-1895-4334-8e0d-37fa9b06df18,d1c56d1c-dbcb-4be2-915f-5531869b7a99_S-2102-003484_HE_1of2.svs
+wsi_he,34-10478,H&E stain,svs,20201249.0,Acute Tubular Injury,Stage 3 (ks),229ae5d5-6789-4ce4-b965-dced79d02fad,f5f26087-d34a-43d0-883b-46b991e6ded2_S-2109-011121_HE_1of2.svs
+wsi_he,34-10573,H&E stain,svs,12346473.0,Diabetic Kidney Disease,Stage 2 (ks),bd00b692-8614-4fb6-bf6e-c3016a1abc5a,a60ec9fc-2fd1-493c-a2fb-f1b40ddabe69_S-2205-004649_HE_2of2.svs
+wsi_he,34-10579,H&E stain,svs,12670081.0,Acute Tubular Injury,Stage 3 (ks),03076f4a-fe32-4d5b-965e-d8703ac88a0a,26ce15c9-c828-48b6-a569-a029f785709d_S-2109-019183_HE_1of2.svs
+wsi_he,34-10666,H&E stain,svs,18012667.0,,Stage 1 (ks),f740b408-9159-4154-b985-d37deeb8bb44,a7411407-e5cb-4e34-9e7d-0ed0e2d659f7_S-2109-019231_HE_2of2.svs
+wsi_he,34-10729,H&E stain,svs,17838303.0,,Stage 1 (ks),f5bc8e19-4961-4ee4-b25f-4783a8b7eac0,44d23533-a54e-489f-9a3c-bd890b9f7d62_S-2107-008889_HE_1of2.svs
+wsi_he,34-10730,H&E stain,svs,23466725.0,,Stage 2 (ks),a0638150-9fd6-4a0a-a71d-3e67cc959d2c,cf1f2989-8b52-413f-93ee-c6ba68f2e8c7_S-2209-009395_HE_1of2.svs
+wsi_he,34-10889,H&E stain,svs,373965009.0,,Stage 3 (ks),ced611f1-f568-4705-a3d6-1bd795f3143a,a25399cd-3fa8-4ab8-a94e-77a14ad9baf7_S-2304-011668_HE_2of2.svs
+wsi_he,34-11008,H&E stain,svs,141048893.0,,,26056cad-cdd6-4796-968a-25ce52213274,b4576106-a8ae-422e-86ce-b4997cc3ec97_S-2307-003337_HE_1of2.svs
+wsi_he,34-11025,H&E stain,svs,131297825.0,,Stage 2 (ks),60d8cd89-607f-4326-83dc-d9de759bde25,b20fce8d-47d0-4ca1-8643-25a50001dbcb_S-2304-011620_HE_1of2.svs
+wsi_he,34-11042,H&E stain,svs,109772629.0,,Stage 3 (ks),a1ab9dbe-fa58-40fc-8889-815e67b4d2ee,f4408383-d5c3-4418-a6f1-fd7f40015f01_S-2402-005477_HE_1of2.svs
+wsi_he,34-11048,H&E stain,svs,120425621.0,,Stage 3 (ks),60869041-0001-4a67-b1c2-58fc3bec2e74,de17de11-73c4-4b39-b60c-012955bc5b30_S-2401-009898_HE_1of2.svs
+wsi_he,34-11049,H&E stain,svs,1126234107.0,,,fa86fda1-072b-49c0-97bc-d2046329776f,0d1a26da-fef7-48dc-a1b1-661c553ba005_S-2403-007951_HE_1of2.svs
+wsi_he,34-11066,H&E stain,svs,250818080.0,,Stage 1 (ks),6a99b47d-9cb7-4274-86ac-237b1381ee9e,660c241b-55d1-4d04-9b71-dcd0b2f2678b_S-2309-028477_HE_1of2.svs
+wsi_he,34-11077,H&E stain,svs,168526856.0,,Stage 3 (ks),ae0a9988-73b6-42fe-91c0-c36ae5c1bd42,3f5a6cb8-86a7-423c-8031-d00f3c32dbe5_S-2407-021099_HE_2of2.svs
+wsi_he,34-11093,H&E stain,svs,155040592.0,,,342ec81e-7222-4b7b-9587-b4e8b61af2bb,5695b2e2-c78e-4424-a03e-4066710c5497_S-2501-003981_HE_1of2.svs
+wsi_he,34-11109,H&E stain,svs,149689296.0,,Stage 1 (ks),a4c50c68-b37d-4776-bbef-2c33deb37966,e1bce9a2-7561-4e0b-90ee-dcd509ede4d6_S-2407-021052_HE_2of2.svs
+wsi_he,34-11114,H&E stain,svs,135846228.0,,Stage 1 (ks),89b457ae-78d2-4c7f-85df-c498375d87cb,e1b49df7-4382-44ac-b9ed-97c7b046dc2f_S-2504-006353_HE_1of2.svs
+wsi_he,933-10085,H&E stain,svs,18336539.0,Acute Tubular Injury,,44e61ece-53c3-4fdc-a325-d9b44d1bb326,d0fe6bee-1cd0-4edc-9caa-766c620a13ba_S-2302-010627_HE_1of2.svs
+wsi_he,933-10271,H&E stain,svs,84482419.0,Other,Stage 1 (ks),96b2d302-f4ea-4ba7-b8bc-5361cc3cb4e5,cce8dac0-3fc1-43fd-b4a7-a918752f1d5c_S-2311-014749_HE_2of2.svs
+wsi_he,933-10777,H&E stain,svs,261691592.0,Acute Interstitial Nephritis,,b966d428-3441-453d-bc20-8bbdb7fa5d08,fcf649b3-b6a1-495c-869b-45aa9366ce1e_S-2404-014802_HE_2of2.svs
+wsi_he,933-10868,H&E stain,svs,373226258.0,Acute Tubular Injury,,d1eacdf9-757d-422e-b255-60e1b0fdaf93,1e4c07aa-5ed9-41e9-b0ec-2f5707cf8191_S-2406-010986_HE_2of2.svs
+wsi_he,936-10092,H&E stain,svs,68427929.0,Diabetic Kidney Disease,,a8af5557-dfd0-49ed-8aa1-1689cba079cb,903bf787-b5e7-4d8d-9165-9a8e16813561_S-2303-014174_HE_1of2.svs
+wsi_he,936-10123,H&E stain,svs,33188789.0,Acute Tubular Injury,Stage 3 (ks),e56e70a7-efcd-4c44-8cfd-39dd0d33fb38,cf0bb151-1c9a-4817-837e-6807d86f9ce7_S-2310-016456_HE_1of2.svs
+wsi_he,936-10217,H&E stain,svs,513348081.0,Acute Interstitial Nephritis,Stage 2 (ks),5c8e33ef-9dac-4bfd-99c4-8af638816a57,492c37bf-e1df-4ebc-b79c-24da54b70d5a_S-2310-016551_HE_2of2.svs
+wsi_he,33-10005,H&E stain,svs,116375737.0,Acute Tubular Injury,Stage 3 (ks),aa4e70fc-9215-4fed-9323-910067a639a5,3edb8a31-20e1-423d-8010-9bf43a038e41_S-1908-009816_HE_1of3.svs
+wsi_he,33-10006,H&E stain,svs,57681627.0,Acute Tubular Injury,Stage 3 (ks),8659f7d4-749e-43eb-9743-1dc3d91a635d,6f959766-e5c8-48fa-a5bf-caf6928ebf25_S-1908-009863_HE_1of3.svs
+wsi_he,30-10868,H&E stain,svs,69530971.0,Acute Interstitial Nephritis,Stage 2 (ks),7985c4fd-c5b8-493b-a66e-dd6d3334495e,2e616fc6-86fb-4189-a03b-b8b3f1707b5f_S-2006-001693_HE_1of4.svs
+wsi_he,30-11168,H&E stain,svs,483245278.0,,Stage 3 (ks),f9912e8a-b72a-43a7-b5db-f7023ed12841,2b7b9a69-c0c8-4978-af3d-b23857dbfc65_S-2312-004198_HE_2of4.svs
+wsi_he,33-10376,H&E stain,svs,83489817.0,Acute Tubular Injury,Stage 1 (ks),4cee00d5-f2a8-4d48-bbb4-380043cb7337,7cb99ff6-6d84-4666-b41a-d42b79ce953e_S-2006-002384_Other_1of1.svs
+wsi_he,933-10155,H&E stain,svs,38738395.0,Acute Tubular Injury,Stage 3 (ks),32715fa4-5d66-400c-abae-f066e78a713e,691bcd3d-e705-4059-85bb-0f17b829eb0d_S-2308-000022_HE_3of4.svs
+wsi_he,33-10375,H&E stain,svs,55570247.0,Cannot be determined,Stage 2 (ks),aed29859-71b3-4979-9e01-e9c5fc3e5eb7,c6564bdf-f964-4fe6-95a1-34f07ad6f508_S-2006-002429_Other_2of3.svs
+wsi_he,30-10018,H&E stain,svs,85595699.0,Acute Interstitial Nephritis,Stage 3 (ks),31d7ee2f-137d-4322-9176-85e3f964924a,2d798ca7-b13b-4d4f-8d59-7f92f2411fbc_S-1908-009720_HE_1of2.svs
+wsi_he,30-10034,H&E stain,svs,76688251.0,Acute Tubular Injury,Stage 2 (ks),034969c2-4fcf-4a85-b900-b3015d0eaf6e,ae019f79-7707-42fc-9a47-e984c8be0bd0_S-1908-009627_HE_2of2.svs
+wsi_he,30-10044,H&E stain,svs,55246859.0,Acute Tubular Injury,Stage 3 (ks),3bafb519-4b4b-46aa-b089-53324c5bcb7f,524a6a57-008a-4905-abf1-ce15129e380a_S-1908-009674_HE_2of2.svs
+wsi_he,30-10123,H&E stain,svs,61063811.0,Diabetic Kidney Disease,Stage 3 (ks),556577be-5455-489c-a3e0-be60c17e38a0,ee5dc96e-ee11-437f-a139-649af366ef50_S-1908-009768_HE_2of2.svs
+wsi_he,30-10125,H&E stain,svs,61104489.0,Acute Tubular Injury,Stage 3 (ks),b39305ce-df78-4efd-ba2f-7ada7d13fb6e,1e23cbb9-5464-4ca4-845a-5612c4e8a8e1_S-2002-007729_HE_2of2.svs
+wsi_he,30-10631,H&E stain,svs,55554135.0,Acute Tubular Injury,Stage 3 (ks),d1c3d367-4eb3-4600-83f5-c258f38638d2,8851f028-0096-4356-a845-863d41352a98_S-2006-001646_HE_1of2.svs
+wsi_he,30-10929,H&E stain,svs,882595157.0,Acute Interstitial Nephritis,Stage 2 (ks),d086648a-1666-4e71-b9b6-6e201b50e02e,e86d7e2a-1cb0-4f74-941b-2fdac07c2220_S-2002-007776_HE_2of2.svs
+wsi_he,30-11033,H&E stain,svs,76357725.0,Acute Tubular Injury,Stage 3 (ks),ccca593a-9349-4165-af97-878c2d07b31f,08d6564d-8c38-4e29-a7dc-5ec45d27a16a_S-2101-003176_HE_2of2.svs
+wsi_he,30-11072,H&E stain,svs,127138051.0,Acute Interstitial Nephritis,Stage 2 (ks),b4566b5e-52e2-4a8a-a9f4-98d94b4a97d8,adbca450-302a-4115-8468-ffffe9a5595a_S-2006-001788_HE_2of2.svs
+wsi_he,30-11080,H&E stain,svs,141669273.0,Acute Interstitial Nephritis,Stage 3 (ks),9b125af9-6563-4d0f-9a0e-01af9aa6e996,a19c0d4b-7c1c-40ca-be1a-c11e437cf1bf_S-2002-014503_HE_2of2.svs
+wsi_he,30-11081,H&E stain,svs,106142197.0,Acute Tubular Injury,Stage 3 (ks),6532c3af-6ef7-4594-b467-b2f8355fdeb2,9a1ad21d-82ac-4fb6-a8c7-7a831ca24796_S-2101-003317_HE_2of2.svs
+wsi_he,30-11084,H&E stain,svs,176069121.0,Acute Tubular Injury,Stage 1 (ks),463b290d-82e9-4744-a18a-bcae1933ea43,69a62729-684a-4ca8-9756-ee828a65be6b_S-2006-001741_HE_2of2.svs
+wsi_he,30-11090,H&E stain,svs,75690791.0,Acute Interstitial Nephritis,Stage 2 (ks),d763563c-5b32-4aa7-940c-6c20e9087426,db12f2dd-f3c8-4bf6-98dd-ef87b669eab3_S-2002-014550_HE_2of2.svs
+wsi_he,30-11091,H&E stain,svs,107335207.0,Diabetic Kidney Disease,Stage 2 (ks),d048d9ba-ec3c-49aa-977f-59dc3699f9eb,f2ddfcdc-7490-45f8-ab7a-79e7c049a9ee_S-2101-003223_HE_2of2.svs
+wsi_he,30-11093,H&E stain,svs,107787739.0,Acute Tubular Injury,Stage 3 (ks),9e071472-1c1a-45a5-8844-71ad5f2d3235,96c60e86-009c-4d46-8176-96498dccb99b_S-2101-003269_HE_1of2.svs
+wsi_he,30-11095,H&E stain,svs,172812275.0,Diabetic Kidney Disease,Stage 1 (ks),548b12c1-2676-461f-b383-7648fcd0b8bf,106f85eb-4e06-45fb-b70b-f0e714408aa2_S-2002-014597_HE_2of2.svs
+wsi_he,30-11101,H&E stain,svs,207601903.0,Acute Tubular Injury,Stage 3 (ks),8f6f3bc5-40f7-45db-aed3-3633f4fa4e09,bbf33363-4de2-41fe-b1bf-479a43c1d1b0_S-2006-001929_HE_2of2.svs
+wsi_he,30-11104,H&E stain,svs,67225877.0,Acute Interstitial Nephritis,Stage 3 (ks),3afb4914-e03a-410f-91ab-b1bb5c012cb9,02fce80a-deee-4252-b993-049399cf51c5_S-2002-014644_HE_2of2.svs
+wsi_he,30-11120,H&E stain,svs,15190669.0,Acute Tubular Injury,Stage 3 (ks),0df57a87-cd3d-40ec-bfdc-aa4762cecf07,9893b2af-fb4b-4e9c-b71e-fafc8289c377_S-2301-001160_HE_1of2.svs
+wsi_he,30-11124,H&E stain,svs,70122833.0,Diabetic Kidney Disease,Stage 2 (ks),8987e965-e257-4abc-9425-659aedfd8cd2,a76a3f70-b917-41bc-95a2-9b1bc33f7ff2_S-2301-001207_HE_1of2.svs
+wsi_he,30-11130,H&E stain,svs,58655565.0,Hypertensive Kidney Disease,Stage 3 (ks),265c6127-21d5-453e-9e24-136dfba876fa,f406e11d-529a-485a-a65e-121364997626_S-2302-010768_HE_1of2.svs
+wsi_he,30-11141,H&E stain,svs,54899931.0,Acute Tubular Injury,Stage 3 (ks),5035f81a-f1b8-4331-a905-a4b5997e5590,eba5efd1-d6fa-4a29-a719-d55e6d20eca0_S-2307-002325_HE_2of2.svs
+wsi_he,30-11154,H&E stain,svs,49137983.0,Acute Tubular Injury,Stage 3 (ks),ed6b7b1b-a7ca-4a84-baa2-57506ece9e46,4df91675-71c7-467c-af8b-77edb66d24eb_S-2311-011593_HE_1of2.svs
+wsi_he,30-11157,H&E stain,svs,33307115.0,Diabetic Kidney Disease,Stage 2 (ks),ca35623d-a6df-405c-bf5d-99424a8787f4,a43c61da-7e5c-40cc-8119-ceebdbda54b8_S-2405-000737_HE_2of2.svs
+wsi_he,30-11163,H&E stain,svs,225981491.0,,Stage 3 (ks),243ab295-9dcd-4688-914a-79e6194bab15,c4655f76-6608-48dc-816a-140b7bbf3fd9_S-2312-004472_HE_2of2.svs
+wsi_he,30-11192,H&E stain,svs,376910248.0,,Stage 3 (ks),5c102090-1340-4b84-85b2-128d0a328440,0a73296a-e44a-4837-a95d-ecb84ff98c29_S-2405-000784_HE_2of2.svs
+wsi_he,30-11197,H&E stain,svs,306994148.0,,Stage 3 (ks),a37c3c74-8e42-4500-b724-3ff304694271,3a1fbbc4-2f9e-407d-9f0b-763530f36d32_S-2312-004237_HE_2of2.svs
+wsi_he,30-11222,H&E stain,svs,381048542.0,,Stage 3 (ks),009e4c53-a3bd-4a05-977e-a48501cdd135,e51f7b58-031b-482a-8f88-bf5245fb0109_S-2412-005431_HE_2of2.svs
+wsi_he,30-11240,H&E stain,svs,318428888.0,,Stage 3 (ks),11acfe41-257e-4861-bbc3-182a5698f926,fc7ccd6b-73aa-472a-b108-2ebc1f9cca5c_S-2407-004267_HE_2of2.svs
+wsi_he,30-11253,H&E stain,svs,256570912.0,,Stage 3 (ks),eb0d4503-5f13-4ced-af23-c6a117779cb2,630c1fa5-b2d7-4ce2-86fd-0eafad3337ab_S-2406-004346_HE_1of2.svs
+wsi_he,32-10003,H&E stain,svs,350262323.0,Acute Tubular Injury,Stage 2 (ks),ce455dc4-f7b8-445f-af78-518f94b7d625,44fbe90d-75cd-4060-86d9-712cf12abb7e_S-1908-010052_HE_2of2.svs
+wsi_he,32-10034,H&E stain,svs,58063803.0,Diabetic Kidney Disease,Stage 2 (ks),6a835203-9031-4d27-b024-f051cc6dbfe5,386eddb8-2370-4a73-9638-4bc033d108ad_S-1908-010099_HE_2of2.svs
+wsi_he,32-10074,H&E stain,svs,71332699.0,Acute Tubular Injury,Stage 3 (ks),5d1cbb2b-2975-4365-91d7-3e3e3f67e3aa,4a224ff5-55ce-4dc9-b3e4-0856ddba1316_S-1908-010005_HE_2of2.svs
+wsi_he,32-10205,H&E stain,svs,106416293.0,Acute Tubular Injury,Stage 3 (ks),c2e13104-3c4c-4cf7-9e89-05442f9fd919,29d140f8-474b-47c8-9644-048f5965f665_S-2006-001835_HE_2of2.svs
+wsi_he,32-10333,H&E stain,svs,88354057.0,Acute Tubular Injury,Stage 3 (ks),c68ddb69-2fd3-4b56-b8e0-921daa5064a0,664b3649-2783-4826-b86e-143e46e78974_S-2006-001975_HE_1of2.svs
+wsi_he,32-10346,H&E stain,svs,84442717.0,Acute Interstitial Nephritis,Stage 3 (ks),1b7c15b5-0f1e-430e-95b8-c7b45ea20be9,859f3226-4e2c-4b40-baa2-5a3f8c94b2ea_S-2109-011392_HE_2of2.svs
+wsi_he,32-10419,H&E stain,svs,74027659.0,Acute Tubular Injury,,29785775-4da3-4908-a1b4-a50b84bcb005,eceff7b2-6b9d-4e72-9b9f-669dc18aabdc_S-2006-003824_HE_2of2.svs
+wsi_he,32-10456,H&E stain,svs,111193483.0,Acute Interstitial Nephritis,Stage 3 (ks),12dd53f7-db70-4cd8-9974-bb4d9631b65d,2a0c558a-77eb-4bb1-8008-11e1b54b15a8_S-2006-001881_HE_1of2.svs
+wsi_he,32-10458,H&E stain,svs,102669911.0,Other,Stage 3 (ks),0b15be26-4c92-4ba0-905d-c0059820e23f,beaf8003-200c-4c8d-b8e5-d12e14869668_S-2006-003871_HE_2of2.svs
+wsi_he,32-10459,H&E stain,svs,73535053.0,Cannot be determined,,fc45191e-eea2-4a08-b6bc-dd0976d8a67b,a7cf650f-5d7e-4a3b-af4d-d104a99e7099_S-2205-014754_HE_2of2.svs
+wsi_he,32-2,H&E stain,svs,90237573.0,Acute Tubular Injury,Stage 3 (ks),deb0349a-c376-42b4-bb91-d91ec8fb38a6,922b7fcf-1048-4a7e-b1b4-59673a7d4b40_S-1908-010146_H&E_1of2.svs
+wsi_he,33-10331,H&E stain,svs,130848851.0,Acute Interstitial Nephritis,Stage 3 (ks),3d312042-e707-4f62-b0df-81ce16aba2e1,5ad08e74-ec31-4868-aef0-15de608d2869_S-2006-002473_HE_2of2.svs
+wsi_he,34-10184,H&E stain,svs,53840763.0,Cannot be determined,Stage 1 (ks),3f01a2db-6617-479e-a584-7296e8199b97,f808139b-49e0-4451-829b-512e5bd83702_S-1904-007278_HE_1of2.svs
+wsi_he,34-10187,H&E stain,svs,46007503.0,Acute Tubular Injury,Stage 2 (ks),6c6cda6e-57d1-4162-a67b-888ff915167f,83069e92-b28a-47da-a6b7-4241027e9580_S-1903-005452_HE_2of2.svs
+wsi_he,34-10209,H&E stain,svs,474010191.0,Diabetic Kidney Disease,Stage 3 (ks),ac9a1bab-033f-47e4-88c6-bae7cd343def,00ddcb16-7651-4a4e-94ff-db8d9b766472_S-2006-004467_HE_1of2.svs
+wsi_he,34-10240,H&E stain,svs,93931669.0,Acute Interstitial Nephritis,Stage 3 (ks),9c4c4a74-6291-4fa9-824f-4d33a6ef0197,71cc9a50-3ecc-452a-ad36-535c26a6b422_S-2102-003391_HE_2of2.svs
+wsi_he,34-10306,H&E stain,svs,18532027.0,Acute Tubular Injury,Stage 3 (ks),9578a6d5-7069-4e1f-a18d-a3370a971e78,efee7fb1-7c05-4ed0-9d3b-e717a220bf05_S-2102-006238_HE_1of2.svs
+wsi_he,34-10331,H&E stain,svs,40409973.0,Acute Interstitial Nephritis,Stage 3 (ks),f54a047d-1218-4f01-8739-71bd923a7709,9a2f2e15-72ae-4d79-9273-fb20415a8151_S-2102-003438_HE_2of2.svs
+wsi_he,34-10393,H&E stain,svs,59109167.0,Acute Tubular Injury,Stage 3 (ks),2fc6205e-1895-4334-8e0d-37fa9b06df18,440c83fd-11b5-4973-927a-fffba4d8ff9d_S-2102-003485_HE_2of2.svs
+wsi_he,34-10478,H&E stain,svs,30449945.0,Acute Tubular Injury,Stage 3 (ks),229ae5d5-6789-4ce4-b965-dced79d02fad,c95fd54a-8f53-4e65-9520-4d8e3d727b98_S-2109-011122_HE_2of2.svs
+wsi_he,34-10573,H&E stain,svs,17101947.0,Diabetic Kidney Disease,Stage 2 (ks),bd00b692-8614-4fb6-bf6e-c3016a1abc5a,d4748865-319a-498a-9aff-4c5b7147d6d2_S-2205-004648_HE_1of2.svs
+wsi_he,34-10579,H&E stain,svs,25590213.0,Acute Tubular Injury,Stage 3 (ks),03076f4a-fe32-4d5b-965e-d8703ac88a0a,6c03e635-80c1-4aac-8c26-507aa4b9b48c_S-2109-019184_HE_2of2.svs
+wsi_he,34-10666,H&E stain,svs,19887527.0,,Stage 1 (ks),f740b408-9159-4154-b985-d37deeb8bb44,2fc93eba-e69f-4541-9c8c-2dda2eb052d2_S-2109-019230_HE_1of2.svs
+wsi_he,34-10729,H&E stain,svs,24810291.0,,Stage 1 (ks),f5bc8e19-4961-4ee4-b25f-4783a8b7eac0,cc6246b6-f2d0-4dcb-a21e-8c3c47cc7ffa_S-2107-008890_HE_2of2.svs
+wsi_he,34-10730,H&E stain,svs,36423941.0,,Stage 2 (ks),a0638150-9fd6-4a0a-a71d-3e67cc959d2c,0bf8d73f-1e7c-4cf3-b350-e9d89d437ef5_S-2209-009396_HE_2of2.svs
+wsi_he,34-10889,H&E stain,svs,382961459.0,,Stage 3 (ks),ced611f1-f568-4705-a3d6-1bd795f3143a,ba62b79a-c0ad-49f2-bdbf-433d226c1928_S-2304-011667_HE_1of2.svs
+wsi_he,34-11008,H&E stain,svs,145613783.0,,,26056cad-cdd6-4796-968a-25ce52213274,393874ab-0b76-456d-98fb-21bb5684e62f_S-2307-003338_HE_2of2.svs
+wsi_he,34-11042,H&E stain,svs,112951921.0,,Stage 3 (ks),a1ab9dbe-fa58-40fc-8889-815e67b4d2ee,ea42030a-fdce-4545-84fa-129e8de3b88f_S-2402-005478_HE_2of2.svs
+wsi_pas,30-10868,PAS stain,svs,93215859.0,Acute Interstitial Nephritis,Stage 2 (ks),7985c4fd-c5b8-493b-a66e-dd6d3334495e,94cc2667-d7a8-41da-abd7-ad6f0e5923e2_S-2006-001708_PAS_1of1.svs
+wsi_pas,30-11168,PAS stain,svs,971621605.0,,Stage 3 (ks),f9912e8a-b72a-43a7-b5db-f7023ed12841,947337a0-0312-4f0b-8e8e-19939b4998c0_S-2312-004201_PAS_1of1.svs
+wsi_pas,33-10331,PAS stain,svs,44766001.0,Acute Interstitial Nephritis,Stage 3 (ks),3d312042-e707-4f62-b0df-81ce16aba2e1,4fb3221a-a744-4249-b0f7-194487c173e9_S-2006-002486_PAS_1of1.svs
+wsi_pas,33-10376,PAS stain,svs,402907971.0,Acute Tubular Injury,Stage 1 (ks),0cac726b-c797-43f7-9913-d0d1e96b2115,f7d2e2b6-e10f-4224-8e50-34ea36158605_S-2006-002391_PAS_1of1.svs
+wsi_pas,34-10050,PAS stain,svs,11214335.0,Cannot be determined,Stage 3 (ks),986e95db-b5b9-4e83-87cb-cba1fa81f33c,81ccdeb8-3be8-4599-93da-37db3d7350cf_S-1904-008128_PAS_2of2.svs
+wsi_pas,30-10018,PAS stain,svs,90984855.0,Acute Interstitial Nephritis,Stage 3 (ks),31d7ee2f-137d-4322-9176-85e3f964924a,d5f648ea-d2b3-420b-a44e-5c072c195d7f_S-1908-009735_PAS_1of2.svs
+wsi_pas,30-10034,PAS stain,svs,18602851.0,Acute Tubular Injury,Stage 2 (ks),034969c2-4fcf-4a85-b900-b3015d0eaf6e,9b037714-5f3f-4946-9619-b7975b59bfe6_S-1908-009641_PAS_1of2.svs
+wsi_pas,30-10044,PAS stain,svs,17767919.0,Acute Tubular Injury,Stage 3 (ks),3bafb519-4b4b-46aa-b089-53324c5bcb7f,48d69e1d-a359-4661-bb34-29fb78e08726_S-1908-009688_PAS_1of2.svs
+wsi_pas,30-10123,PAS stain,svs,46583673.0,Diabetic Kidney Disease,Stage 3 (ks),556577be-5455-489c-a3e0-be60c17e38a0,2d2bfed9-0ae2-4f66-bcc8-7f86363b58c3_S-1908-009782_PAS_1of2.svs
+wsi_pas,30-10125,PAS stain,svs,42958875.0,Acute Tubular Injury,Stage 3 (ks),b39305ce-df78-4efd-ba2f-7ada7d13fb6e,627425fd-5092-4c6f-b17e-70d891539a44_S-2002-007743_PAS_1of2.svs
+wsi_pas,30-10631,PAS stain,svs,53499805.0,Acute Tubular Injury,Stage 3 (ks),d1c3d367-4eb3-4600-83f5-c258f38638d2,5ef13fd1-9ec3-44fb-9607-bd17260fac7a_S-2006-001661_PAS_1of2.svs
+wsi_pas,30-10929,PAS stain,svs,689079381.0,Acute Interstitial Nephritis,Stage 2 (ks),d086648a-1666-4e71-b9b6-6e201b50e02e,e138971e-6ba0-4e5b-b217-49aa8cc3982b_S-2002-007790_PAS_1of2.svs
+wsi_pas,30-11033,PAS stain,svs,62046045.0,Acute Tubular Injury,Stage 3 (ks),ccca593a-9349-4165-af97-878c2d07b31f,d4d20491-fa9e-498d-a8ab-11d79dcd4b91_S-2101-003190_PAS_1of2.svs
+wsi_pas,30-11072,PAS stain,svs,107445549.0,Acute Interstitial Nephritis,Stage 2 (ks),b4566b5e-52e2-4a8a-a9f4-98d94b4a97d8,e132147d-ac49-43b0-9dea-31687298aadb_S-2006-001801_PAS_2of2.svs
+wsi_pas,30-11080,PAS stain,svs,108645079.0,Acute Interstitial Nephritis,Stage 3 (ks),9b125af9-6563-4d0f-9a0e-01af9aa6e996,423b8bae-c4ce-412f-9a1a-e6bbea1fec07_S-2002-014517_PAS_1of2.svs
+wsi_pas,30-11081,PAS stain,svs,94938393.0,Acute Tubular Injury,Stage 3 (ks),6532c3af-6ef7-4594-b467-b2f8355fdeb2,b2671f7a-70c1-49f1-b75a-ceb065abf56e_S-2101-003331_PAS_1of2.svs
+wsi_pas,30-11084,PAS stain,svs,176228643.0,Acute Tubular Injury,Stage 1 (ks),463b290d-82e9-4744-a18a-bcae1933ea43,b0b2ee5e-0ec7-49c1-8a30-12b3dedd315b_S-2006-001755_PAS_1of2.svs
+wsi_pas,30-11090,PAS stain,svs,46515835.0,Acute Interstitial Nephritis,Stage 2 (ks),d763563c-5b32-4aa7-940c-6c20e9087426,462fb490-a5e2-4358-8f0b-bc5f8decffd0_S-2002-014564_PAS_1of2.svs
+wsi_pas,30-11091,PAS stain,svs,68232583.0,Diabetic Kidney Disease,Stage 2 (ks),d048d9ba-ec3c-49aa-977f-59dc3699f9eb,5cfdf58a-2a2e-4513-8ba4-531414bb355d_S-2101-003237_PAS_1of2.svs
+wsi_pas,30-11093,PAS stain,svs,21862427.0,Acute Tubular Injury,Stage 3 (ks),9e071472-1c1a-45a5-8844-71ad5f2d3235,c5c9015e-3998-4148-a6a7-115116d0df7f_S-2101-003284_PAS_1of2.svs
+wsi_pas,30-11095,PAS stain,svs,109001391.0,Diabetic Kidney Disease,Stage 1 (ks),548b12c1-2676-461f-b383-7648fcd0b8bf,8fc206d0-2dd6-4be7-be27-ff06c5273669_S-2002-014611_PAS_1of2.svs
+wsi_pas,30-11101,PAS stain,svs,184101669.0,Acute Tubular Injury,Stage 3 (ks),8f6f3bc5-40f7-45db-aed3-3633f4fa4e09,dd06a543-3403-42f5-963e-bfe8ff84589d_S-2006-001942_PAS_2of2.svs
+wsi_pas,30-11104,PAS stain,svs,45760631.0,Acute Interstitial Nephritis,Stage 3 (ks),3afb4914-e03a-410f-91ab-b1bb5c012cb9,b3be69c2-ca35-4019-ac37-471079218052_S-2002-014658_PAS_1of2.svs
+wsi_pas,30-11120,PAS stain,svs,13502957.0,Acute Tubular Injury,Stage 3 (ks),0df57a87-cd3d-40ec-bfdc-aa4762cecf07,9b2d9c3f-f9a9-49ea-b467-c8f050ca4a36_S-2301-001174_PAS_2of2.svs
+wsi_pas,30-11124,PAS stain,svs,65571149.0,Diabetic Kidney Disease,Stage 2 (ks),8987e965-e257-4abc-9425-659aedfd8cd2,4ea2fc21-8ce1-4a20-9074-5a2055768388_S-2301-001222_PAS_1of2.svs
+wsi_pas,30-11130,PAS stain,svs,79336931.0,Hypertensive Kidney Disease,Stage 3 (ks),265c6127-21d5-453e-9e24-136dfba876fa,ff464f26-1607-4ba8-86ee-b8914ff2f616_S-2302-010783_PAS_1of2.svs
+wsi_pas,30-11141,PAS stain,svs,69736035.0,Acute Tubular Injury,Stage 3 (ks),5035f81a-f1b8-4331-a905-a4b5997e5590,c4287a91-83a8-42cc-a9cc-d47b43498c56_S-2307-002339_PAS_1of2.svs
+wsi_pas,30-11154,PAS stain,svs,52901617.0,Acute Tubular Injury,Stage 3 (ks),ed6b7b1b-a7ca-4a84-baa2-57506ece9e46,3ae9f49e-5837-46d5-b4ec-d326fcc85047_S-2311-011608_PAS_1of2.svs
+wsi_pas,30-11157,PAS stain,svs,24812651.0,Diabetic Kidney Disease,Stage 2 (ks),ca35623d-a6df-405c-bf5d-99424a8787f4,bed7ec6a-3658-4a37-a765-0beb35187548_S-2405-000751_PAS_1of2.svs
+wsi_pas,30-11163,PAS stain,svs,226407335.0,,Stage 3 (ks),243ab295-9dcd-4688-914a-79e6194bab15,82d86a28-387f-40a0-a962-e4608c96328c_S-2312-004486_PAS_1of2.svs
+wsi_pas,30-11192,PAS stain,svs,363475406.0,,Stage 3 (ks),5c102090-1340-4b84-85b2-128d0a328440,4f975623-0e09-4e71-8eed-96da3159cdc0_S-2405-000798_PAS_1of2.svs
+wsi_pas,30-11197,PAS stain,svs,289981192.0,,Stage 3 (ks),a37c3c74-8e42-4500-b724-3ff304694271,c0041c3e-b6a3-438e-ac49-d8465cec6a62_S-2312-004251_PAS_1of2.svs
+wsi_pas,30-11222,PAS stain,svs,266689344.0,,Stage 3 (ks),009e4c53-a3bd-4a05-977e-a48501cdd135,3d0dd168-647c-49ad-8c4f-9468c7e78d87_S-2412-005444_PAS_2of2.svs
+wsi_pas,30-11240,PAS stain,svs,283890982.0,,Stage 3 (ks),11acfe41-257e-4861-bbc3-182a5698f926,96c0235f-8a42-4b53-a31d-61f550d662f5_S-2407-004281_PAS_1of2.svs
+wsi_pas,30-11253,PAS stain,svs,229125034.0,,Stage 3 (ks),eb0d4503-5f13-4ced-af23-c6a117779cb2,b892d664-f456-4949-81dc-49858089ec63_S-2406-004361_PAS_1of2.svs
+wsi_pas,32-10003,PAS stain,svs,224594913.0,Acute Tubular Injury,Stage 2 (ks),ce455dc4-f7b8-445f-af78-518f94b7d625,19374c21-8261-48d3-adee-98f4ff52d8da_S-1908-010065_PAS_2of2.svs
+wsi_pas,32-10034,PAS stain,svs,56353795.0,Diabetic Kidney Disease,Stage 2 (ks),6a835203-9031-4d27-b024-f051cc6dbfe5,77d09889-e3e5-4d23-9281-dc2302433d35_S-1908-010113_PAS_1of2.svs
+wsi_pas,32-10074,PAS stain,svs,59696451.0,Acute Tubular Injury,Stage 3 (ks),5d1cbb2b-2975-4365-91d7-3e3e3f67e3aa,647a08f9-3f2b-40e6-a268-705cf842731b_S-1908-010018_PAS_2of2.svs
+wsi_pas,32-10205,PAS stain,svs,116510361.0,Acute Tubular Injury,Stage 3 (ks),c2e13104-3c4c-4cf7-9e89-05442f9fd919,aa787d90-4413-43f0-ac1e-f79d457b306b_S-2006-001849_PAS_1of2.svs
+wsi_pas,32-10296,PAS stain,svs,87002493.0,Acute Tubular Injury,Stage 3 (ks),63ee04bc-6eef-460f-af2d-065bc2186e1e,1981e918-d8d5-4951-83d1-45a8fce9fc09_S-2010-012948_PAS_2of2.svs
+wsi_pas,32-10333,PAS stain,svs,81361633.0,Acute Tubular Injury,Stage 3 (ks),c68ddb69-2fd3-4b56-b8e0-921daa5064a0,c3bfc75a-a76a-4f0b-b23e-91ac28f60dbf_S-2006-001990_PAS_1of2.svs
+wsi_pas,32-10346,PAS stain,svs,69898453.0,Acute Interstitial Nephritis,Stage 3 (ks),1b7c15b5-0f1e-430e-95b8-c7b45ea20be9,2604402a-fcd7-42e2-bfaf-323feb8e7f7a_S-2109-011406_PAS_1of2.svs
+wsi_pas,32-10419,PAS stain,svs,37054685.0,Acute Tubular Injury,,29785775-4da3-4908-a1b4-a50b84bcb005,03994d69-537a-4477-8d75-c2275ddec626_S-2006-003838_PAS_1of2.svs
+wsi_pas,32-10456,PAS stain,svs,128061919.0,Acute Interstitial Nephritis,Stage 3 (ks),12dd53f7-db70-4cd8-9974-bb4d9631b65d,6b5f84cf-30b5-4b44-b1e9-76d7803cf05a_S-2006-001896_PAS_1of2.svs
+wsi_pas,32-10458,PAS stain,svs,108134869.0,Other,Stage 3 (ks),0b15be26-4c92-4ba0-905d-c0059820e23f,1c1dc5cb-feab-4250-b5a0-dba25c5d0812_S-2006-003885_PAS_1of2.svs
+wsi_pas,32-10459,PAS stain,svs,87184455.0,Cannot be determined,,fc45191e-eea2-4a08-b6bc-dd0976d8a67b,4abbef6f-ca36-424b-867e-3b614b887b98_S-2205-014768_PAS_1of2.svs
+wsi_pas,32-2,PAS stain,svs,86808789.0,Acute Tubular Injury,Stage 3 (ks),deb0349a-c376-42b4-bb91-d91ec8fb38a6,14196f17-d87e-41b7-b452-4059cf673d0c_S-1908-010160_PAS_1of2.svs
+wsi_pas,33-10005,PAS stain,svs,52012495.0,Acute Tubular Injury,Stage 3 (ks),aa4e70fc-9215-4fed-9323-910067a639a5,c99e8e27-9990-4cd8-933c-b3bbade3538d_S-1908-009831_PAS_1of2.svs
+wsi_pas,34-10184,PAS stain,svs,47750769.0,Cannot be determined,Stage 1 (ks),3f01a2db-6617-479e-a584-7296e8199b97,ba7e6432-05a0-4e3f-87e9-cfd3dcbd30a0_S-1904-007293_PAS_1of2.svs
+wsi_pas,34-10187,PAS stain,svs,45978701.0,Acute Tubular Injury,Stage 2 (ks),6c6cda6e-57d1-4162-a67b-888ff915167f,674c9635-5714-40a4-94f7-df1710f4c072_S-1903-005466_PAS_1of2.svs
+wsi_pas,34-10209,PAS stain,svs,393977701.0,Diabetic Kidney Disease,Stage 3 (ks),ac9a1bab-033f-47e4-88c6-bae7cd343def,d93e23ee-b5aa-4c1f-bbc0-ecf09d3d6629_S-2006-004481_PAS_2of2.svs
+wsi_pas,34-10240,PAS stain,svs,77095645.0,Acute Interstitial Nephritis,Stage 3 (ks),9c4c4a74-6291-4fa9-824f-4d33a6ef0197,ee5cc5d6-4f17-4e45-8203-6adcfdba417c_S-2102-003405_PAS_1of2.svs
+wsi_pas,34-10306,PAS stain,svs,18732545.0,Acute Tubular Injury,Stage 3 (ks),9578a6d5-7069-4e1f-a18d-a3370a971e78,29b3c0d6-ef0a-4c9c-8a6c-48632f8eda2e_S-2102-006270_PAS_1of2.svs
+wsi_pas,34-10331,PAS stain,svs,16101895.0,Acute Interstitial Nephritis,Stage 3 (ks),f54a047d-1218-4f01-8739-71bd923a7709,10aeadd4-56c8-46c8-b70e-71a5c0fbcd92_S-2102-003451_PAS_2of2.svs
+wsi_pas,34-10393,PAS stain,svs,10931919.0,Acute Tubular Injury,Stage 3 (ks),2fc6205e-1895-4334-8e0d-37fa9b06df18,d6201e3b-1d88-4541-a84e-9135b290ddcf_S-2102-003498_PAS_2of2.svs
+wsi_pas,34-10478,PAS stain,svs,24347163.0,Acute Tubular Injury,Stage 3 (ks),229ae5d5-6789-4ce4-b965-dced79d02fad,63175fbd-3143-43cf-bca5-22c95c347b0e_S-2109-011135_PAS_2of2.svs
+wsi_pas,34-10573,PAS stain,svs,15187319.0,Diabetic Kidney Disease,Stage 2 (ks),bd00b692-8614-4fb6-bf6e-c3016a1abc5a,a7c38ff2-e8a6-46c5-b90f-e6b772cca64b_S-2205-004662_PAS_2of2.svs
+wsi_pas,34-10579,PAS stain,svs,15829981.0,Acute Tubular Injury,Stage 3 (ks),03076f4a-fe32-4d5b-965e-d8703ac88a0a,4853c63b-cf87-4f27-80f8-cb0885423aa7_S-2109-019197_PAS_2of2.svs
+wsi_pas,34-10666,PAS stain,svs,20796773.0,,Stage 1 (ks),f740b408-9159-4154-b985-d37deeb8bb44,030658dc-8302-4cab-a5cd-c3e863fe9af5_S-2109-019245_PAS_1of2.svs
+wsi_pas,34-10729,PAS stain,svs,21504569.0,,Stage 1 (ks),f5bc8e19-4961-4ee4-b25f-4783a8b7eac0,f3f0dee4-0061-431c-a30e-1c48dfaba90e_S-2107-008904_PAS_1of2.svs
+wsi_pas,34-10730,PAS stain,svs,15675799.0,,Stage 2 (ks),a0638150-9fd6-4a0a-a71d-3e67cc959d2c,2b5eeabb-0ece-4dea-a751-2ff9b3a62c7f_S-2209-009410_PAS_1of2.svs
+wsi_pas,34-10889,PAS stain,svs,384320877.0,,Stage 3 (ks),ced611f1-f568-4705-a3d6-1bd795f3143a,1db2b4a0-5aaf-4e71-ac7d-1a35136cc1bc_S-2304-011682_PAS_1of2.svs
+wsi_pas,34-11008,PAS stain,svs,134941015.0,,,26056cad-cdd6-4796-968a-25ce52213274,1555f9ed-d07f-487c-9184-f7708162d81d_S-2307-003352_PAS_1of2.svs
+wsi_pas,34-11025,PAS stain,svs,156897996.0,,Stage 2 (ks),60d8cd89-607f-4326-83dc-d9de759bde25,e5813183-834e-4381-a80c-2bc851ea81ad_S-2304-011634_PAS_2of2.svs
+wsi_pas,34-11042,PAS stain,svs,109600363.0,,Stage 3 (ks),a1ab9dbe-fa58-40fc-8889-815e67b4d2ee,33d47efd-338a-4f98-b6fd-6edb9d075617_S-2402-005492_PAS_1of2.svs
+wsi_pas,34-11048,PAS stain,svs,14224569.0,,Stage 3 (ks),60869041-0001-4a67-b1c2-58fc3bec2e74,ad42c6fa-3580-4d34-a359-7552835b2148_S-2401-009912_PAS_2of2.svs
+wsi_pas,34-11049,PAS stain,svs,238801809.0,,,fa86fda1-072b-49c0-97bc-d2046329776f,11403c11-e4f9-4808-81bb-a9b44d0b8a7c_S-2403-007965_PAS_2of2.svs
+wsi_pas,34-11066,PAS stain,svs,213927128.0,,Stage 1 (ks),6a99b47d-9cb7-4274-86ac-237b1381ee9e,99132f9e-3c5c-4da3-a175-1fdb3fe3fdb9_S-2309-028492_PAS_1of2.svs
+wsi_pas,34-11077,PAS stain,svs,169787780.0,,Stage 3 (ks),ae0a9988-73b6-42fe-91c0-c36ae5c1bd42,cfce4bb9-b178-41fd-9273-023574cd8f32_S-2407-021112_PAS_2of2.svs
+wsi_pas,34-11093,PAS stain,svs,162699888.0,,,342ec81e-7222-4b7b-9587-b4e8b61af2bb,3cec9ce5-dce0-40a6-b54c-c8d5197cc9a0_S-2501-003995_PAS_2of2.svs
+wsi_pas,34-11109,PAS stain,svs,26291179.0,,Stage 1 (ks),a4c50c68-b37d-4776-bbef-2c33deb37966,f4cd80e6-7a29-46d0-80bd-6b388446b378_S-2407-021066_PAS_1of2.svs
+wsi_pas,34-11114,PAS stain,svs,132863058.0,,Stage 1 (ks),89b457ae-78d2-4c7f-85df-c498375d87cb,bea45e5e-ac3a-462c-b4a5-89f564e16434_S-2504-006368_PAS_1of2.svs
+wsi_pas,933-10085,PAS stain,svs,75181201.0,Acute Tubular Injury,,44e61ece-53c3-4fdc-a325-d9b44d1bb326,9c0af51d-d4b5-49ff-afff-2eb74e79abd3_S-2302-010642_PAS_1of2.svs
+wsi_pas,933-10271,PAS stain,svs,86225769.0,Other,Stage 1 (ks),96b2d302-f4ea-4ba7-b8bc-5361cc3cb4e5,d5c5a3ca-bd68-4b67-996d-aa99f4f3cb55_S-2311-014762_PAS_2of2.svs
+wsi_pas,933-10777,PAS stain,svs,283697066.0,Acute Interstitial Nephritis,,b966d428-3441-453d-bc20-8bbdb7fa5d08,49bad9cc-7502-458b-99b3-8b319aee2e17_S-2404-014816_PAS_1of2.svs
+wsi_pas,933-10868,PAS stain,svs,523107606.0,Acute Tubular Injury,,d1eacdf9-757d-422e-b255-60e1b0fdaf93,93a7065f-d917-4acc-b62d-dba6f37e46ad_S-2406-011000_PAS_1of2.svs
+wsi_pas,936-10092,PAS stain,svs,75728535.0,Diabetic Kidney Disease,,a8af5557-dfd0-49ed-8aa1-1689cba079cb,79b627bc-a98c-4d91-81b3-1438fc93e5fc_S-2303-014189_PAS_1of2.svs
+wsi_pas,936-10123,PAS stain,svs,40426373.0,Acute Tubular Injury,Stage 3 (ks),e56e70a7-efcd-4c44-8cfd-39dd0d33fb38,7570b2ad-285a-4e88-811d-17de6b727682_S-2310-016470_PAS_2of2.svs
+wsi_pas,936-10217,PAS stain,svs,324695565.0,Acute Interstitial Nephritis,Stage 2 (ks),5c8e33ef-9dac-4bfd-99c4-8af638816a57,0afeb60d-65ac-4a13-bfd8-4510e1155fd8_S-2310-016565_PAS_1of2.svs
+wsi_pas,33-10006,PAS stain,svs,18182721.0,Acute Tubular Injury,Stage 3 (ks),8659f7d4-749e-43eb-9743-1dc3d91a635d,eb04b59f-1b2c-40d3-aa3b-2845e3450623_S-1908-009868_PAS_3of3.svs
+wsi_pas,33-10375,PAS stain,svs,39843657.0,Cannot be determined,Stage 2 (ks),aed29859-71b3-4979-9e01-e9c5fc3e5eb7,fb91f7ab-064f-4551-9e68-8539aa80c79b_S-2006-002434_PAS_3of3.svs
+wsi_pas,933-10155,PAS stain,svs,30040417.0,Acute Tubular Injury,Stage 3 (ks),32715fa4-5d66-400c-abae-f066e78a713e,ebd3351b-cebb-4c21-8bc9-ff19e875c23c_S-2308-000023_PAS_3of4.svs
+wsi_pas,30-10018,PAS stain,svs,99097649.0,Acute Interstitial Nephritis,Stage 3 (ks),31d7ee2f-137d-4322-9176-85e3f964924a,83751b12-b660-45f7-9a94-44872e442188_S-1908-009734_PAS_2of2.svs
+wsi_pas,30-10034,PAS stain,svs,22794653.0,Acute Tubular Injury,Stage 2 (ks),034969c2-4fcf-4a85-b900-b3015d0eaf6e,71dcec3d-8e05-4860-a79d-594c040b9c90_S-1908-009640_PAS_2of2.svs
+wsi_pas,30-10044,PAS stain,svs,23909701.0,Acute Tubular Injury,Stage 3 (ks),3bafb519-4b4b-46aa-b089-53324c5bcb7f,bac31e5e-6ef2-4388-87f8-87bd5c393654_S-1908-009687_PAS_2of2.svs
+wsi_pas,30-10123,PAS stain,svs,74432461.0,Diabetic Kidney Disease,Stage 3 (ks),556577be-5455-489c-a3e0-be60c17e38a0,46d62a85-3527-402b-b3e8-d504242d545c_S-1908-009781_PAS_2of2.svs
+wsi_pas,30-10125,PAS stain,svs,62382321.0,Acute Tubular Injury,Stage 3 (ks),b39305ce-df78-4efd-ba2f-7ada7d13fb6e,976f3c99-c21d-4143-828c-c32470a0ea7a_S-2002-007742_PAS_2of2.svs
+wsi_pas,30-10631,PAS stain,svs,56604959.0,Acute Tubular Injury,Stage 3 (ks),d1c3d367-4eb3-4600-83f5-c258f38638d2,51679945-f3e2-4650-8e4d-b57b7a28d153_S-2006-001660_PAS_2of2.svs
+wsi_pas,30-10929,PAS stain,svs,731680679.0,Acute Interstitial Nephritis,Stage 2 (ks),d086648a-1666-4e71-b9b6-6e201b50e02e,7d4881bb-ad16-40f0-b2d2-86891189a100_S-2002-007789_PAS_2of2.svs
+wsi_pas,30-11033,PAS stain,svs,73630907.0,Acute Tubular Injury,Stage 3 (ks),ccca593a-9349-4165-af97-878c2d07b31f,fe42ee9b-651c-4851-9918-678c3b9c02eb_S-2101-003189_PAS_2of2.svs
+wsi_pas,30-11072,PAS stain,svs,113200087.0,Acute Interstitial Nephritis,Stage 2 (ks),b4566b5e-52e2-4a8a-a9f4-98d94b4a97d8,75952231-348c-4bbe-b35a-fc1b6f035df1_S-2006-001802_PAS_1of2.svs
+wsi_pas,30-11080,PAS stain,svs,149794327.0,Acute Interstitial Nephritis,Stage 3 (ks),9b125af9-6563-4d0f-9a0e-01af9aa6e996,0ca4cca6-1746-47a9-82b6-dcec6d16df2e_S-2002-014516_PAS_2of2.svs
+wsi_pas,30-11081,PAS stain,svs,103355801.0,Acute Tubular Injury,Stage 3 (ks),6532c3af-6ef7-4594-b467-b2f8355fdeb2,eb6e7405-ddf1-4504-b07c-273af6b8a62c_S-2101-003330_PAS_2of2.svs
+wsi_pas,30-11084,PAS stain,svs,201164641.0,Acute Tubular Injury,Stage 1 (ks),463b290d-82e9-4744-a18a-bcae1933ea43,6299280d-6de6-4aed-940a-4773fb98ae34_S-2006-001754_PAS_2of2.svs
+wsi_pas,30-11090,PAS stain,svs,71187675.0,Acute Interstitial Nephritis,Stage 2 (ks),d763563c-5b32-4aa7-940c-6c20e9087426,38c0c810-09f0-4b01-ac03-a5984d01ec8f_S-2002-014563_PAS_2of2.svs
+wsi_pas,30-11091,PAS stain,svs,75662621.0,Diabetic Kidney Disease,Stage 2 (ks),d048d9ba-ec3c-49aa-977f-59dc3699f9eb,d40bf58a-09c4-44fb-a254-ae97233bbf4b_S-2101-003236_PAS_2of2.svs
+wsi_pas,30-11093,PAS stain,svs,52336697.0,Acute Tubular Injury,Stage 3 (ks),9e071472-1c1a-45a5-8844-71ad5f2d3235,2a5ae129-2651-4c55-80a8-adaea779a856_S-2101-003283_PAS_2of2.svs
+wsi_pas,30-11095,PAS stain,svs,233522879.0,Diabetic Kidney Disease,Stage 1 (ks),548b12c1-2676-461f-b383-7648fcd0b8bf,a79b2ab6-61e9-4a08-92be-ef6b2dcdc605_S-2002-014610_PAS_2of2.svs
+wsi_pas,30-11101,PAS stain,svs,209141363.0,Acute Tubular Injury,Stage 3 (ks),8f6f3bc5-40f7-45db-aed3-3633f4fa4e09,752125a9-311d-462b-ab85-ac9aef82f788_S-2006-001943_PAS_1of2.svs
+wsi_pas,30-11104,PAS stain,svs,46662621.0,Acute Interstitial Nephritis,Stage 3 (ks),3afb4914-e03a-410f-91ab-b1bb5c012cb9,90324696-16f4-4db9-9322-d6b1a1ddd9ad_S-2002-014657_PAS_2of2.svs
+wsi_pas,30-11120,PAS stain,svs,14558677.0,Acute Tubular Injury,Stage 3 (ks),0df57a87-cd3d-40ec-bfdc-aa4762cecf07,dbdb44eb-e49a-4680-870e-1aa2b9512dcf_S-2301-001175_PAS_1of2.svs
+wsi_pas,30-11124,PAS stain,svs,67281677.0,Diabetic Kidney Disease,Stage 2 (ks),8987e965-e257-4abc-9425-659aedfd8cd2,932159e7-5731-457d-a2b1-db1c8d73fe98_S-2301-001221_PAS_2of2.svs
+wsi_pas,30-11130,PAS stain,svs,87980507.0,Hypertensive Kidney Disease,Stage 3 (ks),265c6127-21d5-453e-9e24-136dfba876fa,3d74193a-f359-41b4-9f05-2e75637ffd11_S-2302-010782_PAS_2of2.svs
+wsi_pas,30-11141,PAS stain,svs,89150217.0,Acute Tubular Injury,Stage 3 (ks),5035f81a-f1b8-4331-a905-a4b5997e5590,b77cbfc6-afcb-48ca-88a8-30a3218db2d4_S-2307-002338_PAS_2of2.svs
+wsi_pas,30-11154,PAS stain,svs,53570451.0,Acute Tubular Injury,Stage 3 (ks),ed6b7b1b-a7ca-4a84-baa2-57506ece9e46,f424a320-51cd-4d7d-b286-dcbb33c05e17_S-2311-011607_PAS_2of2.svs
+wsi_pas,30-11157,PAS stain,svs,35088991.0,Diabetic Kidney Disease,Stage 2 (ks),ca35623d-a6df-405c-bf5d-99424a8787f4,ed5a2849-bd40-46da-a3e1-eac759d1cedc_S-2405-000750_PAS_2of2.svs
+wsi_pas,34-10306,PAS stain,svs,24681679.0,Acute Tubular Injury,Stage 3 (ks),9578a6d5-7069-4e1f-a18d-a3370a971e78,9a7c08c1-57f5-4935-8b77-d1c4b5c4f699_S-2102-006269_PAS_2of2.svs
+wsi_pas,34-10393,PAS stain,svs,12473195.0,Acute Tubular Injury,Stage 3 (ks),2fc6205e-1895-4334-8e0d-37fa9b06df18,feb8a7eb-3b03-45fe-b673-6c9963fb3ba1_S-2102-003499_PAS_1of2.svs
+wsi_mt,30-10123,TRI stain,svs,73912949.0,Diabetic Kidney Disease,Stage 3 (ks),556577be-5455-489c-a3e0-be60c17e38a0,bca756b9-6c73-44b9-9010-5de6b2251843_S-1908-009785_TRI_1of1.svs
+wsi_mt,30-10868,TRI stain,svs,90204437.0,Acute Interstitial Nephritis,Stage 2 (ks),7985c4fd-c5b8-493b-a66e-dd6d3334495e,546b9ff6-7ce6-415c-8a5a-9dfc56e1ba89_S-2006-001712_TRI_1of1.svs
+wsi_mt,30-11168,TRI stain,svs,498038483.0,,Stage 3 (ks),f9912e8a-b72a-43a7-b5db-f7023ed12841,1be29ed7-4804-4366-9313-f6f5402b9d2b_S-2312-004195_TRI_1of1.svs
+wsi_mt,33-10006,TRI stain,svs,24965391.0,Acute Tubular Injury,Stage 3 (ks),8659f7d4-749e-43eb-9743-1dc3d91a635d,0e5b26c5-5220-49cb-8f8d-aa616e7cefdf_S-1908-009882_TRI_1of1.svs
+wsi_mt,33-10375,TRI stain,svs,388499121.0,Cannot be determined,Stage 2 (ks),d6ba3b03-eb0f-4e6a-bf9a-0c06aadb58c2,aabde57c-fa74-4782-bf4f-bed6765905f6_S-2006-002443_TRI_1of1.svs
+wsi_mt,933-10155,TRI stain,svs,35636007.0,Acute Tubular Injury,Stage 3 (ks),32715fa4-5d66-400c-abae-f066e78a713e,a20a957a-aed9-4abb-bc1c-169d47987531_S-2308-000015_TRI_1of1.svs
+wsi_mt,933-10372,TRI stain,svs,21729009.0,,Stage 3 (ks),e3b55e8d-1b9a-4aa4-ab1e-17fdb1b45cb3,1acd84db-2c50-4ca2-9a15-656240d391b0_S-2401-002291_TRI_1of1.svs
+wsi_mt,30-10018,TRI stain,svs,92994709.0,Acute Interstitial Nephritis,Stage 3 (ks),31d7ee2f-137d-4322-9176-85e3f964924a,2b1ae684-a610-4a0f-b576-d1e919554fc4_S-1908-009738_TRI_2of2.svs
+wsi_mt,30-10034,TRI stain,svs,28963383.0,Acute Tubular Injury,Stage 2 (ks),034969c2-4fcf-4a85-b900-b3015d0eaf6e,167d9811-a6bc-43d0-95c2-b52053a7db21_S-1908-009644_TRI_2of2.svs
+wsi_mt,30-10044,TRI stain,svs,23255809.0,Acute Tubular Injury,Stage 3 (ks),3bafb519-4b4b-46aa-b089-53324c5bcb7f,55c24d34-a2f5-4014-a3e1-3ef898b0d53e_S-1908-009692_TRI_1of2.svs
+wsi_mt,30-10125,TRI stain,svs,66643173.0,Acute Tubular Injury,Stage 3 (ks),b39305ce-df78-4efd-ba2f-7ada7d13fb6e,ea7216cd-1c9c-43a6-8fef-1ec593840279_S-2002-007747_TRI_1of2.svs
+wsi_mt,30-10631,TRI stain,svs,53459329.0,Acute Tubular Injury,Stage 3 (ks),d1c3d367-4eb3-4600-83f5-c258f38638d2,df3b5986-69e7-4328-acc0-dbfc78de9394_S-2006-001665_TRI_1of2.svs
+wsi_mt,30-10929,TRI stain,svs,607114305.0,Acute Interstitial Nephritis,Stage 2 (ks),d086648a-1666-4e71-b9b6-6e201b50e02e,1ba21ee4-8cb4-4dda-a6b5-65cf28e817d5_S-2002-007794_TRI_1of2.svs
+wsi_mt,30-11033,TRI stain,svs,61516243.0,Acute Tubular Injury,Stage 3 (ks),ccca593a-9349-4165-af97-878c2d07b31f,9523df58-535f-4dfd-ac9f-78d7635027ff_S-2101-003194_TRI_1of2.svs
+wsi_mt,30-11072,TRI stain,svs,120059021.0,Acute Interstitial Nephritis,Stage 2 (ks),b4566b5e-52e2-4a8a-a9f4-98d94b4a97d8,1c150366-d803-40d3-95b0-8dbcb12c5633_S-2006-001806_TRI_1of2.svs
+wsi_mt,30-11080,TRI stain,svs,252351709.0,Acute Interstitial Nephritis,Stage 3 (ks),9b125af9-6563-4d0f-9a0e-01af9aa6e996,d14d475c-d4fe-43a7-9d4f-b798589efabb_S-2002-014520_TRI_2of2.svs
+wsi_mt,30-11081,TRI stain,svs,134503139.0,Acute Tubular Injury,Stage 3 (ks),6532c3af-6ef7-4594-b467-b2f8355fdeb2,c8a6ff9c-b1a3-428c-aff1-5b208fdf33f9_S-2101-003334_TRI_2of2.svs
+wsi_mt,30-11084,TRI stain,svs,326368295.0,Acute Tubular Injury,Stage 1 (ks),463b290d-82e9-4744-a18a-bcae1933ea43,fab311c4-18ee-4343-be80-e4be0a1ff4ba_S-2006-001758_TRI_2of2.svs
+wsi_mt,30-11090,TRI stain,svs,39822949.0,Acute Interstitial Nephritis,Stage 2 (ks),d763563c-5b32-4aa7-940c-6c20e9087426,b60822b0-4a0b-42a3-8c7e-d6151c2eedbd_S-2002-014568_TRI_1of2.svs
+wsi_mt,30-11091,TRI stain,svs,123568991.0,Diabetic Kidney Disease,Stage 2 (ks),d048d9ba-ec3c-49aa-977f-59dc3699f9eb,12a769bf-a1a4-4659-ab15-6214859b9865_S-2101-003241_TRI_1of2.svs
+wsi_mt,30-11093,TRI stain,svs,113841803.0,Acute Tubular Injury,Stage 3 (ks),9e071472-1c1a-45a5-8844-71ad5f2d3235,45973bdf-afae-43cd-9322-4e3f1c3422b7_S-2101-003288_TRI_1of2.svs
+wsi_mt,30-11095,TRI stain,svs,1184261535.0,Diabetic Kidney Disease,Stage 1 (ks),548b12c1-2676-461f-b383-7648fcd0b8bf,fe77a13f-5f5b-47ce-a4f5-b2d50c5323b7_S-2002-014614_TRI_2of2.svs
+wsi_mt,30-11101,TRI stain,svs,251214033.0,Acute Tubular Injury,Stage 3 (ks),8f6f3bc5-40f7-45db-aed3-3633f4fa4e09,518856a9-e251-409e-800e-47e4c5c423eb_S-2006-001947_TRI_1of2.svs
+wsi_mt,30-11104,TRI stain,svs,44126709.0,Acute Interstitial Nephritis,Stage 3 (ks),3afb4914-e03a-410f-91ab-b1bb5c012cb9,cb20c4ea-3e92-4c5b-8bc2-6060c2f84927_S-2002-014662_TRI_1of2.svs
+wsi_mt,30-11120,TRI stain,svs,14881217.0,Acute Tubular Injury,Stage 3 (ks),0df57a87-cd3d-40ec-bfdc-aa4762cecf07,9abbe563-4b20-42af-bd8a-f02900fc6f38_S-2301-001179_TRI_1of2.svs
+wsi_mt,30-11124,TRI stain,svs,77591493.0,Diabetic Kidney Disease,Stage 2 (ks),8987e965-e257-4abc-9425-659aedfd8cd2,08799b94-0e9b-4a92-99fa-45c2d73227fd_S-2301-001226_TRI_1of2.svs
+wsi_mt,30-11130,TRI stain,svs,55865803.0,Hypertensive Kidney Disease,Stage 3 (ks),265c6127-21d5-453e-9e24-136dfba876fa,804bea70-c352-43cd-b204-5ce7dd5a56a0_S-2302-010787_TRI_1of2.svs
+wsi_mt,30-11141,TRI stain,svs,54648903.0,Acute Tubular Injury,Stage 3 (ks),5035f81a-f1b8-4331-a905-a4b5997e5590,36171840-db11-4ce4-8d8d-d861c542b550_S-2307-002343_TRI_1of2.svs
+wsi_mt,30-11154,TRI stain,svs,74020423.0,Acute Tubular Injury,Stage 3 (ks),ed6b7b1b-a7ca-4a84-baa2-57506ece9e46,8763464f-df28-42b2-a4ba-7a8022f873ba_S-2311-011611_TRI_2of2.svs
+wsi_mt,30-11157,TRI stain,svs,21790481.0,Diabetic Kidney Disease,Stage 2 (ks),ca35623d-a6df-405c-bf5d-99424a8787f4,a045ad7b-2a7f-42a1-85b0-4b51200f42dd_S-2405-000755_TRI_1of2.svs
+wsi_mt,30-11163,TRI stain,svs,198027585.0,,Stage 3 (ks),243ab295-9dcd-4688-914a-79e6194bab15,663cd1ee-c0c1-40d0-ba51-9bcdc3697f6c_S-2312-004490_TRI_1of2.svs
+wsi_mt,30-11192,TRI stain,svs,343200416.0,,Stage 3 (ks),5c102090-1340-4b84-85b2-128d0a328440,8f443d76-6a7a-416d-b569-f4c4ab965245_S-2405-000802_TRI_1of2.svs
+wsi_mt,30-11197,TRI stain,svs,307343848.0,,Stage 3 (ks),a37c3c74-8e42-4500-b724-3ff304694271,28655ea1-2b13-4d92-a81c-01fe5ab0d02c_S-2312-004255_TRI_1of2.svs
+wsi_mt,30-11222,TRI stain,svs,297840050.0,,Stage 3 (ks),009e4c53-a3bd-4a05-977e-a48501cdd135,b0679f1b-2c0a-4865-ab38-e163a10d56e9_S-2412-005448_TRI_2of2.svs
+wsi_mt,30-11240,TRI stain,svs,296546796.0,,Stage 3 (ks),11acfe41-257e-4861-bbc3-182a5698f926,a2bce56f-0664-4da6-b9c4-1707adadb368_S-2407-004285_TRI_1of2.svs
+wsi_mt,30-11253,TRI stain,svs,261029526.0,,Stage 3 (ks),eb0d4503-5f13-4ced-af23-c6a117779cb2,ff589a5e-a5d3-4090-9de5-219631d71494_S-2406-004365_TRI_1of2.svs
+wsi_mt,32-10003,TRI stain,svs,311431383.0,Acute Tubular Injury,Stage 2 (ks),ce455dc4-f7b8-445f-af78-518f94b7d625,acb566f5-88f3-4239-b545-44dbbb7ff991_S-1908-010070_TRI_1of2.svs
+wsi_mt,32-10034,TRI stain,svs,58517939.0,Diabetic Kidney Disease,Stage 2 (ks),6a835203-9031-4d27-b024-f051cc6dbfe5,81c56003-cf1d-442c-9fc2-3155b0d63ff1_S-1908-010117_TRI_1of2.svs
+wsi_mt,32-10074,TRI stain,svs,64121987.0,Acute Tubular Injury,Stage 3 (ks),5d1cbb2b-2975-4365-91d7-3e3e3f67e3aa,43554e53-1b3d-4001-af3b-c58d6a6c709b_S-1908-010023_TRI_1of2.svs
+wsi_mt,32-10205,TRI stain,svs,108944917.0,Acute Tubular Injury,Stage 3 (ks),c2e13104-3c4c-4cf7-9e89-05442f9fd919,09d79760-32e4-4cd6-8915-040e007f103a_S-2006-001852_TRI_2of2.svs
+wsi_mt,32-10296,TRI stain,svs,94781053.0,Acute Tubular Injury,Stage 3 (ks),63ee04bc-6eef-460f-af2d-065bc2186e1e,51f4e2a5-a769-49e6-9a75-05b34462b19d_S-2010-012952_TRI_2of2.svs
+wsi_mt,32-10333,TRI stain,svs,77970059.0,Acute Tubular Injury,Stage 3 (ks),c68ddb69-2fd3-4b56-b8e0-921daa5064a0,6e4e84bb-3720-41fe-bd74-7707bf763c40_S-2006-001994_TRI_1of2.svs
+wsi_mt,32-10346,TRI stain,svs,72578981.0,Acute Interstitial Nephritis,Stage 3 (ks),1b7c15b5-0f1e-430e-95b8-c7b45ea20be9,6f8e707a-791b-4369-b2c5-5987c2d50ece_S-2109-011410_TRI_1of2.svs
+wsi_mt,32-10419,TRI stain,svs,42868927.0,Acute Tubular Injury,,29785775-4da3-4908-a1b4-a50b84bcb005,6346d7af-b87c-42e2-aeba-de92dae8a673_S-2006-003842_TRI_1of2.svs
+wsi_mt,32-10456,TRI stain,svs,143895627.0,Acute Interstitial Nephritis,Stage 3 (ks),12dd53f7-db70-4cd8-9974-bb4d9631b65d,280a7e4f-94a5-4333-81d8-f730bafcaad4_S-2006-001900_TRI_1of2.svs
+wsi_mt,32-10458,TRI stain,svs,114107727.0,Other,Stage 3 (ks),0b15be26-4c92-4ba0-905d-c0059820e23f,2dcf8382-dd8b-4afc-ab29-513c40475ebc_S-2006-003889_TRI_1of2.svs
+wsi_mt,32-10459,TRI stain,svs,70560355.0,Cannot be determined,,fc45191e-eea2-4a08-b6bc-dd0976d8a67b,278edf52-613a-4ce3-8197-0e3179b27080_S-2205-014772_TRI_1of2.svs
+wsi_mt,32-2,TRI stain,svs,89153007.0,Acute Tubular Injury,Stage 3 (ks),deb0349a-c376-42b4-bb91-d91ec8fb38a6,d349b3f9-be38-4b72-8d11-2ddb66a5b135_S-1908-010164_TRI_1of2.svs
+wsi_mt,33-10005,TRI stain,svs,66365601.0,Acute Tubular Injury,Stage 3 (ks),aa4e70fc-9215-4fed-9323-910067a639a5,4c936589-d03b-469a-afd4-201f16640fcb_S-1908-009835_TRI_1of2.svs
+wsi_mt,33-10331,TRI stain,svs,45555321.0,Acute Interstitial Nephritis,Stage 3 (ks),3d312042-e707-4f62-b0df-81ce16aba2e1,cbda153f-b2e6-4f9e-b453-ebf3ab356b7a_S-2006-002490_TRI_2of2.svs
+wsi_mt,33-10376,TRI stain,svs,410172731.0,Acute Tubular Injury,Stage 1 (ks),0cac726b-c797-43f7-9913-d0d1e96b2115,51098243-c80d-4060-addc-0cf54d1269fa_S-2006-002395_TRI_1of2.svs
+wsi_mt,34-10050,TRI stain,svs,8466513.0,Cannot be determined,Stage 3 (ks),986e95db-b5b9-4e83-87cb-cba1fa81f33c,2f55bcac-bc8e-430d-9b84-223e6e9bdb13_S-1904-008132_TRI_2of2.svs
+wsi_mt,34-10184,TRI stain,svs,47235911.0,Cannot be determined,Stage 1 (ks),3f01a2db-6617-479e-a584-7296e8199b97,25461d03-b8e8-4ea5-a008-290f4ac3755f_S-1904-007297_TRI_1of2.svs
+wsi_mt,34-10187,TRI stain,svs,52917695.0,Acute Tubular Injury,Stage 2 (ks),6c6cda6e-57d1-4162-a67b-888ff915167f,26832da7-1dc5-4cde-948c-2c2d33d22828_S-1903-005469_TRI_2of2.svs
+wsi_mt,34-10209,TRI stain,svs,457937991.0,Diabetic Kidney Disease,Stage 3 (ks),ac9a1bab-033f-47e4-88c6-bae7cd343def,48f2034a-9dd6-48aa-ad13-58cc4461cdce_S-2006-004485_TRI_2of2.svs
+wsi_mt,34-10240,TRI stain,svs,123766115.0,Acute Interstitial Nephritis,Stage 3 (ks),9c4c4a74-6291-4fa9-824f-4d33a6ef0197,8c44163f-6539-4f53-9a28-b9433c5aed33_S-2102-003409_TRI_1of2.svs
+wsi_mt,34-10306,TRI stain,svs,20896179.0,Acute Tubular Injury,Stage 3 (ks),9578a6d5-7069-4e1f-a18d-a3370a971e78,983b44f3-95ca-4422-ac41-0381223fc31d_S-2102-006274_TRI_1of2.svs
+wsi_mt,34-10331,TRI stain,svs,21471795.0,Acute Interstitial Nephritis,Stage 3 (ks),f54a047d-1218-4f01-8739-71bd923a7709,2398f1b5-a57c-4065-8f5c-bf3028f1412b_S-2102-003455_TRI_2of2.svs
+wsi_mt,34-10393,TRI stain,svs,13992241.0,Acute Tubular Injury,Stage 3 (ks),2fc6205e-1895-4334-8e0d-37fa9b06df18,a29c4151-6fa9-4a69-a33f-e47fba0af315_S-2102-003502_TRI_2of2.svs
+wsi_mt,34-10478,TRI stain,svs,29484303.0,Acute Tubular Injury,Stage 3 (ks),229ae5d5-6789-4ce4-b965-dced79d02fad,f80700d1-dcc4-4dee-93e4-35b90c7aac8f_S-2109-011139_TRI_2of2.svs
+wsi_mt,34-10573,TRI stain,svs,10527139.0,Diabetic Kidney Disease,Stage 2 (ks),bd00b692-8614-4fb6-bf6e-c3016a1abc5a,aa53c8f5-2924-4d7f-9a9a-1a72b7d4ed15_S-2205-004666_TRI_2of2.svs
+wsi_mt,34-10579,TRI stain,svs,12782241.0,Acute Tubular Injury,Stage 3 (ks),03076f4a-fe32-4d5b-965e-d8703ac88a0a,80313b48-7516-4fe4-8bc3-880212c0e6ab_S-2109-019202_TRI_1of2.svs
+wsi_mt,34-10666,TRI stain,svs,21727185.0,,Stage 1 (ks),f740b408-9159-4154-b985-d37deeb8bb44,529c1ecf-05ac-4d2b-8eaa-5c657e8384db_S-2109-019249_TRI_1of2.svs
+wsi_mt,34-10729,TRI stain,svs,15896851.0,,Stage 1 (ks),f5bc8e19-4961-4ee4-b25f-4783a8b7eac0,39de359a-f9d9-42ff-95c9-cf77a334d0a0_S-2107-008907_TRI_2of2.svs
+wsi_mt,34-10730,TRI stain,svs,19880395.0,,Stage 2 (ks),a0638150-9fd6-4a0a-a71d-3e67cc959d2c,97fe61fb-b97a-44e3-b4a6-258990851278_S-2209-009414_TRI_1of2.svs
+wsi_mt,34-11008,TRI stain,svs,142980351.0,,,26056cad-cdd6-4796-968a-25ce52213274,d47c6c53-65bf-44d7-a290-f0a20be2bc69_S-2307-003356_TRI_1of2.svs
+wsi_mt,34-11025,TRI stain,svs,17206305.0,,Stage 2 (ks),60d8cd89-607f-4326-83dc-d9de759bde25,a9d88dfd-267f-4826-980b-2cc4d6a6e55b_S-2304-011638_TRI_2of2.svs
+wsi_mt,34-11042,TRI stain,svs,159026799.0,,Stage 3 (ks),a1ab9dbe-fa58-40fc-8889-815e67b4d2ee,d1b27c37-2806-4ad2-9b1b-e6d472072f76_S-2402-005495_TRI_2of2.svs
+wsi_mt,936-10123,TRI stain,svs,40975567.0,Acute Tubular Injury,Stage 3 (ks),e56e70a7-efcd-4c44-8cfd-39dd0d33fb38,7741f2cd-1831-4767-9151-9a76f2bba7a2_S-2310-016475_TRI_1of2.svs
+wsi_mt,34-10050,TRI stain,svs,13301875.0,Cannot be determined,Stage 3 (ks),986e95db-b5b9-4e83-87cb-cba1fa81f33c,07640bb2-0c30-4d51-ab7e-d3ca570d3090_S-1904-008133_TRI_1of2.svs
+wsi_silver,30-10868,SIL stain,svs,548250807.0,Acute Interstitial Nephritis,Stage 2 (ks),7985c4fd-c5b8-493b-a66e-dd6d3334495e,7f6dfdf1-3c45-46dd-bd3d-17457ee7bf0a_S-2006-001710_SIL_1of1.svs
+wsi_silver,30-11168,SIL stain,svs,594617518.0,,Stage 3 (ks),f9912e8a-b72a-43a7-b5db-f7023ed12841,98a7bc64-88b0-40ba-ab19-376bdf69c486_S-2312-004202_SIL_1of1.svs
+wsi_silver,933-10155,SIL stain,svs,89608091.0,Acute Tubular Injury,Stage 3 (ks),32715fa4-5d66-400c-abae-f066e78a713e,490e6666-1ec5-41b8-ba6e-abae6e492b30_S-2308-000031_SIL_1of1.svs
+wsi_silver,30-10018,SIL stain,svs,350632739.0,Acute Interstitial Nephritis,Stage 3 (ks),31d7ee2f-137d-4322-9176-85e3f964924a,981a6a3e-3b90-48ba-a51b-02379675d808_S-1908-009737_SIL_1of2.svs
+wsi_silver,30-10034,SIL stain,svs,30690917.0,Acute Tubular Injury,Stage 2 (ks),034969c2-4fcf-4a85-b900-b3015d0eaf6e,578eeeb8-f2fd-47a2-9418-0ecaa8983caa_S-1908-009643_SIL_1of2.svs
+wsi_silver,30-10044,SIL stain,svs,63947077.0,Acute Tubular Injury,Stage 3 (ks),3bafb519-4b4b-46aa-b089-53324c5bcb7f,0838d828-93f1-41d1-93de-dc6b3ab686d7_S-1908-009689_SIL_2of2.svs
+wsi_silver,30-10123,SIL stain,svs,219763757.0,Diabetic Kidney Disease,Stage 3 (ks),556577be-5455-489c-a3e0-be60c17e38a0,a592fefe-91f8-470d-9d81-165984b84149_S-1908-009784_SIL_1of2.svs
+wsi_silver,30-10125,SIL stain,svs,149323423.0,Acute Tubular Injury,Stage 3 (ks),b39305ce-df78-4efd-ba2f-7ada7d13fb6e,5fb8d3f0-5d56-4146-8204-920a80b8f252_S-2002-007745_SIL_1of2.svs
+wsi_silver,30-10631,SIL stain,svs,232482455.0,Acute Tubular Injury,Stage 3 (ks),d1c3d367-4eb3-4600-83f5-c258f38638d2,905e0f89-9a65-48b0-9446-17671461bf76_S-2006-001662_SIL_2of2.svs
+wsi_silver,30-10929,SIL stain,svs,667318697.0,Acute Interstitial Nephritis,Stage 2 (ks),d086648a-1666-4e71-b9b6-6e201b50e02e,298fbbf2-5d4c-479b-8098-29823ec7629e_S-2002-007792_SIL_1of2.svs
+wsi_silver,30-11033,SIL stain,svs,110674147.0,Acute Tubular Injury,Stage 3 (ks),ccca593a-9349-4165-af97-878c2d07b31f,e5dee27c-0b5f-44c4-aed0-ea0e9c8af447_S-2101-003192_SIL_1of2.svs
+wsi_silver,30-11072,SIL stain,svs,118628949.0,Acute Interstitial Nephritis,Stage 2 (ks),b4566b5e-52e2-4a8a-a9f4-98d94b4a97d8,3c9ea218-28f1-4b66-88a1-652364627ed0_S-2006-001804_SIL_1of2.svs
+wsi_silver,30-11080,SIL stain,svs,447890819.0,Acute Interstitial Nephritis,Stage 3 (ks),9b125af9-6563-4d0f-9a0e-01af9aa6e996,9a71c1c4-b3bd-406e-b3d9-153d96c317b0_S-2002-014518_SIL_2of2.svs
+wsi_silver,30-11081,SIL stain,svs,336903205.0,Acute Tubular Injury,Stage 3 (ks),6532c3af-6ef7-4594-b467-b2f8355fdeb2,9122d2b9-5130-4c96-bba6-dbe71e56fc7b_S-2101-003333_SIL_1of2.svs
+wsi_silver,30-11084,SIL stain,svs,157623629.0,Acute Tubular Injury,Stage 1 (ks),463b290d-82e9-4744-a18a-bcae1933ea43,88521a83-731b-4e96-b453-ff3173192016_S-2006-001757_SIL_1of2.svs
+wsi_silver,30-11090,SIL stain,svs,186892695.0,Acute Interstitial Nephritis,Stage 2 (ks),d763563c-5b32-4aa7-940c-6c20e9087426,55866323-e9e9-4be7-8ad4-f002dcbfd49b_S-2002-014566_SIL_1of2.svs
+wsi_silver,30-11091,SIL stain,svs,647095375.0,Diabetic Kidney Disease,Stage 2 (ks),d048d9ba-ec3c-49aa-977f-59dc3699f9eb,3f2e22df-54f1-4972-acd2-0dad30fa0d61_S-2101-003238_SIL_2of2.svs
+wsi_silver,30-11093,SIL stain,svs,55122895.0,Acute Tubular Injury,Stage 3 (ks),9e071472-1c1a-45a5-8844-71ad5f2d3235,92d59ec5-7a7a-4c79-8dbc-831d07e40547_S-2101-003286_SIL_1of2.svs
+wsi_silver,30-11095,SIL stain,svs,703491689.0,Diabetic Kidney Disease,Stage 1 (ks),548b12c1-2676-461f-b383-7648fcd0b8bf,dbb3ac4a-5e5e-4ba8-a2e4-bdf3a45c3f10_S-2002-014613_SIL_1of2.svs
+wsi_silver,30-11101,SIL stain,svs,162729679.0,Acute Tubular Injury,Stage 3 (ks),8f6f3bc5-40f7-45db-aed3-3633f4fa4e09,6d01ac0f-a327-4e97-b6ec-63b88fbf3a1d_S-2006-001944_SIL_2of2.svs
+wsi_silver,30-11104,SIL stain,svs,175273633.0,Acute Interstitial Nephritis,Stage 3 (ks),3afb4914-e03a-410f-91ab-b1bb5c012cb9,23a0e184-8c4a-49f6-8e45-3277cf349cee_S-2002-014660_SIL_1of2.svs
+wsi_silver,30-11120,SIL stain,svs,14359377.0,Acute Tubular Injury,Stage 3 (ks),0df57a87-cd3d-40ec-bfdc-aa4762cecf07,a012074c-008f-4a0a-afbb-b97b01a3cfd7_S-2301-001177_SIL_1of2.svs
+wsi_silver,30-11124,SIL stain,svs,243728171.0,Diabetic Kidney Disease,Stage 2 (ks),8987e965-e257-4abc-9425-659aedfd8cd2,99ab320a-a94e-432e-8dc9-24da175f6a6b_S-2301-001223_SIL_2of2.svs
+wsi_silver,30-11130,SIL stain,svs,264278241.0,Hypertensive Kidney Disease,Stage 3 (ks),265c6127-21d5-453e-9e24-136dfba876fa,287e163e-bda9-4080-aeeb-9c574f4025b9_S-2302-010784_SIL_2of2.svs
+wsi_silver,30-11141,SIL stain,svs,65538759.0,Acute Tubular Injury,Stage 3 (ks),5035f81a-f1b8-4331-a905-a4b5997e5590,8436d86d-5e05-4756-b2ab-468d8225e950_S-2307-002341_SIL_1of2.svs
+wsi_silver,30-11154,SIL stain,svs,94309391.0,Acute Tubular Injury,Stage 3 (ks),ed6b7b1b-a7ca-4a84-baa2-57506ece9e46,d7031de9-4ce1-469d-b5fe-28d175e73dd3_S-2311-011610_SIL_1of2.svs
+wsi_silver,30-11157,SIL stain,svs,38680701.0,Diabetic Kidney Disease,Stage 2 (ks),ca35623d-a6df-405c-bf5d-99424a8787f4,8cc6738c-b3f4-48d2-aedd-0308f88b7bc4_S-2405-000753_SIL_1of2.svs
+wsi_silver,30-11163,SIL stain,svs,59952697.0,,Stage 3 (ks),243ab295-9dcd-4688-914a-79e6194bab15,8abbc9b7-1b58-49ae-b0ed-2c9bc2021c6e_S-2312-004487_SIL_2of2.svs
+wsi_silver,30-11222,SIL stain,svs,66769765.0,,Stage 3 (ks),009e4c53-a3bd-4a05-977e-a48501cdd135,a3a14491-9b54-4c5a-92ef-9ccff03d58ef_S-2412-005447_SIL_1of2.svs
+wsi_silver,34-10050,SIL stain,svs,9626707.0,Cannot be determined,Stage 3 (ks),986e95db-b5b9-4e83-87cb-cba1fa81f33c,c7e2a125-b9f9-419e-a14f-906c5805b039_S-1904-008130_SIL_2of2.svs
+wsi_silver,34-10184,SIL stain,svs,49536445.0,Cannot be determined,Stage 1 (ks),3f01a2db-6617-479e-a584-7296e8199b97,01075cc0-dbd5-4825-9383-63c4ec1be508_S-1904-007295_SIL_1of2.svs
+wsi_silver,34-10306,SIL stain,svs,19274619.0,Acute Tubular Injury,Stage 3 (ks),9578a6d5-7069-4e1f-a18d-a3370a971e78,6ebfc9a4-969c-4a1b-bc48-89b831d90b31_S-2102-006272_SIL_1of2.svs
+wsi_if,30-10018,RGB max proj of 8-ch IF,tif,161096186.0,Acute Interstitial Nephritis,Stage 3 (ks),1d4d2738-347b-46f8-bad1-7080e2058a3c,dbe9193e-4ac7-4c5e-b157-e34f98e8b380_MAX_23-0115_5_IF_031723_NavMerge_Med3D_DyeSep3(RGB).tif
+wsi_if,30-10044,RGB max proj of 8-ch IF,tif,265215278.0,Acute Tubular Injury,Stage 3 (ks),378dda96-86d7-4644-8d27-9364f43634cc,a430ccd2-a9a7-444a-8e86-4b31d9bfffec_20-0008_19_stained_preview.tif (RGB).tif
+wsi_if,30-10125,RGB max proj of 8-ch IF,tif,233154986.0,Acute Tubular Injury,Stage 3 (ks),ec509ebb-aa79-490f-980e-38d621a41c50,6fa86387-8ca5-424f-b7bf-6788c56dd372_MAX_20-0040_23_IF_082721_sfMerge_Med3D_DyeSep3(RGB).tif
+wsi_if,30-10631,RGB max proj of 8-ch IF,tif,120140459.0,Acute Tubular Injury,Stage 3 (ks),239ac82c-7a6c-4586-a119-1216ecbb611c,c4d43a45-d643-450a-bb05-d7854909b17e_MAX_21-0066_06_IF_121821_Med3D_DyeSep3_sfMerge(RGB).tif
+wsi_if,30-10868,RGB max proj of 8-ch IF,tif,361325030.0,Acute Interstitial Nephritis,Stage 2 (ks),b62ef103-648f-47a3-83f9-ac9bc5fc33cc,f91ddd9b-f548-42af-866d-ddf320c4b18d_MAX_23-0109_5AB_IF_031923_NavMerge_Med3D_DyeSep3(RGB).tif
+wsi_if,30-10929,RGB max proj of 8-ch IF,tif,855637286.0,Acute Interstitial Nephritis,Stage 2 (ks),98a942fe-6bf3-4664-975c-4725a530f9b8,56925007-be3b-4e8a-a65c-e9d74e234b40_MAX_21-0065_06_IF_121721_Med3D_DyeSep3_NavMerge(RGB).tif
+wsi_if,30-11080,RGB max proj of 8-ch IF,tif,358572644.0,Acute Interstitial Nephritis,Stage 3 (ks),1417559f-1b56-4baf-8480-11f4b935cebb,54fc5468-98e1-41c5-a07c-2d0d749d0978_MAX_22-0086_7_IF_112322_NavMerge_Med3D_DyeSep3_co(RGB).tif
+wsi_if,30-11081,RGB max proj of 8-ch IF,tif,218264459.0,Acute Tubular Injury,Stage 3 (ks),cd2145e3-bfe1-4ae8-af19-180a50798fff,2bd012a8-d38d-4ed0-98a2-517d4588b7b2_MAX_22-0089_7_IF_120922_sfMerge_Med3D_DyeSep3(RGB).tif
+wsi_if,30-11084,RGB max proj of 8-ch IF,tif,115746643.0,Acute Tubular Injury,Stage 1 (ks),c62eacf7-820c-47b0-b183-c21adf3799ff,67ab694c-92ea-45f7-a4e2-8f4956842c4d_MAX_22-0097_6_IF_012123_NavMerge_Med3D_DyeSep3(RGB).tif
+wsi_if,30-11093,RGB max proj of 8-ch IF,tif,313947839.0,Acute Tubular Injury,Stage 3 (ks),60958e30-37e2-4954-aa81-38b14bbda28a,601a5192-3e57-4064-82c3-38dab41ccf85_MAX_23-0133_7_IF_110923_NavMerge_Med3D_DyeSep3(RGB).tif
+wsi_if,30-11095,RGB max proj of 8-ch IF,tif,107450066.0,Diabetic Kidney Disease,Stage 1 (ks),7015e75f-a85e-4a3e-9bff-8b0be5326b8d,d4d87888-cee9-45e3-9a4b-ad5c8476e6c7_MAX_23-0122_7_IF_062623_sfMerge_Med3D_DyeSep3(RGB).tif
+wsi_if,30-11104,RGB max proj of 8-ch IF,tif,141353288.0,Acute Interstitial Nephritis,Stage 3 (ks),6c2d8f9c-7528-4b9b-aff8-85151e02a1e6,eb4d3028-e75c-4d2d-9639-3b00688ee396_MAX_23-0140_7_IF_121423_NavMerge_Med3D_DyeSep3(RGB).tif
+wsi_if,30-11120,RGB max proj of 8-ch IF,tif,80613770.0,Acute Tubular Injury,Stage 3 (ks),119a67e2-8467-4df1-a9f8-eed61358f72d,131a731b-e737-4f44-88b7-eace97d86a13_MAX_24-0163_11_IF_010325_NavMerge_Med3D_DyeSep3(RGB).tif
+wsi_if,30-11124,RGB max proj of 8-ch IF,tif,342295523.0,Diabetic Kidney Disease,Stage 2 (ks),ce93110e-3214-4eb6-84b4-f05f18b06f59,af938d5b-e2c1-4f6a-95db-ae517b2fc15c_MAX_24-0181_10_IF_122324_NavMerge_Med3D_DyeSep3(RGB).tif
+wsi_if,30-11141,RGB max proj of 8-ch IF,tif,144687626.0,Acute Tubular Injury,Stage 3 (ks),24130b9b-1c72-4912-9154-e53c89464c1d,a5e2bbea-8fcf-4ba5-9c3f-fdd03c19ab55_MAX_24-0196_9_IF_122024_NavMerge_Med3D_DyeSep3(RGB).tif
+wsi_if,32-10003,RGB max proj of 8-ch IF,tif,90749198.0,Acute Tubular Injury,Stage 2 (ks),cbe64100-98a4-4bfe-b331-a41769c58b7c,db84444a-bfb1-4a3c-8845-71a29f00dc9f_MAX_21-0071_6_IF_061623_sfMerge_Med3D_DyeSep3(RGB).tif
+wsi_if,32-10034,RGB max proj of 8-ch IF,tif,139292228.0,Diabetic Kidney Disease,Stage 2 (ks),c90c6596-2282-47ad-a284-d96db43c119a,973d413f-6a25-479a-9002-a65c07f29f83_20-0043_04_stained_preview.tif (RGB).tif
+wsi_if,32-10205,RGB max proj of 8-ch IF,tif,112827224.0,Acute Tubular Injury,Stage 3 (ks),0690648d-9b50-48df-916f-78f57d5bde3c,e8da8a7a-5010-4ed1-bd88-8f1e1dac16f8_MAX_23-0116_5_IF_051223_NavMerge_Med3D_DyeSep3(RGB).tif
+wsi_if,32-10333,RGB max proj of 8-ch IF,tif,176139758.0,Acute Tubular Injury,Stage 3 (ks),f481c8b3-fa86-42b5-98eb-42b534acb448,95939fec-bb38-42cb-8298-56592a020375_MAX_23-0131_5_IF_072023_sfMerge_Med3D_DyeSep3(RGB).tif
+wsi_if,32-10346,RGB max proj of 8-ch IF,tif,420082724.0,Acute Interstitial Nephritis,Stage 3 (ks),f8f501cb-018e-4ccd-b363-6062ae6d5c68,2c677ecb-9395-4214-97e1-9c49b4015707_MAX_23-0128_5_IF_062523_NavMerge_Med3D_DyeSep3(RGB).tif
+wsi_if,34-10050,RGB max proj of 8-ch IF,tif,27862106.0,Cannot be determined,Stage 3 (ks),a0674b77-65e1-4d91-811b-076f0a84431b,9def24d7-0109-4075-8a6a-7959c156b640_20-0007_20_stained_preview.tif (RGB).tif

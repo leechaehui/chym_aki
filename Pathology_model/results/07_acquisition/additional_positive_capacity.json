@@ -1,0 +1,21 @@
+{
+  "chronic_positive": {
+    "aki_full": 10,
+    "downloaded": 10,
+    "additional_available": 0,
+    "min_target": 30,
+    "rec_target": 50,
+    "gap_to_min": 20,
+    "achievable_within_aki": 0
+  },
+  "immune_positive": {
+    "aki_full": 14,
+    "downloaded": 14,
+    "additional_available": 0,
+    "min_target": 30,
+    "rec_target": 50,
+    "gap_to_min": 16,
+    "achievable_within_aki": 0
+  },
+  "note": "additional_available = AKI 전체 - 이미 다운로드. AKI 코호트 내 추가 여력."
+}

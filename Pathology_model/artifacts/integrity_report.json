@@ -1,0 +1,18 @@
+{
+  "dataset_version": "v1",
+  "checked": "2026-06-21",
+  "slides_total": 371,
+  "slides_passed": 371,
+  "issues_total": 0,
+  "issues": {
+    "missing": 0,
+    "zero": 0,
+    "bad_magic": 0,
+    "dup_slide_id": 0,
+    "no_metadata": 0,
+    "stain_mismatch": 0,
+    "not_in_manifest": 0
+  },
+  "issue_detail": {},
+  "checksums_file": "checksums.csv"
+}

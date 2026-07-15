@@ -1,0 +1,4 @@
+task,top1_ratio,top5_ratio,top10_ratio,collapse_suspect
+immune,0.256,0.586,0.727,False
+chronic,0.191,0.452,0.601,False
+stage3,0.174,0.414,0.556,False

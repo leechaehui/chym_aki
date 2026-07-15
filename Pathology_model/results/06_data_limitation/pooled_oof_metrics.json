@@ -1,0 +1,47 @@
+{
+  "immune": {
+    "n_repeats": 20,
+    "auroc_mean": 0.623,
+    "auroc_std": 0.048,
+    "auroc_range": [
+      0.533,
+      0.712
+    ],
+    "auprc_mean": 0.451,
+    "auprc_std": 0.049,
+    "auprc_range": [
+      0.37,
+      0.555
+    ]
+  },
+  "chronic": {
+    "n_repeats": 20,
+    "auroc_mean": 0.669,
+    "auroc_std": 0.041,
+    "auroc_range": [
+      0.598,
+      0.743
+    ],
+    "auprc_mean": 0.325,
+    "auprc_std": 0.044,
+    "auprc_range": [
+      0.258,
+      0.406
+    ]
+  },
+  "stage3": {
+    "n_repeats": 20,
+    "auroc_mean": 0.565,
+    "auroc_std": 0.058,
+    "auroc_range": [
+      0.46,
+      0.676
+    ],
+    "auprc_mean": 0.734,
+    "auprc_std": 0.045,
+    "auprc_range": [
+      0.659,
+      0.812
+    ]
+  }
+}

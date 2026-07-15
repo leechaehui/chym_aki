@@ -1,0 +1,96 @@
+{
+  "config": {
+    "seed": 42,
+    "slides_per_stain": 6,
+    "tiles_per_slide": 12,
+    "tile": 256,
+    "work_level": 1
+  },
+  "by_stain": {
+    "HE": {
+      "n_slides": 5,
+      "macenko_fail_tiles": 0,
+      "raw": {
+        "color_CV": 0.0449,
+        "nmi_CV": 0.1219
+      },
+      "reinhard": {
+        "color_CV": 0.0009,
+        "nmi_CV": 0.0405
+      },
+      "macenko": {
+        "color_CV": 0.0104,
+        "nmi_CV": 0.0263
+      },
+      "best_by_color_CV": "reinhard"
+    },
+    "PAS": {
+      "n_slides": 5,
+      "macenko_fail_tiles": 0,
+      "raw": {
+        "color_CV": 0.0279,
+        "nmi_CV": 0.1602
+      },
+      "reinhard": {
+        "color_CV": 0.0005,
+        "nmi_CV": 0.0383
+      },
+      "macenko": {
+        "color_CV": 0.0116,
+        "nmi_CV": 0.041
+      },
+      "best_by_color_CV": "reinhard"
+    },
+    "MT": {
+      "n_slides": 6,
+      "macenko_fail_tiles": 0,
+      "raw": {
+        "color_CV": 0.0537,
+        "nmi_CV": 0.1977
+      },
+      "reinhard": {
+        "color_CV": 0.0056,
+        "nmi_CV": 0.0753
+      },
+      "macenko": {
+        "color_CV": 0.0381,
+        "nmi_CV": 0.1423
+      },
+      "best_by_color_CV": "reinhard"
+    },
+    "SILVER": {
+      "n_slides": 6,
+      "macenko_fail_tiles": 0,
+      "raw": {
+        "color_CV": 0.0822,
+        "nmi_CV": 0.5397
+      },
+      "reinhard": {
+        "color_CV": 0.0002,
+        "nmi_CV": 0.0175
+      },
+      "macenko": {
+        "color_CV": 0.0225,
+        "nmi_CV": 0.0549
+      },
+      "best_by_color_CV": "reinhard"
+    },
+    "IF": {
+      "n_slides": 6,
+      "macenko_fail_tiles": 0,
+      "raw": {
+        "color_CV": 0.1745,
+        "nmi_CV": 0.604
+      },
+      "reinhard": {
+        "color_CV": 0.0046,
+        "nmi_CV": 0.0158
+      },
+      "macenko": {
+        "color_CV": 0.1064,
+        "nmi_CV": 0.1399
+      },
+      "best_by_color_CV": "reinhard"
+    }
+  }
+}

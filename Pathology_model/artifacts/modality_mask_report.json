@@ -1,0 +1,26 @@
+{
+  "n_patients": 83,
+  "availability_rate": {
+    "HE": 0.988,
+    "PAS": 0.988,
+    "MT": 0.831,
+    "SILVER": 0.386,
+    "IF": 0.253
+  },
+  "n_stains_distribution": {
+    "1": 1,
+    "2": 14,
+    "3": 31,
+    "4": 21,
+    "5": 16
+  },
+  "complete_5stain_patients": 16,
+  "top_combos": {
+    "HE+PAS+MT": 31,
+    "HE+PAS+MT+SILVER+IF": 16,
+    "HE+PAS+MT+SILVER": 16,
+    "HE+PAS": 14,
+    "HE+PAS+MT+IF": 5,
+    "MT": 1
+  }
+}

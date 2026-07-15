@@ -1,0 +1,18 @@
+{
+  "recommended_uncertainty_tau": 0.5,
+  "operating_point": {
+    "tau": 0.5,
+    "coverage": 1.0,
+    "n_allow": 61.0,
+    "mean_err_allow": 0.842,
+    "qwk_mean": 0.373
+  },
+  "full_cohort": {
+    "mean_err": 0.842,
+    "qwk_mean": 0.373,
+    "n": 61
+  },
+  "note": "coverage>=0.6 중 ALLOW셋 ordinal err 최소 운영점. abstain이 오차를 줄이면 uncertainty 게이트 유효.",
+  "qc_tau": 0.4,
+  "ord_conf_min": 0.4
+}

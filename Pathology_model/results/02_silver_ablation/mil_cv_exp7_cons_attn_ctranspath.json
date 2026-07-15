@@ -1,0 +1,115 @@
+{
+  "config": {
+    "tag": "exp7_cons_attn",
+    "encoder": "ctranspath",
+    "embed_dim": 768,
+    "mags": "10",
+    "patch": 512,
+    "seed": 42,
+    "epochs": 40,
+    "lr": 0.0001,
+    "wd": 0.0001,
+    "device": "cpu",
+    "cohort": 74,
+    "labels": {
+      "immune": 44,
+      "chronic": 54,
+      "stage3": 70,
+      "ati_severity": 70
+    },
+    "norm": "HE=macenko, others=reinhard",
+    "silver_mode": "consistency_attn",
+    "silver_lambda": 0.3,
+    "attn_lambda": 0.1,
+    "stains": "all"
+  },
+  "tasks": {
+    "immune": {
+      "auroc": 0.419,
+      "auroc_ci95": [
+        0.239,
+        0.608
+      ],
+      "pr_auc": 0.352,
+      "pr_auc_ci95": [
+        0.18,
+        0.573
+      ],
+      "f1": 0.231,
+      "balanced_acc": 0.457,
+      "n": 44,
+      "n_pos": 14,
+      "per_fold_auroc": [
+        0.2,
+        0.333,
+        0.389,
+        0.778,
+        0.143
+      ]
+    },
+    "chronic": {
+      "auroc": 0.632,
+      "auroc_ci95": [
+        0.449,
+        0.809
+      ],
+      "pr_auc": 0.27,
+      "pr_auc_ci95": [
+        0.132,
+        0.541
+      ],
+      "f1": 0.286,
+      "balanced_acc": 0.559,
+      "n": 54,
+      "n_pos": 10,
+      "per_fold_auroc": [
+        0.438,
+        0.667,
+        0.722,
+        0.889,
+        0.5
+      ]
+    },
+    "stage3": {
+      "auroc": 0.452,
+      "auroc_ci95": [
+        0.293,
+        0.612
+      ],
+      "pr_auc": 0.597,
+      "pr_auc_ci95": [
+        0.473,
+        0.766
+      ],
+      "f1": 0.607,
+      "balanced_acc": 0.46,
+      "n": 70,
+      "n_pos": 45,
+      "per_fold_auroc": [
+        0.519,
+        0.425,
+        0.5,
+        0.733,
+        0.208
+      ]
+    },
+    "ati_severity": {
+      "spearman": -0.007,
+      "mae": 0.302,
+      "n": 70,
+      "per_fold_spearman": [
+        0.137,
+        -0.055,
+        0.078,
+        0.439,
+        -0.092
+      ]
+    }
+  },
+  "stain_contribution": {
+    "HE": 0.264,
+    "PAS": 0.298,
+    "MT": 0.466,
+    "IF": 0.274
+  }
+}

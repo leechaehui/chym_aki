@@ -1,0 +1,8 @@
+{
+    "task.allowAutomaticTasks": "on",
+    "python.defaultInterpreterPath": "C:\\Users\\301-4\\anaconda3\\envs\\chym_aki\\python.exe",
+    "python.terminal.activateEnvironment": true,
+    "python-envs.defaultEnvManager": "ms-python.python:conda",
+    "python-envs.defaultPackageManager": "ms-python.python:conda",
+    "git.ignoreLimitWarning": true
+}

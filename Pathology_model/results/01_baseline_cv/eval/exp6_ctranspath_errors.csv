@@ -1,0 +1,59 @@
+task,patient_id,y,p,pred,adjudication
+immune,30-11072,1,0.36,0,Acute Interstitial Nephritis
+immune,30-11081,0,0.931,1,Acute Tubular Injury
+immune,34-10331,1,0.244,0,Acute Interstitial Nephritis
+immune,33-10331,1,0.273,0,Acute Interstitial Nephritis
+immune,936-10217,1,0.073,0,Acute Interstitial Nephritis
+immune,30-10631,0,0.894,1,Acute Tubular Injury
+immune,30-11093,0,0.936,1,Acute Tubular Injury
+immune,32-10205,0,0.777,1,Acute Tubular Injury
+immune,34-10579,0,0.884,1,Acute Tubular Injury
+immune,933-10777,1,0.063,0,Acute Interstitial Nephritis
+immune,30-10868,1,0.314,0,Acute Interstitial Nephritis
+immune,30-10018,1,0.152,0,Acute Interstitial Nephritis
+immune,34-10240,1,0.102,0,Acute Interstitial Nephritis
+immune,30-11084,0,0.67,1,Acute Tubular Injury
+immune,32-10346,1,0.196,0,Acute Interstitial Nephritis
+chronic,34-10209,1,0.093,0,Diabetic Kidney Disease
+chronic,30-11091,1,0.139,0,Diabetic Kidney Disease
+chronic,30-10631,0,0.72,1,Acute Tubular Injury
+chronic,34-10573,1,0.002,0,Diabetic Kidney Disease
+chronic,34-10579,0,0.841,1,Acute Tubular Injury
+chronic,30-10018,0,0.981,1,Acute Interstitial Nephritis
+chronic,30-11141,0,0.825,1,Acute Tubular Injury
+chronic,34-10240,0,0.815,1,Acute Interstitial Nephritis
+chronic,936-10123,0,0.878,1,Acute Tubular Injury
+chronic,30-11084,0,0.694,1,Acute Tubular Injury
+chronic,30-11130,1,0.017,0,Hypertensive Kidney Disease
+chronic,32-10034,1,0.015,0,Diabetic Kidney Disease
+stage3,30-11072,0,0.821,1,Acute Interstitial Nephritis
+stage3,30-11157,0,0.675,1,Diabetic Kidney Disease
+stage3,34-10187,0,0.555,1,Acute Tubular Injury
+stage3,34-10729,0,0.6,1,
+stage3,33-10375,0,0.975,1,Cannot be determined
+stage3,30-11080,1,0.293,0,Acute Interstitial Nephritis
+stage3,30-11091,0,0.573,1,Diabetic Kidney Disease
+stage3,30-11120,1,0.488,0,Acute Tubular Injury
+stage3,30-11124,0,0.798,1,Diabetic Kidney Disease
+stage3,34-10666,0,0.823,1,
+stage3,34-11066,0,0.604,1,
+stage3,936-10217,0,0.739,1,Acute Interstitial Nephritis
+stage3,30-10123,1,0.44,0,Diabetic Kidney Disease
+stage3,30-10631,1,0.364,0,Acute Tubular Injury
+stage3,30-11093,1,0.382,0,Acute Tubular Injury
+stage3,30-11163,1,0.184,0,
+stage3,34-10573,0,0.996,1,Diabetic Kidney Disease
+stage3,34-10730,0,0.697,1,
+stage3,30-10868,0,0.825,1,Acute Interstitial Nephritis
+stage3,30-10018,1,0.329,0,Acute Interstitial Nephritis
+stage3,30-11141,1,0.163,0,Acute Tubular Injury
+stage3,34-10240,1,0.308,0,Acute Interstitial Nephritis
+stage3,34-10478,1,0.335,0,Acute Tubular Injury
+stage3,936-10123,1,0.176,0,Acute Tubular Injury
+stage3,30-10034,0,0.84,1,Acute Tubular Injury
+stage3,30-10929,0,0.755,1,Acute Interstitial Nephritis
+stage3,32-10003,0,0.833,1,Acute Tubular Injury
+stage3,32-10034,0,0.81,1,Diabetic Kidney Disease
+stage3,34-10889,1,0.395,0,
+stage3,34-11109,0,0.808,1,
+stage3,33-10376,0,0.949,1,Acute Tubular Injury

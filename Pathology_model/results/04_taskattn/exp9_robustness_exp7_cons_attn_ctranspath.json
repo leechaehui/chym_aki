@@ -1,0 +1,53 @@
+{
+  "tag": "exp7_cons_attn",
+  "encoder": "ctranspath",
+  "A_phenotype_separation": {
+    "auroc": 0.632,
+    "n_chronic": 10,
+    "n_acute": 44,
+    "mean_score_chronic": 0.33,
+    "mean_score_acute": 0.224,
+    "score_gap": 0.106
+  },
+  "B_fibrosis_stress": {
+    "ati_severity": {
+      "acute": {
+        "n": 41,
+        "mean_pred": 0.775,
+        "mean_true": 0.854,
+        "mean_abs_err": 0.292
+      },
+      "chronic": {
+        "n": 9,
+        "mean_pred": 0.86,
+        "mean_true": 0.611,
+        "mean_abs_err": 0.371
+      }
+    },
+    "stage3": {
+      "acute": {
+        "n": 41,
+        "mean_pred": 0.594,
+        "mean_true": 0.756,
+        "mean_abs_err": 0.513
+      },
+      "chronic": {
+        "n": 9,
+        "mean_pred": 0.751,
+        "mean_true": 0.333,
+        "mean_abs_err": 0.657
+      }
+    }
+  },
+  "C_attention_entropy": {
+    "note": "정규화 엔트로피(0~1, 1=완전분산). 미학습 init 비교 — 안정성 상대지표.",
+    "silver_off": {
+      "acute": 1.0,
+      "chronic": 1.0
+    },
+    "silver_consistency_attn": {
+      "acute": 1.0,
+      "chronic": 1.0
+    }
+  }
+}

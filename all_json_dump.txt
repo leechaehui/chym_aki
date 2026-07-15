@@ -1,0 +1,2860 @@
+
+======================================
+FILE: C:/team/chym_aki/Pathology_model/results\01_baseline_cv\mil_cv_exp10main_ctranspath.json
+======================================
+{
+  "config": {
+    "tag": "exp10main",
+    "encoder": "ctranspath",
+    "embed_dim": 768,
+    "mags": "10",
+    "patch": 512,
+    "seed": 42,
+    "epochs": 40,
+    "lr": 0.0001,
+    "wd": 0.0001,
+    "device": "cuda",
+    "cohort": 74,
+    "labels": {
+      "immune": 44,
+      "chronic": 54,
+      "stage3": 70,
+      "ati_severity": 70
+    },
+    "norm": "HE=macenko, others=reinhard",
+    "stains": "HE,PAS,MT"
+  },
+  "tasks": {
+    "immune": {
+      "auroc": 0.621,
+      "auroc_ci95": [
+        0.45,
+        0.783
+      ],
+      "pr_auc": 0.41,
+      "pr_auc_ci95": [
+        0.244,
+        0.667
+      ],
+      "f1": 0.429,
+      "balanced_acc": 0.581,
+      "n": 44,
+      "n_pos": 14,
+      "per_fold_auroc": [
+        0.667,
+        0.667,
+        0.444,
+        0.5,
+        0.786
+      ]
+    },
+    "chronic": {
+      "auroc": 0.536,
+      "auroc_ci95": [
+        0.339,
+        0.741
+      ],
+      "pr_auc": 0.288,
+      "pr_auc_ci95": [
+        0.11,
+        0.546
+      ],
+      "f1"
+... (truncated if too long)
+
+======================================
+FILE: C:/team/chym_aki/Pathology_model/results\01_baseline_cv\mil_cv_exp11_cons_ctranspath.json
+======================================
+{
+  "config": {
+    "tag": "exp11_cons",
+    "model": "TaskAttentionMIL",
+    "encoder": "ctranspath",
+    "embed_dim": 768,
+    "mags": "10",
+    "patch": 512,
+    "seed": 42,
+    "epochs": 40,
+    "lr": 0.0001,
+    "wd": 0.0001,
+    "device": "cpu",
+    "cohort": 74,
+    "labels": {
+      "immune": 44,
+      "chronic": 54,
+      "stage3": 70,
+      "ati_severity": 70
+    },
+    "silver_mode": "consistency",
+    "silver_lambda": 0.3,
+    "attn_lambda": 0.1
+  },
+  "tasks": {
+    "immune": {
+      "auroc": 0.631,
+      "auroc_ci95": [
+        0.453,
+        0.815
+      ],
+      "pr_auc": 0.495,
+      "pr_auc_ci95": [
+        0.28,
+        0.746
+      ],
+      "f1": 0.444,
+      "balanced_acc": 0.598,
+      "n": 44,
+      "n_pos": 14,
+      "per_fold_auroc": [
+        0.467,
+        0.778,
+        0.611,
+        0.778,
+        0.714
+      ]
+    },
+    "chronic": {
+      "auroc": 0.684,
+      "auroc_ci95": [
+        0.501,
+        0.844
+      ],
+      "pr_auc": 0.355,
+      "pr_auc_ci95":
+... (truncated if too long)
+
+======================================
+FILE: C:/team/chym_aki/Pathology_model/results\01_baseline_cv\mil_cv_exp11_ctranspath.json
+======================================
+{
+  "config": {
+    "tag": "exp11",
+    "model": "TaskAttentionMIL",
+    "encoder": "ctranspath",
+    "embed_dim": 768,
+    "mags": "10",
+    "patch": 512,
+    "seed": 42,
+    "epochs": 40,
+    "lr": 0.0001,
+    "wd": 0.0001,
+    "device": "cpu",
+    "cohort": 74,
+    "labels": {
+      "immune": 44,
+      "chronic": 54,
+      "stage3": 70,
+      "ati_severity": 70
+    },
+    "silver_mode": "off",
+    "silver_lambda": 0.3,
+    "attn_lambda": 0.1
+  },
+  "tasks": {
+    "immune": {
+      "auroc": 0.629,
+      "auroc_ci95": [
+        0.444,
+        0.81
+      ],
+      "pr_auc": 0.494,
+      "pr_auc_ci95": [
+        0.283,
+        0.746
+      ],
+      "f1": 0.444,
+      "balanced_acc": 0.598,
+      "n": 44,
+      "n_pos": 14,
+      "per_fold_auroc": [
+        0.467,
+        0.778,
+        0.611,
+        0.722,
+        0.643
+      ]
+    },
+    "chronic": {
+      "auroc": 0.68,
+      "auroc_ci95": [
+        0.495,
+        0.843
+      ],
+      "pr_auc": 0.353,
+      "pr_auc_ci95": [
+        0.1
+... (truncated if too long)
+
+======================================
+FILE: C:/team/chym_aki/Pathology_model/results\01_baseline_cv\mil_cv_exp1_HE_resnet50.json
+======================================
+{
+  "config": {
+    "tag": "exp1_HE",
+    "encoder": "resnet50",
+    "embed_dim": 2048,
+    "mags": "10",
+    "patch": 512,
+    "seed": 42,
+    "epochs": 40,
+    "lr": 0.0001,
+    "wd": 0.0001,
+    "device": "cuda",
+    "cohort": 66,
+    "labels": {
+      "immune": 42,
+      "chronic": 52,
+      "stage3": 63,
+      "ati_severity": 63
+    },
+    "norm": "HE=macenko, others=reinhard",
+    "stains": "HE"
+  },
+  "tasks": {
+    "immune": {
+      "auroc": 0.668,
+      "auroc_ci95": [
+        0.471,
+        0.853
+      ],
+      "pr_auc": 0.505,
+      "pr_auc_ci95": [
+        0.296,
+        0.793
+      ],
+      "f1": 0.48,
+      "balanced_acc": 0.627,
+      "n": 42,
+      "n_pos": 13,
+      "per_fold_auroc": [
+        0.8,
+        0.778,
+        0.5,
+        0.389,
+        0.667
+      ]
+    },
+    "chronic": {
+      "auroc": 0.619,
+      "auroc_ci95": [
+        0.421,
+        0.812
+      ],
+      "pr_auc": 0.37,
+      "pr_auc_ci95": [
+        0.144,
+        0.661
+      ],
+      "f1": 0.25,
+   
+... (truncated if too long)
+
+======================================
+FILE: C:/team/chym_aki/Pathology_model/results\01_baseline_cv\mil_cv_exp1_IF_resnet50.json
+======================================
+{
+  "config": {
+    "tag": "exp1_IF",
+    "encoder": "resnet50",
+    "embed_dim": 2048,
+    "mags": "10",
+    "patch": 512,
+    "seed": 42,
+    "epochs": 40,
+    "lr": 0.0001,
+    "wd": 0.0001,
+    "device": "cuda",
+    "cohort": 20,
+    "labels": {
+      "immune": 16,
+      "chronic": 19,
+      "stage3": 20,
+      "ati_severity": 20
+    },
+    "norm": "HE=macenko, others=reinhard",
+    "stains": "IF"
+  },
+  "tasks": {
+    "immune": {
+      "auroc": 0.509,
+      "auroc_ci95": [
+        0.0,
+        0.923
+      ],
+      "pr_auc": 0.449,
+      "pr_auc_ci95": [
+        0.149,
+        0.875
+      ],
+      "f1": 0.5,
+      "balanced_acc": 0.618,
+      "n": 16,
+      "n_pos": 5,
+      "per_fold_auroc": [
+        null,
+        0.0,
+        0.667,
+        1.0,
+        0.5
+      ]
+    },
+    "chronic": {
+      "auroc": 0.458,
+      "auroc_ci95": [
+        0.0,
+        0.875
+      ],
+      "pr_auc": 0.203,
+      "pr_auc_ci95": [
+        0.053,
+        0.6
+      ],
+      "f1": 0.0,
+      "balance
+... (truncated if too long)
+
+======================================
+FILE: C:/team/chym_aki/Pathology_model/results\01_baseline_cv\mil_cv_exp1_MT_resnet50.json
+======================================
+{
+  "config": {
+    "tag": "exp1_MT",
+    "encoder": "resnet50",
+    "embed_dim": 2048,
+    "mags": "10",
+    "patch": 512,
+    "seed": 42,
+    "epochs": 40,
+    "lr": 0.0001,
+    "wd": 0.0001,
+    "device": "cuda",
+    "cohort": 65,
+    "labels": {
+      "immune": 40,
+      "chronic": 49,
+      "stage3": 64,
+      "ati_severity": 64
+    },
+    "norm": "HE=macenko, others=reinhard",
+    "stains": "MT"
+  },
+  "tasks": {
+    "immune": {
+      "auroc": 0.435,
+      "auroc_ci95": [
+        0.239,
+        0.632
+      ],
+      "pr_auc": 0.281,
+      "pr_auc_ci95": [
+        0.165,
+        0.475
+      ],
+      "f1": 0.0,
+      "balanced_acc": 0.446,
+      "n": 40,
+      "n_pos": 12,
+      "per_fold_auroc": [
+        0.4,
+        0.6,
+        0.5,
+        0.267,
+        0.214
+      ]
+    },
+    "chronic": {
+      "auroc": 0.669,
+      "auroc_ci95": [
+        0.477,
+        0.848
+      ],
+      "pr_auc": 0.396,
+      "pr_auc_ci95": [
+        0.154,
+        0.675
+      ],
+      "f1": 0.182,
+    
+... (truncated if too long)
+
+======================================
+FILE: C:/team/chym_aki/Pathology_model/results\01_baseline_cv\mil_cv_exp1_PAS_resnet50.json
+======================================
+{
+  "config": {
+    "tag": "exp1_PAS",
+    "encoder": "resnet50",
+    "embed_dim": 2048,
+    "mags": "10",
+    "patch": 512,
+    "seed": 42,
+    "epochs": 40,
+    "lr": 0.0001,
+    "wd": 0.0001,
+    "device": "cuda",
+    "cohort": 70,
+    "labels": {
+      "immune": 44,
+      "chronic": 54,
+      "stage3": 66,
+      "ati_severity": 66
+    },
+    "norm": "HE=macenko, others=reinhard",
+    "stains": "PAS"
+  },
+  "tasks": {
+    "immune": {
+      "auroc": 0.498,
+      "auroc_ci95": [
+        0.292,
+        0.701
+      ],
+      "pr_auc": 0.394,
+      "pr_auc_ci95": [
+        0.209,
+        0.672
+      ],
+      "f1": 0.333,
+      "balanced_acc": 0.543,
+      "n": 44,
+      "n_pos": 14,
+      "per_fold_auroc": [
+        0.6,
+        0.667,
+        0.333,
+        0.278,
+        0.857
+      ]
+    },
+    "chronic": {
+      "auroc": 0.745,
+      "auroc_ci95": [
+        0.521,
+        0.925
+      ],
+      "pr_auc": 0.5,
+      "pr_auc_ci95": [
+        0.198,
+        0.766
+      ],
+      "f1": 0.235
+... (truncated if too long)
+
+======================================
+FILE: C:/team/chym_aki/Pathology_model/results\01_baseline_cv\mil_cv_exp1_resnet50.json
+======================================
+{
+  "config": {
+    "tag": "exp1",
+    "encoder": "resnet50",
+    "embed_dim": 2048,
+    "mags": "10",
+    "patch": 512,
+    "seed": 42,
+    "epochs": 40,
+    "lr": 0.0001,
+    "wd": 0.0001,
+    "device": "cuda",
+    "cohort": 74,
+    "labels": {
+      "immune": 44,
+      "chronic": 54,
+      "stage3": 70,
+      "ati_severity": 70
+    },
+    "norm": "HE=macenko, others=reinhard",
+    "stains": "all"
+  },
+  "tasks": {
+    "immune": {
+      "auroc": 0.238,
+      "auroc_ci95": [
+        0.111,
+        0.4
+      ],
+      "pr_auc": 0.227,
+      "pr_auc_ci95": [
+        0.142,
+        0.368
+      ],
+      "f1": 0.0,
+      "balanced_acc": 0.333,
+      "n": 44,
+      "n_pos": 14,
+      "per_fold_auroc": [
+        0.533,
+        0.389,
+        0.167,
+        0.0,
+        0.143
+      ]
+    },
+    "chronic": {
+      "auroc": 0.586,
+      "auroc_ci95": [
+        0.399,
+        0.753
+      ],
+      "pr_auc": 0.225,
+      "pr_auc_ci95": [
+        0.109,
+        0.428
+      ],
+      "f1": 0.0,
+      
+... (truncated if too long)
+
+======================================
+FILE: C:/team/chym_aki/Pathology_model/results\01_baseline_cv\mil_cv_exp1_SILVER_resnet50.json
+======================================
+{
+  "config": {
+    "tag": "exp1_SILVER",
+    "encoder": "resnet50",
+    "embed_dim": 2048,
+    "mags": "10",
+    "patch": 512,
+    "seed": 42,
+    "epochs": 40,
+    "lr": 0.0001,
+    "wd": 0.0001,
+    "device": "cuda",
+    "cohort": 31,
+    "labels": {
+      "immune": 21,
+      "chronic": 27,
+      "stage3": 31,
+      "ati_severity": 31
+    },
+    "norm": "HE=macenko, others=reinhard",
+    "stains": "SILVER"
+  },
+  "tasks": {
+    "immune": {
+      "auroc": 0.439,
+      "auroc_ci95": [
+        0.148,
+        0.738
+      ],
+      "pr_auc": 0.356,
+      "pr_auc_ci95": [
+        0.166,
+        0.705
+      ],
+      "f1": 0.333,
+      "balanced_acc": 0.536,
+      "n": 21,
+      "n_pos": 7,
+      "per_fold_auroc": [
+        0.0,
+        0.4,
+        0.833,
+        0.0,
+        1.0
+      ]
+    },
+    "chronic": {
+      "auroc": 0.5,
+      "auroc_ci95": [
+        0.25,
+        0.75
+      ],
+      "pr_auc": 0.257,
+      "pr_auc_ci95": [
+        0.107,
+        0.595
+      ],
+      "f1": 0.182,
+ 
+... (truncated if too long)
+
+======================================
+FILE: C:/team/chym_aki/Pathology_model/results\01_baseline_cv\mil_cv_exp2_ctranspath.json
+======================================
+{
+  "config": {
+    "tag": "exp2",
+    "encoder": "ctranspath",
+    "embed_dim": 768,
+    "mags": "10",
+    "patch": 512,
+    "seed": 42,
+    "epochs": 40,
+    "lr": 0.0001,
+    "wd": 0.0001,
+    "device": "cuda",
+    "cohort": 74,
+    "labels": {
+      "immune": 44,
+      "chronic": 54,
+      "stage3": 70,
+      "ati_severity": 70
+    },
+    "norm": "HE=macenko, others=reinhard",
+    "stains": "all"
+  },
+  "tasks": {
+    "immune": {
+      "auroc": 0.395,
+      "auroc_ci95": [
+        0.214,
+        0.572
+      ],
+      "pr_auc": 0.328,
+      "pr_auc_ci95": [
+        0.176,
+        0.529
+      ],
+      "f1": 0.303,
+      "balanced_acc": 0.445,
+      "n": 44,
+      "n_pos": 14,
+      "per_fold_auroc": [
+        0.2,
+        0.333,
+        0.5,
+        0.5,
+        0.071
+      ]
+    },
+    "chronic": {
+      "auroc": 0.43,
+      "auroc_ci95": [
+        0.216,
+        0.657
+      ],
+      "pr_auc": 0.2,
+      "pr_auc_ci95": [
+        0.092,
+        0.458
+      ],
+      "f1": 0.2,
+      "b
+... (truncated if too long)
+
+======================================
+FILE: C:/team/chym_aki/Pathology_model/results\01_baseline_cv\mil_cv_exp2_HE_ctranspath.json
+======================================
+{
+  "config": {
+    "tag": "exp2_HE",
+    "encoder": "ctranspath",
+    "embed_dim": 768,
+    "mags": "10",
+    "patch": 512,
+    "seed": 42,
+    "epochs": 40,
+    "lr": 0.0001,
+    "wd": 0.0001,
+    "device": "cuda",
+    "cohort": 66,
+    "labels": {
+      "immune": 42,
+      "chronic": 52,
+      "stage3": 63,
+      "ati_severity": 63
+    },
+    "norm": "HE=macenko, others=reinhard",
+    "stains": "HE"
+  },
+  "tasks": {
+    "immune": {
+      "auroc": 0.798,
+      "auroc_ci95": [
+        0.651,
+        0.925
+      ],
+      "pr_auc": 0.551,
+      "pr_auc_ci95": [
+        0.346,
+        0.86
+      ],
+      "f1": 0.643,
+      "balanced_acc": 0.743,
+      "n": 42,
+      "n_pos": 13,
+      "per_fold_auroc": [
+        0.533,
+        0.722,
+        0.667,
+        1.0,
+        0.917
+      ]
+    },
+    "chronic": {
+      "auroc": 0.707,
+      "auroc_ci95": [
+        0.528,
+        0.878
+      ],
+      "pr_auc": 0.407,
+      "pr_auc_ci95": [
+        0.182,
+        0.699
+      ],
+      "f1": 0.364
+... (truncated if too long)
+
+======================================
+FILE: C:/team/chym_aki/Pathology_model/results\01_baseline_cv\mil_cv_exp2_IF_ctranspath.json
+======================================
+{
+  "config": {
+    "tag": "exp2_IF",
+    "encoder": "ctranspath",
+    "embed_dim": 768,
+    "mags": "10",
+    "patch": 512,
+    "seed": 42,
+    "epochs": 40,
+    "lr": 0.0001,
+    "wd": 0.0001,
+    "device": "cuda",
+    "cohort": 20,
+    "labels": {
+      "immune": 16,
+      "chronic": 19,
+      "stage3": 20,
+      "ati_severity": 20
+    },
+    "norm": "HE=macenko, others=reinhard",
+    "stains": "IF"
+  },
+  "tasks": {
+    "immune": {
+      "auroc": 0.691,
+      "auroc_ci95": [
+        0.254,
+        1.0
+      ],
+      "pr_auc": 0.646,
+      "pr_auc_ci95": [
+        0.229,
+        1.0
+      ],
+      "f1": 0.6,
+      "balanced_acc": 0.709,
+      "n": 16,
+      "n_pos": 5,
+      "per_fold_auroc": [
+        null,
+        1.0,
+        0.667,
+        1.0,
+        0.5
+      ]
+    },
+    "chronic": {
+      "auroc": 0.438,
+      "auroc_ci95": [
+        0.0,
+        0.833
+      ],
+      "pr_auc": 0.193,
+      "pr_auc_ci95": [
+        0.053,
+        0.574
+      ],
+      "f1": 0.0,
+      "balanc
+... (truncated if too long)
+
+======================================
+FILE: C:/team/chym_aki/Pathology_model/results\01_baseline_cv\mil_cv_exp2_MT_ctranspath.json
+======================================
+{
+  "config": {
+    "tag": "exp2_MT",
+    "encoder": "ctranspath",
+    "embed_dim": 768,
+    "mags": "10",
+    "patch": 512,
+    "seed": 42,
+    "epochs": 40,
+    "lr": 0.0001,
+    "wd": 0.0001,
+    "device": "cuda",
+    "cohort": 65,
+    "labels": {
+      "immune": 40,
+      "chronic": 49,
+      "stage3": 64,
+      "ati_severity": 64
+    },
+    "norm": "HE=macenko, others=reinhard",
+    "stains": "MT"
+  },
+  "tasks": {
+    "immune": {
+      "auroc": 0.577,
+      "auroc_ci95": [
+        0.36,
+        0.784
+      ],
+      "pr_auc": 0.379,
+      "pr_auc_ci95": [
+        0.219,
+        0.687
+      ],
+      "f1": 0.48,
+      "balanced_acc": 0.625,
+      "n": 40,
+      "n_pos": 12,
+      "per_fold_auroc": [
+        0.4,
+        0.7,
+        0.583,
+        0.733,
+        0.5
+      ]
+    },
+    "chronic": {
+      "auroc": 0.525,
+      "auroc_ci95": [
+        0.272,
+        0.775
+      ],
+      "pr_auc": 0.266,
+      "pr_auc_ci95": [
+        0.113,
+        0.583
+      ],
+      "f1": 0.222,
+   
+... (truncated if too long)
+
+======================================
+FILE: C:/team/chym_aki/Pathology_model/results\01_baseline_cv\mil_cv_exp2_PAS_ctranspath.json
+======================================
+{
+  "config": {
+    "tag": "exp2_PAS",
+    "encoder": "ctranspath",
+    "embed_dim": 768,
+    "mags": "10",
+    "patch": 512,
+    "seed": 42,
+    "epochs": 40,
+    "lr": 0.0001,
+    "wd": 0.0001,
+    "device": "cuda",
+    "cohort": 70,
+    "labels": {
+      "immune": 44,
+      "chronic": 54,
+      "stage3": 66,
+      "ati_severity": 66
+    },
+    "norm": "HE=macenko, others=reinhard",
+    "stains": "PAS"
+  },
+  "tasks": {
+    "immune": {
+      "auroc": 0.538,
+      "auroc_ci95": [
+        0.331,
+        0.739
+      ],
+      "pr_auc": 0.451,
+      "pr_auc_ci95": [
+        0.242,
+        0.694
+      ],
+      "f1": 0.438,
+      "balanced_acc": 0.567,
+      "n": 44,
+      "n_pos": 14,
+      "per_fold_auroc": [
+        0.4,
+        0.444,
+        0.444,
+        1.0,
+        0.643
+      ]
+    },
+    "chronic": {
+      "auroc": 0.777,
+      "auroc_ci95": [
+        0.612,
+        0.926
+      ],
+      "pr_auc": 0.539,
+      "pr_auc_ci95": [
+        0.22,
+        0.816
+      ],
+      "f1": 0.5,
+
+... (truncated if too long)
+
+======================================
+FILE: C:/team/chym_aki/Pathology_model/results\01_baseline_cv\mil_cv_exp2_SILVER_ctranspath.json
+======================================
+{
+  "config": {
+    "tag": "exp2_SILVER",
+    "encoder": "ctranspath",
+    "embed_dim": 768,
+    "mags": "10",
+    "patch": 512,
+    "seed": 42,
+    "epochs": 40,
+    "lr": 0.0001,
+    "wd": 0.0001,
+    "device": "cuda",
+    "cohort": 31,
+    "labels": {
+      "immune": 21,
+      "chronic": 27,
+      "stage3": 31,
+      "ati_severity": 31
+    },
+    "norm": "HE=macenko, others=reinhard",
+    "stains": "SILVER"
+  },
+  "tasks": {
+    "immune": {
+      "auroc": 0.694,
+      "auroc_ci95": [
+        0.444,
+        0.918
+      ],
+      "pr_auc": 0.498,
+      "pr_auc_ci95": [
+        0.256,
+        0.886
+      ],
+      "f1": 0.571,
+      "balanced_acc": 0.679,
+      "n": 21,
+      "n_pos": 7,
+      "per_fold_auroc": [
+        0.333,
+        0.6,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "chronic": {
+      "auroc": 0.5,
+      "auroc_ci95": [
+        0.2,
+        0.8
+      ],
+      "pr_auc": 0.294,
+      "pr_auc_ci95": [
+        0.109,
+        0.674
+      ],
+      "f1": 0.25,
+   
+... (truncated if too long)
+
+======================================
+FILE: C:/team/chym_aki/Pathology_model/results\01_baseline_cv\mil_cv_exp3_dinov2.json
+======================================
+{
+  "config": {
+    "tag": "exp3",
+    "encoder": "dinov2",
+    "embed_dim": 768,
+    "mags": "10",
+    "patch": 512,
+    "seed": 42,
+    "epochs": 40,
+    "lr": 0.0001,
+    "wd": 0.0001,
+    "device": "cuda",
+    "cohort": 74,
+    "labels": {
+      "immune": 44,
+      "chronic": 54,
+      "stage3": 70,
+      "ati_severity": 70
+    },
+    "norm": "HE=macenko, others=reinhard",
+    "stains": "all"
+  },
+  "tasks": {
+    "immune": {
+      "auroc": 0.507,
+      "auroc_ci95": [
+        0.317,
+        0.699
+      ],
+      "pr_auc": 0.34,
+      "pr_auc_ci95": [
+        0.201,
+        0.592
+      ],
+      "f1": 0.261,
+      "balanced_acc": 0.507,
+      "n": 44,
+      "n_pos": 14,
+      "per_fold_auroc": [
+        0.267,
+        0.5,
+        0.389,
+        0.778,
+        0.429
+      ]
+    },
+    "chronic": {
+      "auroc": 0.505,
+      "auroc_ci95": [
+        0.291,
+        0.711
+      ],
+      "pr_auc": 0.213,
+      "pr_auc_ci95": [
+        0.105,
+        0.443
+      ],
+      "f1": 0.133,
+    
+... (truncated if too long)
+
+======================================
+FILE: C:/team/chym_aki/Pathology_model/results\01_baseline_cv\mil_cv_exp3_HE_dinov2.json
+======================================
+{
+  "config": {
+    "tag": "exp3_HE",
+    "encoder": "dinov2",
+    "embed_dim": 768,
+    "mags": "10",
+    "patch": 512,
+    "seed": 42,
+    "epochs": 40,
+    "lr": 0.0001,
+    "wd": 0.0001,
+    "device": "cuda",
+    "cohort": 66,
+    "labels": {
+      "immune": 42,
+      "chronic": 52,
+      "stage3": 63,
+      "ati_severity": 63
+    },
+    "norm": "HE=macenko, others=reinhard",
+    "stains": "HE"
+  },
+  "tasks": {
+    "immune": {
+      "auroc": 0.695,
+      "auroc_ci95": [
+        0.522,
+        0.854
+      ],
+      "pr_auc": 0.482,
+      "pr_auc_ci95": [
+        0.284,
+        0.77
+      ],
+      "f1": 0.519,
+      "balanced_acc": 0.649,
+      "n": 42,
+      "n_pos": 13,
+      "per_fold_auroc": [
+        0.6,
+        0.778,
+        0.583,
+        0.611,
+        0.833
+      ]
+    },
+    "chronic": {
+      "auroc": 0.586,
+      "auroc_ci95": [
+        0.426,
+        0.739
+      ],
+      "pr_auc": 0.223,
+      "pr_auc_ci95": [
+        0.126,
+        0.405
+      ],
+      "f1": 0.0,
+    
+... (truncated if too long)
+
+======================================
+FILE: C:/team/chym_aki/Pathology_model/results\01_baseline_cv\mil_cv_exp3_IF_dinov2.json
+======================================
+{
+  "config": {
+    "tag": "exp3_IF",
+    "encoder": "dinov2",
+    "embed_dim": 768,
+    "mags": "10",
+    "patch": 512,
+    "seed": 42,
+    "epochs": 40,
+    "lr": 0.0001,
+    "wd": 0.0001,
+    "device": "cuda",
+    "cohort": 20,
+    "labels": {
+      "immune": 16,
+      "chronic": 19,
+      "stage3": 20,
+      "ati_severity": 20
+    },
+    "norm": "HE=macenko, others=reinhard",
+    "stains": "IF"
+  },
+  "tasks": {
+    "immune": {
+      "auroc": 0.709,
+      "auroc_ci95": [
+        0.312,
+        0.986
+      ],
+      "pr_auc": 0.634,
+      "pr_auc_ci95": [
+        0.236,
+        0.985
+      ],
+      "f1": 0.667,
+      "balanced_acc": 0.764,
+      "n": 16,
+      "n_pos": 5,
+      "per_fold_auroc": [
+        null,
+        1.0,
+        1.0,
+        1.0,
+        0.75
+      ]
+    },
+    "chronic": {
+      "auroc": 0.312,
+      "auroc_ci95": [
+        0.0,
+        0.648
+      ],
+      "pr_auc": 0.15,
+      "pr_auc_ci95": [
+        0.053,
+        0.409
+      ],
+      "f1": 0.0,
+      "balanc
+... (truncated if too long)
+
+======================================
+FILE: C:/team/chym_aki/Pathology_model/results\01_baseline_cv\mil_cv_exp3_MT_dinov2.json
+======================================
+{
+  "config": {
+    "tag": "exp3_MT",
+    "encoder": "dinov2",
+    "embed_dim": 768,
+    "mags": "10",
+    "patch": 512,
+    "seed": 42,
+    "epochs": 40,
+    "lr": 0.0001,
+    "wd": 0.0001,
+    "device": "cuda",
+    "cohort": 65,
+    "labels": {
+      "immune": 40,
+      "chronic": 49,
+      "stage3": 64,
+      "ati_severity": 64
+    },
+    "norm": "HE=macenko, others=reinhard",
+    "stains": "MT"
+  },
+  "tasks": {
+    "immune": {
+      "auroc": 0.426,
+      "auroc_ci95": [
+        0.228,
+        0.641
+      ],
+      "pr_auc": 0.326,
+      "pr_auc_ci95": [
+        0.177,
+        0.598
+      ],
+      "f1": 0.16,
+      "balanced_acc": 0.387,
+      "n": 40,
+      "n_pos": 12,
+      "per_fold_auroc": [
+        0.333,
+        0.4,
+        0.417,
+        0.8,
+        0.5
+      ]
+    },
+    "chronic": {
+      "auroc": 0.622,
+      "auroc_ci95": [
+        0.415,
+        0.82
+      ],
+      "pr_auc": 0.257,
+      "pr_auc_ci95": [
+        0.13,
+        0.513
+      ],
+      "f1": 0.0,
+      "bal
+... (truncated if too long)
+
+======================================
+FILE: C:/team/chym_aki/Pathology_model/results\01_baseline_cv\mil_cv_exp3_PAS_dinov2.json
+======================================
+{
+  "config": {
+    "tag": "exp3_PAS",
+    "encoder": "dinov2",
+    "embed_dim": 768,
+    "mags": "10",
+    "patch": 512,
+    "seed": 42,
+    "epochs": 40,
+    "lr": 0.0001,
+    "wd": 0.0001,
+    "device": "cuda",
+    "cohort": 70,
+    "labels": {
+      "immune": 44,
+      "chronic": 54,
+      "stage3": 66,
+      "ati_severity": 66
+    },
+    "norm": "HE=macenko, others=reinhard",
+    "stains": "PAS"
+  },
+  "tasks": {
+    "immune": {
+      "auroc": 0.567,
+      "auroc_ci95": [
+        0.404,
+        0.733
+      ],
+      "pr_auc": 0.339,
+      "pr_auc_ci95": [
+        0.209,
+        0.548
+      ],
+      "f1": 0.424,
+      "balanced_acc": 0.55,
+      "n": 44,
+      "n_pos": 14,
+      "per_fold_auroc": [
+        0.533,
+        0.333,
+        0.444,
+        0.833,
+        0.5
+      ]
+    },
+    "chronic": {
+      "auroc": 0.845,
+      "auroc_ci95": [
+        0.701,
+        0.959
+      ],
+      "pr_auc": 0.564,
+      "pr_auc_ci95": [
+        0.285,
+        0.862
+      ],
+      "f1": 0.556,
+
+... (truncated if too long)
+
+======================================
+FILE: C:/team/chym_aki/Pathology_model/results\01_baseline_cv\mil_cv_exp3_SILVER_dinov2.json
+======================================
+{
+  "config": {
+    "tag": "exp3_SILVER",
+    "encoder": "dinov2",
+    "embed_dim": 768,
+    "mags": "10",
+    "patch": 512,
+    "seed": 42,
+    "epochs": 40,
+    "lr": 0.0001,
+    "wd": 0.0001,
+    "device": "cuda",
+    "cohort": 31,
+    "labels": {
+      "immune": 21,
+      "chronic": 27,
+      "stage3": 31,
+      "ati_severity": 31
+    },
+    "norm": "HE=macenko, others=reinhard",
+    "stains": "SILVER"
+  },
+  "tasks": {
+    "immune": {
+      "auroc": 0.51,
+      "auroc_ci95": [
+        0.194,
+        0.838
+      ],
+      "pr_auc": 0.444,
+      "pr_auc_ci95": [
+        0.196,
+        0.825
+      ],
+      "f1": 0.429,
+      "balanced_acc": 0.571,
+      "n": 21,
+      "n_pos": 7,
+      "per_fold_auroc": [
+        0.333,
+        0.8,
+        0.833,
+        0.5,
+        0.5
+      ]
+    },
+    "chronic": {
+      "auroc": 0.5,
+      "auroc_ci95": [
+        0.254,
+        0.73
+      ],
+      "pr_auc": 0.237,
+      "pr_auc_ci95": [
+        0.108,
+        0.491
+      ],
+      "f1": 0.0,
+    
+... (truncated if too long)
+
+======================================
+FILE: C:/team/chym_aki/Pathology_model/results\01_baseline_cv\mil_cv_exp5_ctranspath.json
+======================================
+{
+  "config": {
+    "tag": "exp5",
+    "encoder": "ctranspath",
+    "embed_dim": 768,
+    "mags": "40",
+    "patch": 512,
+    "seed": 42,
+    "epochs": 40,
+    "lr": 0.0001,
+    "wd": 0.0001,
+    "device": "cuda",
+    "cohort": 77,
+    "labels": {
+      "immune": 44,
+      "chronic": 54,
+      "stage3": 73,
+      "ati_severity": 73
+    },
+    "norm": "HE=macenko, others=reinhard",
+    "stains": "HE,PAS,MT"
+  },
+  "tasks": {
+    "immune": {
+      "auroc": 0.612,
+      "auroc_ci95": [
+        0.41,
+        0.813
+      ],
+      "pr_auc": 0.49,
+      "pr_auc_ci95": [
+        0.289,
+        0.774
+      ],
+      "f1": 0.552,
+      "balanced_acc": 0.669,
+      "n": 44,
+      "n_pos": 14,
+      "per_fold_auroc": [
+        0.4,
+        0.611,
+        0.778,
+        0.667,
+        0.571
+      ]
+    },
+    "chronic": {
+      "auroc": 0.736,
+      "auroc_ci95": [
+        0.518,
+        0.932
+      ],
+      "pr_auc": 0.453,
+      "pr_auc_ci95": [
+        0.223,
+        0.809
+      ],
+      "f1": 0.
+... (truncated if too long)
+
+======================================
+FILE: C:/team/chym_aki/Pathology_model/results\01_baseline_cv\mil_cv_exp5_HE_ctranspath.json
+======================================
+{
+  "config": {
+    "tag": "exp5_HE",
+    "encoder": "ctranspath",
+    "embed_dim": 768,
+    "mags": "40",
+    "patch": 512,
+    "seed": 42,
+    "epochs": 40,
+    "lr": 0.0001,
+    "wd": 0.0001,
+    "device": "cuda",
+    "cohort": 72,
+    "labels": {
+      "immune": 42,
+      "chronic": 52,
+      "stage3": 69,
+      "ati_severity": 69
+    },
+    "norm": "HE=macenko, others=reinhard",
+    "stains": "HE"
+  },
+  "tasks": {
+    "immune": {
+      "auroc": 0.642,
+      "auroc_ci95": [
+        0.475,
+        0.806
+      ],
+      "pr_auc": 0.399,
+      "pr_auc_ci95": [
+        0.237,
+        0.676
+      ],
+      "f1": 0.316,
+      "balanced_acc": 0.564,
+      "n": 42,
+      "n_pos": 13,
+      "per_fold_auroc": [
+        0.6,
+        0.5,
+        0.667,
+        0.667,
+        0.833
+      ]
+    },
+    "chronic": {
+      "auroc": 0.779,
+      "auroc_ci95": [
+        0.586,
+        0.938
+      ],
+      "pr_auc": 0.498,
+      "pr_auc_ci95": [
+        0.256,
+        0.829
+      ],
+      "f1": 0.5,
+ 
+... (truncated if too long)
+
+======================================
+FILE: C:/team/chym_aki/Pathology_model/results\01_baseline_cv\mil_cv_exp5_MT_ctranspath.json
+======================================
+{
+  "config": {
+    "tag": "exp5_MT",
+    "encoder": "ctranspath",
+    "embed_dim": 768,
+    "mags": "40",
+    "patch": 512,
+    "seed": 42,
+    "epochs": 40,
+    "lr": 0.0001,
+    "wd": 0.0001,
+    "device": "cuda",
+    "cohort": 67,
+    "labels": {
+      "immune": 41,
+      "chronic": 50,
+      "stage3": 66,
+      "ati_severity": 66
+    },
+    "norm": "HE=macenko, others=reinhard",
+    "stains": "MT"
+  },
+  "tasks": {
+    "immune": {
+      "auroc": 0.756,
+      "auroc_ci95": [
+        0.525,
+        0.955
+      ],
+      "pr_auc": 0.603,
+      "pr_auc_ci95": [
+        0.361,
+        0.915
+      ],
+      "f1": 0.6,
+      "balanced_acc": 0.72,
+      "n": 41,
+      "n_pos": 12,
+      "per_fold_auroc": [
+        0.533,
+        1.0,
+        0.667,
+        0.933,
+        0.571
+      ]
+    },
+    "chronic": {
+      "auroc": 0.542,
+      "auroc_ci95": [
+        0.246,
+        0.837
+      ],
+      "pr_auc": 0.43,
+      "pr_auc_ci95": [
+        0.123,
+        0.736
+      ],
+      "f1": 0.444,
+ 
+... (truncated if too long)
+
+======================================
+FILE: C:/team/chym_aki/Pathology_model/results\01_baseline_cv\mil_cv_exp5_PAS_ctranspath.json
+======================================
+{
+  "config": {
+    "tag": "exp5_PAS",
+    "encoder": "ctranspath",
+    "embed_dim": 768,
+    "mags": "40",
+    "patch": 512,
+    "seed": 42,
+    "epochs": 40,
+    "lr": 0.0001,
+    "wd": 0.0001,
+    "device": "cuda",
+    "cohort": 73,
+    "labels": {
+      "immune": 44,
+      "chronic": 54,
+      "stage3": 69,
+      "ati_severity": 69
+    },
+    "norm": "HE=macenko, others=reinhard",
+    "stains": "PAS"
+  },
+  "tasks": {
+    "immune": {
+      "auroc": 0.564,
+      "auroc_ci95": [
+        0.363,
+        0.76
+      ],
+      "pr_auc": 0.448,
+      "pr_auc_ci95": [
+        0.257,
+        0.709
+      ],
+      "f1": 0.385,
+      "balanced_acc": 0.562,
+      "n": 44,
+      "n_pos": 14,
+      "per_fold_auroc": [
+        0.333,
+        0.389,
+        0.833,
+        0.778,
+        0.786
+      ]
+    },
+    "chronic": {
+      "auroc": 0.745,
+      "auroc_ci95": [
+        0.558,
+        0.91
+      ],
+      "pr_auc": 0.431,
+      "pr_auc_ci95": [
+        0.206,
+        0.782
+      ],
+      "f1": 0.
+... (truncated if too long)
+
+======================================
+FILE: C:/team/chym_aki/Pathology_model/results\01_baseline_cv\mil_cv_exp6_ctranspath.json
+======================================
+{
+  "config": {
+    "tag": "exp6",
+    "encoder": "ctranspath",
+    "scales": [
+      "10",
+      "40"
+    ],
+    "stains": [
+      "HE",
+      "PAS",
+      "MT"
+    ],
+    "embed_dim": 768,
+    "seed": 42,
+    "epochs": 40,
+    "cohort": 77
+  },
+  "tasks": {
+    "immune": {
+      "auroc": 0.719,
+      "auroc_ci95": [
+        0.551,
+        0.854
+      ],
+      "pr_auc": 0.55,
+      "f1": 0.4,
+      "balanced_acc": 0.579,
+      "n": 44,
+      "n_pos": 14
+    },
+    "chronic": {
+      "auroc": 0.614,
+      "auroc_ci95": [
+        0.381,
+        0.829
+      ],
+      "pr_auc": 0.303,
+      "f1": 0.455,
+      "balanced_acc": 0.67,
+      "n": 54,
+      "n_pos": 10
+    },
+    "stage3": {
+      "auroc": 0.539,
+      "auroc_ci95": [
+        0.402,
+        0.673
+      ],
+      "pr_auc": 0.678,
+      "f1": 0.693,
+      "balanced_acc": 0.507,
+      "n": 73,
+      "n_pos": 47
+    },
+    "ati_severity": {
+      "spearman": 0.086,
+      "mae": 0.288,
+      "n": 73
+    }
+  },
+  "scale_contribution": 
+... (truncated if too long)
+
+======================================
+FILE: C:/team/chym_aki/Pathology_model/results\01_baseline_cv\mil_cv_report.json
+======================================
+{
+  "config": {
+    "seed": 42,
+    "epochs": 40,
+    "lr": 0.0001,
+    "wd": 0.0001,
+    "device": "cuda",
+    "encoder": "resnet50_imagenet1k_v2",
+    "norm": "HE=macenko, others=reinhard"
+  },
+  "tasks": {
+    "immune": {
+      "auroc": 0.319,
+      "pr_auc": 0.251,
+      "f1": 0.148,
+      "balanced_acc": 0.388,
+      "n": 44,
+      "n_pos": 14
+    },
+    "chronic": {
+      "auroc": 0.573,
+      "pr_auc": 0.392,
+      "f1": 0.308,
+      "balanced_acc": 0.589,
+      "n": 54,
+      "n_pos": 10
+    },
+    "ati_severity": {
+      "spearman": 0.079,
+      "mae": 0.212,
+      "n": 41
+    }
+  }
+}
+... (truncated if too long)
+
+======================================
+FILE: C:/team/chym_aki/Pathology_model/results\02_silver_ablation\mil_cv_exp7_cons_attn_ctranspath.json
+======================================
+{
+  "config": {
+    "tag": "exp7_cons_attn",
+    "encoder": "ctranspath",
+    "embed_dim": 768,
+    "mags": "10",
+    "patch": 512,
+    "seed": 42,
+    "epochs": 40,
+    "lr": 0.0001,
+    "wd": 0.0001,
+    "device": "cpu",
+    "cohort": 74,
+    "labels": {
+      "immune": 44,
+      "chronic": 54,
+      "stage3": 70,
+      "ati_severity": 70
+    },
+    "norm": "HE=macenko, others=reinhard",
+    "silver_mode": "consistency_attn",
+    "silver_lambda": 0.3,
+    "attn_lambda": 0.1,
+    "stains": "all"
+  },
+  "tasks": {
+    "immune": {
+      "auroc": 0.419,
+      "auroc_ci95": [
+        0.239,
+        0.608
+      ],
+      "pr_auc": 0.352,
+      "pr_auc_ci95": [
+        0.18,
+        0.573
+      ],
+      "f1": 0.231,
+      "balanced_acc": 0.457,
+      "n": 44,
+      "n_pos": 14,
+      "per_fold_auroc": [
+        0.2,
+        0.333,
+        0.389,
+        0.778,
+        0.143
+      ]
+    },
+    "chronic": {
+      "auroc": 0.632,
+      "auroc_ci95": [
+        0.449,
+        0.809
+      ],
+     
+... (truncated if too long)
+
+======================================
+FILE: C:/team/chym_aki/Pathology_model/results\02_silver_ablation\mil_cv_exp7_cons_ctranspath.json
+======================================
+{
+  "config": {
+    "tag": "exp7_cons",
+    "encoder": "ctranspath",
+    "embed_dim": 768,
+    "mags": "10",
+    "patch": 512,
+    "seed": 42,
+    "epochs": 40,
+    "lr": 0.0001,
+    "wd": 0.0001,
+    "device": "cpu",
+    "cohort": 74,
+    "labels": {
+      "immune": 44,
+      "chronic": 54,
+      "stage3": 70,
+      "ati_severity": 70
+    },
+    "norm": "HE=macenko, others=reinhard",
+    "silver_mode": "consistency",
+    "silver_lambda": 0.3,
+    "attn_lambda": 0.1,
+    "stains": "all"
+  },
+  "tasks": {
+    "immune": {
+      "auroc": 0.474,
+      "auroc_ci95": [
+        0.299,
+        0.659
+      ],
+      "pr_auc": 0.373,
+      "pr_auc_ci95": [
+        0.195,
+        0.606
+      ],
+      "f1": 0.231,
+      "balanced_acc": 0.457,
+      "n": 44,
+      "n_pos": 14,
+      "per_fold_auroc": [
+        0.2,
+        0.333,
+        0.389,
+        0.889,
+        0.214
+      ]
+    },
+    "chronic": {
+      "auroc": 0.641,
+      "auroc_ci95": [
+        0.463,
+        0.82
+      ],
+      "pr_auc":
+... (truncated if too long)
+
+======================================
+FILE: C:/team/chym_aki/Pathology_model/results\02_silver_ablation\mil_cv_exp7_off_ctranspath.json
+======================================
+{
+  "config": {
+    "tag": "exp7_off",
+    "encoder": "ctranspath",
+    "embed_dim": 768,
+    "mags": "10",
+    "patch": 512,
+    "seed": 42,
+    "epochs": 40,
+    "lr": 0.0001,
+    "wd": 0.0001,
+    "device": "cpu",
+    "cohort": 74,
+    "labels": {
+      "immune": 44,
+      "chronic": 54,
+      "stage3": 70,
+      "ati_severity": 70
+    },
+    "norm": "HE=macenko, others=reinhard",
+    "silver_mode": "off",
+    "silver_lambda": 0.3,
+    "attn_lambda": 0.1,
+    "stains": "all"
+  },
+  "tasks": {
+    "immune": {
+      "auroc": 0.5,
+      "auroc_ci95": [
+        0.33,
+        0.687
+      ],
+      "pr_auc": 0.37,
+      "pr_auc_ci95": [
+        0.211,
+        0.596
+      ],
+      "f1": 0.231,
+      "balanced_acc": 0.457,
+      "n": 44,
+      "n_pos": 14,
+      "per_fold_auroc": [
+        0.533,
+        0.444,
+        0.444,
+        0.889,
+        0.143
+      ]
+    },
+    "chronic": {
+      "auroc": 0.668,
+      "auroc_ci95": [
+        0.462,
+        0.851
+      ],
+      "pr_auc": 0.32,
+   
+... (truncated if too long)
+
+======================================
+FILE: C:/team/chym_aki/Pathology_model/results\03_clamlite_baseline\mil_cv_exp8_ctranspath.json
+======================================
+{
+  "config": {
+    "tag": "exp8",
+    "model": "CLAM-lite",
+    "topk": 16,
+    "encoder": "ctranspath",
+    "embed_dim": 768,
+    "mags": "10",
+    "patch": 512,
+    "seed": 42,
+    "epochs": 40,
+    "lr": 0.0001,
+    "wd": 0.0001,
+    "device": "cpu",
+    "cohort": 74,
+    "labels": {
+      "immune": 44,
+      "chronic": 54,
+      "stage3": 70,
+      "ati_severity": 70
+    },
+    "silver": "unused",
+    "multiscale": "unused"
+  },
+  "tasks": {
+    "immune": {
+      "auroc": 0.531,
+      "auroc_ci95": [
+        0.338,
+        0.712
+      ],
+      "pr_auc": 0.403,
+      "pr_auc_ci95": [
+        0.216,
+        0.641
+      ],
+      "f1": 0.357,
+      "balanced_acc": 0.529,
+      "n": 44,
+      "n_pos": 14,
+      "per_fold_auroc": [
+        0.533,
+        0.222,
+        0.389,
+        0.833,
+        0.857
+      ]
+    },
+    "chronic": {
+      "auroc": 0.736,
+      "auroc_ci95": [
+        0.541,
+        0.904
+      ],
+      "pr_auc": 0.374,
+      "pr_auc_ci95": [
+        0.18,
+        0.7
+... (truncated if too long)
+
+======================================
+FILE: C:/team/chym_aki/Pathology_model/results\03_clamlite_baseline\mil_cv_exp8_k32_ctranspath.json
+======================================
+{
+  "config": {
+    "tag": "exp8_k32",
+    "model": "CLAM-lite",
+    "topk": 32,
+    "encoder": "ctranspath",
+    "embed_dim": 768,
+    "mags": "10",
+    "patch": 512,
+    "seed": 42,
+    "epochs": 40,
+    "lr": 0.0001,
+    "wd": 0.0001,
+    "device": "cpu",
+    "cohort": 74,
+    "labels": {
+      "immune": 44,
+      "chronic": 54,
+      "stage3": 70,
+      "ati_severity": 70
+    },
+    "silver": "unused",
+    "multiscale": "unused"
+  },
+  "tasks": {
+    "immune": {
+      "auroc": 0.462,
+      "auroc_ci95": [
+        0.283,
+        0.65
+      ],
+      "pr_auc": 0.328,
+      "pr_auc_ci95": [
+        0.192,
+        0.566
+      ],
+      "f1": 0.258,
+      "balanced_acc": 0.426,
+      "n": 44,
+      "n_pos": 14,
+      "per_fold_auroc": [
+        0.533,
+        0.167,
+        0.556,
+        0.722,
+        0.429
+      ]
+    },
+    "chronic": {
+      "auroc": 0.691,
+      "auroc_ci95": [
+        0.464,
+        0.865
+      ],
+      "pr_auc": 0.435,
+      "pr_auc_ci95": [
+        0.164,
+       
+... (truncated if too long)
+
+======================================
+FILE: C:/team/chym_aki/Pathology_model/results\03_clamlite_baseline\mil_cv_exp8_k8_ctranspath.json
+======================================
+{
+  "config": {
+    "tag": "exp8_k8",
+    "model": "CLAM-lite",
+    "topk": 8,
+    "encoder": "ctranspath",
+    "embed_dim": 768,
+    "mags": "10",
+    "patch": 512,
+    "seed": 42,
+    "epochs": 40,
+    "lr": 0.0001,
+    "wd": 0.0001,
+    "device": "cpu",
+    "cohort": 74,
+    "labels": {
+      "immune": 44,
+      "chronic": 54,
+      "stage3": 70,
+      "ati_severity": 70
+    },
+    "silver": "unused",
+    "multiscale": "unused"
+  },
+  "tasks": {
+    "immune": {
+      "auroc": 0.629,
+      "auroc_ci95": [
+        0.448,
+        0.788
+      ],
+      "pr_auc": 0.464,
+      "pr_auc_ci95": [
+        0.264,
+        0.705
+      ],
+      "f1": 0.333,
+      "balanced_acc": 0.495,
+      "n": 44,
+      "n_pos": 14,
+      "per_fold_auroc": [
+        0.6,
+        1.0,
+        0.5,
+        0.5,
+        0.714
+      ]
+    },
+    "chronic": {
+      "auroc": 0.611,
+      "auroc_ci95": [
+        0.388,
+        0.832
+      ],
+      "pr_auc": 0.336,
+      "pr_auc_ci95": [
+        0.133,
+        0.653
+  
+... (truncated if too long)
+
+======================================
+FILE: C:/team/chym_aki/Pathology_model/results\04_taskattn\exp9_robustness_exp7_cons_attn_ctranspath.json
+======================================
+{
+  "tag": "exp7_cons_attn",
+  "encoder": "ctranspath",
+  "A_phenotype_separation": {
+    "auroc": 0.632,
+    "n_chronic": 10,
+    "n_acute": 44,
+    "mean_score_chronic": 0.33,
+    "mean_score_acute": 0.224,
+    "score_gap": 0.106
+  },
+  "B_fibrosis_stress": {
+    "ati_severity": {
+      "acute": {
+        "n": 41,
+        "mean_pred": 0.775,
+        "mean_true": 0.854,
+        "mean_abs_err": 0.292
+      },
+      "chronic": {
+        "n": 9,
+        "mean_pred": 0.86,
+        "mean_true": 0.611,
+        "mean_abs_err": 0.371
+      }
+    },
+    "stage3": {
+      "acute": {
+        "n": 41,
+        "mean_pred": 0.594,
+        "mean_true": 0.756,
+        "mean_abs_err": 0.513
+      },
+      "chronic": {
+        "n": 9,
+        "mean_pred": 0.751,
+        "mean_true": 0.333,
+        "mean_abs_err": 0.657
+      }
+    }
+  },
+  "C_attention_entropy": {
+    "note": "정규화 엔트로피(0~1, 1=완전분산). 미학습 init 비교 — 안정성 상대지표.",
+    "silver_off": {
+      "acute": 1.0,
+      "chronic": 1.0
+    },
+    "silve
+... (truncated if too long)
+
+======================================
+FILE: C:/team/chym_aki/Pathology_model/results\04_taskattn\taskattn_summary.json
+======================================
+{
+  "32-10034": {
+    "group": "chronic_pos",
+    "dx": "Diabetic Kidney Disease",
+    "tasks": {
+      "immune": {
+        "raw_contrib": {
+          "HE": 0.0133,
+          "PAS": 0.0,
+          "MT": 0.9867
+        },
+        "norm_contrib": {
+          "HE": 0.000296,
+          "PAS": 0.0,
+          "MT": 0.041111
+        },
+        "attn_entropy": 0.604,
+        "top10": [
+          {
+            "stain": "MT",
+            "x": 6656,
+            "y": 9728,
+            "attention": 0.1458
+          },
+          {
+            "stain": "MT",
+            "x": 3072,
+            "y": 3072,
+            "attention": 0.1371
+          },
+          {
+            "stain": "MT",
+            "x": 3584,
+            "y": 2048,
+            "attention": 0.1302
+          },
+          {
+            "stain": "MT",
+            "x": 3072,
+            "y": 2560,
+            "attention": 0.1071
+          },
+          {
+            "stain": "MT",
+            "x": 4608,
+            "y": 11264,
+            "
+... (truncated if too long)
+
+======================================
+FILE: C:/team/chym_aki/Pathology_model/results\05_diag_collapse\collapse_diagnosis.json
+======================================
+{
+  "baseline": {
+    "immune": {
+      "auroc": 0.612,
+      "auprc": 0.442,
+      "mean_entropy": 0.651,
+      "mean_top1": 0.256,
+      "n_pos": 14,
+      "n": 44
+    },
+    "chronic": {
+      "auroc": 0.661,
+      "auprc": 0.346,
+      "mean_entropy": 0.733,
+      "mean_top1": 0.191,
+      "n_pos": 10,
+      "n": 54
+    },
+    "stage3": {
+      "auroc": 0.392,
+      "auprc": 0.592,
+      "mean_entropy": 0.812,
+      "mean_top1": 0.174,
+      "n_pos": 45,
+      "n": 70
+    }
+  },
+  "entropy_stats": {
+    "immune": {
+      "mean": 0.651,
+      "std": 0.156,
+      "min": 0.272,
+      "max": 0.998,
+      "mean_pos": 0.672,
+      "mean_neg": 0.641,
+      "mean_entropy_correct": 0.665,
+      "mean_entropy_wrong": 0.624
+    },
+    "chronic": {
+      "mean": 0.733,
+      "std": 0.128,
+      "min": 0.487,
+      "max": 0.945,
+      "mean_pos": 0.727,
+      "mean_neg": 0.734,
+      "mean_entropy_correct": 0.734,
+      "mean_entropy_wrong": 0.732
+    },
+    "stage3": {
+      "mean": 0.812,
+   
+... (truncated if too long)
+
+======================================
+FILE: C:/team/chym_aki/Pathology_model/results\05_diag_collapse\entropy_sweep.json
+======================================
+{
+  "lambda=0.0": {
+    "immune": {
+      "auroc": 0.612,
+      "auprc": 0.442,
+      "mean_entropy": 0.651
+    },
+    "chronic": {
+      "auroc": 0.661,
+      "auprc": 0.346,
+      "mean_entropy": 0.733
+    },
+    "stage3": {
+      "auroc": 0.392,
+      "auprc": 0.592,
+      "mean_entropy": 0.812
+    }
+  },
+  "lambda=0.001": {
+    "immune": {
+      "auroc": 0.598,
+      "auprc": 0.422,
+      "mean_entropy": 0.603
+    },
+    "chronic": {
+      "auroc": 0.693,
+      "auprc": 0.334,
+      "mean_entropy": 0.688
+    },
+    "stage3": {
+      "auroc": 0.39,
+      "auprc": 0.59,
+      "mean_entropy": 0.808
+    }
+  },
+  "lambda=0.005": {
+    "immune": {
+      "auroc": 0.602,
+      "auprc": 0.427,
+      "mean_entropy": 0.604
+    },
+    "chronic": {
+      "auroc": 0.705,
+      "auprc": 0.34,
+      "mean_entropy": 0.689
+    },
+    "stage3": {
+      "auroc": 0.396,
+      "auprc": 0.592,
+      "mean_entropy": 0.809
+    }
+  },
+  "lambda=0.01": {
+    "immune": {
+      "auroc": 0.598,
+      "auprc": 0
+... (truncated if too long)
+
+======================================
+FILE: C:/team/chym_aki/Pathology_model/results\05_diag_collapse\temperature_sweep.json
+======================================
+{
+  "T=1.0": {
+    "immune": {
+      "auroc": 0.612,
+      "auprc": 0.442,
+      "mean_entropy": 0.651
+    },
+    "chronic": {
+      "auroc": 0.661,
+      "auprc": 0.346,
+      "mean_entropy": 0.733
+    },
+    "stage3": {
+      "auroc": 0.392,
+      "auprc": 0.592,
+      "mean_entropy": 0.812
+    }
+  },
+  "T=1.5": {
+    "immune": {
+      "auroc": 0.621,
+      "auprc": 0.453,
+      "mean_entropy": 0.737
+    },
+    "chronic": {
+      "auroc": 0.698,
+      "auprc": 0.365,
+      "mean_entropy": 0.796
+    },
+    "stage3": {
+      "auroc": 0.398,
+      "auprc": 0.594,
+      "mean_entropy": 0.861
+    }
+  },
+  "T=2.0": {
+    "immune": {
+      "auroc": 0.636,
+      "auprc": 0.472,
+      "mean_entropy": 0.8
+    },
+    "chronic": {
+      "auroc": 0.67,
+      "auprc": 0.349,
+      "mean_entropy": 0.856
+    },
+    "stage3": {
+      "auroc": 0.397,
+      "auprc": 0.594,
+      "mean_entropy": 0.892
+    }
+  },
+  "T=3.0": {
+    "immune": {
+      "auroc": 0.64,
+      "auprc": 0.475,
+      "mean_entropy"
+... (truncated if too long)
+
+======================================
+FILE: C:/team/chym_aki/Pathology_model/results\06_data_limitation\bootstrap_ci.json
+======================================
+{
+  "immune": {
+    "n": 44,
+    "n_pos": 14,
+    "AUROC": {
+      "point": 0.648,
+      "ci95": [
+        0.455,
+        0.839
+      ]
+    },
+    "AUPRC": {
+      "point": 0.457,
+      "ci95": [
+        0.27,
+        0.754
+      ]
+    }
+  },
+  "chronic": {
+    "n": 54,
+    "n_pos": 10,
+    "AUROC": {
+      "point": 0.618,
+      "ci95": [
+        0.427,
+        0.79
+      ]
+    },
+    "AUPRC": {
+      "point": 0.271,
+      "ci95": [
+        0.138,
+        0.529
+      ]
+    }
+  },
+  "stage3": {
+    "n": 50,
+    "n_pos": 34,
+    "AUROC": {
+      "point": 0.579,
+      "ci95": [
+        0.353,
+        0.789
+      ]
+    },
+    "AUPRC": {
+      "point": 0.683,
+      "ci95": [
+        0.545,
+        0.882
+      ]
+    }
+  }
+}
+... (truncated if too long)
+
+======================================
+FILE: C:/team/chym_aki/Pathology_model/results\06_data_limitation\data_limitation_report.json
+======================================
+{
+  "model": "TaskAttentionMIL(silver off), 고정",
+  "repeats": 20,
+  "attention_collapse": "이미 반증(diag_collapse): Top1<0.3, masking 무영향, temp 무효과",
+  "pooled_oof": {
+    "immune": {
+      "n_repeats": 20,
+      "auroc_mean": 0.623,
+      "auroc_std": 0.048,
+      "auroc_range": [
+        0.533,
+        0.712
+      ],
+      "auprc_mean": 0.451,
+      "auprc_std": 0.049,
+      "auprc_range": [
+        0.37,
+        0.555
+      ]
+    },
+    "chronic": {
+      "n_repeats": 20,
+      "auroc_mean": 0.669,
+      "auroc_std": 0.041,
+      "auroc_range": [
+        0.598,
+        0.743
+      ],
+      "auprc_mean": 0.325,
+      "auprc_std": 0.044,
+      "auprc_range": [
+        0.258,
+        0.406
+      ]
+    },
+    "stage3": {
+      "n_repeats": 20,
+      "auroc_mean": 0.565,
+      "auroc_std": 0.058,
+      "auroc_range": [
+        0.46,
+        0.676
+      ],
+      "auprc_mean": 0.734,
+      "auprc_std": 0.045,
+      "auprc_range": [
+        0.659,
+        0.812
+      ]
+    }
+  },
+  "bootstrap_
+... (truncated if too long)
+
+======================================
+FILE: C:/team/chym_aki/Pathology_model/results\06_data_limitation\fold_variance_correlation.json
+======================================
+{
+  "immune": {
+    "spearman_pos_vs_auprc": 0.113,
+    "pearson_pos_vs_auprc": 0.126,
+    "auprc_std_across_folds": 0.168,
+    "auprc_range": [
+      0.243,
+      0.917
+    ],
+    "mean_pos_per_fold": 2.8
+  },
+  "stage3": {
+    "spearman_pos_vs_auprc": 0.615,
+    "pearson_pos_vs_auprc": 0.659,
+    "auprc_std_across_folds": 0.158,
+    "auprc_range": [
+      0.363,
+      1.0
+    ],
+    "mean_pos_per_fold": 6.8
+  }
+}
+... (truncated if too long)
+
+======================================
+FILE: C:/team/chym_aki/Pathology_model/results\06_data_limitation\pooled_oof_metrics.json
+======================================
+{
+  "immune": {
+    "n_repeats": 20,
+    "auroc_mean": 0.623,
+    "auroc_std": 0.048,
+    "auroc_range": [
+      0.533,
+      0.712
+    ],
+    "auprc_mean": 0.451,
+    "auprc_std": 0.049,
+    "auprc_range": [
+      0.37,
+      0.555
+    ]
+  },
+  "chronic": {
+    "n_repeats": 20,
+    "auroc_mean": 0.669,
+    "auroc_std": 0.041,
+    "auroc_range": [
+      0.598,
+      0.743
+    ],
+    "auprc_mean": 0.325,
+    "auprc_std": 0.044,
+    "auprc_range": [
+      0.258,
+      0.406
+    ]
+  },
+  "stage3": {
+    "n_repeats": 20,
+    "auroc_mean": 0.565,
+    "auroc_std": 0.058,
+    "auroc_range": [
+      0.46,
+      0.676
+    ],
+    "auprc_mean": 0.734,
+    "auprc_std": 0.045,
+    "auprc_range": [
+      0.659,
+      0.812
+    ]
+  }
+}
+... (truncated if too long)
+
+======================================
+FILE: C:/team/chym_aki/Pathology_model/results\07_acquisition\additional_positive_capacity.json
+======================================
+{
+  "chronic_positive": {
+    "aki_full": 10,
+    "downloaded": 10,
+    "additional_available": 0,
+    "min_target": 30,
+    "rec_target": 50,
+    "gap_to_min": 20,
+    "achievable_within_aki": 0
+  },
+  "immune_positive": {
+    "aki_full": 14,
+    "downloaded": 14,
+    "additional_available": 0,
+    "min_target": 30,
+    "rec_target": 50,
+    "gap_to_min": 16,
+    "achievable_within_aki": 0
+  },
+  "note": "additional_available = AKI 전체 - 이미 다운로드. AKI 코호트 내 추가 여력."
+}
+... (truncated if too long)
+
+======================================
+FILE: C:/team/chym_aki/Pathology_model/results\07_acquisition\report_additional_acquisition.json
+======================================
+{
+  "aki_full_wsi_patients": 86,
+  "downloaded_patients": 83,
+  "overall_coverage_%": 96.5,
+  "diagnosis_distribution": {
+    "ATI": 31,
+    "AIN": 14,
+    "DKD": 9,
+    "HTN": 1,
+    "FSGS": 0,
+    "MCD": 0,
+    "IgAN": 0,
+    "MN": 0,
+    "기타/미분류": 31
+  },
+  "coverage_by_dx": {
+    "ATI": {
+      "full": 31,
+      "downloaded": 31,
+      "coverage_%": 100.0
+    },
+    "AIN": {
+      "full": 14,
+      "downloaded": 14,
+      "coverage_%": 100.0
+    },
+    "DKD": {
+      "full": 9,
+      "downloaded": 9,
+      "coverage_%": 100.0
+    },
+    "HTN": {
+      "full": 1,
+      "downloaded": 1,
+      "coverage_%": 100.0
+    },
+    "FSGS": {
+      "full": 0,
+      "downloaded": 0,
+      "coverage_%": 0.0
+    },
+    "MCD": {
+      "full": 0,
+      "downloaded": 0,
+      "coverage_%": 0.0
+    },
+    "IgAN": {
+      "full": 0,
+      "downloaded": 0,
+      "coverage_%": 0.0
+    },
+    "MN": {
+      "full": 0,
+      "downloaded": 0,
+      "coverage_%": 0.0
+    },
+    "기타/미분류": {
+      "full": 31,
+
+... (truncated if too long)
+
+======================================
+FILE: C:/team/chym_aki/Pathology_model/results\08_descriptor_prediction\descriptor_metrics.json
+======================================
+{
+  "config": {
+    "encoder": "ctranspath",
+    "mags": "10",
+    "stains": "HE/PAS/MT/Silver",
+    "model": "TaskAttentionMIL-5head",
+    "silver_mode": "prediction",
+    "seed": 42,
+    "epochs": 40,
+    "cohort": 65,
+    "labels": {
+      "immune": 44,
+      "tubulitis": 61,
+      "wbc_pct": 60,
+      "fibrosis_pct": 60,
+      "atrophy": 60
+    }
+  },
+  "tasks": {
+    "immune": {
+      "type": "clf",
+      "n": 44,
+      "n_pos": 14,
+      "AUROC": {
+        "point": 0.664,
+        "ci95": [
+          0.466,
+          0.842
+        ]
+      },
+      "AUPRC": {
+        "point": 0.516,
+        "ci95": [
+          0.308,
+          0.787
+        ]
+      },
+      "precision": 0.545,
+      "recall": 0.429,
+      "f1": 0.48,
+      "specificity": 0.833,
+      "npv": 0.758,
+      "balanced_acc": 0.631,
+      "confusion": {
+        "tn": 25,
+        "fp": 5,
+        "fn": 8,
+        "tp": 6
+      }
+    },
+    "tubulitis": {
+      "type": "clf",
+      "n": 61,
+      "n_pos": 12,
+      "AUROC":
+... (truncated if too long)
+
+======================================
+FILE: C:/team/chym_aki/Pathology_model/results\10_multiscale_ordinal\ms_ordinal_metrics.json
+======================================
+{
+  "config": {
+    "encoder": "ctranspath",
+    "scales": "10x+40x",
+    "model": "TaskAttn-MS-CORAL",
+    "stains": "HE/PAS/MT/Silver",
+    "seed": 42,
+    "epochs": 40,
+    "cohort": 66,
+    "labels": {
+      "immune": 44,
+      "tubulitis": 62,
+      "fibrosis": 61,
+      "atrophy": 61,
+      "inflammation": 61
+    },
+    "ordinal_dist": {
+      "fibrosis": {
+        "0.0": 17,
+        "1.0": 20,
+        "2.0": 13,
+        "3.0": 11
+      },
+      "atrophy": {
+        "0.0": 22,
+        "1.0": 23,
+        "2.0": 6,
+        "3.0": 10
+      },
+      "inflammation": {
+        "0.0": 29,
+        "1.0": 10,
+        "2.0": 11,
+        "3.0": 11
+      }
+    },
+    "banff_edges": {
+      "fibrosis": [
+        5,
+        25,
+        50
+      ],
+      "atrophy": [
+        5,
+        25,
+        50
+      ],
+      "inflammation": [
+        10,
+        25,
+        50
+      ]
+    }
+  },
+  "tasks": {
+    "immune": {
+      "type": "clf",
+      "n": 44,
+      "n_pos": 14,
+      "AUROC": {
+        "
+... (truncated if too long)
+
+======================================
+FILE: C:/team/chym_aki/Pathology_model/results\11_router_calibration\exp_margin_ensemble.json
+======================================
+{
+  "n": 61,
+  "full": {
+    "mean_err": 0.743,
+    "qwk": 0.48
+  },
+  "EXP1_margin": [
+    {
+      "coverage": 0.295,
+      "n": 18,
+      "mean_err": 0.574,
+      "qwk": 0.601
+    },
+    {
+      "coverage": 0.393,
+      "n": 24,
+      "mean_err": 0.639,
+      "qwk": 0.536
+    },
+    {
+      "coverage": 0.492,
+      "n": 30,
+      "mean_err": 0.689,
+      "qwk": 0.512
+    },
+    {
+      "coverage": 0.607,
+      "n": 37,
+      "mean_err": 0.685,
+      "qwk": 0.495
+    },
+    {
+      "coverage": 0.705,
+      "n": 43,
+      "mean_err": 0.752,
+      "qwk": 0.507
+    },
+    {
+      "coverage": 0.803,
+      "n": 49,
+      "mean_err": 0.714,
+      "qwk": 0.533
+    },
+    {
+      "coverage": 0.902,
+      "n": 55,
+      "mean_err": 0.752,
+      "qwk": 0.486
+    },
+    {
+      "coverage": 1.0,
+      "n": 61,
+      "mean_err": 0.743,
+      "qwk": 0.48
+    }
+  ],
+  "EXP2_ensemble": [
+    {
+      "coverage": 0.295,
+      "n": 18,
+      "mean_err": 0.741,
+      "qwk": 0.494
+    },
+    {
+      "cove
+... (truncated if too long)
+
+======================================
+FILE: C:/team/chym_aki/Pathology_model/results\11_router_calibration\recommended.json
+======================================
+{
+  "recommended_uncertainty_tau": 0.5,
+  "operating_point": {
+    "tau": 0.5,
+    "coverage": 1.0,
+    "n_allow": 61.0,
+    "mean_err_allow": 0.842,
+    "qwk_mean": 0.373
+  },
+  "full_cohort": {
+    "mean_err": 0.842,
+    "qwk_mean": 0.373,
+    "n": 61
+  },
+  "note": "coverage>=0.6 중 ALLOW셋 ordinal err 최소 운영점. abstain이 오차를 줄이면 uncertainty 게이트 유효.",
+  "qc_tau": 0.4,
+  "ord_conf_min": 0.4
+}
+... (truncated if too long)

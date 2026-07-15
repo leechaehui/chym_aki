@@ -1,0 +1,502 @@
+
+--- FILE: C:/team/chym_aki/Pathology_model/results\01_baseline_cv\oof_exp10main_ctranspath.csv ---
+ROWS: 238 | COLUMNS: ['task', 'patient_id', 'fold', 'y', 'p']
+FIRST 3 ROWS:
+     task patient_id  fold    y         p
+0  immune   30-10125     0  0.0  0.054921
+1  immune   30-11072     0  1.0  0.109842
+2  immune   30-11081     0  0.0  0.797875
+
+--- FILE: C:/team/chym_aki/Pathology_model/results\01_baseline_cv\oof_exp11_cons_ctranspath.csv ---
+ROWS: 238 | COLUMNS: ['task', 'patient_id', 'fold', 'y', 'p']
+FIRST 3 ROWS:
+     task patient_id  fold    y         p
+0  immune   30-10125     0  0.0  0.337762
+1  immune   30-11072     0  1.0  0.004747
+2  immune   30-11081     0  0.0  0.979843
+
+--- FILE: C:/team/chym_aki/Pathology_model/results\01_baseline_cv\oof_exp11_ctranspath.csv ---
+ROWS: 238 | COLUMNS: ['task', 'patient_id', 'fold', 'y', 'p']
+FIRST 3 ROWS:
+     task patient_id  fold    y         p
+0  immune   30-10125     0  0.0  0.672799
+1  immune   30-11072     0  1.0  0.004475
+2  immune   30-11081     0  0.0  0.979136
+
+--- FILE: C:/team/chym_aki/Pathology_model/results\01_baseline_cv\oof_exp1_HE_resnet50.csv ---
+ROWS: 220 | COLUMNS: ['task', 'patient_id', 'fold', 'y', 'p']
+FIRST 3 ROWS:
+     task patient_id  fold    y         p
+0  immune   30-10125     0  0.0  0.897110
+1  immune   30-11072     0  1.0  0.610172
+2  immune   30-11081     0  0.0  0.499446
+
+--- FILE: C:/team/chym_aki/Pathology_model/results\01_baseline_cv\oof_exp1_IF_resnet50.csv ---
+ROWS: 75 | COLUMNS: ['task', 'patient_id', 'fold', 'y', 'p']
+FIRST 3 ROWS:
+     task patient_id  fold    y         p
+0  immune   30-10125     0  0.0  0.557752
+1  immune   30-11081     0  0.0  0.591793
+2  immune   32-10333     0  0.0  0.164340
+
+--- FILE: C:/team/chym_aki/Pathology_model/results\01_baseline_cv\oof_exp1_MT_resnet50.csv ---
+ROWS: 217 | COLUMNS: ['task', 'patient_id', 'fold', 'y', 'p']
+FIRST 3 ROWS:
+     task patient_id  fold    y         p
+0  immune   30-10125     0  0.0  0.234268
+1  immune   30-11072     0  1.0  0.071148
+2  immune   30-11081     0  0.0  0.635368
+
+--- FILE: C:/team/chym_aki/Pathology_model/results\01_baseline_cv\oof_exp1_PAS_resnet50.csv ---
+ROWS: 230 | COLUMNS: ['task', 'patient_id', 'fold', 'y', 'p']
+FIRST 3 ROWS:
+     task patient_id  fold    y         p
+0  immune   30-10125     0  0.0  0.041771
+1  immune   30-11072     0  1.0  0.378357
+2  immune   30-11081     0  0.0  0.171516
+
+--- FILE: C:/team/chym_aki/Pathology_model/results\01_baseline_cv\oof_exp1_resnet50.csv ---
+ROWS: 238 | COLUMNS: ['task', 'patient_id', 'fold', 'y', 'p']
+FIRST 3 ROWS:
+     task patient_id  fold    y         p
+0  immune   30-10125     0  0.0  0.996216
+1  immune   30-11072     0  1.0  0.165785
+2  immune   30-11081     0  0.0  0.932422
+
+--- FILE: C:/team/chym_aki/Pathology_model/results\01_baseline_cv\oof_exp1_SILVER_resnet50.csv ---
+ROWS: 110 | COLUMNS: ['task', 'patient_id', 'fold', 'y', 'p']
+FIRST 3 ROWS:
+     task patient_id  fold    y         p
+0  immune   30-10125     0  0.0  0.978477
+1  immune   30-11072     0  1.0  0.018302
+2  immune   30-11081     0  0.0  0.106181
+
+--- FILE: C:/team/chym_aki/Pathology_model/results\01_baseline_cv\oof_exp2_ctranspath.csv ---
+ROWS: 238 | COLUMNS: ['task', 'patient_id', 'fold', 'y', 'p']
+FIRST 3 ROWS:
+     task patient_id  fold    y         p
+0  immune   30-10125     0  0.0  0.846297
+1  immune   30-11072     0  1.0  0.064930
+2  immune   30-11081     0  0.0  0.828185
+
+--- FILE: C:/team/chym_aki/Pathology_model/results\01_baseline_cv\oof_exp2_HE_ctranspath.csv ---
+ROWS: 220 | COLUMNS: ['task', 'patient_id', 'fold', 'y', 'p']
+FIRST 3 ROWS:
+     task patient_id  fold    y         p
+0  immune   30-10125     0  0.0  0.483172
+1  immune   30-11072     0  1.0  0.688371
+2  immune   30-11081     0  0.0  0.925688
+
+--- FILE: C:/team/chym_aki/Pathology_model/results\01_baseline_cv\oof_exp2_IF_ctranspath.csv ---
+ROWS: 75 | COLUMNS: ['task', 'patient_id', 'fold', 'y', 'p']
+FIRST 3 ROWS:
+     task patient_id  fold    y         p
+0  immune   30-10125     0  0.0  0.520622
+1  immune   30-11081     0  0.0  0.386912
+2  immune   32-10333     0  0.0  0.360984
+
+--- FILE: C:/team/chym_aki/Pathology_model/results\01_baseline_cv\oof_exp2_MT_ctranspath.csv ---
+ROWS: 217 | COLUMNS: ['task', 'patient_id', 'fold', 'y', 'p']
+FIRST 3 ROWS:
+     task patient_id  fold    y         p
+0  immune   30-10125     0  0.0  0.603145
+1  immune   30-11072     0  1.0  0.046772
+2  immune   30-11081     0  0.0  0.895016
+
+--- FILE: C:/team/chym_aki/Pathology_model/results\01_baseline_cv\oof_exp2_PAS_ctranspath.csv ---
+ROWS: 230 | COLUMNS: ['task', 'patient_id', 'fold', 'y', 'p']
+FIRST 3 ROWS:
+     task patient_id  fold    y         p
+0  immune   30-10125     0  0.0  0.442417
+1  immune   30-11072     0  1.0  0.152485
+2  immune   30-11081     0  0.0  0.751333
+
+--- FILE: C:/team/chym_aki/Pathology_model/results\01_baseline_cv\oof_exp2_SILVER_ctranspath.csv ---
+ROWS: 110 | COLUMNS: ['task', 'patient_id', 'fold', 'y', 'p']
+FIRST 3 ROWS:
+     task patient_id  fold    y         p
+0  immune   30-10125     0  0.0  0.891326
+1  immune   30-11072     0  1.0  0.316346
+2  immune   30-11081     0  0.0  0.481327
+
+--- FILE: C:/team/chym_aki/Pathology_model/results\01_baseline_cv\oof_exp3_dinov2.csv ---
+ROWS: 238 | COLUMNS: ['task', 'patient_id', 'fold', 'y', 'p']
+FIRST 3 ROWS:
+     task patient_id  fold    y         p
+0  immune   30-10125     0  0.0  0.988093
+1  immune   30-11072     0  1.0  0.002133
+2  immune   30-11081     0  0.0  0.092750
+
+--- FILE: C:/team/chym_aki/Pathology_model/results\01_baseline_cv\oof_exp3_HE_dinov2.csv ---
+ROWS: 220 | COLUMNS: ['task', 'patient_id', 'fold', 'y', 'p']
+FIRST 3 ROWS:
+     task patient_id  fold    y         p
+0  immune   30-10125     0  0.0  0.856320
+1  immune   30-11072     0  1.0  0.652404
+2  immune   30-11081     0  0.0  0.966032
+
+--- FILE: C:/team/chym_aki/Pathology_model/results\01_baseline_cv\oof_exp3_IF_dinov2.csv ---
+ROWS: 75 | COLUMNS: ['task', 'patient_id', 'fold', 'y', 'p']
+FIRST 3 ROWS:
+     task patient_id  fold    y         p
+0  immune   30-10125     0  0.0  0.996133
+1  immune   30-11081     0  0.0  0.913344
+2  immune   32-10333     0  0.0  0.006905
+
+--- FILE: C:/team/chym_aki/Pathology_model/results\01_baseline_cv\oof_exp3_MT_dinov2.csv ---
+ROWS: 217 | COLUMNS: ['task', 'patient_id', 'fold', 'y', 'p']
+FIRST 3 ROWS:
+     task patient_id  fold    y         p
+0  immune   30-10125     0  0.0  0.040287
+1  immune   30-11072     0  1.0  0.102283
+2  immune   30-11081     0  0.0  0.677523
+
+--- FILE: C:/team/chym_aki/Pathology_model/results\01_baseline_cv\oof_exp3_PAS_dinov2.csv ---
+ROWS: 230 | COLUMNS: ['task', 'patient_id', 'fold', 'y', 'p']
+FIRST 3 ROWS:
+     task patient_id  fold    y         p
+0  immune   30-10125     0  0.0  0.036476
+1  immune   30-11072     0  1.0  0.398770
+2  immune   30-11081     0  0.0  0.671199
+
+--- FILE: C:/team/chym_aki/Pathology_model/results\01_baseline_cv\oof_exp3_SILVER_dinov2.csv ---
+ROWS: 110 | COLUMNS: ['task', 'patient_id', 'fold', 'y', 'p']
+FIRST 3 ROWS:
+     task patient_id  fold    y         p
+0  immune   30-10125     0  0.0  0.995091
+1  immune   30-11072     0  1.0  0.027041
+2  immune   30-11081     0  0.0  0.316857
+
+--- FILE: C:/team/chym_aki/Pathology_model/results\01_baseline_cv\oof_exp5_ctranspath.csv ---
+ROWS: 244 | COLUMNS: ['task', 'patient_id', 'fold', 'y', 'p']
+FIRST 3 ROWS:
+     task patient_id  fold    y         p
+0  immune   30-10125     0  0.0  0.949155
+1  immune   30-11072     0  1.0  0.978797
+2  immune   30-11081     0  0.0  0.983867
+
+--- FILE: C:/team/chym_aki/Pathology_model/results\01_baseline_cv\oof_exp5_HE_ctranspath.csv ---
+ROWS: 232 | COLUMNS: ['task', 'patient_id', 'fold', 'y', 'p']
+FIRST 3 ROWS:
+     task patient_id  fold    y         p
+0  immune   30-10125     0  0.0  0.335139
+1  immune   30-11072     0  1.0  0.273935
+2  immune   30-11081     0  0.0  0.879649
+
+--- FILE: C:/team/chym_aki/Pathology_model/results\01_baseline_cv\oof_exp5_MT_ctranspath.csv ---
+ROWS: 223 | COLUMNS: ['task', 'patient_id', 'fold', 'y', 'p']
+FIRST 3 ROWS:
+     task patient_id  fold    y         p
+0  immune   30-10125     0  0.0  0.036037
+1  immune   30-11072     0  1.0  0.665240
+2  immune   30-11081     0  0.0  0.904758
+
+--- FILE: C:/team/chym_aki/Pathology_model/results\01_baseline_cv\oof_exp5_PAS_ctranspath.csv ---
+ROWS: 236 | COLUMNS: ['task', 'patient_id', 'fold', 'y', 'p']
+FIRST 3 ROWS:
+     task patient_id  fold    y         p
+0  immune   30-10125     0  0.0  0.282527
+1  immune   30-11072     0  1.0  0.166493
+2  immune   30-11081     0  0.0  0.795609
+
+--- FILE: C:/team/chym_aki/Pathology_model/results\01_baseline_cv\oof_exp6_ctranspath.csv ---
+ROWS: 244 | COLUMNS: ['task', 'patient_id', 'fold', 'y', 'p']
+FIRST 3 ROWS:
+     task patient_id  fold    y         p
+0  immune   30-10125     0  0.0  0.082589
+1  immune   30-11072     0  1.0  0.359520
+2  immune   30-11081     0  0.0  0.931075
+
+--- FILE: C:/team/chym_aki/Pathology_model/results\01_baseline_cv\eval\exp10main_ctranspath_errors.csv ---
+ROWS: 64 | COLUMNS: ['task', 'patient_id', 'y', 'p', 'pred', 'adjudication']
+FIRST 3 ROWS:
+     task patient_id  y      p  pred                  adjudication
+0  immune   30-11072  1  0.110     0  Acute Interstitial Nephritis
+1  immune   30-11081  0  0.798     1          Acute Tubular Injury
+2  immune   32-10456  1  0.452     0  Acute Interstitial Nephritis
+
+--- FILE: C:/team/chym_aki/Pathology_model/results\01_baseline_cv\eval\exp5_ctranspath_errors.csv ---
+ROWS: 53 | COLUMNS: ['task', 'patient_id', 'y', 'p', 'pred', 'adjudication']
+FIRST 3 ROWS:
+     task patient_id  y      p  pred          adjudication
+0  immune   30-10125  0  0.949     1  Acute Tubular Injury
+1  immune   30-11081  0  0.984     1  Acute Tubular Injury
+2  immune   30-11154  0  0.739     1  Acute Tubular Injury
+
+--- FILE: C:/team/chym_aki/Pathology_model/results\01_baseline_cv\eval\exp6_ctranspath_errors.csv ---
+ROWS: 58 | COLUMNS: ['task', 'patient_id', 'y', 'p', 'pred', 'adjudication']
+FIRST 3 ROWS:
+     task patient_id  y      p  pred                  adjudication
+0  immune   30-11072  1  0.360     0  Acute Interstitial Nephritis
+1  immune   30-11081  0  0.931     1          Acute Tubular Injury
+2  immune   34-10331  1  0.244     0  Acute Interstitial Nephritis
+
+--- FILE: C:/team/chym_aki/Pathology_model/results\02_silver_ablation\oof_exp7_cons_attn_ctranspath.csv ---
+ROWS: 238 | COLUMNS: ['task', 'patient_id', 'fold', 'y', 'p']
+FIRST 3 ROWS:
+     task patient_id  fold    y         p
+0  immune   30-10125     0  0.0  0.409547
+1  immune   30-11072     0  1.0  0.059676
+2  immune   30-11081     0  0.0  0.744348
+
+--- FILE: C:/team/chym_aki/Pathology_model/results\02_silver_ablation\oof_exp7_cons_ctranspath.csv ---
+ROWS: 238 | COLUMNS: ['task', 'patient_id', 'fold', 'y', 'p']
+FIRST 3 ROWS:
+     task patient_id  fold    y         p
+0  immune   30-10125     0  0.0  0.375723
+1  immune   30-11072     0  1.0  0.053689
+2  immune   30-11081     0  0.0  0.748283
+
+--- FILE: C:/team/chym_aki/Pathology_model/results\02_silver_ablation\oof_exp7_off_ctranspath.csv ---
+ROWS: 238 | COLUMNS: ['task', 'patient_id', 'fold', 'y', 'p']
+FIRST 3 ROWS:
+     task patient_id  fold    y         p
+0  immune   30-10125     0  0.0  0.036497
+1  immune   30-11072     0  1.0  0.106315
+2  immune   30-11081     0  0.0  0.805684
+
+--- FILE: C:/team/chym_aki/Pathology_model/results\03_clamlite_baseline\oof_exp8_ctranspath.csv ---
+ROWS: 238 | COLUMNS: ['task', 'patient_id', 'fold', 'y', 'p']
+FIRST 3 ROWS:
+     task patient_id  fold    y         p
+0  immune   30-10125     0  0.0  0.620170
+1  immune   30-11072     0  1.0  0.077980
+2  immune   30-11081     0  0.0  0.635048
+
+--- FILE: C:/team/chym_aki/Pathology_model/results\03_clamlite_baseline\oof_exp8_k32_ctranspath.csv ---
+ROWS: 238 | COLUMNS: ['task', 'patient_id', 'fold', 'y', 'p']
+FIRST 3 ROWS:
+     task patient_id  fold    y         p
+0  immune   30-10125     0  0.0  0.581039
+1  immune   30-11072     0  1.0  0.157784
+2  immune   30-11081     0  0.0  0.643848
+
+--- FILE: C:/team/chym_aki/Pathology_model/results\03_clamlite_baseline\oof_exp8_k8_ctranspath.csv ---
+ROWS: 238 | COLUMNS: ['task', 'patient_id', 'fold', 'y', 'p']
+FIRST 3 ROWS:
+     task patient_id  fold    y         p
+0  immune   30-10125     0  0.0  0.636924
+1  immune   30-11072     0  1.0  0.287585
+2  immune   30-11081     0  0.0  0.672042
+
+--- FILE: C:/team/chym_aki/Pathology_model/results\04_taskattn\taskattn_top_patches.csv ---
+ROWS: 544 | COLUMNS: ['patient_id', 'group', 'dx', 'task', 'stain', 'tile_x', 'tile_y', 'attention', 'rank']
+FIRST 3 ROWS:
+  patient_id        group                       dx    task stain  tile_x  tile_y  attention  rank
+0   32-10034  chronic_pos  Diabetic Kidney Disease  immune    MT    6656    9728   0.145799     1
+1   32-10034  chronic_pos  Diabetic Kidney Disease  immune    MT    3072    3072   0.137095     2
+2   32-10034  chronic_pos  Diabetic Kidney Disease  immune    MT    3584    2048   0.130183     3
+
+--- FILE: C:/team/chym_aki/Pathology_model/results\05_diag_collapse\diag_auprc_fold.csv ---
+ROWS: 15 | COLUMNS: ['task', 'fold', 'pos', 'neg', 'auroc', 'auprc', 'precision', 'recall', 'f1', 'mean_entropy']
+FIRST 3 ROWS:
+     task  fold  pos  neg  auroc  auprc  precision  recall     f1  mean_entropy
+0  immune     0    3    5  0.467  0.443      0.333   0.333  0.333         0.493
+1  immune     1    3    6  0.778  0.700      0.500   0.667  0.571         0.686
+2  immune     2    3    6  0.556  0.443      0.333   0.333  0.333         0.644
+
+--- FILE: C:/team/chym_aki/Pathology_model/results\05_diag_collapse\diag_entropy.csv ---
+ROWS: 168 | COLUMNS: ['task', 'patient_id', 'fold', 'label', 'pred', 'entropy', 'correct']
+FIRST 3 ROWS:
+     task patient_id  fold  label    pred  entropy  correct
+0  immune   30-10125     0      0  0.6728   0.6371        0
+1  immune   30-11072     0      1  0.0045   0.4184        0
+2  immune   30-11081     0      0  0.9791   0.5214        0
+
+--- FILE: C:/team/chym_aki/Pathology_model/results\05_diag_collapse\diag_top_patch.csv ---
+ROWS: 3 | COLUMNS: ['task', 'top1_ratio', 'top5_ratio', 'top10_ratio', 'collapse_suspect']
+FIRST 3 ROWS:
+      task  top1_ratio  top5_ratio  top10_ratio  collapse_suspect
+0   immune       0.256       0.586        0.727             False
+1  chronic       0.191       0.452        0.601             False
+2   stage3       0.174       0.414        0.556             False
+
+--- FILE: C:/team/chym_aki/Pathology_model/results\06_data_limitation\fold_variance.csv ---
+ROWS: 300 | COLUMNS: ['repeat', 'seed', 'fold', 'task', 'pos', 'neg', 'AUROC', 'AUPRC', 'F1', 'Precision', 'Recall']
+FIRST 3 ROWS:
+   repeat  seed  fold     task  pos  neg  AUROC  AUPRC     F1  Precision  Recall
+0       0    42     0   immune    3    6  0.833  0.756  0.500       1.00   0.333
+1       0    42     0  chronic    2    9  0.500  0.250  0.333       0.25   0.500
+2       0    42     0   stage3    8    2  0.250  0.789  0.750       0.75   0.750
+
+--- FILE: C:/team/chym_aki/Pathology_model/results\06_data_limitation\repeated_cv_summary.csv ---
+ROWS: 300 | COLUMNS: ['repeat', 'seed', 'fold', 'task', 'pos', 'neg', 'AUROC', 'AUPRC', 'F1', 'Precision', 'Recall']
+FIRST 3 ROWS:
+   repeat  seed  fold     task  pos  neg  AUROC  AUPRC     F1  Precision  Recall
+0       0    42     0   immune    3    6  0.833  0.756  0.500       1.00   0.333
+1       0    42     0  chronic    2    9  0.500  0.250  0.333       0.25   0.500
+2       0    42     0   stage3    8    2  0.250  0.789  0.750       0.75   0.750
+
+--- FILE: C:/team/chym_aki/Pathology_model/results\06_data_limitation\umap_coords.csv ---
+ROWS: 49 | COLUMNS: ['patient_id', 'dx', 'x', 'y']
+FIRST 3 ROWS:
+  patient_id                            dx         x         y
+0   32-10296          Acute Tubular Injury  0.115895 -4.855347
+1   30-10018  Acute Interstitial Nephritis -2.662329 -1.933841
+2   30-10034          Acute Tubular Injury -0.882203 -3.513690
+
+--- FILE: C:/team/chym_aki/Pathology_model/results\07_acquisition\aki_full_diagnosis_distribution.csv ---
+ROWS: 9 | COLUMNS: ['diagnosis', 'aki_full_patients']
+FIRST 3 ROWS:
+  diagnosis  aki_full_patients
+0       ATI                 31
+1       AIN                 14
+2       DKD                  9
+
+--- FILE: C:/team/chym_aki/Pathology_model/results\07_acquisition\diagnosis_coverage.csv ---
+ROWS: 9 | COLUMNS: ['diagnosis', 'full', 'downloaded', 'coverage_%']
+FIRST 3 ROWS:
+  diagnosis  full  downloaded  coverage_%
+0       ATI    31          31       100.0
+1       AIN    14          14       100.0
+2       DKD     9           9       100.0
+
+--- FILE: C:/team/chym_aki/Pathology_model/results\07_acquisition\storage_projection.csv ---
+ROWS: 5 | COLUMNS: ['scenario', 'downloaded', 'target', 'needed_patients', 'available_in_aki', 'feasible_patients', 'needed_GB_if_existed', 'feasible_GB_in_aki', 'feasible']
+FIRST 3 ROWS:
+        scenario  downloaded  target  needed_patients  available_in_aki  feasible_patients  needed_GB_if_existed  feasible_GB_in_aki  feasible
+0  A: DKD/HTN 30          10      30               20                 0                  0                  12.0                 0.0     False
+1  B: DKD/HTN 50          10      50               40                 0                  0                  24.1                 0.0     False
+2      C: AIN 30          14      30               16                 0                  0                   9.6                 0.0     False
+
+--- FILE: C:/team/chym_aki/Pathology_model/results\08_descriptor_prediction\descriptor_oof.csv ---
+ROWS: 285 | COLUMNS: ['task', 'patient_id', 'y', 'p']
+FIRST 3 ROWS:
+     task patient_id    y         p
+0  immune   30-10929  1.0  0.932428
+1  immune   30-11033  0.0  0.027073
+2  immune   30-11101  0.0  0.048690
+
+--- FILE: C:/team/chym_aki/Pathology_model/results\10_multiscale_ordinal\ms_ordinal_oof.csv ---
+ROWS: 289 | COLUMNS: ['task', 'patient_id', 'y', 'p']
+FIRST 3 ROWS:
+     task patient_id  y         p
+0  immune   30-10929  1  0.963328
+1  immune   30-11033  0  0.011810
+2  immune   30-11101  0  0.008878
+
+--- FILE: C:/team/chym_aki/Pathology_model/results\11_router_calibration\exp_margin_ensemble_oof.csv ---
+ROWS: 61 | COLUMNS: ['patient_id', 'fibrosis_y', 'fibrosis_pred', 'atrophy_y', 'atrophy_pred', 'inflammation_y', 'inflammation_pred', 'unc_margin', 'unc_ensemble', 'mean_err']
+FIRST 3 ROWS:
+  patient_id  fibrosis_y  fibrosis_pred  atrophy_y  atrophy_pred  inflammation_y  inflammation_pred  unc_margin  unc_ensemble  mean_err
+0   30-10125         0.0              3        0.0             1             0.0                  1    0.508977      0.396517  1.666667
+1   30-10929         3.0              3        3.0             3             3.0                  2    0.188859      0.000000  0.333333
+2   30-11090         1.0              2        1.0             1             0.0                  0    0.410301      0.197755  0.333333
+
+--- FILE: C:/team/chym_aki/Pathology_model/results\11_router_calibration\oof_uncertainty.csv ---
+ROWS: 61 | COLUMNS: ['patient_id', 'fibrosis_y', 'fibrosis_pred', 'fibrosis_err', 'fibrosis_u', 'atrophy_y', 'atrophy_pred', 'atrophy_err', 'atrophy_u', 'inflammation_y', 'inflammation_pred', 'inflammation_err', 'inflammation_u', 'overall_unc', 'mean_err']
+FIRST 3 ROWS:
+  patient_id  fibrosis_y  fibrosis_pred  fibrosis_err  fibrosis_u  atrophy_y  atrophy_pred  atrophy_err  atrophy_u  inflammation_y  inflammation_pred  inflammation_err  inflammation_u  overall_unc  mean_err
+0   30-10125         0.0              3           3.0    0.416870        0.0             2          2.0   0.490263             0.0                  2               2.0        0.539614     0.482249  2.333333
+1   30-10929         3.0              3           0.0    0.371303        3.0             3          0.0   0.334257             3.0                  2               1.0        0.325233     0.343598  0.333333
+2   30-11090         1.0              2           1.0    0.382174        1.0             2          1.0   0.464790             0.0                  0               0.0        0.468484     0.438483  0.666667
+
+--- FILE: C:/team/chym_aki/Pathology_model/results\11_router_calibration\risk_coverage.csv ---
+ROWS: 12 | COLUMNS: ['tau', 'coverage', 'n_allow', 'mean_err_allow', 'qwk_mean', 'fibrosis', 'atrophy', 'inflammation']
+FIRST 3 ROWS:
+    tau  coverage  n_allow  mean_err_allow  qwk_mean  fibrosis  atrophy  inflammation
+0  0.30     0.115        7           1.286    -0.047     0.267   -0.064        -0.343
+1  0.35     0.279       17           0.784     0.487     0.620    0.399         0.443
+2  0.40     0.656       40           0.850     0.426     0.420    0.321         0.537
+
+--- FILE: C:/team/chym_aki/data/eval\attention\ati_eval_metrics.csv ---
+ROWS: 2 | COLUMNS: ['model', 'N', 'Spearman', 'MAE(%pt)', 'RMSE(%pt)', 'Calib_ECE(%pt)', 'PI95_coverage(%)']
+FIRST 3 ROWS:
+              model   N  Spearman  MAE(%pt)  RMSE(%pt)  Calib_ECE(%pt)  PI95_coverage(%)
+0  KDIGO proxy (기존)  56    -0.143     27.52      32.90           17.74               NaN
+1     real ATI (신규)  56     0.080     21.65      29.06           11.33              53.6
+
+--- FILE: C:/team/chym_aki/data/eval\attention\ati_exp_224_vs_512.csv ---
+ROWS: 3 | COLUMNS: ['mode', 'N_224', 'Spearman_224', 'QWK_224', 'MAE_224', 'N_512', 'Spearman_512', 'QWK_512', 'MAE_512']
+FIRST 3 ROWS:
+         mode  N_224  Spearman_224  QWK_224  MAE_224  N_512  Spearman_512  QWK_512  MAE_512
+0  regression     78         0.023    0.011    1.205     77        -0.027   -0.027    1.221
+1       coral     78        -0.257   -0.089    1.154     77        -0.182   -0.185    1.247
+2    coral_mt     78        -0.157   -0.102    1.192     77        -0.214   -0.120    1.117
+
+--- FILE: C:/team/chym_aki/data/eval\attention\ati_exp_compare.csv ---
+ROWS: 3 | COLUMNS: ['mode', 'N', 'Spearman_vs_true%', 'QWK_5class', 'MAE_class', 'aux_auroc']
+FIRST 3 ROWS:
+         mode   N  Spearman_vs_true%  QWK_5class  MAE_class                                                                                                        aux_auroc
+0  regression  78              0.023       0.011      1.205                                                                                                              NaN
+1       coral  78             -0.257      -0.089      1.154                                                                                                              NaN
+2    coral_mt  78             -0.157      -0.102      1.192  {'ti_simplification': 0.505, 'ti_cell_sloughing': 0.516, 'ti_detachment_denudation': 0.384, 'tubulitis': 0.793}
+
+--- FILE: C:/team/chym_aki/data/eval\attention\ati_exp_compare_N78.csv ---
+ROWS: 3 | COLUMNS: ['mode', 'N', 'Spearman_vs_true%', 'QWK_5class', 'MAE_class', 'aux_auroc']
+FIRST 3 ROWS:
+         mode   N  Spearman_vs_true%  QWK_5class  MAE_class                                                                                                        aux_auroc
+0  regression  78              0.023       0.011      1.205                                                                                                              NaN
+1       coral  78             -0.257      -0.089      1.154                                                                                                              NaN
+2    coral_mt  78             -0.157      -0.102      1.192  {'ti_simplification': 0.505, 'ti_cell_sloughing': 0.516, 'ti_detachment_denudation': 0.384, 'tubulitis': 0.793}
+
+--- FILE: C:/team/chym_aki/data/eval\attention\ati_exp_compare_s512.csv ---
+ROWS: 3 | COLUMNS: ['mode', 'N', 'Spearman_vs_true%', 'QWK_5class', 'MAE_class', 'aux_auroc']
+FIRST 3 ROWS:
+         mode   N  Spearman_vs_true%  QWK_5class  MAE_class                                                                                                      aux_auroc
+0  regression  77             -0.027      -0.027      1.221                                                                                                            NaN
+1       coral  77             -0.182      -0.185      1.247                                                                                                            NaN
+2    coral_mt  77             -0.214      -0.120      1.117  {'ti_simplification': 0.607, 'ti_cell_sloughing': 0.533, 'ti_detachment_denudation': 0.239, 'tubulitis': 0.8}
+
+--- FILE: C:/team/chym_aki/data/eval\attention\ati_exp_oof_coral.csv ---
+ROWS: 78 | COLUMNS: ['patient_id', 'fold', 'ati_true', 'ati_cls', 'pred_cont', 'pred_cls']
+FIRST 3 ROWS:
+  patient_id  fold  ati_true  ati_cls  pred_cont  pred_cls
+0   30-10125     0       5.0        0   1.677274         2
+1   30-11091     0      30.0        2   1.647017         2
+2   30-11093     0      50.0        3   1.771877         1
+
+--- FILE: C:/team/chym_aki/data/eval\attention\ati_exp_oof_coral_mt.csv ---
+ROWS: 78 | COLUMNS: ['patient_id', 'fold', 'ati_true', 'ati_cls', 'pred_cont', 'pred_cls', 'p_ti_simplification', 'y_ti_simplification', 'p_ti_cell_sloughing', 'y_ti_cell_sloughing', 'p_ti_detachment_denudation', 'y_ti_detachment_denudation', 'p_tubulitis', 'y_tubulitis']
+FIRST 3 ROWS:
+  patient_id  fold  ati_true  ati_cls  pred_cont  pred_cls  p_ti_simplification  y_ti_simplification  p_ti_cell_sloughing  y_ti_cell_sloughing  p_ti_detachment_denudation  y_ti_detachment_denudation  p_tubulitis  y_tubulitis
+0   30-10125     0       5.0        0   1.701205         1             0.872320                  1.0             0.654325                  1.0                    0.070004                         0.0     0.125397          0.0
+1   30-11091     0      30.0        2   1.887189         2             0.859838                  0.0             0.875809                  0.0                    0.155665                         0.0     0.070218          1.0
+2   30-11093     0      50.0        3   1.869720         1             0.862822                  1.0             0.845960                  1.0                    0.080127                         0.0     0.352444          0.0
+
+--- FILE: C:/team/chym_aki/data/eval\attention\ati_exp_oof_coral_mt_s512.csv ---
+ROWS: 77 | COLUMNS: ['patient_id', 'fold', 'ati_true', 'ati_cls', 'pred_cont', 'pred_cls', 'p_ti_simplification', 'y_ti_simplification', 'p_ti_cell_sloughing', 'y_ti_cell_sloughing', 'p_ti_detachment_denudation', 'y_ti_detachment_denudation', 'p_tubulitis', 'y_tubulitis']
+FIRST 3 ROWS:
+  patient_id  fold  ati_true  ati_cls  pred_cont  pred_cls  p_ti_simplification  y_ti_simplification  p_ti_cell_sloughing  y_ti_cell_sloughing  p_ti_detachment_denudation  y_ti_detachment_denudation  p_tubulitis  y_tubulitis
+0   30-10125     0       5.0        0   1.460423         1             0.913140                  1.0             0.620044                  1.0                    0.043979                         0.0     0.117728          0.0
+1   30-11091     0      30.0        2   1.776996         2             0.879307                  0.0             0.647375                  0.0                    0.113309                         0.0     0.240029          1.0
+2   30-11093     0      50.0        3   1.797953         2             0.869860                  1.0             0.816826                  1.0                    0.106512                         0.0     0.131130          0.0
+
+--- FILE: C:/team/chym_aki/data/eval\attention\ati_exp_oof_coral_s512.csv ---
+ROWS: 77 | COLUMNS: ['patient_id', 'fold', 'ati_true', 'ati_cls', 'pred_cont', 'pred_cls']
+FIRST 3 ROWS:
+  patient_id  fold  ati_true  ati_cls  pred_cont  pred_cls
+0   30-10125     0       5.0        0   1.379028         1
+1   30-11091     0      30.0        2   1.414076         1
+2   30-11093     0      50.0        3   1.927144         2
+
+--- FILE: C:/team/chym_aki/data/eval\attention\ati_exp_oof_regression.csv ---
+ROWS: 78 | COLUMNS: ['patient_id', 'fold', 'ati_true', 'ati_cls', 'pred_cont', 'pred_cls']
+FIRST 3 ROWS:
+  patient_id  fold  ati_true  ati_cls  pred_cont  pred_cls
+0   30-10125     0       5.0        0  27.382576         2
+1   30-11091     0      30.0        2  43.943480         3
+2   30-11093     0      50.0        3  30.741778         2
+
+--- FILE: C:/team/chym_aki/data/eval\attention\ati_exp_oof_regression_s512.csv ---
+ROWS: 77 | COLUMNS: ['patient_id', 'fold', 'ati_true', 'ati_cls', 'pred_cont', 'pred_cls']
+FIRST 3 ROWS:
+  patient_id  fold  ati_true  ati_cls  pred_cont  pred_cls
+0   30-10125     0       5.0        0  12.832043         1
+1   30-11091     0      30.0        2  25.004834         2
+2   30-11093     0      50.0        3  37.465888         2
+
+--- FILE: C:/team/chym_aki/data/eval\attention\oof_compare_10x_vs_40x.csv ---
+ROWS: 2 | COLUMNS: ['model', 'N', 'INS_AUROC(immune)', 'CDS_AUROC(chronic)', 'AIS_Spearman(ATI sev)', 'PSI_Spearman(KDIGO)']
+FIRST 3 ROWS:
+             model   N  INS_AUROC(immune)  CDS_AUROC(chronic)  AIS_Spearman(ATI sev)  PSI_Spearman(KDIGO)
+0  10x (vfinal_97)  72              0.578               0.725                  0.263                0.170
+1    40x (vfind40)  72              0.718               0.756                  0.077                0.033
+
+--- FILE: C:/team/chym_aki/data/eval\attention\oof_compare_3way.csv ---
+ROWS: 3 | COLUMNS: ['model', 'INS_AUROC(immune)', 'CDS_AUROC(chronic)', 'AIS_Spearman(ATIsev)', 'PSI_Spearman(KDIGO)']
+FIRST 3 ROWS:
+              model  INS_AUROC(immune)  CDS_AUROC(chronic)  AIS_Spearman(ATIsev)  PSI_Spearman(KDIGO)
+0               10x              0.578               0.725                 0.263                0.170
+1               40x              0.718               0.756                 0.077                0.033
+2  10,40 multiscale              0.667               0.728                 0.086                0.052

@@ -1,0 +1,109 @@
+{
+  "config": {
+    "tag": "exp3_SILVER",
+    "encoder": "dinov2",
+    "embed_dim": 768,
+    "mags": "10",
+    "patch": 512,
+    "seed": 42,
+    "epochs": 40,
+    "lr": 0.0001,
+    "wd": 0.0001,
+    "device": "cuda",
+    "cohort": 31,
+    "labels": {
+      "immune": 21,
+      "chronic": 27,
+      "stage3": 31,
+      "ati_severity": 31
+    },
+    "norm": "HE=macenko, others=reinhard",
+    "stains": "SILVER"
+  },
+  "tasks": {
+    "immune": {
+      "auroc": 0.51,
+      "auroc_ci95": [
+        0.194,
+        0.838
+      ],
+      "pr_auc": 0.444,
+      "pr_auc_ci95": [
+        0.196,
+        0.825
+      ],
+      "f1": 0.429,
+      "balanced_acc": 0.571,
+      "n": 21,
+      "n_pos": 7,
+      "per_fold_auroc": [
+        0.333,
+        0.8,
+        0.833,
+        0.5,
+        0.5
+      ]
+    },
+    "chronic": {
+      "auroc": 0.5,
+      "auroc_ci95": [
+        0.254,
+        0.73
+      ],
+      "pr_auc": 0.237,
+      "pr_auc_ci95": [
+        0.108,
+        0.491
+      ],
+      "f1": 0.0,
+      "balanced_acc": 0.405,
+      "n": 27,
+      "n_pos": 6,
+      "per_fold_auroc": [
+        0.75,
+        0.583,
+        0.0,
+        0.333,
+        0.667
+      ]
+    },
+    "stage3": {
+      "auroc": 0.595,
+      "auroc_ci95": [
+        0.381,
+        0.786
+      ],
+      "pr_auc": 0.778,
+      "pr_auc_ci95": [
+        0.592,
+        0.923
+      ],
+      "f1": 0.7,
+      "balanced_acc": 0.577,
+      "n": 31,
+      "n_pos": 20,
+      "per_fold_auroc": [
+        0.833,
+        0.571,
+        0.667,
+        0.667,
+        0.333
+      ]
+    },
+    "ati_severity": {
+      "spearman": 0.194,
+      "mae": 0.27,
+      "n": 31,
+      "per_fold_spearman": [
+        0.866,
+        0.207,
+        0.126,
+        0.577,
+        0.316
+      ]
+    }
+  },
+  "stain_contribution": {
+    "SILVER": 1.0
+  }
+}

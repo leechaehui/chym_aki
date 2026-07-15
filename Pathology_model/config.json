@@ -1,0 +1,58 @@
+{
+  "_comment": "CDSS 데이터 인프라 단일 경로 소스(Single Source of Truth). 절대경로 하드코딩 금지 — 코드는 이 파일을 읽는다. 마이그레이션 완료 전까지 data_root는 현 위치, 완료 후 cdss_core로 전환.",
+  "cdss_core": "data/cdss_core",
+  "data_root": ".",
+  "wsi_svs_root": "D:/chym_aki_data",
+  "migrate_target": "data/cdss_core",
+  "migration_status": "done",
+  "paths": {
+    "data_raw": "D:/cdss_core/data_raw",
+    "patches_10x": "data/cdss_core/data_processed/patches_10x",
+    "patches_40x": "data/cdss_core/data_processed/patches_40x",
+    "embeddings": "data/cdss_core/data_processed/embeddings",
+    "labels": "data/cdss_core/labels",
+    "models_mil": "data/cdss_core/models/mil",
+    "models_cdss_shadow": "Pathology_model/models/cdss_shadow",
+    "audit_log": "data/cdss_core/logs/audit_log",
+    "inference_log": "Pathology_model/results/09_cdss_shadow",
+    "index": "data/cdss_core/index",
+    "qc": "data/cdss_core/qc"
+  },
+  "cohorts": {
+    "kpmp_aki": {
+      "role": "train",
+      "status": "owned",
+      "n_patients": 83,
+      "note": "saturation — 추가 금지"
+    },
+    "kpmp_ckd": {
+      "role": "train(expansion)",
+      "status": "planned",
+      "target_patients": 200,
+      "note": "fibrosis/atrophy high-grade tail"
+    },
+    "kpmp_transplant": {
+      "role": "aux",
+      "status": "planned",
+      "target_patients": "30-80",
+      "note": "tubulitis morphology only; rejection label 금지"
+    }
+  },
+  "storage_policy": {
+    "raw_wsi": "archive_only",
+    "patches": "transient",
+    "embeddings": "primary_training_source",
+    "40x": "reuse_no_recompute",
+    "dedup": "patient_level"
+  },
+  "router": {
+    "score": "coral_margin",
+    "uncertainty_abstain": 0.296,
+    "qc_abstain": 0.4,
+    "ord_conf_min": 0.4,
+    "calibrated": true,
+    "operating_coverage": 0.65,
+    "source": "router_exp.py EXP1(margin) selection 확인; MC-dropout 폐기",
+    "prediction": "5-seed ensemble 평균 권장(QWK 0.37→0.48)"
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "config": {
+    "tag": "exp6",
+    "encoder": "ctranspath",
+    "scales": [
+      "10",
+      "40"
+    ],
+    "stains": [
+      "HE",
+      "PAS",
+      "MT"
+    ],
+    "embed_dim": 768,
+    "seed": 42,
+    "epochs": 40,
+    "cohort": 77
+  },
+  "tasks": {
+    "immune": {
+      "auroc": 0.719,
+      "auroc_ci95": [
+        0.551,
+        0.854
+      ],
+      "pr_auc": 0.55,
+      "f1": 0.4,
+      "balanced_acc": 0.579,
+      "n": 44,
+      "n_pos": 14
+    },
+    "chronic": {
+      "auroc": 0.614,
+      "auroc_ci95": [
+        0.381,
+        0.829
+      ],
+      "pr_auc": 0.303,
+      "f1": 0.455,
+      "balanced_acc": 0.67,
+      "n": 54,
+      "n_pos": 10
+    },
+    "stage3": {
+      "auroc": 0.539,
+      "auroc_ci95": [
+        0.402,
+        0.673
+      ],
+      "pr_auc": 0.678,
+      "f1": 0.693,
+      "balanced_acc": 0.507,
+      "n": 73,
+      "n_pos": 47
+    },
+    "ati_severity": {
+      "spearman": 0.086,
+      "mae": 0.288,
+      "n": 73
+    }
+  },
+  "scale_contribution": {
+    "10": 0.587,
+    "40": 0.436
+  }
+}

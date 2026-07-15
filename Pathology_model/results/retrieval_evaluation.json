@@ -1,0 +1,110 @@
+{
+  "n_queries": 85,
+  "n_in_distribution": 83,
+  "n_ood_synthetic": 2,
+  "abstain_rate": {
+    "n": 85,
+    "n_abstain": 5,
+    "abstain_rate": 0.0588
+  },
+  "ood_statistics": {
+    "ood_score": {
+      "n": 85,
+      "min": 1.7774,
+      "max": 4.4242,
+      "mean": 3.0094,
+      "p25": 2.5342,
+      "p50": 2.9611,
+      "p95": 3.9781
+    },
+    "top1_similarity": {
+      "n": 80,
+      "min": 0.7385,
+      "max": 1.0,
+      "mean": 0.9403,
+      "p25": 0.9136,
+      "p50": 0.95,
+      "p95": 1.0
+    },
+    "similarity_histogram": {
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        15,
+        63
+      ],
+      "bin_edges": [
+        0.0,
+        0.1,
+        0.2,
+        0.3,
+        0.4,
+        0.5,
+        0.6,
+        0.7,
+        0.8,
+        0.9,
+        1.0
+      ]
+    }
+  },
+  "prototype_distribution": {
+    "total_hits": 80,
+    "n_prototypes_used": 24,
+    "entropy_norm": 0.9554,
+    "top": [
+      [
+        "proto-4459b3a56de8",
+        7
+      ],
+      [
+        "proto-7e364c5ee2ef",
+        7
+      ],
+      [
+        "proto-2b20aa4b8413",
+        6
+      ],
+      [
+        "proto-eca517e2e86c",
+        6
+      ],
+      [
+        "proto-8706d62fa1c2",
+        5
+      ],
+      [
+        "proto-3b3a08dc02ec",
+        5
+      ],
+      [
+        "proto-73a8416d4964",
+        4
+      ],
+      [
+        "proto-275b06d2f773",
+        4
+      ],
+      [
+        "proto-e7a7daab40cc",
+        4
+      ],
+      [
+        "proto-539419e776ee",
+        3
+      ]
+    ]
+  },
+  "retrieval_consistency": {
+    "n": 80,
+    "k": 5,
+    "consistency_at_k": 0.4325
+  },
+  "ood_synth_blocked": 2
+}

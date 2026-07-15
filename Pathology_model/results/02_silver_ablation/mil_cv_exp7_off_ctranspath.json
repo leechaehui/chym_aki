@@ -1,0 +1,115 @@
+{
+  "config": {
+    "tag": "exp7_off",
+    "encoder": "ctranspath",
+    "embed_dim": 768,
+    "mags": "10",
+    "patch": 512,
+    "seed": 42,
+    "epochs": 40,
+    "lr": 0.0001,
+    "wd": 0.0001,
+    "device": "cpu",
+    "cohort": 74,
+    "labels": {
+      "immune": 44,
+      "chronic": 54,
+      "stage3": 70,
+      "ati_severity": 70
+    },
+    "norm": "HE=macenko, others=reinhard",
+    "silver_mode": "off",
+    "silver_lambda": 0.3,
+    "attn_lambda": 0.1,
+    "stains": "all"
+  },
+  "tasks": {
+    "immune": {
+      "auroc": 0.5,
+      "auroc_ci95": [
+        0.33,
+        0.687
+      ],
+      "pr_auc": 0.37,
+      "pr_auc_ci95": [
+        0.211,
+        0.596
+      ],
+      "f1": 0.231,
+      "balanced_acc": 0.457,
+      "n": 44,
+      "n_pos": 14,
+      "per_fold_auroc": [
+        0.533,
+        0.444,
+        0.444,
+        0.889,
+        0.143
+      ]
+    },
+    "chronic": {
+      "auroc": 0.668,
+      "auroc_ci95": [
+        0.462,
+        0.851
+      ],
+      "pr_auc": 0.32,
+      "pr_auc_ci95": [
+        0.153,
+        0.633
+      ],
+      "f1": 0.222,
+      "balanced_acc": 0.532,
+      "n": 54,
+      "n_pos": 10,
+      "per_fold_auroc": [
+        0.75,
+        0.667,
+        0.722,
+        0.833,
+        0.444
+      ]
+    },
+    "stage3": {
+      "auroc": 0.492,
+      "auroc_ci95": [
+        0.325,
+        0.66
+      ],
+      "pr_auc": 0.614,
+      "pr_auc_ci95": [
+        0.484,
+        0.784
+      ],
+      "f1": 0.674,
+      "balanced_acc": 0.524,
+      "n": 70,
+      "n_pos": 45,
+      "per_fold_auroc": [
+        0.796,
+        0.45,
+        0.65,
+        0.767,
+        0.208
+      ]
+    },
+    "ati_severity": {
+      "spearman": 0.058,
+      "mae": 0.294,
+      "n": 70,
+      "per_fold_spearman": [
+        0.504,
+        0.017,
+        0.157,
+        0.634,
+        -0.177
+      ]
+    }
+  },
+  "stain_contribution": {
+    "HE": 0.284,
+    "PAS": 0.329,
+    "MT": 0.44,
+    "IF": 0.183
+  }
+}

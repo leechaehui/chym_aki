@@ -1,0 +1,182 @@
+{
+  "config": {
+    "encoder": "ctranspath",
+    "mags": "10",
+    "stains": "HE/PAS/MT/Silver",
+    "model": "TaskAttentionMIL-5head",
+    "silver_mode": "prediction",
+    "seed": 42,
+    "epochs": 40,
+    "cohort": 65,
+    "labels": {
+      "immune": 44,
+      "tubulitis": 61,
+      "wbc_pct": 60,
+      "fibrosis_pct": 60,
+      "atrophy": 60
+    }
+  },
+  "tasks": {
+    "immune": {
+      "type": "clf",
+      "n": 44,
+      "n_pos": 14,
+      "AUROC": {
+        "point": 0.664,
+        "ci95": [
+          0.466,
+          0.842
+        ]
+      },
+      "AUPRC": {
+        "point": 0.516,
+        "ci95": [
+          0.308,
+          0.787
+        ]
+      },
+      "precision": 0.545,
+      "recall": 0.429,
+      "f1": 0.48,
+      "specificity": 0.833,
+      "npv": 0.758,
+      "balanced_acc": 0.631,
+      "confusion": {
+        "tn": 25,
+        "fp": 5,
+        "fn": 8,
+        "tp": 6
+      }
+    },
+    "tubulitis": {
+      "type": "clf",
+      "n": 61,
+      "n_pos": 12,
+      "AUROC": {
+        "point": 0.539,
+        "ci95": [
+          0.34,
+          0.739
+        ]
+      },
+      "AUPRC": {
+        "point": 0.252,
+        "ci95": [
+          0.129,
+          0.522
+        ]
+      },
+      "precision": 0.222,
+      "recall": 0.167,
+      "f1": 0.19,
+      "specificity": 0.857,
+      "npv": 0.808,
+      "balanced_acc": 0.512,
+      "confusion": {
+        "tn": 42,
+        "fp": 7,
+        "fn": 10,
+        "tp": 2
+      }
+    },
+    "wbc_pct": {
+      "type": "reg",
+      "n": 60,
+      "MAE": 20.5,
+      "RMSE": 27.19,
+      "R2": 0.036,
+      "pearson": 0.345,
+      "spearman_ci": {
+        "point": 0.363,
+        "ci95": [
+          0.101,
+          0.594
+        ]
+      },
+      "y_mean": 26.4,
+      "y_range": [
+        0.0,
+        95.0
+      ]
+    },
+    "fibrosis_pct": {
+      "type": "reg",
+      "n": 60,
+      "MAE": 21.19,
+      "RMSE": 26.63,
+      "R2": 0.093,
+      "pearson": 0.363,
+      "spearman_ci": {
+        "point": 0.244,
+        "ci95": [
+          -0.028,
+          0.491
+        ]
+      },
+      "y_mean": 27.0,
+      "y_range": [
+        0.0,
+        100.0
+      ]
+    },
+    "atrophy": {
+      "type": "reg",
+      "n": 60,
+      "MAE": 18.99,
+      "RMSE": 24.54,
+      "R2": 0.06,
+      "pearson": 0.328,
+      "spearman_ci": {
+        "point": 0.266,
+        "ci95": [
+          -0.015,
+          0.499
+        ]
+      },
+      "y_mean": 22.5,
+      "y_range": [
+        0.0,
+        90.0
+      ]
+    }
+  },
+  "task_stain_contribution_norm": {
+    "immune": {
+      "HE": 0.05771,
+      "PAS": 0.01302,
+      "MT": 0.05342,
+      "SILVER": 0.0005
+    },
+    "tubulitis": {
+      "HE": 0.0299,
+      "PAS": 0.04374,
+      "MT": 0.01053,
+      "SILVER": 0.05539
+    },
+    "wbc_pct": {
+      "HE": 0.05918,
+      "PAS": 0.00566,
+      "MT": 0.0547,
+      "SILVER": 0.0012
+    },
+    "fibrosis_pct": {
+      "HE": 0.05167,
+      "PAS": 0.00922,
+      "MT": 0.04471,
+      "SILVER": 0.01241
+    },
+    "atrophy": {
+      "HE": 0.04965,
+      "PAS": 0.00973,
+      "MT": 0.04592,
+      "SILVER": 0.01236
+    }
+  },
+  "task_attn_entropy": {
+    "immune": 0.608,
+    "tubulitis": 0.654,
+    "wbc_pct": 0.793,
+    "fibrosis_pct": 0.852,
+    "atrophy": 0.87
+  }
+}
