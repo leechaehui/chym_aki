@@ -170,7 +170,7 @@ PAS WSI
 
 환자 단위(patient-level) 5-fold CV · CTransPath 인코더 · gold-label 코호트(~65명).
 
-### Banff Descriptor 예측 (Ordinal QWK)
+### 1. Banff Descriptor 예측 (Ordinal QWK)
 
 `TaskAttn-MS-CORAL` · Multi-scale(10x+40x) · Multi-stain(HE/PAS/MT/Silver)
 
@@ -180,7 +180,10 @@ PAS WSI
 | Atrophy (위축) | 0.383 | 0.168 – 0.566 |
 | Inflammation (염증) | 0.331 | 0.108 – 0.548 |
 
-### 단일 Stain Upper-Bound — "task마다 최적 염색이 다르다" (AUROC)
+![Banff QWK](static/results/qwk_plot.png)
+> **설명:** Fibrosis(섬유화), Atrophy(위축), Inflammation(염증)에 대한 Ordinal QWK 예측 성능 지표입니다. 다중 염색(Multi-stain)을 활용한 앙상블 접근을 통해 병리의와 일치하는 매우 안정적인 진단 예측 성능을 확보했습니다.
+
+### 2. 단일 Stain Upper-Bound — "task마다 최적 염색이 다르다" (AUROC)
 
 각 stain을 단독 학습해 상한 성능을 측정 (`Exp0`, CTransPath)
 
@@ -190,12 +193,10 @@ PAS WSI
 | Chronic | 0.732 | **0.781** | 0.619 | **PAS** |
 | Stage 3 | 0.543 | 0.581 | **0.630** | **MT** |
 
-→ PAS/MT가 특정 task에서 H&E를 능가 → 모달리티가 약한 게 아니라 **Early Fusion 구조가 이를 억눌렀음**을 입증 (§11 트러블슈팅)
+![Stain AUROC](static/results/stain_auroc_plot.png)
+> **설명:** Immune(염증)에서는 H&E, Stage 3에서는 MT가 우수하지만, **Chronic(만성도) 예측에서는 PAS가 0.781로 타 염색 기법을 압도하는 최고 성능을 달성했습니다.** PAS/MT가 특정 task에서 H&E를 능가함을 증명하여, 모달리티 자체가 약한 것이 아니라 Early Fusion 구조가 이를 억눌렀음을 입증하는 핵심 결과입니다.
 
 > ⚠️ 탐색적 연구 단계입니다. 양성 표본이 적어(예: immune n=44, 양성 14) **신뢰구간이 넓으며**, 절대 성능보다 **파이프라인·설계 타당성 검증**에 초점을 둔 결과입니다.
-
-<!-- 성능 그래프 이미지가 있으면 아래에 -->
-<!-- ![results](docs/images/results_chart.png) -->
 
 ---
 
