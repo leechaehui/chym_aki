@@ -1,0 +1,42 @@
+# ── 비밀/자격증명 — 절대 커밋/공유 금지 ──
+backend/keys/
+*.pem
+backend/.env
+.env
+*.key
+
+# ── 런타임/대용량 ──
+node_modules/
+.venv/
+__pycache__/
+*.pyc
+backup/
+backend/data/wsi_cache/
+uploads/
+
+# ── 로그 ──
+*.log
+
+# ── AI Agents ──
+.claude/
+.agent/
+.agents/
+
+# ── 백업 및 기타 버전 관리 ──
+.svn/
+.git_backup/
+
+# ── 대용량 데이터 및 캐시 ──
+pacs_cache/
+data/
+uploads/
+wandb/
+scratch/
+*.dcm
+
+# ── AI 모델 및 가중치 (100MB 이상) ──
+aki_wsi_ai/
+*.safetensors
+*.pth
+*.pt
+*.onnx
