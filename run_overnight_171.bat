@@ -19,3 +19,4 @@ echo [3] Building FAISS Index...
 if %errorlevel% neq 0 exit /b %errorlevel%
 
 echo PIPELINE DONE!
+ 
