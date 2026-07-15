@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RENAI · 신장 질환 AI 임상 지원 시스템</title>
+    <!-- 다크모드 통일: 렌더 전 .dark 적용해 초기 라이트 깜빡임(FOUC) 방지.
+         저장된 테마가 명시적으로 light 일 때만 라이트, 그 외(기본)는 dark. -->
+    <script>
+      (function () {
+        try {
+          var raw = localStorage.getItem("chym-ui-v2");
+          var theme = raw ? JSON.parse(raw).state.theme : "dark";
+          if (theme !== "light") document.documentElement.classList.add("dark");
+        } catch (e) {
+          document.documentElement.classList.add("dark");
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

@@ -1,0 +1,51 @@
+/** 알림 도메인 타입 — Severity 기반 모델. */
+import type { Role } from "./user";
+
+/**
+ * 알림 심각도(Severity). 값 하나가 표현 채널 하나에 대응한다(아래 매핑).
+ * INFO → Toast · WARNING → Banner · ACTION_REQUIRED → Drawer · CRITICAL → Modal.
+ */
+export type Severity = "INFO" | "WARNING" | "ACTION_REQUIRED" | "CRITICAL";
+
+/** 알림이 향하는 부서(대상). 직군과 동일 식별자를 쓴다. */
+export type Department = Role;
+
+/** severity 가 렌더링되는 표현 채널. */
+export type NotificationChannel = "toast" | "banner" | "drawer" | "modal";
+
+/** 색조 오버라이드(선택) — 같은 채널에서도 상황별 색상을 다르게(예: ICU 잔여 개수). */
+export type NotificationTone = "danger" | "warning" | "success" | "info";
+
+/** 알림 엔티티. */
+export interface AppNotification {
+  readonly id: string;
+  readonly title: string;
+  readonly message: string;
+  readonly severity: Severity;
+  readonly department: Department;
+  readonly createdAt: string;
+  readonly read: boolean;
+  /** 클릭 시 이동 경로(선택). */
+  readonly link?: string;
+  /** 채널 기본 색상 대신 사용할 색조(선택). */
+  readonly tone?: NotificationTone;
+  /** 서버 alert id(선택) — CDSS 파이프라인에서 온 알림의 감사 액션 기록용. */
+  readonly alertId?: string;
+  /** 연관된 환자의 식별자 (선택) - 클릭 시 상세뷰 연동 등 */
+  readonly patientId?: string;
+}
+
+/** 알림 생성 입력 — id/createdAt/read 는 Factory 가 채운다. */
+export interface NotificationInput {
+  title: string;
+  message: string;
+  severity: Severity;
+  department: Department;
+  read?: boolean;
+  link?: string;
+  tone?: NotificationTone;
+  /** 서버 alert id(선택) — 감사 액션 추적용. */
+  alertId?: string;
+  /** 연관된 환자의 식별자 (선택) */
+  patientId?: string;
+}

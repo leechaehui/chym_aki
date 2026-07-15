@@ -1,0 +1,117 @@
+@import "tailwindcss";
+
+/*
+ * RENAI 디자인 시스템 — 의료진용 EMR/PACS 스타일.
+ * 밝은 회색 기반, 상태 색상은 "정보 전달" 용도로만 최소 사용. 그라데이션 미사용.
+ * 색상 토큰은 HSL(var) 로 정의하고 @theme inline 으로 Tailwind 유틸에 매핑.
+ * 라이트 모드 전용 — 다크모드 미지원.
+ */
+
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-success: hsl(var(--success));
+  --color-warning: hsl(var(--warning));
+  --color-high: hsl(var(--high));
+  --color-info: hsl(var(--info));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --color-sidebar: hsl(var(--sidebar));
+  --color-sidebar-foreground: hsl(var(--sidebar-foreground));
+  --color-sidebar-accent: hsl(var(--sidebar-accent));
+
+  --radius-lg: 8px;
+  --radius-md: 6px;
+  --radius-sm: 4px;
+
+  --font-sans: "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", system-ui, sans-serif;
+}
+
+:root {
+  --background: 210 40% 98%;        /* #F8FAFC */
+  --foreground: 215 28% 17%;        /* #1F2937 text primary */
+  --card: 0 0% 100%;                /* #FFFFFF */
+  --card-foreground: 215 28% 17%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 215 28% 17%;
+  --primary: 221 83% 53%;           /* #2563EB medical blue (action) */
+  --primary-foreground: 0 0% 100%;
+  --secondary: 214 32% 96%;         /* #F1F5F9 panel */
+  --secondary-foreground: 215 25% 27%;
+  --muted: 214 32% 96%;             /* #F1F5F9 */
+  --muted-foreground: 215 16% 47%;  /* #64748B text secondary */
+  --accent: 221 83% 53%;            /* INFO blue */
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 72% 51%;         /* #DC2626 CRITICAL */
+  --destructive-foreground: 0 0% 100%;
+  --success: 142 76% 36%;           /* #16A34A STABLE */
+  --warning: 24 95% 53%;             /* #F97316 WARNING */
+  --high: 21 90% 48%;               /* #EA580C HIGH RISK */
+  --info: 221 83% 53%;              /* #2563EB INFO */
+  --border: 214 32% 91%;            /* #E2E8F0 */
+  --input: 213 27% 84%;             /* #CBD5E1 */
+  --ring: 221 83% 53%;
+  --sidebar: 217 33% 17%;           /* #1E293B slate */
+  --sidebar-foreground: 213 27% 84%;/* #CBD5E1 */
+  --sidebar-accent: 221 83% 53%;    /* blue active */
+}
+
+* {
+  border-color: hsl(var(--border));
+}
+
+html {
+  /* 1280px 기준 16px → 1920px 기준 18px, 그 사이 유동 스케일 */
+  font-size: clamp(15px, 0.9vw + 3.5px, 18px);
+  height: 100%;
+}
+
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 스크롤바 — 중성 회색 */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--border));
+  border-radius: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+@keyframes chym-slide-in {
+  from { transform: translateX(110%); opacity: 0; }
+  to   { transform: translateX(0);    opacity: 1; }
+}
+@keyframes chym-fade-in {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}

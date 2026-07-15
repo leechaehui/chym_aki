@@ -1,0 +1,350 @@
+/** 환자/검사 도메인 타입 (신장내과). */
+
+export type Sex = "M" | "F";
+
+/** 단일 검사 항목 결과 + 정상범위/이상여부. */
+export interface LabValue {
+  readonly key: string;
+  readonly label: string;
+  readonly value: number;
+  readonly unit: string;
+  readonly refLow: number | null;
+  readonly refHigh: number | null;
+  /** 정상범위 기준 상태 — 셀 색상에 사용. */
+  readonly flag: "normal" | "high" | "low";
+}
+
+/** 추이 차트 한 점 — 날짜별 주요 검사값. */
+export interface LabTrendPoint {
+  readonly date: string; // YYYY-MM-DD
+  readonly creatinine: number;
+  readonly egfr: number;
+  readonly bun: number;
+}
+
+/** 소변량 추이 한 점 — 날짜별 시간당 소변량(핍뇨/무뇨 판정 근거). */
+export interface UrineOutputPoint {
+  readonly date: string; // YYYY-MM-DD
+  readonly value: number; // mL/kg/hr
+}
+
+export interface Patient {
+  readonly id: string;
+  readonly mrn: string; // 환자번호
+  readonly name: string;
+  readonly sex: Sex;
+  readonly age: number;
+  readonly diagnosis: string;
+  readonly admittedAt: string;
+  readonly attending: string; // 담당의
+  readonly room: string;
+  readonly labs: readonly LabValue[];
+  readonly trend: readonly LabTrendPoint[];
+  readonly urineOutput: readonly UrineOutputPoint[];
+  /** AI 종합 위험 점수(0–100). 검사 추이·임상 인자를 합산한 모델 출력(Mock). */
+  readonly aiRiskScore: number;
+}
+
+/** SOAP 형식 AI 진료 초안(구 형식 — 하위호환). */
+export interface SoapDraft {
+  readonly subjective: string;
+  readonly objective: string;
+  readonly assessment: string;
+  readonly plan: string;
+}
+
+// ----------------------------------------------------------
+// 근거 기반 AI 진료 초안 파이프라인 (백엔드 /voice/draft 구조화 응답)
+// soap/risk 는 백엔드에서 dict 로 직렬화 → 내부 키는 원형 유지(S/O/A/P, risk_score 등).
+// ----------------------------------------------------------
+export interface EvidenceStatement {
+  readonly statement: string;
+  readonly evidence: readonly string[];
+}
+
+export interface SoapApSection {
+  readonly assessment?: string;
+  readonly plan?: string;
+  readonly evidence: readonly string[];
+  readonly statements: readonly EvidenceStatement[];
+}
+
+export interface StructuredSoap {
+  readonly S: string;
+  readonly O: string;
+  readonly A: SoapApSection;
+  readonly P: SoapApSection;
+}
+
+export interface ProblemItem {
+  readonly problem: string;
+  readonly source: string;
+  readonly confidence: number;
+  readonly evidence: readonly string[];
+}
+
+export interface RiskComponent {
+  readonly component: string;
+  readonly value: number;
+  readonly weight: number;
+  readonly contribution: number;
+  readonly explanation: string;
+}
+
+export type RiskTier = "LOW" | "MEDIUM" | "HIGH";
+
+export interface CdssRisk {
+  readonly risk_score: number;
+  readonly tier: RiskTier;
+  readonly alert: string;
+  readonly action: string;
+  readonly nephrology_trigger: boolean;
+  readonly breakdown: readonly RiskComponent[];
+  readonly explanation: string;
+}
+
+export interface ValidatorOutcome {
+  readonly validator: string;
+  readonly passed: boolean;
+  readonly errors: readonly string[];
+  readonly warnings: readonly string[];
+}
+
+export interface ValidationReport {
+  readonly passed: boolean;
+  readonly validators: readonly ValidatorOutcome[];
+}
+
+/** 백엔드 /voice/draft 전체 결과(STT→SOAP→Problem List→CDSS Risk→Validation). */
+export interface AiDraftResult {
+  readonly id: string;
+  readonly patientId: string;
+  readonly transcript: string;
+  readonly symptoms: Record<string, unknown>;
+  readonly soap: StructuredSoap;
+  readonly problemList: readonly ProblemItem[];
+  readonly risk: CdssRisk;
+  readonly validation: ValidationReport;
+  readonly status: string;
+  readonly createdAt: string | null;
+}
+
+/** 백엔드 /voice/transcribe 결과. */
+export interface TranscriptionResult {
+  readonly transcript: string;
+  readonly engine: string; // whisper | passthrough
+}
+
+// ----------------------------------------------------------
+// ICU AKI 모니터 (실제 MIMIC-IV ICU 코호트 + 학습 모델)
+// ----------------------------------------------------------
+export interface IcuAkiPatient {
+  readonly stayId: number;
+  readonly subjectId: number;
+  readonly age: number | null;
+  readonly gender: string;
+  readonly careunit: string;
+  readonly icuLosHours: number | null;
+  readonly predictAt: string | null; // AKI 발생 위험 예측 시각(HH:MM)
+  readonly riskScore: number;
+  readonly risk: string;
+  readonly riskLabel: string;
+  readonly stage: string;
+  readonly stageNum: number;
+  readonly pNonAki: number;
+  readonly pStage1: number;
+  readonly pStage2Plus: number;
+  readonly source: string; // "model"
+  readonly actualLabel: number; // 실제 AKI(0/1)
+  readonly actualStage: number; // 실제 stage(0–3)
+}
+
+export interface IcuMonitorSummary {
+  readonly total: number;
+  readonly high: number;
+  readonly moderate: number;
+  readonly low: number;
+  /** AI 위험점수 밴드 집계 — 고위험 ≥60 · 중등도 30–60 · 안정 <30. */
+  readonly riskHigh: number;
+  readonly riskModerate: number;
+  readonly riskLow: number;
+  readonly nCareunits: number;
+}
+
+export interface CareunitStat {
+  readonly careunit: string;
+  readonly n: number;
+  readonly high: number;
+}
+
+/** 모델 단위 성능 지표(행마다 동일한 상수) — 성능 패널·검증 리포트용. */
+export interface ModelStageMetrics {
+  readonly label: string;
+  readonly n: number;
+  readonly accuracy: number;
+  readonly precision: number;
+  readonly recall: number; // 민감도
+  readonly fnr: number; // 위음성률 = 1 - 민감도
+  readonly specificity: number;
+  readonly tp: number;
+  readonly fp: number;
+  readonly fn: number;
+  readonly tn: number;
+  readonly auroc: number;
+  readonly auprc: number;
+  readonly ece: number;
+}
+
+export interface ModelMetrics {
+  readonly generatedAt: string | null;
+  readonly dataset: {
+    readonly source: string;
+    readonly nRows: number;
+    readonly akiPrevalence: string;
+    readonly stage1Threshold: number;
+    readonly stage2Threshold: number;
+  };
+  readonly stage1: ModelStageMetrics;
+  readonly stage2: ModelStageMetrics;
+  readonly knownFailures: readonly string[];
+}
+
+// ----------------------------------------------------------
+// ICU 환자 상세 (검색 · Quick View · Trend · SHAP · Validation · Risk History)
+// ----------------------------------------------------------
+/** 환자 식별 최소 정보 — 행/검색결과 어디서 와도 Quick View·리포트를 열 수 있다. */
+export interface PatientIdentity {
+  readonly stayId: number;
+  readonly subjectId: number;
+  readonly age: number | null;
+  readonly gender: string;
+  readonly careunit: string;
+}
+
+export interface IcuPatientSearchResult {
+  readonly stayId: number;
+  readonly subjectId: number;
+  readonly age: number | null;
+  readonly gender: string;
+  readonly careunit: string;
+  readonly riskScore: number;
+  readonly risk: string;
+  readonly stage: string;
+}
+
+/** Quick View 요약 — 결측 필드(체중/키/BMI/BUN/병실)는 MIMIC 비식별로 null. */
+export interface IcuPatientSummary {
+  readonly stayId: number;
+  readonly subjectId: number;
+  readonly age: number | null;
+  readonly gender: string;
+  readonly weightKg: number | null;
+  readonly heightCm: number | null;
+  readonly bmi: number | null;
+  readonly careunit: string;
+  readonly bed: string | null;
+  readonly admissionType: string | null;
+  readonly icuLosHours: number | null;
+  readonly elapsedText: string | null;
+  readonly predictAt: string | null;
+  readonly stage: string;
+  readonly stageNum: number;
+  readonly riskScore: number;
+  readonly risk: string;
+  readonly pStage2Plus: number;
+  readonly creatinine: number | null;
+  readonly egfr: number | null;
+  readonly bun: number | null;
+  readonly baselineCreatinine: number | null;
+  readonly urineRateMlKgH: number | null;
+}
+
+/** 추세 그래프 한 점 — 입실 후 경과시간(hours) 대비 값. */
+export interface TrendPoint {
+  readonly hours: number;
+  readonly value: number;
+}
+
+export interface PatientTrends {
+  readonly stayId: number;
+  readonly creatinine: readonly TrendPoint[];
+  readonly egfr: readonly TrendPoint[];
+  readonly urineOutput: readonly TrendPoint[];
+}
+
+/** 환자별 피처 기여도(SHAP-style) — contribution 부호 = 위험 ↑/↓. */
+export interface ShapFeature {
+  readonly feature: string;
+  readonly label: string;
+  readonly contribution: number;
+  readonly scaledValue: number;
+}
+
+export interface PatientShap {
+  readonly stayId: number;
+  readonly features: readonly ShapFeature[];
+}
+
+/** 신뢰도 곡선 구간 — 예측확률 평균 vs 실제 발생률. */
+export interface CalibrationBin {
+  readonly predictedMean: number;
+  readonly observedRate: number;
+  readonly count: number;
+}
+
+export interface Calibration {
+  readonly bins: readonly CalibrationBin[];
+  readonly ece: number;
+  readonly n: number;
+}
+
+export interface PatientValidation {
+  readonly stayId: number;
+  readonly predictedStage: string;
+  readonly predictedStageNum: number;
+  readonly pAki: number;
+  readonly pStage2Plus: number;
+  readonly riskScore: number;
+  readonly actualLabel: number;
+  readonly actualStage: number;
+  readonly correct: boolean;
+  readonly calibration: Calibration;
+}
+
+/** Cr 기반 KDIGO 위험 추정 한 점(실제 모델 출력 아님). */
+export interface RiskTrajectoryPoint {
+  readonly hours: number;
+  readonly riskScore: number;
+  readonly kdigoStage: number;
+  readonly source: "cr_kdigo";
+}
+
+/** 실제 모델 위험 출력 1점(입실+48h). */
+export interface RiskModelPoint {
+  readonly hours: number;
+  readonly riskScore: number;
+  readonly source: "model";
+}
+
+export interface RiskHistory {
+  readonly stayId: number;
+  readonly baselineCreatinine: number | null;
+  readonly trajectory: readonly RiskTrajectoryPoint[];
+  readonly modelPoint: RiskModelPoint | null;
+  readonly disclaimer: string;
+}
+
+/** RRT 트리거 — 임상 의사결정 보조(예측 아님). KDIGO+ICU 규칙 기반 단계 분류. */
+export type RrtLevel = "NONE" | "DISCUSSION" | "CONSIDERATION" | "URGENT";
+
+export interface RrtAssessment {
+  readonly stayId: number;
+  readonly rrtLevel: RrtLevel;
+  readonly label: string;
+  readonly confidence: number;
+  readonly keyDrivers: readonly string[];
+  readonly trendSignal: string; // stable | worsening | rapidly deteriorating
+  readonly clinicalAction: string;
+  readonly warningNote: string;
+  readonly unavailableCriteria: readonly string[];
+}
