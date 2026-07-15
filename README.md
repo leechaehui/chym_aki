@@ -28,13 +28,13 @@
 
 ## 2. 주요 기능
 
-- 🔬 **WSI 업로드** — PACS(DICOM) / 로컬 슬라이드 업로드, OpenSeadragon 기반 타일 뷰어
-- 🧠 **PAS 이미지 AI 분석** — CTransPath 특징 추출 → Task-Attention MIL 추론
-- 📊 **Banff Descriptor 예측** — 병리 소견 등급(0–3) 및 확률 예측
-- 🌡️ **Attention Heatmap 생성** — 모델이 주목한 조직 영역 시각화 (설명가능성)
-- 📄 **Report 생성** — 예측 결과·히트맵을 포함한 PDF 리포트 클라이언트 생성(jsPDF/docx), 결과는 DB에 영속화
-- 🛠️ **관리자 페이지** — 사용자·권한 관리, 모델 버전 관리
-- 📡 **서버 통합 모니터링** — 8010/8001 상태·요청·감사 로그 (자체 Telemetry 미들웨어)
+- **WSI 업로드** — PACS(DICOM) / 로컬 슬라이드 업로드, OpenSeadragon 기반 타일 뷰어
+- **PAS 이미지 AI 분석** — CTransPath 특징 추출 → Task-Attention MIL 추론
+- **Banff Descriptor 예측** — 병리 소견 등급(0–3) 및 확률 예측
+- **Attention Heatmap 생성** — 모델이 주목한 조직 영역 시각화 (설명가능성)
+- **Report 생성** — 예측 결과·히트맵을 포함한 PDF 리포트 클라이언트 생성(jsPDF/docx), 결과는 DB에 영속화
+- **관리자 페이지** — 사용자·권한 관리, 모델 버전 관리
+- **서버 통합 모니터링** — 8010/8001 상태·요청·감사 로그 (자체 Telemetry 미들웨어)
 
 ---
 
