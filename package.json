@@ -1,0 +1,11 @@
+{
+  "name": "chym-aki",
+  "private": true,
+  "scripts": {
+    "dev": "npm --prefix frontend run dev",
+    "build": "npm --prefix frontend run build",
+    "preview": "npm --prefix frontend run preview",
+    "typecheck": "npm --prefix frontend run typecheck",
+    "install:frontend": "npm --prefix frontend install"
+  }
+}
