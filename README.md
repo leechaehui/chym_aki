@@ -57,7 +57,7 @@
 
 | 분류 | 기술 |
 |---|---|
-| **Frontend** | React 18, TypeScript, Vite, TailwindCSS, Zustand, React Query, OpenSeadragon |
+| **Frontend** | React 18, TypeScript, Vite |
 | **Backend** | FastAPI, SQLAlchemy, PostgreSQL, Pydantic, JWT (RS256) |
 | **AI / ML** | PyTorch, CTransPath (Swin Transformer), Task-Attention MIL, OpenSlide |
 | **리포트** | jsPDF, docx, html2canvas |
